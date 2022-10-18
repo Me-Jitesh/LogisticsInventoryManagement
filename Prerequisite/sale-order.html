@@ -1,0 +1,267 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+          <h3>Sale Order</h3>
+        </div>
+
+        <div class="card-body">
+          <form action="#" method="post" id="saleOrder">
+            <div class="row">
+              <div class="col-3">
+                <label for="orderCode">Order Code</label>
+              </div>
+              <div class="col-4">
+                <input
+                  type="text"
+                  name="orderCode"
+                  id="orderCode"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-5">
+                <span id="orderCodeError"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-3">
+                <label>Order Mode</label>
+              </div>
+              <div class="col-4">
+                <input
+                  type="radio"
+                  name="orderMode"
+                  id="orderMode"
+                  value="Active"
+                />Active
+                <input
+                  type="radio"
+                  name="orderMode"
+                  id="orderMode"
+                  value="InActive"
+                />InActive
+              </div>
+              <div class="col-5">
+                <span id="orderModeError"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-3">
+                <label for="orderQty">Order Qty</label>
+              </div>
+              <div class="col-4">
+                <input
+                  type="text"
+                  name="orderQty"
+                  id="orderQty"
+                  class="form-control"
+                />
+              </div>
+              <div class="col-5">
+                <span id="orderQtyError"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-3">
+                <label>Order Type</label>
+              </div>
+              <div class="col-4">
+                <select name="orderType" id="orderType" class="form-contorl">
+                  <option value="">-SELECT-</option>
+                  <option value="Normal">Normal</option>
+                  <option value="High">High</option>
+                  <option value="Lower">Lower</option>
+                </select>
+              </div>
+              <div class="col-5">
+                <span id="orderTypeError"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-3">
+                <label>Order Format</label>
+              </div>
+              <div class="col-4">
+                <input
+                  type="checkbox"
+                  name="orderFormat"
+                  id="spe"
+                  value="Special"
+                />Special
+                <input
+                  type="checkbox"
+                  name="orderFormat"
+                  id="pack"
+                  value="Packed"
+                />Packed
+                <input
+                  type="checkbox"
+                  name="orderFormat"
+                  id="fastSer"
+                  value="Fast Service"
+                />Fast Service
+              </div>
+              <div class="col-5">
+                <span id="orderFormatError"></span>
+              </div>
+            </div>
+
+            <input type="submit" value="SUBMIT" class="btn btn-info" />
+          </form>
+        </div>
+        <div class="card-footer"></div>
+      </div>
+    </div>
+
+    <script type="text/Javascript">
+
+      $(document).ready(function () {
+        //1 hide error section
+        $("#orderCodeError").hide();
+        $("#orderModeError").hide();
+        $("#orderQtyError").hide();
+        $("#orderTypeError").hide();
+        $("#orderFormatError").hide();
+
+
+        //2 Define  Error varaible
+        var val = (orderCode = false);
+        var val = (orderModeError = false);
+        var val = (orderQtyError = false);
+        var val = (orderTypeError = false);
+        var val= (orderFormatError=false);
+
+
+        //3 define validate function
+        function validate_orderCode() {
+          //read  form value
+          var val = $("#orderCode").val();
+          if (val == "") {
+            //not valid
+            $("#orderCodeError").show();
+            $("#orderCodeError").html("*please enter code");
+            $("#orderCodeError").css("color", "red");
+            orderCodeError = false;
+          } else {
+            //valid
+            $("#orderCodeError").hide();
+            orderCodeError = true;
+          }
+          return orderCodeError;
+        }
+
+        function  validate_orderMode(){
+                //count how many  are checked
+                var len=$('[name="orderMode"]:checked').length;
+                if(len==0){
+                  $("#orderModeError").show();
+                  $("#orderModeError").html("*Please choose one <b>Option</b>");
+                  $("#orderModeError").css('color','red');
+                  orderModeError=false;
+                }else{
+                    $("#orderModeError").hide();
+                    orderModeError=true;
+                }
+
+                return orderModeError;
+             }
+
+        function validate_orderQty() {
+          //read  form value
+          var val = $("#orderQty").val();
+          if (val == "") {
+            //not valid
+            $("#orderQtyError").show();
+            $("#orderQtyError").html("*please enter qty");
+            $("#orderQtyError").css("color", "red");
+            orderQtyError = false;
+          } else {
+            //valid
+            $("#orderQtyError").hide();
+            orderQtyError = true;
+          }
+          return orderQtyError;
+        }
+
+        function validate_orderType(){
+                var  val=$("#orderType").val();
+                if(val==""){
+                    $("#orderTypeError").show();
+                    $("#orderTypeError").html("*<b>Select one </b> option");
+                    $("#orderTypeError").css('color','red');
+                    orderTypeError=false;
+                }else{
+                    $("#orderTypeError").hide();
+                    orderTypeError=true;
+                }
+                return orderTypeError;
+            }
+
+            function validate_orderFormat(){
+                //get Count  selected checkbox
+                var len=$('[name="orderFormat"]:checked').length;
+                if(len==0){
+                    $("#orderFormatError").show();
+                    $("#orderFormatError").html("*Please any one option");
+                    $("#orderFormatError").css('color','red');
+                    orderFormatError=false;
+                }else{
+                    $("#orderFormatError").hide();
+                    orderFormatError=true;
+                }
+                return orderFormatError;
+            }
+
+        //4 Link With action-event
+        $("#orderCode").keyup(function () {
+          validate_orderCode();
+        });
+
+        // Link Event wirh radio button
+        $('[name="orderMode"]').click(function(){
+                validate_orderMode();
+             });
+
+        $("#orderQty").keyup(function () {
+          validate_orderQty();
+        });
+
+         //drop down  = select -option  onChange Envent
+         $("#orderType").change(function(){
+                validate_orderType();
+            });
+
+            //Link event for checkbox
+            $('[name="orderFormat"]').click(function(){
+                validate_orderFormat();
+            });
+
+        //on submit button clicked
+        $("#saleOrder").submit(function () {
+          validate_orderCode();
+          validate_orderMode();
+          validate_orderQty();
+          validate_orderType();
+          validate_orderFormat();
+
+          if (orderCodeError && orderQtyError && orderTypeError  && orderModeError && orderFormatError) return true; // submit form
+          else return false; //do not submit form
+        });
+
+      });
+    </script>
+  </body>
+</html>

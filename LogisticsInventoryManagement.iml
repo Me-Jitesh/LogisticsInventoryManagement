@@ -18,7 +18,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="LogisticsInventoryManagement" />
-          <factory-entry name="entityManagerFactory" />
+          <factory-entry name="entityManagerFactory" value="a5b6f7bb-3c6f-4d37-93ee-cacb851bccce" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

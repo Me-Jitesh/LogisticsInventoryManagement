@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/st")
 public class ShipmentTypeController {
@@ -28,5 +30,13 @@ public class ShipmentTypeController {
         String msg = "ShipmentType " + id + " registered successfully";
         model.addAttribute("message", msg);
         return "ShipmentTypeRegister";
+    }
+
+    @GetMapping("/all")
+    public String getAllShipmentType(Model model) {
+        List<ShipmentType> list = service.getAllShipmentType();
+        model.addAttribute("list", list);
+        System.out.println(list.toString());
+        return "ShipmentTypeData";
     }
 }

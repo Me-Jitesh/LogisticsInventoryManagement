@@ -1,6 +1,6 @@
 <!DOCTYPE html >
 
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
             <h3>SHIPMENT TYPE REGISTER PAGE!!</h3>
         </div>
         <div class="card-body">
-            <form action="#" id="shipmentTypeForm" method="post">
+            <form id="shipmentTypeForm" method="post" th:action="@{/st/save}">
                 <div class="row">
                     <div class="col-3">
                         <label for="shipMode">Shipment Mode</label>
@@ -90,8 +90,8 @@
                 <input class="btn btn-success" type="submit" value="Create"/>
             </form>
         </div>
-        <div class="card-footer">
-            <span>Shipment Type Created</span>
+        <div class="card-footer text-center" th:if="${message != null}">
+            <span th:text="${message}"></span>
         </div>
     </div>
 </div>

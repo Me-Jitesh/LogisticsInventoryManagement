@@ -10,4 +10,6 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 
     @Autowired
     private ShipmentTypeRepo shipmentTypeRepo;
+
+
 }

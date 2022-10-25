@@ -6,6 +6,8 @@ import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 
@@ -18,4 +20,8 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
         return st.getId();
     }
 
+    @Override
+    public List<ShipmentType> getAllShipmentType() {
+        return shipmentTypeRepo.findAll();
+    }
 }

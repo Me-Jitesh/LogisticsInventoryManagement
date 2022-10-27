@@ -32,13 +32,16 @@
                     <td th:text="${ob.shipGrad}"></td>
                     <td th:text="${ob.shipDesc}"></td>
                     <td>
-                        <a class="btn btn-danger" href="#">DELETE</a> |
+                        <!-- Url Rewriting-->
+                        <a class="btn btn-danger" th:href="@{/st/delete(id=${ob.id})}">DELETE</a> |
                         <a class="btn btn-warning" href="#">EDIT</a>
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="card-footer"></div>
+        <div class="card-footer text-center" th:if="${message} != null">
+            <span class="text-success" th:text="${message}"></span>
+        </div>
     </div>
 </div>
 </body>

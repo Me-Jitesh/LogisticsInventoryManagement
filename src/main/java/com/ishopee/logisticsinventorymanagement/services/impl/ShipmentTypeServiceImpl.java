@@ -24,4 +24,9 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
     public List<ShipmentType> getAllShipmentType() {
         return shipmentTypeRepo.findAll();
     }
+
+    @Override
+    public void deleteshipmentType(Integer id) {
+        shipmentTypeRepo.deleteById(id);
+    }
 }

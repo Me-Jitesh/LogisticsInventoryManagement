@@ -10,4 +10,6 @@ public interface IShipmentTypeService {
 
     List<ShipmentType> getAllShipmentType();
 
+    void deleteshipmentType(Integer id);
+
 }

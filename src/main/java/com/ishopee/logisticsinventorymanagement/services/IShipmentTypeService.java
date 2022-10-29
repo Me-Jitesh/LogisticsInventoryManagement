@@ -12,4 +12,6 @@ public interface IShipmentTypeService {
 
     void deleteshipmentType(Integer id);
 
+    ShipmentType getShipmentType(Integer id);
+
 }

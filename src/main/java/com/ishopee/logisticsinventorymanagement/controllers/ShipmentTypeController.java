@@ -46,4 +46,11 @@ public class ShipmentTypeController {
         model.addAttribute("message", msg);
         return "ShipmentTypeData";
     }
+
+    @GetMapping("/edit")
+    public String ShowshipmentEdit(@RequestParam Integer id, Model model) {
+        ShipmentType st = service.getShipmentType(id);
+        model.addAttribute("shipmentType", st);
+        return "ShipmentTypeEdit";
+    }
 }

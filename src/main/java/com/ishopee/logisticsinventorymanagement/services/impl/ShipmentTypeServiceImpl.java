@@ -41,4 +41,9 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
         }
         return null;
     }
+
+    @Override
+    public void updateshipmentType(ShipmentType shipmentType) {
+        shipmentTypeRepo.save(shipmentType);
+    }
 }

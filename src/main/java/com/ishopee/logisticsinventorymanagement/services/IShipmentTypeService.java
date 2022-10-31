@@ -14,4 +14,6 @@ public interface IShipmentTypeService {
 
     ShipmentType getShipmentType(Integer id);
 
+    void updateshipmentType(ShipmentType shipmentType);
+
 }

@@ -53,4 +53,10 @@ public class ShipmentTypeController {
         model.addAttribute("shipmentType", st);
         return "ShipmentTypeEdit";
     }
+
+    @PostMapping("/update")
+    public String updateShipmentType(@ModelAttribute ShipmentType shipmentType) {
+        service.updateshipmentType(shipmentType);
+        return "redirect:all";
+    }
 }

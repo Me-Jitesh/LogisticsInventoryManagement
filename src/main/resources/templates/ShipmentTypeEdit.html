@@ -16,7 +16,7 @@
         </div>
         <div class="card-body">
             <!-- th:object for  Bi-Directional Mapping  -->
-            <form action="#" id="shipmentTypeForm" method="post" th:object="${shipmentType}">
+            <form id="shipmentTypeForm" method="post" th:action="@{/st/update}" th:object="${shipmentType}">
                 <div class="row">
                     <div class="col-3">
                         <label for="id">ID</label>

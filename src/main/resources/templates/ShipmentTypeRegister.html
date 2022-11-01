@@ -126,10 +126,26 @@
         }
 
         function validate_shipCode() {
+            //  Pattern Matching using RegEx
+            /*
+            /^ = Opening
+            $/ = Closing
+             A-Z = allowing uppercase letters only
+             0-9 = allowing numbers
+             \- = allowing hyphen symbol
+             \s = allowing spaces
+             {2-20} = String length should be 2 to 20
+             */
+            var exp = /^[A-Z0-9\-\s]{2,20}$/
             var val = $("#shipCode").val();
             if (val == '') {
                 $("#shipCodeError").show();
-                $("#shipCodeError").html(" * Please  Enter <b>Ship Code</b>");
+                $("#shipCodeError").html(" * <b>Ship Code</b> can't be empty");
+                $("#shipCodeError").css('color', 'red');
+                shipCodeError = false;
+            } else if (!exp.test(val)) {
+                $("#shipCodeError").show();
+                $("#shipCodeError").html(" * <b>ship code</b> must  be 2-20 uppercase letters");
                 $("#shipCodeError").css('color', 'red');
                 shipCodeError = false;
             } else {
@@ -186,6 +202,8 @@
             validate_shipMode();
         });
         $("#shipCode").keyup(function () {
+            // $("#shipCode").val($("#shipCode").val().toUpperCase()); //alternative
+            $(this).val($(this).val().toUpperCase());
             validate_shipCode();
         });
         $('[name="enableShip"]').change(function () {

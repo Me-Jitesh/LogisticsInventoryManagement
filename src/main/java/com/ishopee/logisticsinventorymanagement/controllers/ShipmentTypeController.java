@@ -59,4 +59,14 @@ public class ShipmentTypeController {
         service.updateshipmentType(shipmentType);
         return "redirect:all";
     }
+
+    @GetMapping("/validatecode")
+    public @ResponseBody
+    String validateShipmentCode(@RequestParam String code) {
+        String msg = " ";
+        if (service.isShipmentCodeExist(code)) {
+            msg = " * shipment code " + code + " alreadey exist !";
+        }
+        return msg;
+    }
 }

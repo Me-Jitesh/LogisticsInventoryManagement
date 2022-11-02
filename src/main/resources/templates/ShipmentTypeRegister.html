@@ -149,8 +149,21 @@
                 $("#shipCodeError").css('color', 'red');
                 shipCodeError = false;
             } else {
-                $("#shipCodeError").hide();
-                shipCodeError = true;
+                $.ajax({
+                    url: 'validatecode',
+                    data: {"code": val},
+                    success(resText) {
+                        if (resText != " ") {
+                            $("#shipCodeError").show();
+                            $("#shipCodeError").html(resText);
+                            $("#shipCodeError").css('color', 'red');
+                            shipCodeError = false;
+                        } else {
+                            $("#shipCodeError").hide();
+                            shipCodeError = true;
+                        }
+                    }
+                });
             }
             return shipCodeError;
         }

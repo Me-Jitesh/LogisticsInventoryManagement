@@ -46,4 +46,11 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
     public void updateshipmentType(ShipmentType shipmentType) {
         shipmentTypeRepo.save(shipmentType);
     }
+
+    @Override
+    public boolean isShipmentCodeExist(String shipmentCode) {
+        Integer count = shipmentTypeRepo.getShipmentCode(shipmentCode);
+        boolean flag = count > 0 ? true : false;
+        return flag;
+    }
 }

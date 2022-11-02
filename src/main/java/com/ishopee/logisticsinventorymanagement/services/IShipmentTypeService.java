@@ -16,4 +16,6 @@ public interface IShipmentTypeService {
 
     void updateshipmentType(ShipmentType shipmentType);
 
+    boolean isShipmentCodeExist(String shipmentCode);
+
 }

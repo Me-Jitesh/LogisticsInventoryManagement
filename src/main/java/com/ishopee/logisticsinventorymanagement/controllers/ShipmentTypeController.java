@@ -65,7 +65,7 @@ public class ShipmentTypeController {
     String validateShipmentCode(@RequestParam String code) {
         String msg = " ";
         if (service.isShipmentCodeExist(code)) {
-            msg = " * shipment code " + code + " alreadey exist !";
+            msg = " * shipment code " + code + " already exist !";
         }
         return msg;
     }

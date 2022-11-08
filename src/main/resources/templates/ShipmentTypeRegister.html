@@ -153,7 +153,7 @@
                     url: 'validatecode',
                     data: {"code": val},
                     success(resText) {
-                        if (resText != " ") {
+                        if (resText != "") {
                             $("#shipCodeError").show();
                             $("#shipCodeError").html(resText);
                             $("#shipCodeError").css('color', 'red');

@@ -22,7 +22,7 @@ public class MusController {
     }
 
     @PostMapping("/save")
-    public String saveShipmentType(@ModelAttribute Mus mus, Model model) {
+    public String saveMus(@ModelAttribute Mus mus, Model model) {
         Integer id = service.saveMus(mus);
         String msg = "MUS " + id + " registered successfully";
         model.addAttribute("message", msg);
@@ -37,7 +37,7 @@ public class MusController {
     }
 
     @GetMapping("/delete")
-    public String deletelShipmentType(@RequestParam Integer id, Model model) {
+    public String deleteMus(@RequestParam Integer id, Model model) {
         service.deleteMus(id);
         String msg = " MUS  " + id + " Deleted !!";
         List<Mus> list = service.getAllMus();
@@ -47,7 +47,7 @@ public class MusController {
     }
 
     @GetMapping("/edit")
-    public String ShowshipmentEdit(@RequestParam Integer id, Model model) {
+    public String editMus(@RequestParam Integer id, Model model) {
         Mus musItem = service.getMus(id);
         model.addAttribute("musItem", musItem);
         return "MusEdit";

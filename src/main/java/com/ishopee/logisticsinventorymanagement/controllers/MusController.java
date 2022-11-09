@@ -45,4 +45,11 @@ public class MusController {
         model.addAttribute("message", msg);
         return "MusData";
     }
+
+    @GetMapping("/edit")
+    public String ShowshipmentEdit(@RequestParam Integer id, Model model) {
+        Mus musItem = service.getMus(id);
+        model.addAttribute("musItem", musItem);
+        return "MusEdit";
+    }
 }

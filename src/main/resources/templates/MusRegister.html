@@ -21,10 +21,10 @@
             <form id="MusForm" method="post" th:action="@{/mus/save}">
                 <div class="row">
                     <div class="col-3">
-                        <label for="mus">Mus</label>
+                        <label for="musType">Mus</label>
                     </div>
                     <div class="col-4">
-                        <select class="form-control" id="mus" name="mus">
+                        <select class="form-control" id="musType" name="musType">
                             <option value="">-SELECT-</option>
                             <option value="PACKING">PACKING</option>
                             <option value="NO PACKING">NO PACKING</option>
@@ -32,7 +32,7 @@
                         </select>
                     </div>
                     <div class="col-5">
-                        <span id="musError"></span>
+                        <span id="musTypeError"></span>
                     </div>
                 </div>
                 <!--Row #1 end-->

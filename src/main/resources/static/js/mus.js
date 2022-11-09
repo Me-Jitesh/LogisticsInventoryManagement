@@ -1,26 +1,26 @@
 $(document).ready(function () {
     //1. hide error section
-    $("#musError").hide();
+    $("#musTypeError").hide();
     $("#musModelError").hide();
     $("#musDescError").hide();
     //2. define  error variable
-    var musError = false;
+    var musTypeError = false;
     var musModelError = false;
     var musDescError = false;
 
     //3. define  validate function
     function validate_mus() {
-        var val = $("#mus").val();
+        var val = $("#musType").val();
         if (val == "") {
-            $("#musError").show();
-            $("#musError").html(" * Please  select one <b>mus</b>");
-            $("#musError").css("color", "red");
-            musError = false;
+            $("#musTypeError").show();
+            $("#musTypeError").html(" * Please  select one <b>mus</b>");
+            $("#musTypeError").css("color", "red");
+            musTypeError = false;
         } else {
-            $("#musError").hide();
-            musError = true;
+            $("#musTypeError").hide();
+            musTypeError = true;
         }
-        return musError;
+        return musTypeError;
     }
 
     function validate_musModel() {
@@ -90,7 +90,7 @@ $(document).ready(function () {
         validate_mus();
         validate_musModel();
         validate_musDesc();
-        if (musError && musModelError && musDescError) return true;
+        if (musTypeError && musModelError && musDescError) return true;
         else return false;
     });
 });

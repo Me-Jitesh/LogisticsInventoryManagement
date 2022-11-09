@@ -10,5 +10,6 @@ public interface IMusService {
 
     List<Mus> getAllMus();
 
+    void deleteMus(Integer id);
 
 }

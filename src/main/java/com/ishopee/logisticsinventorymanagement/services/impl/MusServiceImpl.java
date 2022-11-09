@@ -24,4 +24,9 @@ public class MusServiceImpl implements IMusService {
     public List<Mus> getAllMus() {
         return musRepo.findAll();
     }
+
+    @Override
+    public void deleteMus(Integer id) {
+        musRepo.deleteById(id);
+    }
 }

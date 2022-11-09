@@ -41,4 +41,9 @@ public class MusServiceImpl implements IMusService {
         }
         return null;
     }
+
+    @Override
+    public void updateMus(Mus mus) {
+        musRepo.save(mus);
+    }
 }

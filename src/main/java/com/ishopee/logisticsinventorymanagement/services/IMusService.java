@@ -14,5 +14,6 @@ public interface IMusService {
 
     Mus getMus(Integer id);
 
+    void updateMus(Mus mus);
 
 }

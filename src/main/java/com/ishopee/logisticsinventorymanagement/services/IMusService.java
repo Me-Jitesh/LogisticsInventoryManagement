@@ -12,4 +12,7 @@ public interface IMusService {
 
     void deleteMus(Integer id);
 
+    Mus getMus(Integer id);
+
+
 }

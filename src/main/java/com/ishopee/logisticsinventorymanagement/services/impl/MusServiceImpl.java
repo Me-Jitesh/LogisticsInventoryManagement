@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MusServiceImpl implements IMusService {
@@ -28,5 +29,16 @@ public class MusServiceImpl implements IMusService {
     @Override
     public void deleteMus(Integer id) {
         musRepo.deleteById(id);
+    }
+
+    @Override
+    public Mus getMus(Integer id) {
+        Optional<Mus> opt = musRepo.findById(id); // may be null
+        if (opt.isPresent()) {
+            return opt.get();
+        } else {
+//            throw new Exception(MusNotFoundException);
+        }
+        return null;
     }
 }

@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("mus")
 public class MusController {
@@ -28,5 +30,12 @@ public class MusController {
         String msg = "MUS " + id + " registered successfully";
         model.addAttribute("message", msg);
         return "MusRegister";
+    }
+
+    @GetMapping("/all")
+    public String getAllMus(Model model) {
+        List<Mus> list = service.getAllMus();
+        model.addAttribute("list", list);
+        return "MusData";
     }
 }

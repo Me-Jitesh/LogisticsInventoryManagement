@@ -5,10 +5,7 @@ import com.ishopee.logisticsinventorymanagement.services.IMusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,6 +33,16 @@ public class MusController {
     public String getAllMus(Model model) {
         List<Mus> list = service.getAllMus();
         model.addAttribute("list", list);
+        return "MusData";
+    }
+
+    @GetMapping("/delete")
+    public String deletelShipmentType(@RequestParam Integer id, Model model) {
+        service.deleteMus(id);
+        String msg = " MUS  " + id + " Deleted !!";
+        List<Mus> list = service.getAllMus();
+        model.addAttribute("list", list);
+        model.addAttribute("message", msg);
         return "MusData";
     }
 }

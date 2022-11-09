@@ -52,4 +52,10 @@ public class MusController {
         model.addAttribute("musItem", musItem);
         return "MusEdit";
     }
+
+    @PostMapping("/update")
+    public String updateMus(@ModelAttribute Mus mus) {
+        service.updateMus(mus);
+        return "redirect:all";
+    }
 }

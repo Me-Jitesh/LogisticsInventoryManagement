@@ -62,10 +62,15 @@ public class ShipmentTypeController {
 
     @GetMapping("/validatecode")
     public @ResponseBody
-    String validateShipmentCode(@RequestParam String code) {
+    String validateShipmentCode(@RequestParam String code, @RequestParam Integer id) {
         String msg = "";
-        if (service.isShipmentCodeExist(code)) {
+        // for register check
+        if (id == 0 && service.isShipmentCodeExist(code)) {
             msg = " * shipment code " + code + " already exist !";
+
+            //for edit check
+        } else if (id != 0 && service.isShipmentCodeCountExistForEdit(code, id)) {
+            msg = " *  " + code + " already exist !";
         }
         return msg;
     }

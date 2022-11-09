@@ -18,4 +18,6 @@ public interface IShipmentTypeService {
 
     boolean isShipmentCodeExist(String shipmentCode);
 
+    boolean isShipmentCodeCountExistForEdit(String shipmentCode, Integer id);
+
 }

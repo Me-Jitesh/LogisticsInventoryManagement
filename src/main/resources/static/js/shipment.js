@@ -51,9 +51,13 @@ $(document).ready(function () {
             $("#shipCodeError").css('color', 'red');
             shipCodeError = false;
         } else {
+            var id = 0; // for register page
+            if ($("#id").val() != undefined) { // for edit page
+                id = $("#id").val();
+            }
             $.ajax({
                 url: 'validatecode',
-                data: {"code": val},
+                data: {"code": val, "id": id},
                 success(resText) {
                     if (resText != "") {
                         $("#shipCodeError").show();

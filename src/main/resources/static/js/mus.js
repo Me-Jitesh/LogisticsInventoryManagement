@@ -71,7 +71,7 @@ $(document).ready(function () {
     }
 
     //4. link  with event
-    $("#mus").change(function () {
+    $("#musType").change(function () {
         validate_mus();
     });
 

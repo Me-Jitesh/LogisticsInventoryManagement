@@ -53,4 +53,9 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
         boolean flag = count > 0 ? true : false;
         return flag;
     }
+
+    @Override
+    public boolean isShipmentCodeCountExistForEdit(String shipmentCode, Integer id) {
+        return shipmentTypeRepo.getShipmentCodeCountForEdit(shipmentCode, id) > 0;
+    }
 }

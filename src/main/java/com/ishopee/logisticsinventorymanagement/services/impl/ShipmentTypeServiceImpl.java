@@ -28,7 +28,8 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 
     @Override
     public void deleteshipmentType(Integer id) {
-        shipmentTypeRepo.deleteById(id);
+//        shipmentTypeRepo.deleteById(id);
+        shipmentTypeRepo.delete(getShipmentType(id)); // Exception Handling
     }
 
     /*      // Old Method of Exception Handling

@@ -39,11 +39,20 @@ public class ShipmentTypeController {
 
     @GetMapping("/delete")
     public String deletelShipmentType(@RequestParam Integer id, Model model) {
-        service.deleteshipmentType(id);
-        String msg = "Shipment Type " + id + " Deleted !!";
-        List<ShipmentType> list = service.getAllShipmentType();
-        model.addAttribute("list", list);
-        model.addAttribute("message", msg);
+        try {
+            // if data exist
+            service.deleteshipmentType(id);
+            List<ShipmentType> list = service.getAllShipmentType();
+            String msg = "Shipment Type " + id + " Deleted !!";
+            model.addAttribute("list", list);
+            model.addAttribute("message", msg);
+        } catch (Exception e) {
+            // if data not exist
+            e.printStackTrace();
+            List<ShipmentType> list = service.getAllShipmentType();
+            model.addAttribute("list", list);
+            model.addAttribute("message", e.getMessage());
+        }
         return "ShipmentTypeData";
     }
 

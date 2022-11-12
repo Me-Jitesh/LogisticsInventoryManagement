@@ -48,9 +48,19 @@ public class MusController {
 
     @GetMapping("/edit")
     public String editMus(@RequestParam Integer id, Model model) {
-        Mus musItem = service.getMus(id);
-        model.addAttribute("musItem", musItem);
-        return "MusEdit";
+        String page;
+        try {
+            Mus musItem = service.getMus(id);
+            model.addAttribute("musItem", musItem);
+            page = "MusEdit";
+        } catch (Exception e) {
+            e.printStackTrace();
+            List<Mus> list = service.getAllMus();
+            model.addAttribute("list", list);
+            model.addAttribute("message", e.getMessage());
+            page = "MusData";
+        }
+        return page;
     }
 
     @PostMapping("/update")

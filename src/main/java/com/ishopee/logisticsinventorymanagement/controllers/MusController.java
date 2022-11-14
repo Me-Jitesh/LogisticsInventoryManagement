@@ -38,11 +38,18 @@ public class MusController {
 
     @GetMapping("/delete")
     public String deleteMus(@RequestParam Integer id, Model model) {
-        service.deleteMus(id);
-        String msg = " MUS  " + id + " Deleted !!";
-        List<Mus> list = service.getAllMus();
-        model.addAttribute("list", list);
-        model.addAttribute("message", msg);
+        try {
+            service.deleteMus(id);
+            String msg = " MUS  " + id + " Deleted !!";
+            List<Mus> list = service.getAllMus();
+            model.addAttribute("list", list);
+            model.addAttribute("message", msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+            List<Mus> list = service.getAllMus();
+            model.addAttribute("list", list);
+            model.addAttribute("message", e.getMessage());
+        }
         return "MusData";
     }
 

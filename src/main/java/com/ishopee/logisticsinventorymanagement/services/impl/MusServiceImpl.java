@@ -28,7 +28,8 @@ public class MusServiceImpl implements IMusService {
 
     @Override
     public void deleteMus(Integer id) {
-        musRepo.deleteById(id);
+//        musRepo.deleteById(id);
+        musRepo.delete(getMus(id));
     }
 
     @Override

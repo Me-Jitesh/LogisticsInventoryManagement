@@ -10,11 +10,11 @@ public interface IShipmentTypeService {
 
     List<ShipmentType> getAllShipmentType();
 
-    void deleteshipmentType(Integer id);
+    void deleteShipmentType(Integer id);
 
     ShipmentType getShipmentType(Integer id);
 
-    void updateshipmentType(ShipmentType shipmentType);
+    void updateShipmentType(ShipmentType shipmentType);
 
     boolean isShipmentCodeExist(String shipmentCode);
 

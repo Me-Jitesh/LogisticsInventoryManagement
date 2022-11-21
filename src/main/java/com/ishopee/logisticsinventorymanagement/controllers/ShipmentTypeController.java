@@ -33,30 +33,46 @@ public class ShipmentTypeController {
     public String getAllShipmentType(Model model) {
         List<ShipmentType> list = service.getAllShipmentType();
         model.addAttribute("list", list);
-        System.out.println(list.toString());
         return "ShipmentTypeData";
     }
 
     @GetMapping("/delete")
-    public String deletelShipmentType(@RequestParam Integer id, Model model) {
-        service.deleteshipmentType(id);
-        String msg = "Shipment Type " + id + " Deleted !!";
-        List<ShipmentType> list = service.getAllShipmentType();
-        model.addAttribute("list", list);
-        model.addAttribute("message", msg);
+    public String deleteShipmentType(@RequestParam Integer id, Model model) {
+        try {
+            service.deleteShipmentType(id);
+            String msg = "Shipment Type " + id + " Deleted !!";
+            List<ShipmentType> list = service.getAllShipmentType();
+            model.addAttribute("list", list);
+            model.addAttribute("message", msg);
+        } catch (Exception e) {
+            e.printStackTrace();
+            List<ShipmentType> list = service.getAllShipmentType();
+            model.addAttribute("list", list);
+            model.addAttribute("message", e.getMessage());
+        }
         return "ShipmentTypeData";
     }
 
     @GetMapping("/edit")
-    public String ShowshipmentEdit(@RequestParam Integer id, Model model) {
-        ShipmentType st = service.getShipmentType(id);
-        model.addAttribute("shipmentType", st);
-        return "ShipmentTypeEdit";
+    public String ShowShipmentEdit(@RequestParam Integer id, Model model) {
+        String page;
+        try {
+            ShipmentType st = service.getShipmentType(id);
+            model.addAttribute("shipmentType", st);
+            page = "ShipmentTypeEdit";
+        } catch (Exception e) {
+            e.printStackTrace();
+            List<ShipmentType> list = service.getAllShipmentType();
+            model.addAttribute("list", list);
+            model.addAttribute("message", e.getMessage());
+            page = "ShipmentTypeData";
+        }
+        return page;
     }
 
     @PostMapping("/update")
     public String updateShipmentType(@ModelAttribute ShipmentType shipmentType) {
-        service.updateshipmentType(shipmentType);
+        service.updateShipmentType(shipmentType);
         return "redirect:all";
     }
 

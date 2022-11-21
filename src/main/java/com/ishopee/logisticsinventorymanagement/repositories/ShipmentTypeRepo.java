@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ShipmentTypeRepo extends JpaRepository<ShipmentType, Integer> {
 
-    //Reegister check
+    //Register check
     @Query("SELECT count(ST.shipCode) from ShipmentType ST where ST.shipCode=:shipmentCode")
     Integer getShipmentCode(String shipmentCode);
 

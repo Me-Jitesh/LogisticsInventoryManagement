@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
+import com.ishopee.logisticsinventorymanagement.exceptions.ShipmentTypeNotFoundException;
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.repositories.ShipmentTypeRepo;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
@@ -7,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ShipmentTypeServiceImpl implements IShipmentTypeService {
@@ -27,23 +27,32 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
     }
 
     @Override
-    public void deleteshipmentType(Integer id) {
-        shipmentTypeRepo.deleteById(id);
+    public void deleteShipmentType(Integer id) {
+//        shipmentTypeRepo.deleteById(id);
+        shipmentTypeRepo.delete(getShipmentType(id));
     }
 
+    /*
+    //    Old Method For Exception Handling Before Java8
+        @Override
+        public ShipmentType getShipmentType(Integer id) {
+            Optional<ShipmentType> opt = shipmentTypeRepo.findById(id); // may be null
+            if (opt.isPresent()) {
+                return opt.get();
+            } else {
+                throw new ShipmentTypeNotFoundException("Shipment Type " + id + " does not exist !");
+            }
+        }
+    */
+
+    //    New Method For Exception Handling Java8 onwards
     @Override
     public ShipmentType getShipmentType(Integer id) {
-        Optional<ShipmentType> opt = shipmentTypeRepo.findById(id); // may be null
-        if (opt.isPresent()) {
-            return opt.get();
-        } else {
-//            throw new Exception(ShipmentTypeNotFoundException);
-        }
-        return null;
+        return shipmentTypeRepo.findById(id).orElseThrow(() -> new ShipmentTypeNotFoundException("Shipment Type " + id + " does not exist !"));
     }
 
     @Override
-    public void updateshipmentType(ShipmentType shipmentType) {
+    public void updateShipmentType(ShipmentType shipmentType) {
         shipmentTypeRepo.save(shipmentType);
     }
 

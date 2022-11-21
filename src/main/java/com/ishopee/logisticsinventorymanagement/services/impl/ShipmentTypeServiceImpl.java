@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ShipmentTypeServiceImpl implements IShipmentTypeService {
@@ -29,7 +28,8 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
 
     @Override
     public void deleteShipmentType(Integer id) {
-        shipmentTypeRepo.deleteById(id);
+//        shipmentTypeRepo.deleteById(id);
+        shipmentTypeRepo.delete(getShipmentType(id));
     }
 
     /*

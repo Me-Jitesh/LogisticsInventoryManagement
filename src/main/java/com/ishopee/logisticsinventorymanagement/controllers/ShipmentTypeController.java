@@ -2,6 +2,8 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import java.util.List;
 @RequestMapping("/st")
 public class ShipmentTypeController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
     @Autowired
     private IShipmentTypeService service;
 
@@ -23,56 +26,88 @@ public class ShipmentTypeController {
 
     @PostMapping("/save")
     public String saveShipmentType(@ModelAttribute ShipmentType shipmentType, Model model) {
-        Integer id = service.saveShipmentType(shipmentType);
-        String msg = "ShipmentType " + id + " registered successfully";
-        model.addAttribute("message", msg);
+        LOG.info("ENTERED INTO SAVE METHOD");
+        try {
+            Integer id = service.saveShipmentType(shipmentType);
+            LOG.debug("RECORD IS CREATED WITH ID {}", id);
+            String msg = "ShipmentType " + id + " registered successfully";
+            model.addAttribute("message", msg);
+        } catch (Exception e) {
+            LOG.error("unable to process save request due to {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("ABOUT TO GO UI PAGE ShipmentTypeRegister ! ");
         return "ShipmentTypeRegister";
     }
 
     @GetMapping("/all")
     public String getAllShipmentType(Model model) {
-        List<ShipmentType> list = service.getAllShipmentType();
-        model.addAttribute("list", list);
+        LOG.info("ENTERED INTO getAllShipmentType METHOD");
+        try {
+            List<ShipmentType> list = service.getAllShipmentType();
+            LOG.debug("FETCHED ALL RECORDS");
+            model.addAttribute("list", list);
+        } catch (Exception e) {
+            LOG.error("unable to process getAllShipmentType request due to {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("ABOUT TO GO UI PAGE ShipmentTypeData ! ");
         return "ShipmentTypeData";
     }
 
     @GetMapping("/delete")
     public String deleteShipmentType(@RequestParam Integer id, Model model) {
+        LOG.info("ENTERED INTO DELETE METHOD");
         try {
             service.deleteShipmentType(id);
             String msg = "Shipment Type " + id + " Deleted !!";
+            LOG.debug(msg);
             List<ShipmentType> list = service.getAllShipmentType();
             model.addAttribute("list", list);
             model.addAttribute("message", msg);
         } catch (Exception e) {
+            LOG.error("unable to process delete request : {}", e.getMessage());
             e.printStackTrace();
             List<ShipmentType> list = service.getAllShipmentType();
             model.addAttribute("list", list);
             model.addAttribute("message", e.getMessage());
         }
+        LOG.info("ABOUT TO GO UI PAGE ShipmentTypeData ! ");
         return "ShipmentTypeData";
     }
 
     @GetMapping("/edit")
     public String ShowShipmentEdit(@RequestParam Integer id, Model model) {
         String page;
+        LOG.info("ENTERED INTO EDIT METHOD");
         try {
             ShipmentType st = service.getShipmentType(id);
+            LOG.debug("RECORD FOUND WITH ID {}", id);
             model.addAttribute("shipmentType", st);
             page = "ShipmentTypeEdit";
         } catch (Exception e) {
+            LOG.error("unable to process edit request due to {}", e.getMessage());
             e.printStackTrace();
             List<ShipmentType> list = service.getAllShipmentType();
             model.addAttribute("list", list);
             model.addAttribute("message", e.getMessage());
             page = "ShipmentTypeData";
         }
+        LOG.info("ABOUT TO GO UI PAGE {} !", page);
         return page;
     }
 
     @PostMapping("/update")
     public String updateShipmentType(@ModelAttribute ShipmentType shipmentType) {
-        service.updateShipmentType(shipmentType);
+        LOG.info("ENTERED INTO UPDATE METHOD");
+        try {
+            service.updateShipmentType(shipmentType);
+            LOG.debug("RECORD IS UPDATED FOR ID {}", shipmentType.getId());
+        } catch (Exception e) {
+            LOG.error("unable to process update request due to {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");
         return "redirect:all";
     }
 

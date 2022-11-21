@@ -33,13 +33,12 @@ public class ShipmentTypeController {
     public String getAllShipmentType(Model model) {
         List<ShipmentType> list = service.getAllShipmentType();
         model.addAttribute("list", list);
-        System.out.println(list.toString());
         return "ShipmentTypeData";
     }
 
     @GetMapping("/delete")
-    public String deletelShipmentType(@RequestParam Integer id, Model model) {
-        service.deleteshipmentType(id);
+    public String deleteShipmentType(@RequestParam Integer id, Model model) {
+        service.deleteShipmentType(id);
         String msg = "Shipment Type " + id + " Deleted !!";
         List<ShipmentType> list = service.getAllShipmentType();
         model.addAttribute("list", list);
@@ -48,7 +47,7 @@ public class ShipmentTypeController {
     }
 
     @GetMapping("/edit")
-    public String ShowshipmentEdit(@RequestParam Integer id, Model model) {
+    public String ShowShipmentEdit(@RequestParam Integer id, Model model) {
         ShipmentType st = service.getShipmentType(id);
         model.addAttribute("shipmentType", st);
         return "ShipmentTypeEdit";
@@ -56,7 +55,7 @@ public class ShipmentTypeController {
 
     @PostMapping("/update")
     public String updateShipmentType(@ModelAttribute ShipmentType shipmentType) {
-        service.updateshipmentType(shipmentType);
+        service.updateShipmentType(shipmentType);
         return "redirect:all";
     }
 

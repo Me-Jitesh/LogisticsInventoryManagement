@@ -27,7 +27,7 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
     }
 
     @Override
-    public void deleteshipmentType(Integer id) {
+    public void deleteShipmentType(Integer id) {
         shipmentTypeRepo.deleteById(id);
     }
 
@@ -43,7 +43,7 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
     }
 
     @Override
-    public void updateshipmentType(ShipmentType shipmentType) {
+    public void updateShipmentType(ShipmentType shipmentType) {
         shipmentTypeRepo.save(shipmentType);
     }
 

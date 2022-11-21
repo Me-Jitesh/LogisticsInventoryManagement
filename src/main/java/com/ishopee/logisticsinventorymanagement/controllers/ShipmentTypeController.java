@@ -15,9 +15,9 @@ import java.util.List;
 @RequestMapping("/st")
 public class ShipmentTypeController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
     @Autowired
     private IShipmentTypeService service;
-    private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
 
     @GetMapping("/register")
     public String showRegister() {
@@ -34,6 +34,7 @@ public class ShipmentTypeController {
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("unable to process save request due to {}", e.getMessage());
+            e.printStackTrace();
         }
         LOG.info("ABOUT TO GO UI PAGE ShipmentTypeRegister ! ");
         return "ShipmentTypeRegister";
@@ -104,6 +105,7 @@ public class ShipmentTypeController {
             LOG.debug("RECORD IS UPDATED FOR ID {}", shipmentType.getId());
         } catch (Exception e) {
             LOG.error("unable to process update request due to {}", e.getMessage());
+            e.printStackTrace();
         }
         LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");
         return "redirect:all";

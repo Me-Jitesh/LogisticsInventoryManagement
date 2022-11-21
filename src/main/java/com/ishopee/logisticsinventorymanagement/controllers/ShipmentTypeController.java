@@ -48,9 +48,19 @@ public class ShipmentTypeController {
 
     @GetMapping("/edit")
     public String ShowShipmentEdit(@RequestParam Integer id, Model model) {
-        ShipmentType st = service.getShipmentType(id);
-        model.addAttribute("shipmentType", st);
-        return "ShipmentTypeEdit";
+        String page;
+        try {
+            ShipmentType st = service.getShipmentType(id);
+            model.addAttribute("shipmentType", st);
+            page = "ShipmentTypeEdit";
+        } catch (Exception e) {
+            e.printStackTrace();
+            List<ShipmentType> list = service.getAllShipmentType();
+            model.addAttribute("list", list);
+            model.addAttribute("message", e.getMessage());
+            page = "ShipmentTypeData";
+        }
+        return page;
     }
 
     @PostMapping("/update")

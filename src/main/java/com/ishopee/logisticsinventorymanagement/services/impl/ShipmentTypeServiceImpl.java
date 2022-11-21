@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
+import com.ishopee.logisticsinventorymanagement.exceptions.ShipmentTypeNotFoundException;
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.repositories.ShipmentTypeRepo;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
@@ -31,15 +32,23 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
         shipmentTypeRepo.deleteById(id);
     }
 
+    /*
+    //    Old Method For Exception Handling Before Java8
+        @Override
+        public ShipmentType getShipmentType(Integer id) {
+            Optional<ShipmentType> opt = shipmentTypeRepo.findById(id); // may be null
+            if (opt.isPresent()) {
+                return opt.get();
+            } else {
+                throw new ShipmentTypeNotFoundException("Shipment Type " + id + " does not exist !");
+            }
+        }
+    */
+
+    //    New Method For Exception Handling Java8 onwards
     @Override
     public ShipmentType getShipmentType(Integer id) {
-        Optional<ShipmentType> opt = shipmentTypeRepo.findById(id); // may be null
-        if (opt.isPresent()) {
-            return opt.get();
-        } else {
-//            throw new Exception(ShipmentTypeNotFoundException);
-        }
-        return null;
+        return shipmentTypeRepo.findById(id).orElseThrow(() -> new ShipmentTypeNotFoundException("Shipment Type " + id + " does not exist !"));
     }
 
     @Override

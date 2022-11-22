@@ -57,10 +57,18 @@ $(document).ready(function () {
     }
 
     function validate_musDesc() {
+        var exp = /^[A-Za-z0-9\s-.*,@:]{2,20}$/;
         var val = $("#musDesc").val();
         if (val == "") {
             $("#musDescError").show();
             $("#musDescError").html(" * please  enter <b>Description</b>");
+            $("#musDescError").css("color", "red");
+            musDescError = false;
+        } else if (!exp.test(val)) {
+            $("#musDescError").show();
+            $("#musDescError").html(
+                " * <b>mus desc </b> must  be 2-100 letters"
+            );
             $("#musDescError").css("color", "red");
             musDescError = false;
         } else {

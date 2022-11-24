@@ -32,7 +32,7 @@ public class MusController {
             String msg = "MUS " + id + " registered successfully";
             model.addAttribute("message", msg);
         } catch (Exception e) {
-            LOG.error("unable to process save request due to {}", e.getMessage());
+            LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
         }
         LOG.info("ABOUT TO GO UI PAGE MusRegister ! ");
@@ -47,7 +47,7 @@ public class MusController {
             LOG.debug("FETCHED ALL RECORDS");
             model.addAttribute("list", list);
         } catch (Exception e) {
-            LOG.error("unable to process getAllMus request due to {}", e.getMessage());
+            LOG.error("UNABLE TO PROCESS getAllMus REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
         }
         LOG.info("ABOUT TO GO UI PAGE MusData ! ");
@@ -65,7 +65,7 @@ public class MusController {
             model.addAttribute("list", list);
             model.addAttribute("message", msg);
         } catch (Exception e) {
-            LOG.error("unable to process delete request : {}", e.getMessage());
+            LOG.error("UNABLE TO PROCESS DELETE  REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
             List<Mus> list = service.getAllMus();
             model.addAttribute("list", list);
@@ -85,7 +85,7 @@ public class MusController {
             model.addAttribute("musItem", musItem);
             page = "MusEdit";
         } catch (Exception e) {
-            LOG.error("unable to process edit request due to {}", e.getMessage());
+            LOG.error("UNABLE TO PROCESS EDIT REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
             List<Mus> list = service.getAllMus();
             model.addAttribute("list", list);
@@ -104,7 +104,7 @@ public class MusController {
             LOG.debug("RECORD IS UPDATED FOR ID {}", mus.getId());
 
         } catch (Exception e) {
-            LOG.error("unable to process update request due to {}", e.getMessage());
+            LOG.error("UNABLE TO PROCESS UPDATE REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
         }
         LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");

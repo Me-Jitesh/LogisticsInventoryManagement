@@ -43,9 +43,8 @@ public class MusController {
     public String getAllMus(Model model) {
         LOG.info("ENTERED INTO getAllMus METHOD");
         try {
-            List<Mus> list = service.getAllMus();
+            fetchAllData(model);
             LOG.debug("FETCHED ALL RECORDS");
-            model.addAttribute("list", list);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS getAllMus REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
@@ -61,14 +60,12 @@ public class MusController {
             service.deleteMus(id);
             String msg = " MUS  " + id + " Deleted !!";
             LOG.debug(msg);
-            List<Mus> list = service.getAllMus();
-            model.addAttribute("list", list);
+            fetchAllData(model);
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS DELETE  REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
-            List<Mus> list = service.getAllMus();
-            model.addAttribute("list", list);
+            fetchAllData(model);
             model.addAttribute("message", e.getMessage());
         }
         LOG.info("ABOUT TO GO UI PAGE MusData ! ");
@@ -87,8 +84,7 @@ public class MusController {
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS EDIT REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
-            List<Mus> list = service.getAllMus();
-            model.addAttribute("list", list);
+            fetchAllData(model);
             model.addAttribute("message", e.getMessage());
             page = "MusData";
         }
@@ -109,5 +105,10 @@ public class MusController {
         }
         LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");
         return "redirect:all";
+    }
+
+    private void fetchAllData(Model model) {
+        List<Mus> list = service.getAllMus();
+        model.addAttribute("list", list);
     }
 }

@@ -16,4 +16,7 @@ public interface IMusService {
 
     void updateMus(Mus mus);
 
+    boolean isMusModelCountExist(String musModel);
+
+    boolean isMusModelCountExistForEdit(String musModel, Integer id);
 }

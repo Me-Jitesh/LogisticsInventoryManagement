@@ -41,4 +41,16 @@ public class MusServiceImpl implements IMusService {
     public void updateMus(Mus mus) {
         musRepo.save(mus);
     }
+
+    @Override
+    public boolean isMusModelCountExist(String musModel) {
+        Integer count = musRepo.getMusModelCount(musModel);
+        boolean flag = count > 0 ? true : false;
+        return flag;
+    }
+
+    @Override
+    public boolean isMusModelCountExistForEdit(String musModel, Integer id) {
+        return musRepo.getMusModelCountForEdit(musModel, id) > 0;
+    }
 }

@@ -107,6 +107,21 @@ public class MusController {
         return "redirect:all";
     }
 
+    @GetMapping("/validatemodel")
+    public @ResponseBody
+    String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
+        String msg = "";
+        // for register check
+        if (id == 0 && service.isMusModelCountExist(musModel)) {
+            msg = " * shipment code " + musModel + " already exist !";
+
+            //for edit check
+        } else if (id != 0 && service.isMusModelCountExistForEdit(musModel, id)) {
+            msg = " *  " + musModel + " already exist !";
+        }
+        return msg;
+    }
+
     private void fetchAllData(Model model) {
         List<Mus> list = service.getAllMus();
         model.addAttribute("list", list);

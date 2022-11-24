@@ -9,7 +9,7 @@ $(document).ready(function () {
     var musDescError = false;
 
     //3. define  validate function
-    function validate_mus() {
+    function validate_musType() {
         var val = $("#musType").val();
         if (val == "") {
             $("#musTypeError").show();
@@ -24,6 +24,7 @@ $(document).ready(function () {
     }
 
     function validate_musModel() {
+
         //  Pattern Matching using RegEx
         /*
           /^ = Opening
@@ -34,6 +35,7 @@ $(document).ready(function () {
            \s = allowing spaces
            {2-20} = String length should be 2 to 20
            */
+
         var exp = /^[A-Z0-9\-\s]{2,20}$/;
         var val = $("#musModel").val();
         if (val == "") {
@@ -49,10 +51,26 @@ $(document).ready(function () {
             $("#musModelError").css("color", "red");
             musModelError = false;
         } else {
-            $("#musModelError").hide();
-            musModelError = true;
+            var id = 0; // for register page
+            if ($("#id").val() != undefined) { // for edit page
+                id = $("#id").val();
+            }
+            $.ajax({
+                url: '/mus/validatemodel',
+                data: {"musModel": val, "id": id},
+                success(resText) {
+                    if (resText != "") {
+                        $("#musModelError").show();
+                        $("#musModelError").html(resText);
+                        $("#musModelError").css('color', 'red');
+                        musModelError = false;
+                    } else {
+                        $("#musModelError").hide();
+                        musModelError = true;
+                    }
+                }
+            });
         }
-
         return musModelError;
     }
 
@@ -80,7 +98,7 @@ $(document).ready(function () {
 
     //4. link  with event
     $("#musType").change(function () {
-        validate_mus();
+        validate_musType();
     });
 
     $("#musModel").keyup(function () {
@@ -95,7 +113,7 @@ $(document).ready(function () {
 
     //5. on click form submit
     $("#MusForm").submit(function () {
-        validate_mus();
+        validate_musType();
         validate_musModel();
         validate_musDesc();
         if (musTypeError && musModelError && musDescError) return true;

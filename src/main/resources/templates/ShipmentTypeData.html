@@ -10,12 +10,15 @@
 <body>
 <div class="container">
     <div class="card">
-        <div class="card-header bg-primary text-center text-white">
-            <h3>SHIPMENT TYPE DATA PAGE !!</h3>
+        <div class="card-header bg-info text-center text-light">
+            <h3>SHIPMENT TYPE DATA PAGE !</h3>
         </div>
         <div class="card-body">
+            <div class="text-right mb-2">
+                <a th:href="@{/st/excel}" class="btn btn-outline-dark">Excel Export &#128190;</a>
+            </div>
             <table class="table table-hover">
-                <tr class="bg-info text-white">
+                <tr class="bg-secondary text-white">
                     <th>ID</th>
                     <th>MODE</th>
                     <th>CODE</th>
@@ -33,8 +36,8 @@
                     <td th:text="${ob.getShipDesc()}"></td>
                     <td>
                         <!-- Url Rewriting-->
-                        <a class="btn btn-danger" th:href="@{/st/delete(id=${ob.getId()})}">DELETE</a> |
-                        <a class="btn btn-warning" th:href="@{/st/edit(id=${ob.getId()})}">EDIT</a>
+                        <a class="btn btn-outline-danger" th:href="@{/st/delete(id=${ob.getId()})}">DELETE &#9888;</a> |
+                        <a class="btn btn-outline-warning" th:href="@{/st/edit(id=${ob.getId()})}">EDIT &#9998;</a>
                     </td>
                 </tr>
             </table>

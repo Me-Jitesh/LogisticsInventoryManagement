@@ -2,12 +2,14 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
+import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeExcelView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -120,6 +122,23 @@ public class ShipmentTypeController {
             msg = " *  " + code + " already exist !";
         }
         return msg;
+    }
+
+    @GetMapping("/excel")
+    public ModelAndView exportExcel() {
+        LOG.info("ENTERED INTO Export Excel METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new ShipmentTypeExcelView());
+            List<ShipmentType> list = service.getAllShipmentType();
+            modelAndView.addObject("obs", list);
+            LOG.debug("EXPORTATION SUCCEEDED !");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS Export Excel  REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void fetchAllData(Model model) {

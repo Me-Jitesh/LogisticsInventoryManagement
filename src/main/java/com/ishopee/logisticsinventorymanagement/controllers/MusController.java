@@ -2,22 +2,25 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.Mus;
 import com.ishopee.logisticsinventorymanagement.services.IMusService;
+import com.ishopee.logisticsinventorymanagement.views.MusExcelView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
 @RequestMapping("mus")
 public class MusController {
 
+    private static final Logger LOG = LoggerFactory.getLogger(MusController.class);
     @Autowired
     private IMusService service;
-    private static final Logger LOG = LoggerFactory.getLogger(MusController.class);
 
     @GetMapping("/register")
     public String showMusRegister() {
@@ -108,8 +111,7 @@ public class MusController {
     }
 
     @GetMapping("/validatemodel")
-    public @ResponseBody
-    String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
+    public @ResponseBody String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
         String msg = "";
         // for register check
         if (id == 0 && service.isMusModelCountExist(musModel)) {
@@ -120,6 +122,39 @@ public class MusController {
             msg = " *  " + musModel + " already exist !";
         }
         return msg;
+    }
+
+    @GetMapping("/excel")
+    public ModelAndView exportExcel() {
+        LOG.info("ENTERED INTO Export Excel METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new MusExcelView());
+            List<Mus> list = service.getAllMus();
+            modelAndView.addObject("obs", list);
+            LOG.debug("EXPORTATION SUCCEEDED !");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS Export Excel  REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @GetMapping("/excelone")
+    public ModelAndView exportExcelById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportExcelById METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new MusExcelView());
+            modelAndView.addObject("obs", Arrays.asList(service.getMus(id)));
+            LOG.debug("EXPORTATION SINGLE EXCEL FILE SUCCEEDED !");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS exportExcelById REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void fetchAllData(Model model) {

@@ -16,8 +16,8 @@ public class ShipmentTypeExcelView extends AbstractXlsView {
 
     @Override
     protected void buildExcelDocument(Map<String, Object> model, Workbook workbook, HttpServletRequest request, HttpServletResponse response) {
-
-        Sheet sheet = workbook.createSheet("ShipmentType");
+        response.addHeader("Content-Disposition", "attachment;filename=ShipmentType.xls");
+        Sheet sheet = workbook.createSheet("SHIPMENT TYPE");
         List<ShipmentType> list = (List<ShipmentType>) model.get("obs");
         setHeading(sheet);
         setBody(sheet, list);

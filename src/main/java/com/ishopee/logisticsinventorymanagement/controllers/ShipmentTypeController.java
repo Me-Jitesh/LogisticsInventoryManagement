@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -136,6 +137,22 @@ public class ShipmentTypeController {
             return modelAndView;
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS Export Excel  REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @GetMapping("/excelone")
+    public ModelAndView exportExcelById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportExcelById METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new ShipmentTypeExcelView());
+            modelAndView.addObject("obs", Arrays.asList(service.getShipmentType(id)));
+            LOG.debug("EXPORTATION SINGLE EXCEL FILE SUCCEEDED !");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS exportExcelById REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
             return null;
         }

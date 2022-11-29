@@ -10,7 +10,8 @@ import javax.persistence.*;
 public class ShipmentType {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "shipment_type_gen")
+    @SequenceGenerator(name = "shipment_type_gen",sequenceName = "shipment_type_seq")
     @Column(name = "ship_id_col")
     private Integer id;
     @Column(name = "ship_mode_col")

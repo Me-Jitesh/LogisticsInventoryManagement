@@ -13,7 +13,8 @@ import javax.persistence.*;
 @Table(name = "mus_tab")
 public class Mus {
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "mus_gen")
+    @SequenceGenerator(name = "mus_gen", sequenceName = "mus_seq")
     @Column(name = "mus_id_col")
     private Integer id;
     @Column(name = "mus_type_col")

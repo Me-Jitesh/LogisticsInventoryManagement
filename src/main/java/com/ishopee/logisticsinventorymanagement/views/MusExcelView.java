@@ -25,9 +25,9 @@ public class MusExcelView extends AbstractXlsView {
     private void setHeading(Sheet sheet) {
         Row row = sheet.createRow(0);
         row.createCell(0).setCellValue("ID");
-        row.createCell(1).setCellValue("TYPE");
-        row.createCell(2).setCellValue("MODEL");
-        row.createCell(3).setCellValue("DESC");
+        row.createCell(1).setCellValue("MUS TYPE");
+        row.createCell(2).setCellValue("MUS MODEL");
+        row.createCell(3).setCellValue("MUS DESCRIPTION");
     }
 
     private void setBody(Sheet sheet, List<Mus> list) {

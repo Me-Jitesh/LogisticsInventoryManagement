@@ -5,15 +5,21 @@
     <title>Mus Data Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="card">
         <div class="card-header bg-primary text-center text-white">
-            <h3>MEASUREMENT UNIT SYSTEM DATA PAGE !!</h3>
+            <h3>MEASUREMENT UNIT SYSTEM DATA PAGE</h3>
         </div>
         <div class="card-body">
+            <div class="text-right mb-2">
+                <a class="btn btn-outline-success" th:href="@{/mus/excel}">Excel Export <i class="fa-solid fa-file-excel"></i></a>
+            </div>
             <table class="table table-hover">
                 <tr class="bg-info text-white">
                     <th>ID</th>
@@ -29,8 +35,9 @@
                     <td th:text="${ob.musDesc}"></td>
                     <td>
                         <!-- Url Rewriting-->
-                        <a class="btn btn-danger" th:href="@{/mus/delete(id=${ob.id})}">DELETE</a> |
-                        <a class="btn btn-warning" th:href="@{/mus/edit(id=${ob.id})}">EDIT</a>
+                        <a class="btn btn-danger" th:href="@{/mus/delete(id=${ob.getId()})}"><i class="fa-solid fa-trash-can"></i></a> |
+                        <a class="btn btn-warning" th:href="@{/mus/edit(id=${ob.getId()})}"><i class="fa-solid fa-pen-fancy"></i></a> |
+                        <a class="btn btn-success" th:href="@{/mus/excelone(id=${ob.getId()})}"><i class="fa-solid fa-file-excel"></i></a>
                     </td>
                 </tr>
             </table>

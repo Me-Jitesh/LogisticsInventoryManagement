@@ -5,6 +5,9 @@
     <title>Shipment Type Data</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
           rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
@@ -15,7 +18,7 @@
         </div>
         <div class="card-body">
             <div class="text-right mb-2">
-                <a th:href="@{/st/excel}" class="btn btn-outline-dark">Excel Export &#128190;</a>
+                <a class="btn btn-outline-success" th:href="@{/st/excel}">Excel Export <i class="fa-regular fa-file-excel"></i></a>
             </div>
             <table class="table table-hover">
                 <tr class="bg-secondary text-white">
@@ -36,10 +39,9 @@
                     <td th:text="${ob.getShipDesc()}"></td>
                     <td>
                         <!-- Url Rewriting-->
-                        <a class="btn btn-outline-danger" th:href="@{/st/delete(id=${ob.getId()})}">DELETE &#9888;</a> |
-                        <a class="btn btn-outline-warning" th:href="@{/st/edit(id=${ob.getId()})}">EDIT &#9998;</a>
-                        <a class="btn btn-outline-success" th:href="@{/st/excelone(id=${ob.getId()})}">EXCEL
-                            &#128190;</a>
+                        <a class="btn btn-outline-danger" th:href="@{/st/delete(id=${ob.getId()})}"><i class="fa-solid fa-trash-can"></i></a> |
+                        <a class="btn btn-outline-warning" th:href="@{/st/edit(id=${ob.getId()})}"><i class="fa-solid fa-pen-fancy"></i></a> |
+                        <a class="btn btn-outline-success" th:href="@{/st/excelone(id=${ob.getId()})}"><i class="fa-solid fa-file-excel"></i></a>
                     </td>
                 </tr>
             </table>

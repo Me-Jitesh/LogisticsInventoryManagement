@@ -25,6 +25,7 @@ public class OrderMethod {
     private String orderNote;
     @ElementCollection
     @CollectionTable(name = "om_acpt_tab", joinColumns = @JoinColumn(name = "om_id_col"))
+    @Column(name = "om_acpt_col")
     private Set<String> orderAcpt;
 
 }

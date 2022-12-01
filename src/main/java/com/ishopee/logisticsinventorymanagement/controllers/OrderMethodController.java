@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/om")
 public class OrderMethodController {
@@ -40,5 +42,24 @@ public class OrderMethodController {
         }
         LOG.info("ABOUT TO GO UI PAGE OrderMethodRegister ! ");
         return "OrderMethodRegister";
+    }
+
+    @GetMapping("/all")
+    public String getAllOrderMethod(Model model) {
+        LOG.info("ENTERED INTO getAllOrderMethod");
+        try {
+            fetchAllData(model);
+            LOG.debug("FETCHED ALL RECORDS");
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS getAllOrderMethod REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("ABOUT TO GO UI PAGE OrderMethodData ! ");
+        return "OrderMethodData";
+    }
+
+    private void fetchAllData(Model model) {
+        List<OrderMethod> list = service.getAllOrderMethod();
+        model.addAttribute("list", list);
     }
 }

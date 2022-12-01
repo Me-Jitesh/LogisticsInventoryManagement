@@ -74,6 +74,40 @@ public class OrderMethodController {
         return "OrderMethodData";
     }
 
+    @GetMapping("/edit")
+    public String ShowOrderMethodEdit(@RequestParam Integer id, Model model) {
+        String page;
+        LOG.info("ENTERED INTO EDIT METHOD");
+        try {
+            OrderMethod om = service.getOrderMethodById(id);
+            LOG.debug("RECORD FOUND WITH ID {}", id);
+            model.addAttribute("orderMethod", om);
+            page = "OrderMethodEdit";
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS EDIT REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            fetchAllData(model);
+            model.addAttribute("message", e.getMessage());
+            page = "OrderMethodData";
+        }
+        LOG.info("ABOUT TO GO UI PAGE {} !", page);
+        return page;
+    }
+
+    @PostMapping("/update")
+    public String updateOrderMethod(@ModelAttribute OrderMethod orderMethod) {
+        LOG.info("ENTERED INTO UPDATE METHOD");
+        try {
+            service.updateOrderMethod(orderMethod);
+            LOG.debug("RECORD IS UPDATED FOR ID {}", orderMethod.getId());
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS UPDATE REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");
+        return "redirect:all";
+    }
+
     private void fetchAllData(Model model) {
         List<OrderMethod> list = service.getAllOrderMethod();
         model.addAttribute("list", list);

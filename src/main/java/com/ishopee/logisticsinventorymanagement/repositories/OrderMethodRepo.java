@@ -9,7 +9,7 @@ public interface OrderMethodRepo extends JpaRepository<OrderMethod, Integer> {
     @Query("SELECT count(orderCode) FROM OrderMethod  WHERE orderCode=:orderCode")
     Integer isOrderCodeExist(String orderCode);
 
-    @Query("SELECT count(orderCode) FROM OrderMethod  WHERE orderCode=:orderCode AND id=:id")
+    @Query("SELECT count(orderCode) FROM OrderMethod  WHERE orderCode=:orderCode AND id !=:id")
     Integer isOrderCodeExistForEdit(String orderCode, Integer id);
 
 }

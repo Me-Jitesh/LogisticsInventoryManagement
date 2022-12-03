@@ -47,8 +47,25 @@ $(document).ready(function () {
             $("#orderCodeError").css('color', 'red');
             orderCodeError = false;
         } else {
-            $("#orderCodeError").hide();
-            orderCodeError = true;
+            var id = 0;     // for register page
+            if ($("#id").val() != undefined) {
+                id = $("#id").val();    // for edit page
+            }
+            $.ajax({
+                url: 'validatecode',
+                data: {"code": val, "id": id},
+                success(resText) {
+                    if (resText != "") {
+                        $("#orderCodeError").show();
+                        $("#orderCodeError").html(resText);
+                        $("#orderCodeError").css('color', 'red');
+                        orderCodeError = false;
+                    } else {
+                        $("#orderCodeError").hide();
+                        orderCodeError = true;
+                    }
+                }
+            });
         }
         return orderCodeError;
     }
@@ -126,7 +143,7 @@ $(document).ready(function () {
     });
 
     //5. on click form submit
-    $("#OrderMetrhodForm").submit(function () {
+    $("#OrderMethodForm").submit(function () {
         validate_orderMode();
         validate_orderCode();
         validate_orderType();

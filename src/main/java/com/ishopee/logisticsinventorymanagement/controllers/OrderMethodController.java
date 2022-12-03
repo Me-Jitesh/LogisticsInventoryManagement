@@ -108,6 +108,21 @@ public class OrderMethodController {
         return "redirect:all";
     }
 
+    @GetMapping("/validatecode")
+    @ResponseBody
+    public String validateOrderCode(@RequestParam String code, @RequestParam Integer id) {
+        String msg = "";
+        // for register check
+        if (id == 0 && service.isOrderCodeExist(code)) {
+            msg = " * order code " + code + " already exist !";
+
+            //for edit check
+        } else if (id != 0 && service.isOrderCodeExistForEdit(code, id)) {
+            msg = " *  " + code + " already exist !";
+        }
+        return msg;
+    }
+
     private void fetchAllData(Model model) {
         List<OrderMethod> list = service.getAllOrderMethod();
         model.addAttribute("list", list);

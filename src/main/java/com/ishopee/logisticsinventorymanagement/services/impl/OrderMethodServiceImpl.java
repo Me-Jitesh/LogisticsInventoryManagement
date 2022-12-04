@@ -22,7 +22,7 @@ public class OrderMethodServiceImpl implements IOrderMethodService {
 
     @Override
     public void updateOrderMethod(OrderMethod om) {
-        if (om.getId() == null || repo.existsById(om.getId()))
+        if (om.getId() == null || !repo.existsById(om.getId()))
             throw new OrderMethodNotFoundException("Order Method Does Not Exist !");
         repo.save(om);
     }

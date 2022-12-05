@@ -3,14 +3,20 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
 import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeExcelView;
+import com.ishopee.logisticsinventorymanagement.views.ShipmentTypePdfUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +27,10 @@ public class ShipmentTypeController {
     private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
     @Autowired
     private IShipmentTypeService service;
+
+    @Autowired
+    ShipmentTypePdfUI pdfView;
+
 
     @GetMapping("/register")
     public String showRegister() {
@@ -156,6 +166,14 @@ public class ShipmentTypeController {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @GetMapping("/pdf")
+    public ResponseEntity<InputStreamResource> exportPdf() {
+        ByteArrayInputStream inputStream = pdfView.buildPdfDocument(service.getAllShipmentType());
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "inline;file=ShipmentTypeData.pdf");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
     private void fetchAllData(Model model) {

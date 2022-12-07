@@ -172,7 +172,7 @@ public class ShipmentTypeController {
     public ResponseEntity<InputStreamResource> exportPdf() {
         ByteArrayInputStream inputStream = pdfView.buildPdfDocument(service.getAllShipmentType());
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Content-Disposition", "inline;file=ShipmentTypeData.pdf");
+        httpHeaders.add("Content-Disposition", "inline;filename=ShipmentTypeData.pdf");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
@@ -180,7 +180,8 @@ public class ShipmentTypeController {
     public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
         ByteArrayInputStream inputStream = pdfView.buildPdfDocument(Arrays.asList(service.getShipmentType(id)));
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Content-Disposition", "inline;file=ShipmentTypeData.pdf");
+//        httpHeaders.add("Content-Disposition", "inline;filename=ShipmentTypeData.pdf");       // Only display on a browser not download automatically
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeData.pdf");     // download automatically
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 

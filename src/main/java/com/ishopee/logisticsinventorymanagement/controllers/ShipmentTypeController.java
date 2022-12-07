@@ -176,6 +176,14 @@ public class ShipmentTypeController {
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
+    @GetMapping("/pdfone")
+    public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
+        ByteArrayInputStream inputStream = pdfView.buildPdfDocument(Arrays.asList(service.getShipmentType(id)));
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "inline;file=ShipmentTypeData.pdf");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
+    }
+
     private void fetchAllData(Model model) {
         List<ShipmentType> list = service.getAllShipmentType();
         model.addAttribute("list", list);

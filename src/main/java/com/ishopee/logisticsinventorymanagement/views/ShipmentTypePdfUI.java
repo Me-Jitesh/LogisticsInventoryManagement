@@ -28,31 +28,24 @@ public class ShipmentTypePdfUI {
     public ByteArrayInputStream buildPdfDocument(List<ShipmentType> list) {
 
         LOG.info("ENTERED INTO buildPdfDocument ");
-
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-
         // step 1: creation of a document-object
         Document document = new Document();
-
         try {
             // step 2:  we create a writer that listens to the document and directs a PDF-stream to a file
             PdfWriter.getInstance(document, outputStream);
-
             // step 3: we open the document
             document.open();
-
             LOG.debug("TABLE UI CREATION");
-
             // step 4 : Create UI
             table = new PdfPTable(7);
             table.setWidthPercentage(100);
             setTitle("SHIPMENT TYPE DATA");
             setHeader();
             setData(list);
-
             // step 5 : Flush Table to the document
             document.add(table);
-            LOG.debug("WRITTENED DATA TO DOCUMENT");
+            LOG.debug("WRITTENED DATA INTO DOCUMENT");
         } catch (DocumentException de) {
             LOG.error(de.getMessage());
         }

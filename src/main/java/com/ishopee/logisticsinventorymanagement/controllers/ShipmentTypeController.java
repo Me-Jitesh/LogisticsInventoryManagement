@@ -154,7 +154,7 @@ public class ShipmentTypeController {
 
     @GetMapping("/excelone")
     public ModelAndView exportExcelById(@RequestParam Integer id) {
-        LOG.info("ENTERED INTO exportExcelById METHOD");
+        LOG.info("ENTERED INTO exportPdf METHOD");
         try {
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setView(new ShipmentTypeExcelView());
@@ -170,18 +170,22 @@ public class ShipmentTypeController {
 
     @GetMapping("/pdf")
     public ResponseEntity<InputStreamResource> exportPdf() {
+        LOG.info("ENTERED INTO exportPdf METHOD");
         ByteArrayInputStream inputStream = pdfView.buildPdfDocument(service.getAllShipmentType());
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "inline;filename=ShipmentTypeData.pdf");
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
     @GetMapping("/pdfone")
     public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportPdfById METHOD");
         ByteArrayInputStream inputStream = pdfView.buildPdfDocument(Arrays.asList(service.getShipmentType(id)));
         HttpHeaders httpHeaders = new HttpHeaders();
 //        httpHeaders.add("Content-Disposition", "inline;filename=ShipmentTypeData.pdf");       // Only display on a browser not download automatically
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeData.pdf");     // download automatically
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 

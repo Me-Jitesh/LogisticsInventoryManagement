@@ -3,14 +3,20 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
 import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeExcelView;
+import com.ishopee.logisticsinventorymanagement.views.ShipmentTypePdfUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +27,10 @@ public class ShipmentTypeController {
     private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
     @Autowired
     private IShipmentTypeService service;
+
+    @Autowired
+    ShipmentTypePdfUI pdfView;
+
 
     @GetMapping("/register")
     public String showRegister() {
@@ -144,7 +154,7 @@ public class ShipmentTypeController {
 
     @GetMapping("/excelone")
     public ModelAndView exportExcelById(@RequestParam Integer id) {
-        LOG.info("ENTERED INTO exportExcelById METHOD");
+        LOG.info("ENTERED INTO exportPdf METHOD");
         try {
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.setView(new ShipmentTypeExcelView());
@@ -156,6 +166,27 @@ public class ShipmentTypeController {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @GetMapping("/pdf")
+    public ResponseEntity<InputStreamResource> exportPdf() {
+        LOG.info("ENTERED INTO exportPdf METHOD");
+        ByteArrayInputStream inputStream = pdfView.buildPdfDocument(service.getAllShipmentType());
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "inline;filename=ShipmentTypeData.pdf");
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/pdfone")
+    public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportPdfById METHOD");
+        ByteArrayInputStream inputStream = pdfView.buildPdfDocument(Arrays.asList(service.getShipmentType(id)));
+        HttpHeaders httpHeaders = new HttpHeaders();
+//        httpHeaders.add("Content-Disposition", "inline;filename=ShipmentTypeData.pdf");       // Only display on a browser not download automatically
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeData.pdf");     // download automatically
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
     private void fetchAllData(Model model) {

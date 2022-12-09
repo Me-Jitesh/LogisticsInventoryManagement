@@ -170,7 +170,15 @@ public class MusController {
     public ResponseEntity<InputStreamResource> exportPdf() {
         ByteArrayInputStream inputStream = musPdfUI.buildPdfDocument(service.getAllMus());
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("Content-Disposition", "inline;file=MusData.pdf");
+        httpHeaders.add("Content-Disposition", "inline;filename=MusData.pdf");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/pdfone")
+    public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
+        ByteArrayInputStream inputStream = musPdfUI.buildPdfDocument(Arrays.asList(service.getMus(id)));
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=MusData.pdf");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 

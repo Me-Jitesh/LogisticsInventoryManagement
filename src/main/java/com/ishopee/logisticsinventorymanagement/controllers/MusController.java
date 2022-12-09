@@ -3,14 +3,20 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 import com.ishopee.logisticsinventorymanagement.models.Mus;
 import com.ishopee.logisticsinventorymanagement.services.IMusService;
 import com.ishopee.logisticsinventorymanagement.views.MusExcelView;
+import com.ishopee.logisticsinventorymanagement.views.MusPdfUI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +27,8 @@ public class MusController {
     private static final Logger LOG = LoggerFactory.getLogger(MusController.class);
     @Autowired
     private IMusService service;
+    @Autowired
+    private MusPdfUI musPdfUI;
 
     @GetMapping("/register")
     public String showMusRegister() {
@@ -111,7 +119,8 @@ public class MusController {
     }
 
     @GetMapping("/validatemodel")
-    public @ResponseBody String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
+    public @ResponseBody
+    String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
         String msg = "";
         // for register check
         if (id == 0 && service.isMusModelCountExist(musModel)) {
@@ -155,6 +164,26 @@ public class MusController {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @GetMapping("/pdf")
+    public ResponseEntity<InputStreamResource> exportPdf() {
+        LOG.info("ENTERED INTO exportPdf METHOD");
+        ByteArrayInputStream inputStream = musPdfUI.buildPdfDocument(service.getAllMus());
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "inline;filename=MusData.pdf");
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/pdfone")
+    public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportPdfById METHOD");
+        ByteArrayInputStream inputStream = musPdfUI.buildPdfDocument(Arrays.asList(service.getMus(id)));
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=MusData.pdf");
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
     private void fetchAllData(Model model) {

@@ -168,17 +168,21 @@ public class MusController {
 
     @GetMapping("/pdf")
     public ResponseEntity<InputStreamResource> exportPdf() {
+        LOG.info("ENTERED INTO exportPdf METHOD");
         ByteArrayInputStream inputStream = musPdfUI.buildPdfDocument(service.getAllMus());
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "inline;filename=MusData.pdf");
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 
     @GetMapping("/pdfone")
     public ResponseEntity<InputStreamResource> exportPdfById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportPdfById METHOD");
         ByteArrayInputStream inputStream = musPdfUI.buildPdfDocument(Arrays.asList(service.getMus(id)));
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "attachment;filename=MusData.pdf");
+        LOG.debug("PDF EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
     }
 

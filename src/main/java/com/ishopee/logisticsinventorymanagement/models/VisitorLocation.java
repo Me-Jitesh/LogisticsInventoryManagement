@@ -4,11 +4,12 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.sql.Timestamp;
 
 @Embeddable
 @Data
 public class VisitorLocation {
-    @Column(name = "visitors_country_col")
+    @Column(name = "visitors_cntry_col")
     private String country;
     @Column(name = "visitors_cntry_code_col")
     private String countryCode;
@@ -22,6 +23,8 @@ public class VisitorLocation {
     private String latitude;
     @Column(name = "visitors_longi_col")
     private String longitude;
-    @Column(name = "visitors_offset_col")
-    private String utcOffset;
+    @Column(name = "visitors_timezone_col")
+    private String timezone;
+    @Column(name = "visitors_timestamp_col")
+    private Timestamp timestamp;
 }

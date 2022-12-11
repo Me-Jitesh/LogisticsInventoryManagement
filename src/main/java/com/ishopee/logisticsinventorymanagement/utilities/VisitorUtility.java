@@ -1,5 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.utilities;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.ishopee.logisticsinventorymanagement.models.Visitor;
 import com.ishopee.logisticsinventorymanagement.models.VisitorLocation;
 import com.maxmind.geoip2.DatabaseReader;
@@ -12,9 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.Scanner;
 
 @Component
 public class VisitorUtility {
@@ -23,7 +28,8 @@ public class VisitorUtility {
         Visitor visitor = new Visitor();
         String ip = extractIP(httpServletRequest);
         visitor.setIpAddress(ip);
-        VisitorLocation locale = extractLocaleByGeoLite2(ip);
+//        VisitorLocation locale = extractLocaleByGeoLite2(ip);
+        VisitorLocation locale = extractLocaleByIP2Location(ip);
         visitor.setLocale(locale);
         return visitor;
     }
@@ -80,6 +86,32 @@ public class VisitorUtility {
             visitorLocation.setTimezone(response.getLocation().getTimeZone());
             System.err.println(response.getTraits()); // only to know about connection
         } catch (IOException | GeoIp2Exception e) {
+            e.printStackTrace();
+        }
+        return visitorLocation;
+    }
+
+    public VisitorLocation extractLocaleByIP2Location(String ip) {
+
+        String key = APISecretKeys.getIP2LocationKey();
+        VisitorLocation visitorLocation = new VisitorLocation();
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+
+        try {
+            // API Call for Geo Location
+            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");
+            // JSON Parsing Using Gson
+            JsonObject jsonObject = new JsonParser().parse(s.next()).getAsJsonObject();
+
+            visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
+            visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
+            visitorLocation.setState(jsonObject.get("region_name").getAsString());
+            visitorLocation.setCity(jsonObject.get("city_name").getAsString());
+            visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
+            visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
+            visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
+            visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return visitorLocation;

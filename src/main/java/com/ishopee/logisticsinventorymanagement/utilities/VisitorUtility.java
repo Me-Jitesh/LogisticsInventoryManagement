@@ -28,8 +28,8 @@ public class VisitorUtility {
         Visitor visitor = new Visitor();
         String ip = extractIP(httpServletRequest);
         visitor.setIpAddress(ip);
-//        VisitorLocation locale = extractLocaleByGeoLite2(ip);
-        VisitorLocation locale = extractLocaleByIP2Location(ip);
+        VisitorLocation locale = extractLocaleByGeoLite2(ip);
+//        VisitorLocation locale = extractLocaleByIP2Location(ip);
         visitor.setLocale(locale);
         return visitor;
     }

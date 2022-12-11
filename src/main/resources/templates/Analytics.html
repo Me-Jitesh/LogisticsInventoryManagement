@@ -25,6 +25,31 @@
         </div>
         <!--Card Header Closed-->
         <div class="card-body">
+
+            <div class="row  bg-secondary text-dark py-3 mb-2">
+                <div class="col-7" style="height:300px; overflow-y: scroll;">
+                    <h3><i class="fa-solid fa-shield-halved"></i>Achievements</h3>
+                </div>
+
+                <div class="col-5" style="height:300px; overflow-y: scroll;">
+                    <h3 class="text-dark"><i class="fa-solid fa-eye"></i> Visitors Details</h3>
+                    <hr/>
+                    <div th:each="ob:${list}" class="text-warning">
+                        <h4 th:text="${ob.ipAddress}" class="text-dark font-italic"></h4>
+                        <span class="text-white"> Country : </span><span th:text="${ob.locale.country}"></span>
+                        <span class="text-white"> Code: </span> <span th:text="${ob.locale.countryCode}"></span>
+                        <span class="text-white"> Region : </span><span th:text="${ob.locale.state}"></span>
+                        <span class="text-white"> City : </span> <span th:text="${ob.locale.city}"></span>
+                        <span class="text-white"> Zip : </span> <span th:text="${ob.locale.zip}"></span>
+                        <span class="text-white"> Longitude : </span><span th:text="${ob.locale.longitude}"></span>
+                        <span class="text-white"> Latitude : </span> <span th:text="${ob.locale.latitude}"></span>
+                        <span class="text-white"> Timezone : </span> <span th:text="${ob.locale.timezone}"></span>
+                        <span class="text-white"> Timestamp : </span><span th:text="${ob.locale.timestamp}"></span>
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+            <!--Achievment & Visitors Closed-->
             <div class="row  bg-dark text-secondary py-2">
                 <div class="col-4">
                     <h3>MODULE</h3>

@@ -5,6 +5,7 @@ import com.ishopee.logisticsinventorymanagement.repositories.VisitorRepo;
 import com.ishopee.logisticsinventorymanagement.services.IVisitorService;
 import com.ishopee.logisticsinventorymanagement.utilities.VisitorUtility;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,7 @@ public class VisitorServiceImpl implements IVisitorService {
 
     @Override
     public List<Visitor> getAllVisitors() {
-        return repo.findAll();
+        return repo.findAll(Sort.by(Sort.Direction.DESC, "locale.timestamp"));
     }
 
     @Override

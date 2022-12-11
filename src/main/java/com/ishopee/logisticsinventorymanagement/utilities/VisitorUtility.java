@@ -1,12 +1,20 @@
 package com.ishopee.logisticsinventorymanagement.utilities;
 
 import com.ishopee.logisticsinventorymanagement.models.Visitor;
+import com.ishopee.logisticsinventorymanagement.models.VisitorLocation;
+import com.maxmind.geoip2.DatabaseReader;
+import com.maxmind.geoip2.exception.GeoIp2Exception;
+import com.maxmind.geoip2.model.CityResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.sql.Timestamp;
+import java.time.Instant;
 
 @Component
 public class VisitorUtility {
@@ -15,6 +23,8 @@ public class VisitorUtility {
         Visitor visitor = new Visitor();
         String ip = extractIP(httpServletRequest);
         visitor.setIpAddress(ip);
+        VisitorLocation locale = extractLocaleByGeoLite2(ip);
+        visitor.setLocale(locale);
         return visitor;
     }
 
@@ -48,5 +58,30 @@ public class VisitorUtility {
         }
 
         return ipAddress;
+    }
+
+    private VisitorLocation extractLocaleByGeoLite2(String ip) {
+        String dbLocation = "D:\\IdeaProjects\\LogisticsInventoryManagement\\extra_resources\\GeoLite2-City-DB\\GeoLite2-City.mmdb";
+        VisitorLocation visitorLocation = new VisitorLocation();
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+        try {
+            File databse = new File(dbLocation);
+            DatabaseReader dbr = new DatabaseReader.Builder(databse).build();
+            InetAddress inetAddress = InetAddress.getByName(ip);
+            CityResponse response = dbr.city(inetAddress);
+            // Extracting Locale and Setting to the VisitorLocation Model
+            visitorLocation.setCountry(response.getCountry().getName());
+            visitorLocation.setCountryCode(response.getCountry().getIsoCode());
+            visitorLocation.setState(response.getLeastSpecificSubdivision().getName());
+            visitorLocation.setCity(response.getCity().getName());
+            visitorLocation.setZip(response.getPostal().getCode());
+            visitorLocation.setLongitude(response.getLocation().getLongitude().toString());
+            visitorLocation.setLatitude(response.getLocation().getLatitude().toString());
+            visitorLocation.setTimezone(response.getLocation().getTimeZone());
+            System.err.println(response.getTraits()); // only to know about connection
+        } catch (IOException | GeoIp2Exception e) {
+            e.printStackTrace();
+        }
+        return visitorLocation;
     }
 }

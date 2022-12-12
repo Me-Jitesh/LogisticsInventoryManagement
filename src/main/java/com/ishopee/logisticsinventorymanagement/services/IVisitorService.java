@@ -11,6 +11,8 @@ public interface IVisitorService {
 
     List<Visitor> getAllVisitors();
 
+    List<Visitor> getRecent10Visitors();
+
     void deleteAllVisitors();
 
     void deleteVisitor(Integer id);

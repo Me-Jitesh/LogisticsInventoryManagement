@@ -31,6 +31,11 @@ public class VisitorServiceImpl implements IVisitorService {
     }
 
     @Override
+    public List<Visitor> getRecent10Visitors() {
+        return repo.findTop10ByOrderByLocaleTimestampDesc();
+    }
+
+    @Override
     public void deleteAllVisitors() {
         repo.deleteAll();
     }

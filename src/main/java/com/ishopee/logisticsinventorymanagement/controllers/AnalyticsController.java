@@ -23,7 +23,7 @@ public class AnalyticsController {
             httpServletRequest.getSession().setAttribute("visitorDetails", visitor);
         }
         // Display All Visitors
-        model.addAttribute("list", visitorService.getAllVisitors());
+        model.addAttribute("list", visitorService.getRecent10Visitors());
         return "Analytics";
     }
 }

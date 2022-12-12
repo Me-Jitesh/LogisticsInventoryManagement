@@ -26,13 +26,28 @@
         <!--Card Header Closed-->
         <div class="card-body">
 
-            <div class="row  bg-secondary text-dark py-3 mb-2">
+            <div class="row  bg-secondary text-dark mb-2">
                 <div class="col-7" style="height:300px; overflow-y: scroll;">
-                    <h3><i class="fa-solid fa-shield-halved"></i>Achievements</h3>
+                    <div class="bg-dark text-secondary p-2">
+                        <span class="h4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Achievements
+                        </span>
+                    </div>
                 </div>
 
                 <div class="col-5" style="height:300px; overflow-y: scroll;">
-                    <h3 class="text-dark"><i class="fa-solid fa-eye"></i> Visitors Details</h3>
+                    <div class="bg-dark text-secondary p-2">
+                        <span class="h4">
+                            <i class="fa-solid fa-eye"></i>
+                            Recent Visitors
+                        </span>
+
+                        <button class="btn btn-outline-secondary btn-sm" disabled>
+                            <i class="fa-solid fa-flag"></i>
+                            <span th:text="${count}"></span>
+                        </button>
+                    </div>
                     <hr/>
                     <div th:each="ob:${list}" class="text-warning">
                         <h4 th:text="${ob.ipAddress}" class="text-dark font-italic"></h4>
@@ -50,17 +65,17 @@
                 </div>
             </div>
             <!--Achievment & Visitors Closed-->
-            <div class="row  bg-dark text-secondary py-2">
+            <div class="row  bg-dark text-secondary">
                 <div class="col-4">
-                    <h3>MODULE</h3>
+                    <h4>MODULE</h4>
                 </div>
 
                 <div class="col-3">
-                    <h3>URLs</h3>
+                    <h4>URLs</h4>
                 </div>
 
                 <div class="col-5">
-                    <h3>LEARNING</h3>
+                    <h4>LEARNING</h4>
                 </div>
             </div>
             <!--Heading  Closed-->

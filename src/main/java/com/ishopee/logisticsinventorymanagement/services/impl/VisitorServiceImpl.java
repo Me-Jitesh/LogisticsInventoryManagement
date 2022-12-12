@@ -36,6 +36,11 @@ public class VisitorServiceImpl implements IVisitorService {
     }
 
     @Override
+    public Long getVisitorsCount() {
+        return repo.count();
+    }
+
+    @Override
     public void deleteAllVisitors() {
         repo.deleteAll();
     }

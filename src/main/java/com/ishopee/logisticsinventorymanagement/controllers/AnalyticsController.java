@@ -24,6 +24,7 @@ public class AnalyticsController {
         }
         // Display All Visitors
         model.addAttribute("list", visitorService.getRecent10Visitors());
+        model.addAttribute("count", visitorService.getVisitorsCount());
         return "Analytics";
     }
 }

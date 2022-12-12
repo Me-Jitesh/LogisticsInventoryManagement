@@ -13,6 +13,8 @@ public interface IVisitorService {
 
     List<Visitor> getRecent10Visitors();
 
+    Long getVisitorsCount();
+
     void deleteAllVisitors();
 
     void deleteVisitor(Integer id);

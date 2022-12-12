@@ -13,7 +13,7 @@
     <groupId>com.ishopee</groupId>
     <artifactId>LogisticsInventoryManagement</artifactId>
     <version>1.0-DEV</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>LogisticsInventoryManagement</name>
     <description>LogisticsInventoryManagement</description>
 

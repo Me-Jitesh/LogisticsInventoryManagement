@@ -52,6 +52,11 @@
                             <i class="fa-solid fa-flag"></i>
                             <span th:text="${count}"></span>
                         </button>
+
+                        <a class="btn btn-outline-danger btn-sm" th:href="@{/pdf}">
+                            <i class="fa-regular fa-file-pdf"></i>
+                        </a>
+
                     </div>
                     <hr/>
                     <div th:each="ob:${list}" class="text-warning">

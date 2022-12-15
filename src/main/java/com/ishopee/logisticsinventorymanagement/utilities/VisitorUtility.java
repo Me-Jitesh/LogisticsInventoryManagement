@@ -7,6 +7,7 @@ import com.ishopee.logisticsinventorymanagement.models.VisitorLocation;
 import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -25,6 +26,8 @@ import java.util.TimeZone;
 
 @Component
 public class VisitorUtility {
+    @Autowired
+    private APISecretKeys apiSecretKeys;
 
     public Visitor resolveVisitorDetails(HttpServletRequest httpServletRequest) {
         Visitor visitor = new Visitor();
@@ -96,8 +99,7 @@ public class VisitorUtility {
     }
 
     public VisitorLocation extractLocaleByIP2Location(String ip) {
-
-        String key = APISecretKeys.getIP2LocationKey();
+        String key = apiSecretKeys.getIP2LocationKey();
         VisitorLocation visitorLocation = new VisitorLocation();
         visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
 
@@ -111,22 +113,22 @@ public class VisitorUtility {
 
             // JSON Parsing Using Gson
 //            JsonObject jsonObject = new JsonParser().parse(s.next()).getAsJsonObject();
-          if(response.statusCode()==200){
-              JsonObject jsonObject = new JsonParser().parse(response.body()).getAsJsonObject();
+            if (response.statusCode() == 200) {
+                JsonObject jsonObject = new JsonParser().parse(response.body()).getAsJsonObject();
 
-              visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
-              visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
-              visitorLocation.setState(jsonObject.get("region_name").getAsString());
-              visitorLocation.setCity(jsonObject.get("city_name").getAsString());
-              visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
-              visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
-              visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
-              visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
-              visitorLocation.setAsn(jsonObject.get("asn").getAsString());
-              visitorLocation.setAs(jsonObject.get("as").getAsString());
-          }else {
-              throw new Exception(String.valueOf(response.statusCode()));
-          }
+                visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
+                visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
+                visitorLocation.setState(jsonObject.get("region_name").getAsString());
+                visitorLocation.setCity(jsonObject.get("city_name").getAsString());
+                visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
+                visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
+                visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
+                visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
+                visitorLocation.setAsn(jsonObject.get("asn").getAsString());
+                visitorLocation.setAs(jsonObject.get("as").getAsString());
+            } else {
+                throw new Exception(String.valueOf(response.statusCode()));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

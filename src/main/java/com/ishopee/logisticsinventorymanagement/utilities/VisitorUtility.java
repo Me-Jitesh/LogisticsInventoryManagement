@@ -101,12 +101,12 @@ public class VisitorUtility {
     public VisitorLocation extractLocaleByIP2Location(String ip) {
         String key = apiSecretKeys.getIP2LocationKey();
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("IST").toZoneId()).toInstant()));
 
         try {
             // API Call for Geo Location
 //            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");
-            String url = "https://api.ip2location.io/?key=" + key + "&ip" + ip;
+            String url = "https://api.ip2location.io/?key=" + key + "&ip=" + ip;
             var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
             var client = HttpClient.newBuilder().build();
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

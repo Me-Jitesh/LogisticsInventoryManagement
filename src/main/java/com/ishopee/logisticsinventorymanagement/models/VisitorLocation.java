@@ -23,6 +23,10 @@ public class VisitorLocation {
     private String latitude;
     @Column(name = "visitors_longi_col")
     private String longitude;
+    @Column(name = "visitors_asn_col")
+    private String asn;
+    @Column(name = "visitors_as_col")
+    private String as;
     @Column(name = "visitors_timezone_col")
     private String timezone;
     @Column(name = "visitors_timestamp_col")

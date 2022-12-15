@@ -83,6 +83,8 @@ public class VisitorUtility {
             visitorLocation.setZip(response.getPostal().getCode());
             visitorLocation.setLongitude(response.getLocation().getLongitude().toString());
             visitorLocation.setLatitude(response.getLocation().getLatitude().toString());
+            visitorLocation.setAsn(String.valueOf(response.getTraits().getAutonomousSystemNumber())); // Paid Plan
+            visitorLocation.setAs(response.getTraits().getIsp()); // Paid Plan
             visitorLocation.setTimezone(response.getLocation().getTimeZone());
             System.err.println(response.getTraits()); // only to know about connection
         } catch (IOException | GeoIp2Exception e) {
@@ -111,6 +113,8 @@ public class VisitorUtility {
             visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
             visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
             visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
+            visitorLocation.setAsn(jsonObject.get("asn").getAsString());
+            visitorLocation.setAs(jsonObject.get("as").getAsString());
         } catch (Exception e) {
             e.printStackTrace();
         }

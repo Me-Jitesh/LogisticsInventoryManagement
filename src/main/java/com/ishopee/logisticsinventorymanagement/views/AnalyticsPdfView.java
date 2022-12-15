@@ -102,6 +102,8 @@ public class AnalyticsPdfView extends AbstractPdfView {
                 ", latitude='" + visitor.getLocale().getLatitude() + '\'' +
                 ", longitude='" + visitor.getLocale().getLongitude() + '\'' +
                 ", timezone='" + visitor.getLocale().getTimezone() + '\'' +
+                ", asn='" + visitor.getLocale().getAsn() + '\'' +
+                ", as='" + visitor.getLocale().getAs() + '\'' +
                 ", timestamp=" + visitor.getLocale().getTimestamp();
         return s;
     }

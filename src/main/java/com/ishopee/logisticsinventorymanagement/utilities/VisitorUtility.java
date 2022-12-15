@@ -20,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.util.Scanner;
+import java.util.TimeZone;
 
 @Component
 public class VisitorUtility {
@@ -69,7 +70,7 @@ public class VisitorUtility {
     private VisitorLocation extractLocaleByGeoLite2(String ip) {
         String dbLocation = "D:\\IdeaProjects\\LogisticsInventoryManagement\\extra_resources\\GeoLite2-City-DB\\GeoLite2-City.mmdb";
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
         try {
             File databse = new File(dbLocation);
             DatabaseReader dbr = new DatabaseReader.Builder(databse).build();
@@ -97,7 +98,7 @@ public class VisitorUtility {
 
         String key = APISecretKeys.getIP2LocationKey();
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
 
         try {
             // API Call for Geo Location

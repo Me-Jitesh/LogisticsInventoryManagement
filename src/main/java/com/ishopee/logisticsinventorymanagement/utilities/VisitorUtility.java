@@ -14,12 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
-import java.net.URL;
+import java.net.URI;
 import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Scanner;
 import java.util.TimeZone;
 
 @Component
@@ -29,8 +30,8 @@ public class VisitorUtility {
         Visitor visitor = new Visitor();
         String ip = extractIP(httpServletRequest);
         visitor.setIpAddress(ip);
-        VisitorLocation locale = extractLocaleByGeoLite2(ip);
-//        VisitorLocation locale = extractLocaleByIP2Location(ip);
+//        VisitorLocation locale = extractLocaleByGeoLite2(ip);
+        VisitorLocation locale = extractLocaleByIP2Location(ip);
         visitor.setLocale(locale);
         return visitor;
     }
@@ -102,20 +103,30 @@ public class VisitorUtility {
 
         try {
             // API Call for Geo Location
-            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");
-            // JSON Parsing Using Gson
-            JsonObject jsonObject = new JsonParser().parse(s.next()).getAsJsonObject();
+//            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");
+            String url = "https://api.ip2location.io/?key=" + key + "&ip" + ip;
+            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
+            var client = HttpClient.newBuilder().build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
-            visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
-            visitorLocation.setState(jsonObject.get("region_name").getAsString());
-            visitorLocation.setCity(jsonObject.get("city_name").getAsString());
-            visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
-            visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
-            visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
-            visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
-            visitorLocation.setAsn(jsonObject.get("asn").getAsString());
-            visitorLocation.setAs(jsonObject.get("as").getAsString());
+            // JSON Parsing Using Gson
+//            JsonObject jsonObject = new JsonParser().parse(s.next()).getAsJsonObject();
+          if(response.statusCode()==200){
+              JsonObject jsonObject = new JsonParser().parse(response.body()).getAsJsonObject();
+
+              visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
+              visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
+              visitorLocation.setState(jsonObject.get("region_name").getAsString());
+              visitorLocation.setCity(jsonObject.get("city_name").getAsString());
+              visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
+              visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
+              visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
+              visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
+              visitorLocation.setAsn(jsonObject.get("asn").getAsString());
+              visitorLocation.setAs(jsonObject.get("as").getAsString());
+          }else {
+              throw new Exception(String.valueOf(response.statusCode()));
+          }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -7,6 +7,7 @@ import com.ishopee.logisticsinventorymanagement.models.VisitorLocation;
 import com.maxmind.geoip2.DatabaseReader;
 import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
@@ -14,22 +15,26 @@ import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
-import java.net.URL;
+import java.net.URI;
 import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.Scanner;
+import java.util.TimeZone;
 
 @Component
 public class VisitorUtility {
+    @Autowired
+    private APISecretKeys apiSecretKeys;
 
     public Visitor resolveVisitorDetails(HttpServletRequest httpServletRequest) {
         Visitor visitor = new Visitor();
         String ip = extractIP(httpServletRequest);
         visitor.setIpAddress(ip);
-        VisitorLocation locale = extractLocaleByGeoLite2(ip);
-//        VisitorLocation locale = extractLocaleByIP2Location(ip);
+//        VisitorLocation locale = extractLocaleByGeoLite2(ip);
+        VisitorLocation locale = extractLocaleByIP2Location(ip);
         visitor.setLocale(locale);
         return visitor;
     }
@@ -69,7 +74,7 @@ public class VisitorUtility {
     private VisitorLocation extractLocaleByGeoLite2(String ip) {
         String dbLocation = "D:\\IdeaProjects\\LogisticsInventoryManagement\\extra_resources\\GeoLite2-City-DB\\GeoLite2-City.mmdb";
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
         try {
             File databse = new File(dbLocation);
             DatabaseReader dbr = new DatabaseReader.Builder(databse).build();
@@ -83,6 +88,8 @@ public class VisitorUtility {
             visitorLocation.setZip(response.getPostal().getCode());
             visitorLocation.setLongitude(response.getLocation().getLongitude().toString());
             visitorLocation.setLatitude(response.getLocation().getLatitude().toString());
+            visitorLocation.setAsn(String.valueOf(response.getTraits().getAutonomousSystemNumber())); // Paid Plan
+            visitorLocation.setAs(response.getTraits().getIsp()); // Paid Plan
             visitorLocation.setTimezone(response.getLocation().getTimeZone());
             System.err.println(response.getTraits()); // only to know about connection
         } catch (IOException | GeoIp2Exception e) {
@@ -92,25 +99,36 @@ public class VisitorUtility {
     }
 
     public VisitorLocation extractLocaleByIP2Location(String ip) {
-
-        String key = APISecretKeys.getIP2LocationKey();
+        String key = apiSecretKeys.getIP2LocationKey();
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
 
         try {
             // API Call for Geo Location
-            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");
-            // JSON Parsing Using Gson
-            JsonObject jsonObject = new JsonParser().parse(s.next()).getAsJsonObject();
+//            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");
+            String url = "https://api.ip2location.io/?key=" + key + "&ip" + ip;
+            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
+            var client = HttpClient.newBuilder().build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-            visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
-            visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
-            visitorLocation.setState(jsonObject.get("region_name").getAsString());
-            visitorLocation.setCity(jsonObject.get("city_name").getAsString());
-            visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
-            visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
-            visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
-            visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
+            // JSON Parsing Using Gson
+//            JsonObject jsonObject = new JsonParser().parse(s.next()).getAsJsonObject();
+            if (response.statusCode() == 200) {
+                JsonObject jsonObject = new JsonParser().parse(response.body()).getAsJsonObject();
+
+                visitorLocation.setCountryCode(jsonObject.get("country_code").getAsString());
+                visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
+                visitorLocation.setState(jsonObject.get("region_name").getAsString());
+                visitorLocation.setCity(jsonObject.get("city_name").getAsString());
+                visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
+                visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
+                visitorLocation.setZip(jsonObject.get("zip_code").getAsString());
+                visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
+                visitorLocation.setAsn(jsonObject.get("asn").getAsString());
+                visitorLocation.setAs(jsonObject.get("as").getAsString());
+            } else {
+                throw new Exception(String.valueOf(response.statusCode()));
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -12,11 +12,18 @@
     <link rel="icon" type="image/png" sizes="32x32" th:href="@{favicon/favicon-32x32.png}">
     <link rel="icon" type="image/png" sizes="16x16" th:href="@{favicon/favicon-16x16.png}">
     <link rel="manifest" th:href="@{favicon/site.webmanifest}">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container-fluid" style="max-height:100vh;">
     <div class="card">
-        <div class="card-header bg-dark text-secondary text-center py-4">
+        <div class="card-header bg-dark text-secondary text-center py-3">
             <h3>
                 <i class="fa-solid fa-truck-fast"></i>
                 LOGISTICS INVENTORY MANAGEMENT ANALYTICS
@@ -25,168 +32,185 @@
         </div>
         <!--Card Header Closed-->
         <div class="card-body">
+            <div class="container-fluid">
 
-            <div class="row  bg-secondary text-dark mb-2">
-                <div class="col-7" style="height:300px; overflow-y: scroll;">
-                    <div class="bg-dark text-secondary p-2">
+                <div class="row  bg-secondary text-dark mb-2">
+                    <div class="col-7" style="max-height:40vh; overflow-y: scroll;">
+                        <div class="bg-dark text-secondary p-2" style="position:sticky; top: 0;">
                         <span class="h4">
                             <i class="fa-solid fa-shield-halved"></i>
                             Achievements
                         </span>
+                        </div>
+                        <div class="p-3">
+                            <ul class="h6 py-2">
+                                <li>
+                                    Github Repository Cloned 60+ Weekly
+                                </li>
+                                <li>
+                                    120+ Hours Of Coding
+                                </li>
+                                <li>
+                                    150+ Commits
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="h6 py-2">
-                        <li>
-                            Github Repository Cloned 60+ Weekly
-                        </li>
-                    </ul>
-                </div>
 
-                <div class="col-5" style="height:300px; overflow-y: scroll;">
-                    <div class="bg-dark text-secondary p-2">
+                    <div class="col-5" style="height:40vh; overflow-y:scroll">
+                        <div class="bg-dark text-secondary p-2" style="position:sticky; top: 0;">
                         <span class="h4">
                             <i class="fa-solid fa-eye"></i>
                             Recent Visitors
                         </span>
 
-                        <button class="btn btn-outline-secondary btn-sm" disabled>
-                            <i class="fa-solid fa-flag"></i>
-                            <span th:text="${count}"></span>
-                        </button>
+                            <button class="btn btn-outline-secondary btn-sm" disabled>
+                                <i class="fa-solid fa-flag"></i>
+                                <span th:text="${count}"></span>
+                            </button>
+
+                            <a class="btn btn-outline-danger btn-sm" th:href="@{/pdf}">
+                                <i class="fa-regular fa-file-pdf"></i>
+                            </a>
+
+                        </div>
+                        <div th:each="ob:${list}" class="text-warning">
+                            <h4 th:text="${ob.ipAddress}" class="text-dark font-italic"></h4>
+                            <span class="text-white"> Country : </span><span th:text="${ob.locale.country}"></span>
+                            <span class="text-white"> Code: </span> <span th:text="${ob.locale.countryCode}"></span>
+                            <span class="text-white"> Region : </span><span th:text="${ob.locale.state}"></span>
+                            <span class="text-white"> City : </span> <span th:text="${ob.locale.city}"></span>
+                            <span class="text-white"> ISP : </span> <span th:text="${ob.locale.as}"></span>
+                            <span class="text-white"> Zip : </span> <span th:text="${ob.locale.zip}"></span>
+                            <span class="text-white"> Longitude : </span><span th:text="${ob.locale.longitude}"></span>
+                            <span class="text-white"> Latitude : </span> <span th:text="${ob.locale.latitude}"></span>
+                            <span class="text-white"> Timezone : </span> <span th:text="${ob.locale.timezone}"></span>
+                            <span class="text-white"> Timestamp : </span><span th:text="${ob.locale.timestamp}"></span>
+                            <hr/>
+                        </div>
                     </div>
-                    <hr/>
-                    <div th:each="ob:${list}" class="text-warning">
-                        <h4 th:text="${ob.ipAddress}" class="text-dark font-italic"></h4>
-                        <span class="text-white"> Country : </span><span th:text="${ob.locale.country}"></span>
-                        <span class="text-white"> Code: </span> <span th:text="${ob.locale.countryCode}"></span>
-                        <span class="text-white"> Region : </span><span th:text="${ob.locale.state}"></span>
-                        <span class="text-white"> City : </span> <span th:text="${ob.locale.city}"></span>
-                        <span class="text-white"> Zip : </span> <span th:text="${ob.locale.zip}"></span>
-                        <span class="text-white"> Longitude : </span><span th:text="${ob.locale.longitude}"></span>
-                        <span class="text-white"> Latitude : </span> <span th:text="${ob.locale.latitude}"></span>
-                        <span class="text-white"> Timezone : </span> <span th:text="${ob.locale.timezone}"></span>
-                        <span class="text-white"> Timestamp : </span><span th:text="${ob.locale.timestamp}"></span>
-                        <hr/>
+                </div>
+                <!--Achievment & Visitors Closed-->
+            </div>
+            <!--Wrapper Closed-->
+            <div class="container-fluid" style="height:40vh;overflow-y: scroll;">
+                <div class="row  bg-dark text-secondary ">
+                    <div class="col-4">
+                        <h4>MODULE</h4>
+                    </div>
+
+                    <div class="col-3">
+                        <h4>URLs</h4>
+                    </div>
+
+                    <div class="col-5">
+                        <h4>LEARNING</h4>
                     </div>
                 </div>
+                <!--Heading  Closed-->
+                <div class="row  bg-secondary text-dark py-2 my-1">
+                    <div class="col-4 my-auto p-2">
+                        <h3>Analytics</h3>
+                    </div>
+
+                    <div class="col-3 my-auto">
+                        <ul class="list-group">
+                            <li>
+                                <a class="text-white" th:href="@{/}">/analytics/register</a>
+                            </li>
+                            <li>
+                                <a class="text-white" th:href="@{/}">/analytics/home</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-5">
+                        <ul>
+                            <li>Export Pdf Using <b>AbstractPdfView</b></li>
+                            <li>Display Visitors <b> IP Address, GeoLocation Details</b></li>
+                            <li>Get IP Details using <b> MaxMind GeoLite2 & IP2Location</b></li>
+                            <li>JSON Parsing Using <b>Gson</b></li>
+                            <li>Learned <b>Column Embedding</b></li>
+                            <li>Sort Data Using <b>Named Query</b></li>
+                            <li>API Calling Using Java Program</li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Analytics Closed-->
+                <div class="row  bg-secondary text-dark py-2 my-1">
+                    <div class="col-4 my-auto">
+                        <h3>Shipment Type</h3>
+                    </div>
+
+                    <div class="col-3 my-auto">
+                        <ul class="list-group">
+                            <li>
+                                <a class="text-white" th:href="@{st/register}">/st/register</a>
+                            </li>
+                            <li>
+                                <a class="text-white" th:href="@{st/all}">/st/all</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-5">
+                        <ul class="list-group">
+                            <li>Export Pdf Using <b>OpenPDF</b></li>
+                            <li>Export Excel Using <b>Apache POI</b></li>
+                            <li>Validation Using <b>JQuery,Ajax,RegEx</b></li>
+                            <li><b>Monolithic Architecture,Spring Data JPA,Thymeleaf,Log4j,Bootstrap</b></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--Shipment Type Closed-->
+                <div class="row  bg-secondary text-dark py-2 my-1">
+                    <div class="col-4 my-auto">
+                        <h3>Measurement Unit System</h3>
+                    </div>
+
+                    <div class="col-3 my-auto">
+                        <ul class="list-group">
+                            <li>
+                                <a class="text-white" th:href="@{mus/register}">/mus/register</a>
+                            </li>
+                            <li>
+                                <a class="text-white" th:href="@{mus/all}">/mus/all</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-5">
+                        <ul class="list-group">
+                            <li>Export Pdf Using <b>iTEXT 7</b></li>
+                        </ul>
+                    </div>
+                </div>
+                <!--MUS Closed-->
+                <div class="row  bg-secondary text-dark py-2 my-1">
+                    <div class="col-4 my-auto">
+                        <h3>Order Method</h3>
+                    </div>
+
+                    <div class="col-3 my-auto">
+                        <ul class="list-group">
+                            <li>
+                                <a class="text-white" th:href="@{om/register}">/om/register</a>
+                            </li>
+                            <li>
+                                <a class="text-white" th:href="@{om/all}">/om/all</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-5">
+                        <ul class="list-group">
+                            <li>Export Pdf Using <b>Jasper Report</b></li>
+                            <li>Relationships <b>one to many , many to many</b>
+                        </ul>
+                    </div>
+                </div>
+                <!--OM Closed-->
             </div>
-            <!--Achievment & Visitors Closed-->
-            <div class="row  bg-dark text-secondary">
-                <div class="col-4">
-                    <h4>MODULE</h4>
-                </div>
-
-                <div class="col-3">
-                    <h4>URLs</h4>
-                </div>
-
-                <div class="col-5">
-                    <h4>LEARNING</h4>
-                </div>
-            </div>
-            <!--Heading  Closed-->
-            <div class="row  bg-secondary text-dark py-2 my-1">
-                <div class="col-4 my-auto">
-                    <h3>Analytics</h3>
-                </div>
-
-                <div class="col-3 my-auto">
-                    <ul class="list-group">
-                        <li>
-                            <a class="text-white" th:href="@{analytics/register}">/analytics/register</a>
-                        </li>
-                        <li>
-                            <a class="text-white" th:href="@{analytics/home}">/analytics/home</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li>Export Pdf Using <b>Apache PdfBox</b></li>
-                        <li>Pdf <b>Encryption</b></li>
-                        <li>Display Visitors <b> IP Address, GeoLocation Details</b></li>
-                        <li>Get IP Details using <b> MaxMind GeoLite2 & IP2Location</b></li>
-                        <li>JSON Parsing Using <b>Gson</b></li>
-                        <li>Learned <b>Column Embedding</b></li>
-                        <li>Sort Data Using <b>Named Query</b></li>
-                        <li>API Calling Using Java Program</li>
-                    </ul>
-                </div>
-            </div>
-            <!--Analytics Closed-->
-            <div class="row  bg-secondary text-dark py-2 my-1">
-                <div class="col-4 my-auto">
-                    <h3>Shipment Type</h3>
-                </div>
-
-                <div class="col-3 my-auto">
-                    <ul class="list-group">
-                        <li>
-                            <a class="text-white" th:href="@{st/register}">/st/register</a>
-                        </li>
-                        <li>
-                            <a class="text-white" th:href="@{st/all}">/st/all</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li>Export Pdf Using <b>OpenPDF</b></li>
-                        <li>Export Excel Using <b>Apache POI</b></li>
-                        <li>Validation Using <b>JQuery,Ajax,RegEx</b></li>
-                        <li><b>Monolithic Architecture,Spring Data JPA,Thymeleaf,Log4j,Bootstrap</b></li>
-                    </ul>
-                </div>
-            </div>
-            <!--Shipment Type Closed-->
-            <div class="row  bg-secondary text-dark py-2 my-1">
-                <div class="col-4 my-auto">
-                    <h3>Measurement Unit System</h3>
-                </div>
-
-                <div class="col-3 my-auto">
-                    <ul class="list-group">
-                        <li>
-                            <a class="text-white" th:href="@{mus/register}">/mus/register</a>
-                        </li>
-                        <li>
-                            <a class="text-white" th:href="@{mus/all}">/mus/all</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li>Export Pdf Using <b>iTEXT 7</b></li>
-                    </ul>
-                </div>
-            </div>
-            <!--MUS Closed-->
-            <div class="row  bg-secondary text-dark py-2 my-1">
-                <div class="col-4 my-auto">
-                    <h3>Order Method</h3>
-                </div>
-
-                <div class="col-3 my-auto">
-                    <ul class="list-group">
-                        <li>
-                            <a class="text-white" th:href="@{om/register}">/om/register</a>
-                        </li>
-                        <li>
-                            <a class="text-white" th:href="@{om/all}">/om/all</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-5">
-                    <ul class="list-group">
-                        <li>Export Pdf Using <b>Jasper Report</b></li>
-                        <li>Relationships <b>one to many , many to many</b>
-                    </ul>
-                </div>
-            </div>
-            <!--OM Closed-->
         </div>
         <!--Card Body Closed-->
         <div class="card-footer text-center bg-success text-white" th:if="${message != null}">

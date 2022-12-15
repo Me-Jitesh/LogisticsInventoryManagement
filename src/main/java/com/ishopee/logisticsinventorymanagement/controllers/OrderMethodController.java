@@ -2,13 +2,16 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.OrderMethod;
 import com.ishopee.logisticsinventorymanagement.services.IOrderMethodService;
+import com.ishopee.logisticsinventorymanagement.views.OrderMethodExcelView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -121,6 +124,39 @@ public class OrderMethodController {
             msg = " *  " + code + " already exist !";
         }
         return msg;
+    }
+
+    @GetMapping("/excel")
+    public ModelAndView exportExcel() {
+        LOG.info("ENTERED INTO Export OrderMethod Excel METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new OrderMethodExcelView());
+            List<OrderMethod> list = service.getAllOrderMethod();
+            modelAndView.addObject("omList", list);
+            LOG.debug("EXPORTATION All OrderMethod Excel File SUCCEEDED !");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS OrderMethod  Export Excel  REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @GetMapping("/excelone")
+    public ModelAndView exportExcelById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO OrderMethod exportExcelById METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new OrderMethodExcelView());
+            modelAndView.addObject("omList", Arrays.asList(service.getOrderMethodById(id)));
+            LOG.debug("EXPORTATION OrderMethod SINGLE EXCEL FILE SUCCEEDED !");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS OrderMethod  exportExcelById REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
     private void fetchAllData(Model model) {

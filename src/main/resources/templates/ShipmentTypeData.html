@@ -14,12 +14,13 @@
 <div class="container">
     <div class="card">
         <div class="card-header bg-info text-center text-light">
-            <h3>SHIPMENT TYPE DATA PAGE</h3>
+            <h3>SHIPMENT TYPE DATA</h3>
         </div>
         <div class="card-body">
             <div class="text-right mb-2">
-                <a class="btn btn-outline-success" th:href="@{/st/excel}">Excel Export <i class="fa-regular fa-file-excel"></i></a>
-                <a class="btn btn-outline-danger" th:href="@{/st/pdf}">PDF Export <i class="fa-regular  fa-file-pdf"></i></a>
+                <a class="btn btn-outline-success" th:href="@{/st/excel}">Excel <i class="fa-regular fa-file-excel"></i></a>
+                <a class="btn btn-outline-danger" th:href="@{/st/pdf}">PDF <i class="fa-regular  fa-file-pdf"></i></a>
+                <a class="btn btn-outline-success" th:href="@{/st/csv}">CSV <i class="fa-solid  fa-file-csv"></i></a>
             </div>
             <table class="table table-hover">
                 <tr class="bg-secondary text-white">
@@ -43,7 +44,8 @@
                         <a class="btn btn-outline-danger" th:href="@{/st/delete(id=${ob.getId()})}"><i class="fa-solid fa-trash-can"></i></a> |
                         <a class="btn btn-outline-warning" th:href="@{/st/edit(id=${ob.getId()})}"><i class="fa-solid fa-pen-fancy"></i></a> |
                         <a class="btn btn-outline-success" th:href="@{/st/excelone(id=${ob.getId()})}"><i class="fa-solid fa-file-excel"></i></a> |
-                        <a class="btn btn-outline-danger" th:href="@{/st/pdfone(id=${ob.getId()})}"><i class="fa-solid fa-file-pdf"></i></a>
+                        <a class="btn btn-outline-danger" th:href="@{/st/pdfone(id=${ob.getId()})}"><i class="fa-solid fa-file-pdf"></i></a> |
+                        <a class="btn btn-outline-success" th:href="@{/st/csvone(id=${ob.getId()})}"><i class="fa-solid fa-file-csv"></i></a>
                     </td>
                 </tr>
             </table>

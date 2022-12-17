@@ -22,7 +22,6 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.TimeZone;
 
 @Component
 public class VisitorUtility {
@@ -74,7 +73,7 @@ public class VisitorUtility {
     private VisitorLocation extractLocaleByGeoLite2(String ip) {
         String dbLocation = "D:\\IdeaProjects\\LogisticsInventoryManagement\\extra_resources\\GeoLite2-City-DB\\GeoLite2-City.mmdb";
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("Asia/Kolkata").toZoneId()).toInstant()));
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
         try {
             File databse = new File(dbLocation);
             DatabaseReader dbr = new DatabaseReader.Builder(databse).build();
@@ -101,8 +100,7 @@ public class VisitorUtility {
     public VisitorLocation extractLocaleByIP2Location(String ip) {
         String key = apiSecretKeys.getIP2LocationKey();
         VisitorLocation visitorLocation = new VisitorLocation();
-        visitorLocation.setTimestamp(Timestamp.from(Instant.now().atZone(TimeZone.getTimeZone("IST").toZoneId()).toInstant()));
-
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
         try {
             // API Call for Geo Location
 //            Scanner s = new Scanner(new URL("https://api.ip2location.io/?key=" + key + "&ip=" + ip).openStream(), StandardCharsets.UTF_8).useDelimiter("\\A");

@@ -210,6 +210,24 @@ public class ShipmentTypeController {
         return ResponseEntity.ok().headers(httpHeaders).body(new InputStreamResource(inputStream));
     }
 
+    @GetMapping("/json")
+    public ResponseEntity<List<ShipmentType>> exportJSON() {
+        LOG.info("ENTERED INTO exportJSON METHOD");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataJSON.json");
+        LOG.debug("JSON EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_JSON).body(service.getAllShipmentType());
+    }
+
+    @GetMapping("/jsonone")
+    public ResponseEntity<ShipmentType> exportJSONById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportJSONById METHOD");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataJSON.json");     // download automatically
+        LOG.debug("JSON EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_JSON).body(service.getShipmentType(id));
+    }
+
     private void fetchAllData(Model model) {
         List<ShipmentType> list = service.getAllShipmentType();
         model.addAttribute("list", list);

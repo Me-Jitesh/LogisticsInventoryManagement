@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
+import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeCSVView;
 import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeExcelView;
 import com.ishopee.logisticsinventorymanagement.views.ShipmentTypePdfUI;
 import org.slf4j.Logger;
@@ -27,9 +28,10 @@ public class ShipmentTypeController {
     private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
     @Autowired
     private IShipmentTypeService service;
-
     @Autowired
     ShipmentTypePdfUI pdfView;
+    @Autowired
+    private ShipmentTypeCSVView csvView;
 
 
     @GetMapping("/register")
@@ -121,8 +123,7 @@ public class ShipmentTypeController {
     }
 
     @GetMapping("/validatecode")
-    public @ResponseBody
-    String validateShipmentCode(@RequestParam String code, @RequestParam Integer id) {
+    public @ResponseBody String validateShipmentCode(@RequestParam String code, @RequestParam Integer id) {
         String msg = "";
         // for register check
         if (id == 0 && service.isShipmentCodeExist(code)) {
@@ -187,6 +188,44 @@ public class ShipmentTypeController {
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeData.pdf");     // download automatically
         LOG.debug("PDF EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/csv")
+    public ResponseEntity<InputStreamResource> exportCSV() {
+        LOG.info("ENTERED INTO exportCSV METHOD");
+        ByteArrayInputStream inputStream = csvView.buildCSVDocument(service.getAllShipmentType());
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataCSV.csv");
+        LOG.debug("CSV EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/csvone")
+    public ResponseEntity<InputStreamResource> exportCSVById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportCSVById METHOD");
+        ByteArrayInputStream inputStream = csvView.buildCSVDocument(Arrays.asList(service.getShipmentType(id)));
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataCSV.csv");     // download automatically
+        LOG.debug("CSV EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/json")
+    public ResponseEntity<List<ShipmentType>> exportJSON() {
+        LOG.info("ENTERED INTO exportJSON METHOD");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataJSON.json");
+        LOG.debug("JSON EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_JSON).body(service.getAllShipmentType());
+    }
+
+    @GetMapping("/jsonone")
+    public ResponseEntity<ShipmentType> exportJSONById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportJSONById METHOD");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataJSON.json");     // download automatically
+        LOG.debug("JSON EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_JSON).body(service.getShipmentType(id));
     }
 
     private void fetchAllData(Model model) {

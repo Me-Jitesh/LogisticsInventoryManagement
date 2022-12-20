@@ -228,6 +228,24 @@ public class ShipmentTypeController {
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_JSON).body(service.getShipmentType(id));
     }
 
+    @GetMapping("/text")
+    public ResponseEntity<String> exportText() {
+        LOG.info("ENTERED INTO exportText METHOD");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataText.txt");
+        LOG.debug("TEXT EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(service.getAllShipmentType().toString());
+    }
+
+    @GetMapping("/textone")
+    public ResponseEntity<String> exportTextById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportTextById METHOD");
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataText.txt");
+        LOG.debug("TEXT EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(service.getShipmentType(id).toString());
+    }
+
     private void fetchAllData(Model model) {
         List<ShipmentType> list = service.getAllShipmentType();
         model.addAttribute("list", list);

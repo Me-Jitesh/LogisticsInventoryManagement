@@ -23,6 +23,7 @@
                 <a class="btn btn-outline-success" th:href="@{/st/csv}">CSV <i class="fa-solid  fa-file-csv"></i></a>
                 <a class="btn btn-outline-dark" th:href="@{/st/json}">JSON <i class="fa-regular  fa-file-code"></i></a>
                 <a class="btn btn-outline-primary" th:href="@{/st/text}">TEXT <i class="fa-regular  fa-file-text"></i></a>
+                <a class="btn btn-outline-secondary" th:href="@{/st/xml}">XML <i class="fa-solid  fa-file-excel"></i></a>
             </div>
             <table class="table table-hover">
                 <tr class="bg-secondary text-white">
@@ -49,7 +50,8 @@
                         <a class="btn btn-outline-danger" th:href="@{/st/pdfone(id=${ob.getId()})}"><i class="fa-solid fa-file-pdf"></i></a> |
                         <a class="btn btn-outline-dark" th:href="@{/st/jsonone(id=${ob.getId()})}"><i class="fa-solid fa-file-code"></i></a>  |
                         <a class="btn btn-outline-success" th:href="@{/st/csvone(id=${ob.getId()})}"><i class="fa-solid fa-file-csv"></i></a> |
-                        <a class="btn btn-outline-primary" th:href="@{/st/textone(id=${ob.getId()})}"><i class="fa-solid fa-file-text"></i></a>
+                        <a class="btn btn-outline-primary" th:href="@{/st/textone(id=${ob.getId()})}"><i class="fa-solid fa-file-text"></i></a> |
+                        <a class="btn btn-outline-secondary" th:href="@{/st/xmlone(id=${ob.getId()})}"><i class="fa-regular fa-file-excel"></i></a>
                     </td>
                 </tr>
             </table>

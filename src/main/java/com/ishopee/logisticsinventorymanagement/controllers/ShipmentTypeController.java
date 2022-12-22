@@ -2,10 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeCSVView;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeExcelView;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypePdfUI;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeXmlView;
+import com.ishopee.logisticsinventorymanagement.views.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +32,8 @@ public class ShipmentTypeController {
     private ShipmentTypeCSVView csvView;
     @Autowired
     private ShipmentTypeXmlView xmlView;
+    @Autowired
+    private ShipmentTypeTextView textView;
 
 
     @GetMapping("/register")
@@ -232,21 +231,23 @@ public class ShipmentTypeController {
     }
 
     @GetMapping("/text")
-    public ResponseEntity<String> exportText() {
+    public ResponseEntity<InputStreamResource> exportText() {
         LOG.info("ENTERED INTO exportText METHOD");
+        ByteArrayInputStream byteArrayInputStream = textView.buildTextDocument(service.getAllShipmentType());
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataText.txt");
         LOG.debug("TEXT EXPORTATION SUCCEEDED !");
-        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(service.getAllShipmentType().toString());
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(new InputStreamResource(byteArrayInputStream));
     }
 
     @GetMapping("/textone")
-    public ResponseEntity<String> exportTextById(@RequestParam Integer id) {
+    public ResponseEntity<InputStreamResource> exportTextById(@RequestParam Integer id) {
         LOG.info("ENTERED INTO exportTextById METHOD");
+        ByteArrayInputStream byteArrayInputStream = textView.buildTextDocument(Arrays.asList(service.getShipmentType(id)));
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataText.txt");
         LOG.debug("TEXT EXPORTATION SUCCEEDED !");
-        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(service.getShipmentType(id).toString());
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(new InputStreamResource(byteArrayInputStream));
     }
 
     @GetMapping("/xml")

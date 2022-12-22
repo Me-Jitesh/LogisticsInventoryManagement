@@ -2,9 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeCSVView;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypeExcelView;
-import com.ishopee.logisticsinventorymanagement.views.ShipmentTypePdfUI;
+import com.ishopee.logisticsinventorymanagement.views.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,11 +25,15 @@ public class ShipmentTypeController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ShipmentTypeController.class);
     @Autowired
+    private ShipmentTypePdfUI pdfView;
+    @Autowired
     private IShipmentTypeService service;
     @Autowired
-    ShipmentTypePdfUI pdfView;
-    @Autowired
     private ShipmentTypeCSVView csvView;
+    @Autowired
+    private ShipmentTypeXmlView xmlView;
+    @Autowired
+    private ShipmentTypeTextView textView;
 
 
     @GetMapping("/register")
@@ -229,21 +231,43 @@ public class ShipmentTypeController {
     }
 
     @GetMapping("/text")
-    public ResponseEntity<String> exportText() {
+    public ResponseEntity<InputStreamResource> exportText() {
         LOG.info("ENTERED INTO exportText METHOD");
+        ByteArrayInputStream byteArrayInputStream = textView.buildTextDocument(service.getAllShipmentType());
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataText.txt");
         LOG.debug("TEXT EXPORTATION SUCCEEDED !");
-        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(service.getAllShipmentType().toString());
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(new InputStreamResource(byteArrayInputStream));
     }
 
     @GetMapping("/textone")
-    public ResponseEntity<String> exportTextById(@RequestParam Integer id) {
+    public ResponseEntity<InputStreamResource> exportTextById(@RequestParam Integer id) {
         LOG.info("ENTERED INTO exportTextById METHOD");
+        ByteArrayInputStream byteArrayInputStream = textView.buildTextDocument(Arrays.asList(service.getShipmentType(id)));
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataText.txt");
         LOG.debug("TEXT EXPORTATION SUCCEEDED !");
-        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(service.getShipmentType(id).toString());
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.TEXT_PLAIN).body(new InputStreamResource(byteArrayInputStream));
+    }
+
+    @GetMapping("/xml")
+    public ResponseEntity<InputStreamResource> exportXml() {
+        LOG.info("ENTERED INTO exportXml METHOD");
+        ByteArrayInputStream inputStream = xmlView.buildXmlDocument(service.getAllShipmentType(), ShipmentType.class);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataXml.xml");
+        LOG.debug("XML EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_XML).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/xmlone")
+    public ResponseEntity<InputStreamResource> exportXmlById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportXmlById METHOD");
+        ByteArrayInputStream inputStream = xmlView.buildXmlDocument(Arrays.asList(service.getShipmentType(id)), ShipmentType.class);
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataXml.xml");     // download automatically
+        LOG.debug("XML EXPORTATION SUCCEEDED !");
+        return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_XML).body(new InputStreamResource(inputStream));
     }
 
     private void fetchAllData(Model model) {

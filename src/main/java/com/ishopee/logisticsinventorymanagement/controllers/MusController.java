@@ -196,6 +196,7 @@ public class MusController {
         LOG.info("ENTERED INTO getChart METHOD");
         String path = context.getRealPath("/charts");
         musUtility.generatePieChart(path, service.getMusTypeAndCount());
+        musUtility.generateBarChart(path, service.getMusTypeAndCount());
         LOG.info("CHART EXPORTATION SUCCEED !");
         return "MusChart";
     }

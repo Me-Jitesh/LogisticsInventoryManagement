@@ -53,4 +53,9 @@ public class MusServiceImpl implements IMusService {
     public boolean isMusModelCountExistForEdit(String musModel, Integer id) {
         return musRepo.getMusModelCountForEdit(musModel, id) > 0;
     }
+
+    @Override
+    public List<Object[]> getMusTypeAndCount() {
+        return musRepo.getMusTypeAndCount();
+    }
 }

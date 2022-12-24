@@ -19,4 +19,7 @@ public interface IMusService {
     boolean isMusModelCountExist(String musModel);
 
     boolean isMusModelCountExistForEdit(String musModel, Integer id);
+
+    List<Object[]> getMusTypeAndCount();
+
 }

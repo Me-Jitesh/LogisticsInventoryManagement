@@ -20,6 +20,7 @@
             <div class="text-right mb-2">
                 <a class="btn btn-outline-success" th:href="@{/mus/excel}">Export <i class="fa-solid fa-file-excel"></i></a>
                 <a class="btn btn-outline-danger" th:href="@{/mus/pdf}">Export <i class="fa-solid fa-file-pdf"></i></a>
+                <a class="btn btn-outline-dark" th:href="@{/mus/chart}">Export <i class="fa-solid fa-chart-simple"></i></a>
             </div>
             <table class="table table-hover">
                 <tr class="bg-info text-white">
@@ -38,7 +39,7 @@
                         <!-- Url Rewriting-->
                         <a class="btn btn-danger" th:href="@{/mus/delete(id=${ob.getId()})}"><i class="fa-solid fa-trash-can"></i></a> |
                         <a class="btn btn-warning" th:href="@{/mus/edit(id=${ob.getId()})}"><i class="fa-solid fa-pen-fancy"></i></a> |
-                        <a class="btn btn-success" th:href="@{/mus/excelone(id=${ob.getId()})}"><i class="fa-solid fa-file-excel"></i></a>
+                        <a class="btn btn-success" th:href="@{/mus/excelone(id=${ob.getId()})}"><i class="fa-solid fa-file-excel"></i></a> |
                         <a class="btn btn-danger" th:href="@{/mus/pdfone(id=${ob.getId()})}"><i class="fa-solid fa-file-pdf"></i></a>
                     </td>
                 </tr>

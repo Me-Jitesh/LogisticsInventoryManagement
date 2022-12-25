@@ -20,4 +20,5 @@ public interface IShipmentTypeService {
 
     boolean isShipmentCodeCountExistForEdit(String shipmentCode, Integer id);
 
+    List<Object[]> getShipModeAndCount();
 }

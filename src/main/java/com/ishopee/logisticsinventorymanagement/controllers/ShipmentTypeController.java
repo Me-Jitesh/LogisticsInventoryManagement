@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
+import com.ishopee.logisticsinventorymanagement.utilities.ShipmentTypeUtility;
 import com.ishopee.logisticsinventorymanagement.views.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +16,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
@@ -34,6 +36,10 @@ public class ShipmentTypeController {
     private ShipmentTypeXmlView xmlView;
     @Autowired
     private ShipmentTypeTextView textView;
+    @Autowired
+    private ServletContext context;
+    @Autowired
+    private ShipmentTypeUtility shipmentTypeUtil;
 
 
     @GetMapping("/register")
@@ -268,6 +274,16 @@ public class ShipmentTypeController {
         httpHeaders.add("Content-Disposition", "attachment;filename=ShipmentTypeDataXml.xml");     // download automatically
         LOG.debug("XML EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_XML).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/chart")
+    public String getChart() {
+        LOG.info("ENTERED INTO getChart METHOD");
+        String path = context.getRealPath("/charts");
+        shipmentTypeUtil.generatePieChart(path, service.getShipModeAndCount());
+        shipmentTypeUtil.generateBarChart(path, service.getShipModeAndCount());
+        LOG.info("CHART EXPORTATION SUCCEED !");
+        return "ShipmentTypeChart";
     }
 
     private void fetchAllData(Model model) {

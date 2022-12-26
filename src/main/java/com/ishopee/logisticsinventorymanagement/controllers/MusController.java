@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.Mus;
 import com.ishopee.logisticsinventorymanagement.services.IMusService;
+import com.ishopee.logisticsinventorymanagement.utilities.MusUtility;
 import com.ishopee.logisticsinventorymanagement.views.MusExcelView;
 import com.ishopee.logisticsinventorymanagement.views.MusPdfUI;
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import java.io.ByteArrayInputStream;
 import java.util.Arrays;
 import java.util.List;
@@ -29,6 +31,10 @@ public class MusController {
     private IMusService service;
     @Autowired
     private MusPdfUI musPdfUI;
+    @Autowired
+    private MusUtility musUtility;
+    @Autowired
+    private ServletContext context;
 
     @GetMapping("/register")
     public String showMusRegister() {
@@ -119,8 +125,7 @@ public class MusController {
     }
 
     @GetMapping("/validatemodel")
-    public @ResponseBody
-    String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
+    public @ResponseBody String validateMusModel(@RequestParam String musModel, @RequestParam Integer id) {
         String msg = "";
         // for register check
         if (id == 0 && service.isMusModelCountExist(musModel)) {
@@ -184,6 +189,16 @@ public class MusController {
         httpHeaders.add("Content-Disposition", "attachment;filename=MusData.pdf");
         LOG.debug("PDF EXPORTATION SUCCEEDED !");
         return ResponseEntity.ok().headers(httpHeaders).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(inputStream));
+    }
+
+    @GetMapping("/chart")
+    public String getChart() {
+        LOG.info("ENTERED INTO getChart METHOD");
+        String path = context.getRealPath("/charts");
+        musUtility.generatePieChart(path, service.getMusTypeAndCount());
+        musUtility.generateBarChart(path, service.getMusTypeAndCount());
+        LOG.info("CHART EXPORTATION SUCCEED !");
+        return "MusChart";
     }
 
     private void fetchAllData(Model model) {

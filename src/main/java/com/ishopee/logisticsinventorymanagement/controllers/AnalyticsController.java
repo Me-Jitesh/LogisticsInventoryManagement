@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.Visitor;
 import com.ishopee.logisticsinventorymanagement.services.IVisitorService;
+import com.ishopee.logisticsinventorymanagement.utilities.VisitorUtility;
 import com.ishopee.logisticsinventorymanagement.views.AnalyticsPdfView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -19,6 +21,10 @@ public class AnalyticsController {
 
     @Autowired
     private IVisitorService visitorService;
+    @Autowired
+    private ServletContext context;
+    @Autowired
+    private VisitorUtility visitorUtility;
 
     @GetMapping("/")
     public String showAnalytics(HttpServletRequest httpServletRequest, Model model) {
@@ -27,6 +33,8 @@ public class AnalyticsController {
             Visitor visitor = visitorService.saveVisitorDetails(httpServletRequest);
             httpServletRequest.getSession().setAttribute("visitorDetails", visitor);
         }
+        // Generate Chart
+        getChart();
         // Display All Visitors
         model.addAttribute("list", visitorService.getRecent10Visitors());
         model.addAttribute("count", visitorService.getVisitorsCount());
@@ -65,5 +73,11 @@ public class AnalyticsController {
     private void pepareModel(Model model) {
         model.addAttribute("list", visitorService.getRecent10Visitors());
         model.addAttribute("count", visitorService.getVisitorsCount());
+    }
+
+    public void getChart() {
+        String path = context.getRealPath("/charts");
+        visitorUtility.generatePieChart(path, visitorService.getVistorCountryCodeAndCount());
+        visitorUtility.generateBarChart(path, visitorService.getVistorCountryCodeAndCount());
     }
 }

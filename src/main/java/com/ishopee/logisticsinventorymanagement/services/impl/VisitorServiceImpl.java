@@ -49,4 +49,9 @@ public class VisitorServiceImpl implements IVisitorService {
     public void deleteVisitor(Integer id) {
         repo.deleteById(id);
     }
+
+    @Override
+    public List<Object[]> getVistorCountryCodeAndCount() {
+        return repo.getVistorCountryCodeAndCount();
+    }
 }

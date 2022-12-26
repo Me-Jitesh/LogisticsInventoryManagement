@@ -18,4 +18,7 @@ public interface IVisitorService {
     void deleteAllVisitors();
 
     void deleteVisitor(Integer id);
+
+    List<Object[]> getVistorCountryCodeAndCount();
+
 }

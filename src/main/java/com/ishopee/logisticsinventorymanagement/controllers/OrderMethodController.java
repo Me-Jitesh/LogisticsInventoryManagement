@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.OrderMethod;
 import com.ishopee.logisticsinventorymanagement.services.IOrderMethodService;
+import com.ishopee.logisticsinventorymanagement.utilities.OrderMethodUtility;
 import com.ishopee.logisticsinventorymanagement.views.OrderMethodExcelView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletContext;
 import java.util.Arrays;
 import java.util.List;
 
@@ -21,6 +23,10 @@ public class OrderMethodController {
 
     @Autowired
     private IOrderMethodService service;
+    @Autowired
+    private ServletContext context;
+    @Autowired
+    private OrderMethodUtility omUtil;
 
     @GetMapping("/register")
     public String orderMethodRegister() {
@@ -157,6 +163,16 @@ public class OrderMethodController {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @GetMapping("/chart")
+    public String getChart() {
+        LOG.info("ENTERED INTO getChart METHOD");
+        String path = context.getRealPath("/charts");
+        omUtil.generatePieChart(path, service.getOrderModeAndCount());
+        omUtil.generateBarChart(path, service.getOrderModeAndCount());
+        LOG.info("CHART EXPORTATION SUCCEED !");
+        return "OrderMethodChart";
     }
 
     private void fetchAllData(Model model) {

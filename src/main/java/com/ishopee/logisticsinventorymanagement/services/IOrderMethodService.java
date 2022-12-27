@@ -19,5 +19,6 @@ public interface IOrderMethodService {
     boolean isOrderCodeExist(String orderCode);
 
     boolean isOrderCodeExistForEdit(String orderCode, Integer id);
-    
+
+    List<Object[]> getOrderModeAndCount();
 }

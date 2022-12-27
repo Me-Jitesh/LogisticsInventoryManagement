@@ -51,4 +51,9 @@ public class OrderMethodServiceImpl implements IOrderMethodService {
     public boolean isOrderCodeExistForEdit(String orderCode, Integer id) {
         return repo.isOrderCodeExistForEdit(orderCode, id) > 0;
     }
+
+    @Override
+    public List<Object[]> getOrderModeAndCount() {
+        return repo.getOrderModeAndCount();
+    }
 }

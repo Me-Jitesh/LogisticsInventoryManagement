@@ -10,10 +10,6 @@ import com.maxmind.geoip2.model.CityResponse;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtils;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.StandardChartTheme;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.StandardBarPainter;
-import org.jfree.chart.ui.RectangleInsets;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -152,10 +148,11 @@ public class VisitorUtility {
                 dataset.setValue(ob[0].toString(), Double.valueOf(ob[1].toString()));
             // Create JFreeChart Object
             JFreeChart chart = ChartFactory.createPieChart3D("PIE", dataset);
-            // Beautification
-            chart.getPlot().setBackgroundPaint(Color.WHITE);
-//            chart.getTitle().setVisible(false);
-            chart.getTitle().setFont(new Font("Ubuntu", Font.PLAIN, 15));
+            chart.getTitle().setFont(new Font("Ubuntu", Font.PLAIN, 12));
+            chart.setBorderPaint(Color.DARK_GRAY);
+            chart.setBackgroundPaint(Color.lightGray);
+            chart.getPlot().setBackgroundPaint(Color.LIGHT_GRAY);
+            chart.getLegend().setBackgroundPaint(Color.lightGray);
             // Save As Image
             ChartUtils.saveChartAsPNG(new File(path + "/pie.png"), chart, 200, 200);
         } catch (Exception e) {
@@ -171,45 +168,14 @@ public class VisitorUtility {
                 dataset.setValue(Double.valueOf(ob[1].toString()), ob[0].toString(), "");
             // Create JFreeChart Object
             JFreeChart chart = ChartFactory.createBarChart("BAR ", "COUNTRY", "COUNT", dataset);
-            // Beautification
-            beautifyChart(chart);
+            chart.getTitle().setFont(new Font("Ubuntu", Font.PLAIN, 15));
+            chart.setBorderPaint(Color.DARK_GRAY);
+            chart.setBackgroundPaint(Color.lightGray);
+            chart.getPlot().setBackgroundPaint(Color.LIGHT_GRAY);
             // Save As Image
-            ChartUtils.saveChartAsPNG(new File(path + "/bar.png"), chart, 200, 200);
+            ChartUtils.saveChartAsPNG(new File(path + "/bar.png"), chart, 250, 250);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
-
-    private void beautifyChart(JFreeChart chart) {
-        String fontName = "Lucida Sans";
-        StandardChartTheme theme = (StandardChartTheme) StandardChartTheme.createJFreeTheme();
-        theme.setTitlePaint(Color.decode("#4572a7"));
-        //title
-        theme.setExtraLargeFont(new Font(fontName, Font.BOLD, 14));
-        //axis-title
-        theme.setLargeFont(new Font(fontName, Font.BOLD, 15));
-        theme.setRegularFont(new Font(fontName, Font.PLAIN, 11));
-        theme.setRangeGridlinePaint(Color.decode("#C0C0C0"));
-        theme.setPlotBackgroundPaint(Color.white);
-        theme.setChartBackgroundPaint(Color.white);
-        theme.setGridBandPaint(Color.red);
-        theme.setAxisOffset(new RectangleInsets(0, 0, 0, 0));
-        theme.setBarPainter(new StandardBarPainter());
-        theme.setAxisLabelPaint(Color.decode("#666666"));
-        theme.apply(chart);
-        chart.getCategoryPlot().setOutlineVisible(false);
-        chart.getCategoryPlot().getRangeAxis().setAxisLineVisible(false);
-        chart.getCategoryPlot().getRangeAxis().setTickMarksVisible(false);
-        chart.getCategoryPlot().setRangeGridlineStroke(new BasicStroke());
-        chart.getCategoryPlot().getRangeAxis().setTickLabelPaint(Color.decode("#666666"));
-        chart.getCategoryPlot().getDomainAxis().setTickLabelPaint(Color.decode("#666666"));
-        chart.setTextAntiAlias(true);
-        chart.setAntiAlias(true);
-        BarRenderer rend = (BarRenderer) chart.getCategoryPlot().getRenderer();
-        rend.setShadowVisible(true);
-        rend.setShadowXOffset(2);
-        rend.setShadowYOffset(0);
-        rend.setShadowPaint(Color.decode("#C0C0C0"));
-        rend.setMaximumBarWidth(0.1);
     }
 }

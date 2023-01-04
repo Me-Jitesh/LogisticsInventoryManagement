@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ProductUserType;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
+import com.ishopee.logisticsinventorymanagement.utilities.ProductUserTypeUtility;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import java.util.List;
 
 @Controller
@@ -19,6 +21,10 @@ public class ProductUserTypeController {
 
     @Autowired
     private IProductUserTypeService service;
+    @Autowired
+    private ServletContext context;
+    @Autowired
+    private ProductUserTypeUtility puUtil;
 
 
     @GetMapping("/register")
@@ -121,6 +127,16 @@ public class ProductUserTypeController {
             msg = " *  " + code + " already exist";
         }
         return msg;
+    }
+
+    @GetMapping("/chart")
+    public String getChart() {
+        LOG.info("ENTERED INTO getChart METHOD");
+        String path = context.getRealPath("/charts");
+        puUtil.generatePieChart(path, service.getProductUserTypeAndCount());
+        puUtil.generateBarChart(path, service.getProductUserTypeAndCount());
+        LOG.info("CHART EXPORTATION SUCCEED !");
+        return "ProductUserTypeChart";
     }
 
     private void fetchAllData(Model model) {

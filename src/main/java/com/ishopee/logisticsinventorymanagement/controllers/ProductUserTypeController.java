@@ -3,14 +3,17 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 import com.ishopee.logisticsinventorymanagement.models.ProductUserType;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
 import com.ishopee.logisticsinventorymanagement.utilities.ProductUserTypeUtility;
+import com.ishopee.logisticsinventorymanagement.views.ProductUserTypeExcelView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -127,6 +130,39 @@ public class ProductUserTypeController {
             msg = " *  " + code + " already exist";
         }
         return msg;
+    }
+
+    @GetMapping("/excel")
+    public ModelAndView exportExcel() {
+        LOG.info("ENTERED INTO Export Excel METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new ProductUserTypeExcelView());
+            List<ProductUserType> list = service.getAllProductUserType();
+            modelAndView.addObject("puList", list);
+            LOG.debug("EXPORTATION ALL EXCEL FILE SUCCEEDED");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS EXPORT EXCEL  REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @GetMapping("/excelone")
+    public ModelAndView exportExcelById(@RequestParam Integer id) {
+        LOG.info("ENTERED INTO exportExcelById METHOD");
+        try {
+            ModelAndView modelAndView = new ModelAndView();
+            modelAndView.setView(new ProductUserTypeExcelView());
+            modelAndView.addObject("puList", Arrays.asList(service.getProductUserTypeById(id)));
+            LOG.debug("EXPORTATION SINGLE EXCEL FILE SUCCEEDED");
+            return modelAndView;
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS exportExcelById REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
 
     @GetMapping("/chart")

@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/part")
 public class PartController {
@@ -41,5 +43,24 @@ public class PartController {
         }
         LOG.info("ABOUT TO GO UI PAGE PartRegister");
         return "PartRegister";
+    }
+
+    @GetMapping("/all")
+    public String getAllPart(Model model) {
+        LOG.info("ENTERED INTO getAllPart");
+        try {
+            fetchAllData(model);
+            LOG.debug("FETCHED ALL RECORDS");
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS getAllPart REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("ABOUT TO GO UI PAGE PartData ! ");
+        return "PartData";
+    }
+
+    private void fetchAllData(Model model) {
+        List<Part> list = service.getAllParts();
+        model.addAttribute("list", list);
     }
 }

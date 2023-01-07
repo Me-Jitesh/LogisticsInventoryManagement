@@ -42,7 +42,7 @@
                         <input class="form-control" id="partWidth" name="partWidth" type="text"/>
                         Height :
                         <input class="form-control" id="partHeight" name="partHeight" type="text"/>
-                        Legnth
+                        Legnth :
                         <input class="form-control" id="partLegnth" name="partLegnth" type="text"/>
                     </div>
                     <div class="col-5">
@@ -89,6 +89,23 @@
 
                 <div class="row">
                     <div class="col-3">
+                        <label>MUS</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="partMus" name="mus.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${muses}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="partMusError"></span>
+                    </div>
+                </div>
+
+                <!--Row#5 end-->
+
+                <div class="row">
+                    <div class="col-3">
                         <label for="partDesc">PART DESCRIPTION</label>
                     </div>
                     <div class="col-4">
@@ -99,7 +116,7 @@
                     </div>
                 </div>
 
-                <!--row #5 end-->
+                <!--row #6 end-->
 
                 <input class="btn btn-success" type="submit" value="Register Part"/>
 

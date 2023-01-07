@@ -3,6 +3,7 @@ package com.ishopee.logisticsinventorymanagement.services;
 import com.ishopee.logisticsinventorymanagement.models.Mus;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IMusService {
 
@@ -21,5 +22,7 @@ public interface IMusService {
     boolean isMusModelCountExistForEdit(String musModel, Integer id);
 
     List<Object[]> getMusTypeAndCount();
+
+    Map<Integer, String> getMusIdAndModel();
 
 }

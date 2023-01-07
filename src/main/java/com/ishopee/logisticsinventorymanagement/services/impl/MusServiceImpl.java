@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class MusServiceImpl implements IMusService {
@@ -57,5 +59,18 @@ public class MusServiceImpl implements IMusService {
     @Override
     public List<Object[]> getMusTypeAndCount() {
         return musRepo.getMusTypeAndCount();
+    }
+
+    @Override
+    public Map<Integer, String> getMusIdAndModel() {
+        List<Object[]> list = musRepo.getMusIdAndModel();
+
+//        Map<Integer, String> muses = new LinkedHashMap<>();
+//        for (Object[] ob : list) {
+//            muses.put((Integer) ob[0], (String) ob[1]);
+//        }
+
+//       After Java 8
+        return list.stream().collect(Collectors.toMap((ob) -> (Integer) ob[0], (ob) -> (String) ob[1]));
     }
 }

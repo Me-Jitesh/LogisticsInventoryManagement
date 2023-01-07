@@ -19,4 +19,7 @@ public interface MusRepo extends JpaRepository<Mus, Integer> {
     // For Chart
     @Query("SELECT MUS.musType,count(MUS.musType) from Mus MUS group by MUS.musType")
     List<Object[]> getMusTypeAndCount();
+
+    @Query("SELECT id,musModel FROM Mus")
+    List<Object[]> getMusIdAndModel();
 }

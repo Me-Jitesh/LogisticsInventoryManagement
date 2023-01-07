@@ -27,4 +27,7 @@ public class Part {
     private Double partLegnth;
     @Column(name = "part_desc_col")
     private String partDesc;
+    @ManyToOne
+    @JoinColumn(name = "mus_id_fk_col")
+    private Mus mus;
 }

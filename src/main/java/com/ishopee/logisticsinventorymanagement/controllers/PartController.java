@@ -1,6 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.Part;
+import com.ishopee.logisticsinventorymanagement.services.IMusService;
 import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/part")
@@ -22,10 +24,13 @@ public class PartController {
 
     @Autowired
     private IPartService service;
+    @Autowired
+    private IMusService musService;
 
 
     @GetMapping("/register")
-    public String showRegister() {
+    public String showRegister(Model model) {
+        fetchMusData(model);
         return "PartRegister";
     }
 
@@ -36,6 +41,7 @@ public class PartController {
             Integer id = service.savePart(part);
             LOG.debug("RECORD IS CREATED WITH ID {}", id);
             String msg = "part " + id + " registered";
+            fetchMusData(model);
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
@@ -62,5 +68,10 @@ public class PartController {
     private void fetchAllData(Model model) {
         List<Part> list = service.getAllParts();
         model.addAttribute("list", list);
+    }
+
+    private void fetchMusData(Model model) {
+        Map<Integer, String> map = musService.getMusIdAndModel();
+        model.addAttribute("muses", map);
     }
 }

@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -60,6 +57,25 @@ public class PartController {
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS getAllPart REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
+        }
+        LOG.info("ABOUT TO GO UI PAGE PartData ! ");
+        return "PartData";
+    }
+
+    @GetMapping("/delete")
+    public String deletePart(@RequestParam Integer id, Model model) {
+        LOG.info("ENTERED INTO DELETE METHOD");
+        try {
+            service.deletePart(id);
+            String msg = "Part  " + id + " Deleted !";
+            LOG.debug(msg);
+            fetchAllData(model);
+            model.addAttribute("message", msg);
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS DELETE  REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            fetchAllData(model);
+            model.addAttribute("message", e.getMessage());
         }
         LOG.info("ABOUT TO GO UI PAGE PartData ! ");
         return "PartData";

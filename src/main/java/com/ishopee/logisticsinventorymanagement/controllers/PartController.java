@@ -81,6 +81,41 @@ public class PartController {
         return "PartData";
     }
 
+    @GetMapping("/edit")
+    public String ShowPartEdit(@RequestParam Integer id, Model model) {
+        String page;
+        LOG.info("ENTERED INTO EDIT METHOD");
+        try {
+            Part part = service.getOnePart(id);
+            fetchMusData(model);
+            LOG.debug("RECORD FOUND WITH ID {}", id);
+            model.addAttribute("Part", part);
+            page = "PartEdit";
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS EDIT REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+            fetchAllData(model);
+            model.addAttribute("message", e.getMessage());
+            page = "PartData";
+        }
+        LOG.info("ABOUT TO GO UI PAGE {} !", page);
+        return page;
+    }
+
+    @PostMapping("/update")
+    public String updateOrderMethod(@ModelAttribute Part part) {
+        LOG.info("ENTERED INTO UPDATE METHOD");
+        try {
+            service.updatePart(part);
+            LOG.debug("RECORD IS UPDATED FOR ID {}", part.getId());
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS UPDATE REQUEST DUE TO {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");
+        return "redirect:all";
+    }
+    
     private void fetchAllData(Model model) {
         List<Part> list = service.getAllParts();
         model.addAttribute("list", list);

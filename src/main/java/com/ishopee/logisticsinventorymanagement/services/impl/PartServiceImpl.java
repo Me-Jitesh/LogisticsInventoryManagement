@@ -41,4 +41,14 @@ public class PartServiceImpl implements IPartService {
     public Part getOnePart(Integer id) {
         return repo.findById(id).orElseThrow(() -> new PartNotFoundException("Part" + id + "not exist !"));
     }
+
+    @Override
+    public boolean isPartCodeExist(String partCode) {
+        return repo.getPartCodeCount(partCode) > 0;
+    }
+
+    @Override
+    public boolean isPartCodeExistForEdit(String partCode, Integer id) {
+        return repo.getPartCodeCountForEdit(partCode, id) > 0;
+    }
 }

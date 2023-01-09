@@ -14,4 +14,8 @@ public interface IPartService {
     List<Part> getAllParts();
 
     Part getOnePart(Integer id);
+
+    boolean isPartCodeExist(String partCode);
+
+    boolean isPartCodeExistForEdit(String partCode, Integer id);
 }

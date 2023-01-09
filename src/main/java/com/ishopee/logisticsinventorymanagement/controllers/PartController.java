@@ -115,7 +115,22 @@ public class PartController {
         LOG.info("REDIRECTING TO FETCH ALL RECORD ! ");
         return "redirect:all";
     }
-    
+
+    @GetMapping("/validatecode")
+    @ResponseBody
+    public String validatePartCode(@RequestParam String code, @RequestParam Integer id) {
+        String msg = "";
+//     for register
+        if (id == 0 && service.isPartCodeExist(code)) {
+            msg = " * code " + code + " already exist";
+
+//     for edit
+        } else if (id != 0 && service.isPartCodeExistForEdit(code, id)) {
+            msg = " * " + code + " already exist";
+        }
+        return msg;
+    }
+
     private void fetchAllData(Model model) {
         List<Part> list = service.getAllParts();
         model.addAttribute("list", list);

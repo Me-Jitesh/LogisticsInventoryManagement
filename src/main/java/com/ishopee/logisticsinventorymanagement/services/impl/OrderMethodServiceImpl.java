@@ -4,12 +4,12 @@ import com.ishopee.logisticsinventorymanagement.exceptions.OrderMethodNotFoundEx
 import com.ishopee.logisticsinventorymanagement.models.OrderMethod;
 import com.ishopee.logisticsinventorymanagement.repositories.OrderMethodRepo;
 import com.ishopee.logisticsinventorymanagement.services.IOrderMethodService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Service
 public class OrderMethodServiceImpl implements IOrderMethodService {
@@ -61,7 +61,6 @@ public class OrderMethodServiceImpl implements IOrderMethodService {
 
     @Override
     public Map<Integer, String> getOrderMethodIdAndCode() {
-        List<Object[]> list = repo.getOrderMethodIdAndCode();
-        return list.stream().collect(Collectors.toMap((ob) -> (Integer) ob[0], (ob) -> (String) ob[1]));
+        return MyAppUtility.convertListIntoMap(repo.getOrderMethodIdAndCode());
     }
 }

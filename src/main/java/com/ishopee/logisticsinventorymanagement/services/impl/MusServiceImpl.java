@@ -4,10 +4,12 @@ import com.ishopee.logisticsinventorymanagement.exceptions.MusNotFoundException;
 import com.ishopee.logisticsinventorymanagement.models.Mus;
 import com.ishopee.logisticsinventorymanagement.repositories.MusRepo;
 import com.ishopee.logisticsinventorymanagement.services.IMusService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MusServiceImpl implements IMusService {
@@ -57,5 +59,10 @@ public class MusServiceImpl implements IMusService {
     @Override
     public List<Object[]> getMusTypeAndCount() {
         return musRepo.getMusTypeAndCount();
+    }
+
+    @Override
+    public Map<Integer, String> getMusIdAndModel() {
+        return MyAppUtility.convertListIntoMap(musRepo.getMusIdAndModel());
     }
 }

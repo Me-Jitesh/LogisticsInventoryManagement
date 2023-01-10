@@ -3,6 +3,7 @@ package com.ishopee.logisticsinventorymanagement.services;
 import com.ishopee.logisticsinventorymanagement.models.OrderMethod;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IOrderMethodService {
 
@@ -21,4 +22,6 @@ public interface IOrderMethodService {
     boolean isOrderCodeExistForEdit(String orderCode, Integer id);
 
     List<Object[]> getOrderModeAndCount();
+
+    Map<Integer, String> getOrderMethodIdAndCode();
 }

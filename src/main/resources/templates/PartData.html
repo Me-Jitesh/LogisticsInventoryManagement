@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Part Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info text-center text-light">
+            <h3>PART DATA</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr class="bg-secondary text-white">
+                    <th>ID</th>
+                    <th>CODE</th>
+                    <th>COST</th>
+                    <th>CURRENCY</th>
+                    <th>DIMENSION</th>
+                    <th>MUS</th>
+                    <th>OM</th>
+                    <th>DESCRIPTION</th>
+                    <th>OPERATIONS</th>
+                </tr>
+                <tr th:each="ob:${list}">
+                    <td th:text="${ob.getId()}"></td>
+                    <td th:text="${ob.getPartCode()}"></td>
+                    <td th:text="${ob.getPartCost()}"></td>
+                    <td th:text="${ob.getPartCurrency}"></td>
+                    <td>
+                        H:<span th:text="${ob.getPartHeight()}"></span>
+                        W:<span th:text="${ob.getPartWidth()}"></span>
+                        L:<span th:text="${ob.getPartLegnth()}"></span>
+                    </td>
+                    <td th:text="${ob.getMus().musModel}"></td>
+                    <td th:text="${ob.getOm().orderCode}"></td>
+                    <td th:text="${ob.getPartDesc()}"></td>
+                    <td>
+                        <a class="btn btn-outline-danger" th:href="@{/part/delete(id=${ob.getId()})}">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </a> |
+                        <a class="btn btn-outline-warning" th:href="@{/part/edit(id=${ob.getId()})}">
+                            <i class="fa-solid fa-pen-fancy"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer text-center" th:if="${message} != null">
+            <span class="text-success" th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

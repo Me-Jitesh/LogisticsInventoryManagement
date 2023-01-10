@@ -80,7 +80,7 @@ $(document).ready(function () {
 
     function validate_numval(id, error) {
         //  Pattern Matching using RegEx
-        var exp = /^[0-9.]{1,20}$/;
+        var exp = /^[0-9.]{1,10}$/;
 
         var val = $("#" + id).val();
 
@@ -144,7 +144,7 @@ $(document).ready(function () {
     }
 
     function validate_partDesc() {
-        var exp = /^[A-Za-z0-9\s-.*,@:]{2,20}$/;
+        var exp = /^[A-Za-z0-9\s-.*,@:]{2,100}$/;
 
         var val = $("#partDesc").val();
 

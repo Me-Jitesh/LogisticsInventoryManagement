@@ -1,10 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" th:xmlns="www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8"/>
+    <title>ProductUser Data</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 </head>
 <body>
-
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-warning text-center text-dark">
+            <h3>PRODUCT USER TYPE DATA</h3>
+        </div>
+        <div class="card-body">
+            <div class="text-right mb-2">
+                <a class="btn btn-dark" th:href="@{/pu/chart}">CHART <i class="fa-solid  fa-chart-simple"></i></a>
+                <a class="btn btn-success" th:href="@{/pu/excel}">EXCEL <i class="fa-regular fa-file-excel"></i></a>
+            </div>
+            <table class="table table-hover">
+                <tr class="bg-dark text-white">
+                    <th>ID</th>
+                    <th>TYPE</th>
+                    <th>CODE</th>
+                    <th>FOR</th>
+                    <th>EMAIL</th>
+                    <th>CONTACT</th>
+                    <th>ID TYPE</th>
+                    <th>OTHER ID TYPE</th>
+                    <th>ID NUMBER</th>
+                    <th>OPERATIONS</th>
+                </tr>
+                <tr th:each="ob:${list}">
+                    <td th:text="${ob.id}"></td>
+                    <td th:text="${ob.userType}"></td>
+                    <td th:text="${ob.userCode}"></td>
+                    <td th:text="${ob.userFor}"></td>
+                    <td th:text="${ob.userEmail}"></td>
+                    <td th:text="${ob.userContact}"></td>
+                    <td th:text="${ob.userIdType}"></td>
+                    <td th:text="${ob.ifOther}"></td>
+                    <td th:text="${ob.userIdNumber}"></td>
+                    <td>
+                        <!-- Url Rewriting-->
+                        <a class="btn btn-danger" th:href="@{/pu/delete(id=${ob.id})}"><i
+                                class="fa-solid fa-trash-can"></i></a> |
+                        <a class="btn btn-warning" th:href="@{/pu/edit(id=${ob.id})}"><i
+                                class="fa-solid fa-pen-fancy"></i></a> |
+                        <a class="btn btn-success" th:href="@{/pu/excelone(id=${ob.id})}"><i
+                                class="fa-solid fa-file-excel"></i></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer text-center" th:if="${message} != null">
+            <span class="text-success" th:text="${message}"></span>
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -120,6 +120,23 @@
 
                 <div class="row">
                     <div class="col-3">
+                        <label>Order Method</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="partOm" name="om.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${oms}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="partOmError"></span>
+                    </div>
+                </div>
+
+                <!--Row#6 end-->
+
+                <div class="row">
+                    <div class="col-3">
                         <label for="partDesc">PART DESCRIPTION</label>
                     </div>
                     <div class="col-4">
@@ -130,7 +147,7 @@
                     </div>
                 </div>
 
-                <!--row #6 end-->
+                <!--row #7 end-->
 
                 <input class="btn btn-success" type="submit" value="Register Part"/>
 

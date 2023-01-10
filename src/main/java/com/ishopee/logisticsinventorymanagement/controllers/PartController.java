@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.Part;
 import com.ishopee.logisticsinventorymanagement.services.IMusService;
+import com.ishopee.logisticsinventorymanagement.services.IOrderMethodService;
 import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,11 +24,13 @@ public class PartController {
     private IPartService service;
     @Autowired
     private IMusService musService;
-
+    @Autowired
+    private IOrderMethodService orderMethodService;
 
     @GetMapping("/register")
     public String showRegister(Model model) {
         fetchMusData(model);
+        fetchOmData(model);
         return "PartRegister";
     }
 
@@ -39,6 +42,7 @@ public class PartController {
             LOG.debug("RECORD IS CREATED WITH ID {}", id);
             String msg = "part " + id + " registered";
             fetchMusData(model);
+            fetchOmData(model);
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
@@ -88,6 +92,7 @@ public class PartController {
         try {
             Part part = service.getOnePart(id);
             fetchMusData(model);
+            fetchOmData(model);
             LOG.debug("RECORD FOUND WITH ID {}", id);
             model.addAttribute("Part", part);
             page = "PartEdit";
@@ -139,5 +144,10 @@ public class PartController {
     private void fetchMusData(Model model) {
         Map<Integer, String> map = musService.getMusIdAndModel();
         model.addAttribute("muses", map);
+    }
+
+    private void fetchOmData(Model model) {
+        Map<Integer, String> map = orderMethodService.getOrderMethodIdAndCode();
+        model.addAttribute("oms", map);
     }
 }

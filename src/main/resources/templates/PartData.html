@@ -27,6 +27,7 @@
                     <th>CURRENCY</th>
                     <th>DIMENSION</th>
                     <th>MUS</th>
+                    <th>OM</th>
                     <th>DESCRIPTION</th>
                     <th>OPERATIONS</th>
                 </tr>
@@ -41,6 +42,7 @@
                         L:<span th:text="${ob.getPartLegnth()}"></span>
                     </td>
                     <td th:text="${ob.getMus().musModel}"></td>
+                    <td th:text="${ob.getOm().orderCode}"></td>
                     <td th:text="${ob.getPartDesc()}"></td>
                     <td>
                         <a class="btn btn-outline-danger" th:href="@{/part/delete(id=${ob.getId()})}">

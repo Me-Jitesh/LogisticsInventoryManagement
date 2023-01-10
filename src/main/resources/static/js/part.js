@@ -8,6 +8,7 @@ $(document).ready(function () {
     $("#partCostError").hide();
     $("#partCurrencyError").hide();
     $("#partMusError").hide();
+    $("#partOmError").hide();
     $("#partDescError").hide();
 
     //2. define  error variable
@@ -18,6 +19,7 @@ $(document).ready(function () {
     var partCostError = false;
     var partCurrencyError = false;
     var partMusError = false;
+    var partOmError = false;
     var partDescError = false;
 
     function validate_partCode() {
@@ -127,6 +129,20 @@ $(document).ready(function () {
         return partMusError;
     }
 
+    function validate_partOm() {
+        var val = $("#partOm").val();
+        if (val == "") {
+            $("#partOmError").show();
+            $("#partOmError").html(" * please  select one <b>order method</b>");
+            $("#partOmError").css("color", "red");
+            partOmError = false;
+        } else {
+            $("#partOmError").hide();
+            partOmError = true;
+        }
+        return partOmError;
+    }
+
     function validate_partDesc() {
         var exp = /^[A-Za-z0-9\s-.*,@:]{2,20}$/;
 
@@ -180,6 +196,10 @@ $(document).ready(function () {
         validate_partMus();
     });
 
+    $('[name="om.id"]').change(function () {
+        validate_partOm();
+    });
+
     $("#partDesc").keyup(function () {
         validate_partDesc();
     });
@@ -193,9 +213,10 @@ $(document).ready(function () {
         validate_partCost();
         validate_partCurrency();
         validate_partMus();
+        validate_partOm();
         validate_partDesc();
 
-        if (partCodeError && partWidthError && partHeightError && partLegnthError && partCostError && partCurrencyError && partMusError && partDescError) {
+        if (partCodeError && partWidthError && partHeightError && partLegnthError && partCostError && partCurrencyError && partMusError && partOmError && partDescError) {
             return true;
         } else {
             return false;

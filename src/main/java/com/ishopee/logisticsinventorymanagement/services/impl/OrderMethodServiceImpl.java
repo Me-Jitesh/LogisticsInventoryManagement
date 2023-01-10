@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderMethodServiceImpl implements IOrderMethodService {
@@ -55,5 +57,11 @@ public class OrderMethodServiceImpl implements IOrderMethodService {
     @Override
     public List<Object[]> getOrderModeAndCount() {
         return repo.getOrderModeAndCount();
+    }
+
+    @Override
+    public Map<Integer, String> getOrderMethodIdAndCode() {
+        List<Object[]> list = repo.getOrderMethodIdAndCode();
+        return list.stream().collect(Collectors.toMap((ob) -> (Integer) ob[0], (ob) -> (String) ob[1]));
     }
 }

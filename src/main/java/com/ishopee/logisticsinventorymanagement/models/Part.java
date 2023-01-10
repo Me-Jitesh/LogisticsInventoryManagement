@@ -30,4 +30,7 @@ public class Part {
     @ManyToOne
     @JoinColumn(name = "mus_id_fk_col")
     private Mus mus;
+    @ManyToOne
+    @JoinColumn(name = "om_id_fk_col")
+    private OrderMethod om;
 }

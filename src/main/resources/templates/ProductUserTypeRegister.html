@@ -19,7 +19,7 @@
 
         <div class="card-body">
 
-            <form id="OrderMethodForm" method="post" th:action="@{/pu/save}">
+            <form id="ProductUserForm" method="post" th:action="@{/pu/save}">
 
                 <div class="row">
                     <div class="col-3">
@@ -58,9 +58,6 @@
                     </div>
                     <div class="col-4">
                         <input class="form-control" id="userFor" name="userFor" type="text" readonly/>
-                    </div>
-                    <div class="col-5">
-                        <span id="userForError"></span>
                     </div>
                 </div>
 
@@ -115,9 +112,9 @@
 
                 <!--Row#6 end-->
 
-                <div class="row">
+                <div class="row" id="otherDiv">
                     <div class="col-3">
-                        <label for="ifOther">IF OTHER</label>
+                        <label for="ifOther">OTHER ID</label>
                     </div>
                     <div class="col-4">
                         <input class="form-control" id="ifOther" name="ifOther" type="text"/>

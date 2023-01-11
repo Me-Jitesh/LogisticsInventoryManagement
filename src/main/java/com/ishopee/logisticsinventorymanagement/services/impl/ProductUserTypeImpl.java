@@ -58,4 +58,14 @@ public class ProductUserTypeImpl implements IProductUserTypeService {
         return repo.getProductUserTypeAndCount();
     }
 
+    @Override
+    public boolean isEmailExist(String email) {
+        return repo.isEmailExist(email) > 0;
+
+    }
+
+    @Override
+    public boolean isEmailExist(String email, Integer id) {
+        return repo.isEmailExistForEdit(email, id) > 0;
+    }
 }

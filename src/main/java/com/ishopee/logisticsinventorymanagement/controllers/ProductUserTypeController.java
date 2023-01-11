@@ -132,6 +132,20 @@ public class ProductUserTypeController {
         return msg;
     }
 
+    @GetMapping("/validatemail")
+    @ResponseBody
+    public String validateEmail(@RequestParam String email, @RequestParam Integer id) {
+        String msg = "";
+//         for register check
+        if (id == 0 && service.isEmailExist(email)) {
+            msg = " *  " + email + " already exist";
+//             for edit check
+        } else if (id != 0 && service.isEmailExist(email, id)) {
+            msg = " *  " + email + " already exist";
+        }
+        return msg;
+    }
+
     @GetMapping("/excel")
     public ModelAndView exportExcel() {
         LOG.info("ENTERED INTO Export Excel METHOD");

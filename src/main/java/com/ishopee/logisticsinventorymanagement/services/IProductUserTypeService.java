@@ -22,4 +22,8 @@ public interface IProductUserTypeService {
     boolean isProductUserCodeCountExistForEdit(String productUserCode, Integer id);
 
     List<Object[]> getProductUserTypeAndCount();
+
+    boolean isEmailExist(String email);
+
+    boolean isEmailExist(String email, Integer id);
 }

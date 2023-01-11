@@ -16,4 +16,10 @@ public interface ProductUserTypeRepo extends JpaRepository<ProductUserType, Inte
 
     @Query("SELECT PU.userType,count(PU.userType) from ProductUserType PU group by PU.userType")
     List<Object[]> getProductUserTypeAndCount();
+
+    @Query("SELECT count(userEmail) FROM ProductUserType  WHERE userEmail=:email")
+    Integer isEmailExist(String email);
+
+    @Query("SELECT count(userEmail) FROM ProductUserType  WHERE userEmail=:email AND id !=:id")
+    Integer isEmailExistForEdit(String email, Integer id);
 }

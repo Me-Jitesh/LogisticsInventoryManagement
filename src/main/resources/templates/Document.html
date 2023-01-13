@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>file upload</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-center text-white">
+            <h3>FILE UPLOAD</h3>
+        </div>
+        <div class="card-body">
+
+            <!--Upload-->
+            <form id="DocForm" method="post" th:action="@{/doc/upload}" enctype="multipart/form-data">
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="docId">ID</label>
+                    </div>
+                    <div class="col-4">
+                        <input id="docId" name="docId" class="form-control" type="text"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="docIdError"></span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="docData">DOCUMENT</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="file" id="docData" name="docData" class="form-control"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="docDataError"></span>
+                    </div>
+                </div>
+
+                <input class="btn btn-success" type="submit" value="UPLOAD"/>
+            </form>
+
+            <!-- Dispaly -->
+            <div class="row mt-5" th:if="${list!=null}">
+                <table class="table table-hover">
+                    <tr class="bg-dark text-white">
+                        <th>NAME</th>
+                        <th>OPERATIONS</th>
+                    </tr>
+                    <tr th:each="ob:${list}">
+                        <td th:text="${ob[1]}"></td>
+                        <td>
+                            <a class="btn btn-outline-danger" th:href="@{/doc/delete(docId=${ob[0]})}">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a> |
+                            <a class="btn btn-outline-success" th:href="@{/doc/delete(docId=${ob[0]})}">
+                                <i class="fa-solid fa-file-download"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

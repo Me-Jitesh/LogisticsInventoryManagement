@@ -15,5 +15,5 @@ public class Document {
     private String docName;
     @Lob
     @Column(name = "doc_data_col")
-    private Byte[] docData;
+    private byte[] docData;
 }

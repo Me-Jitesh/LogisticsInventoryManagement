@@ -25,11 +25,13 @@ public class DocumentController {
     public String showDocument(Model model) {
         List<Object[]> list = service.getDocumentIdAndName();
         model.addAttribute("list", list);
+        Long id = System.currentTimeMillis();
+        model.addAttribute("id", id);
         return "Document";
     }
 
     @PostMapping("/upload")
-    public String saveDocument(@RequestParam Integer docId, MultipartFile docData) {
+    public String saveDocument(@RequestParam Long docId, MultipartFile docData) {
         Document document = new Document();
         try {
             document.setDocId(docId);

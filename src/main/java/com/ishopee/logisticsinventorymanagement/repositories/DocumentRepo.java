@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface DocumentRepo extends JpaRepository<Document, Integer> {
+public interface DocumentRepo extends JpaRepository<Document, Long> {
 
     @Query("SELECT docId,docName FROM Document")
     List<Object[]> getDocumentIdAndName();

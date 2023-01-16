@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class Document {
     @Id
     @Column(name = "doc_id_col")
-    private Integer docId;
+    private Long docId;
     @Column(name = "doc_name_col")
     private String docName;
     @Lob

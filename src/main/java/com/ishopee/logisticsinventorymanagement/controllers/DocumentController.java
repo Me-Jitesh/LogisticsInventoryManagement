@@ -5,12 +5,14 @@ import com.ishopee.logisticsinventorymanagement.services.IDocumentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -42,5 +44,29 @@ public class DocumentController {
             throw new RuntimeException(e);
         }
         return "redirect:all";
+    }
+
+    @GetMapping("/delete")
+    public String saveDocument(@RequestParam Long docId) {
+
+        try {
+            service.deleteDocument(docId);
+        } catch (RuntimeException e) {
+            e.printStackTrace();
+        }
+        return "redirect:all";
+    }
+
+    @GetMapping("/download")
+    public void downloadDocument(@RequestParam Long docId, HttpServletResponse resp) {
+        try {
+            Document document = service.getDocument(docId);
+            resp.setHeader("Content-Disposition", "attachment;filename=" + document.getDocName());
+            // Copy Data From Document to Response
+            FileCopyUtils.copy(document.getDocData(), resp.getOutputStream());
+
+        } catch (RuntimeException | IOException e) {
+            e.printStackTrace();
+        }
     }
 }

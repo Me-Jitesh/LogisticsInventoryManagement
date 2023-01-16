@@ -9,4 +9,8 @@ public interface IDocumentService {
     void saveDocument(Document doc);
 
     List<Object[]> getDocumentIdAndName();
+
+    void deleteDocument(Long docId);
+
+    Document getDocument(Long docId);
 }

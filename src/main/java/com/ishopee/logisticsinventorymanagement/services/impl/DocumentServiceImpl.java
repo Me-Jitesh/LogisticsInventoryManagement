@@ -23,4 +23,18 @@ public class DocumentServiceImpl implements IDocumentService {
     public List<Object[]> getDocumentIdAndName() {
         return repo.getDocumentIdAndName();
     }
+
+    @Override
+    public void deleteDocument(Long docId) {
+        if (repo.existsById(docId)) {
+            repo.deleteById(docId);
+        } else {
+            throw new RuntimeException("Document Does Not Exist");
+        }
+    }
+
+    @Override
+    public Document getDocument(Long docId) {
+        return repo.findById(docId).orElseThrow(() -> new RuntimeException("Document Does Not Exist"));
+    }
 }

@@ -31,7 +31,8 @@ public class ProductUserTypeController {
 
 
     @GetMapping("/register")
-    public String productUserTypeRegister() {
+    public String productUserTypeRegister(Model model) {
+        setUserType(model);
         return "ProductUserTypeRegister";
     }
 
@@ -43,6 +44,7 @@ public class ProductUserTypeController {
             LOG.debug("RECORD IS CREATED WITH ID {}", id);
             String msg = "product user type " + id + " registered successfully";
             model.addAttribute("message", msg);
+            setUserType(model);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
@@ -192,5 +194,9 @@ public class ProductUserTypeController {
     private void fetchAllData(Model model) {
         List<ProductUserType> list = service.getAllProductUserType();
         model.addAttribute("list", list);
+    }
+
+    private void setUserType(Model model) {
+        model.addAttribute("productUserType", new ProductUserType());
     }
 }

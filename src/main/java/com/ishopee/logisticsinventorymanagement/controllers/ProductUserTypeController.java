@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.ProductUserType;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
+import com.ishopee.logisticsinventorymanagement.utilities.EmailUtil;
 import com.ishopee.logisticsinventorymanagement.utilities.ProductUserTypeUtility;
 import com.ishopee.logisticsinventorymanagement.views.ProductUserTypeExcelView;
 import org.slf4j.Logger;
@@ -28,6 +29,8 @@ public class ProductUserTypeController {
     private ServletContext context;
     @Autowired
     private ProductUserTypeUtility puUtil;
+    @Autowired
+    private EmailUtil emailUtil;
 
 
     @GetMapping("/register")
@@ -42,7 +45,21 @@ public class ProductUserTypeController {
         try {
             Integer id = service.saveProductUserType(productUserType);
             LOG.debug("RECORD IS CREATED WITH ID {}", id);
-            String msg = "product user type " + id + " registered successfully";
+            // Sending Mail
+            String subject = "Thanks For Registration";
+            String text = "Hola! Dear \n\n You Are Registered With ID : " + productUserType.getId() + "\n\n\n\n\n\n"
+                    + "* you need not to worry your data is not stored this is only for testing purpose";
+            boolean sent = emailUtil.send(productUserType.getUserEmail(), subject, text);
+
+            // Prepare Message For Register Page Footer
+            String msg;
+            if (sent) {
+                msg = "Product User Type " + id + " Registered Successfully and Email Sent";
+                LOG.debug(msg);
+            } else {
+                msg = "Product User Type " + id + " Registered Successfully but Email Sending Failed ! ";
+                LOG.debug(msg);
+            }
             model.addAttribute("message", msg);
             setUserType(model);
         } catch (Exception e) {

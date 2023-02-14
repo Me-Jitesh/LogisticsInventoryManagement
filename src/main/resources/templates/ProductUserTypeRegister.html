@@ -19,7 +19,7 @@
 
         <div class="card-body">
 
-            <form id="ProductUserForm" method="post" th:action="@{/pu/save}">
+            <form id="ProductUserForm" method="post" th:action="@{/pu/save}" th:object="${productUserType}">
 
                 <div class="row">
                     <div class="col-3">
@@ -27,8 +27,8 @@
                     </div>
 
                     <div class="col-4">
-                        <input id="userType1" name="userType" type="radio" value="Vendor"/>Vendor
-                        <input id="userType2" name="userType" type="radio" value="Customer"/>Customer
+                        <input id="userType1" th:field="*{userType}" type="radio" value="Vendor"/>Vendor
+                        <input id="userType2" th:field="*{userType}" type="radio" value="Customer"/>Customer
                     </div>
 
                     <div class="col-5">
@@ -43,7 +43,7 @@
                         <label for="userCode">USER CODE</label>
                     </div>
                     <div class="col-4">
-                        <input class="form-control" id="userCode" name="userCode" type="text"/>
+                        <input class="form-control" id="userCode" th:field="*{userCode}" type="text"/>
                     </div>
                     <div class="col-5">
                         <span id="userCodeError"></span>
@@ -57,7 +57,7 @@
                         <label for="userFor">USER FOR</label>
                     </div>
                     <div class="col-4">
-                        <input class="form-control" id="userFor" name="userFor" type="text" readonly/>
+                        <input class="form-control" id="userFor" th:field="*{userFor}" type="text" readonly/>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@
                         <label for="userEmail">USER EMAIL</label>
                     </div>
                     <div class="col-4">
-                        <input class="form-control" id="userEmail" name="userEmail" type="text"/>
+                        <input class="form-control" id="userEmail" th:field="*{userEmail}" type="text"/>
                     </div>
                     <div class="col-5">
                         <span id="userEmailError"></span>
@@ -82,7 +82,7 @@
                         <label for="userContact">USER CONTACT</label>
                     </div>
                     <div class="col-4">
-                        <input class="form-control" id="userContact" name="userContact" type="text"/>
+                        <input class="form-control" id="userContact" th:field="*{userContact}" type="text"/>
                     </div>
                     <div class="col-5">
                         <span id="userContactError"></span>
@@ -97,7 +97,7 @@
                         <label for="userIdType">USER ID TYPE</label>
                     </div>
                     <div class="col-4">
-                        <select class="form-control" id="userIdType" name="userIdType">
+                        <select class="form-control" id="userIdType" th:field="*{userIdType}">
                             <option value="">--SELECT--</option>
                             <option value="PAN CARD">PAN CARD</option>
                             <option value="AADHAR CARD">AADHAR CARD</option>
@@ -117,7 +117,7 @@
                         <label for="ifOther">OTHER ID</label>
                     </div>
                     <div class="col-4">
-                        <input class="form-control" id="ifOther" name="ifOther" type="text"/>
+                        <input class="form-control" id="ifOther" th:field="*{ifOther}" type="text"/>
                     </div>
                     <div class="col-5">
                         <span id="ifOtherError"></span>
@@ -131,7 +131,7 @@
                         <label for="userIdNumber">ID NUMBER</label>
                     </div>
                     <div class="col-4">
-                        <input class="form-control" id="userIdNumber" name="userIdNumber" type="text"/>
+                        <input class="form-control" id="userIdNumber" th:field="*{userIdNumber}" type="text"/>
                     </div>
                     <div class="col-5">
                         <span id="userIdNumberError"></span>

@@ -43,13 +43,14 @@ public class ProductUserTypeController {
     public String saveProductUserType(@ModelAttribute ProductUserType productUserType, Model model) {
         LOG.info("ENTERED INTO saveProductUserType");
         try {
-            Integer id = service.saveProductUserType(productUserType);
-            LOG.debug("RECORD IS CREATED WITH ID {}", id);
             // Sending Mail
             String subject = "Thanks For Registration";
             String text = "Hola! Dear \n\n You Are Registered With ID : " + productUserType.getId() + "\n\n\n\n\n\n"
                     + "* you need not to worry your data is not stored this is only for testing purpose";
             boolean sent = emailUtil.send(productUserType.getUserEmail(), subject, text);
+
+            Integer id = service.saveProductUserType(productUserType);
+            LOG.debug("RECORD IS CREATED WITH ID {}", id);
 
             // Prepare Message For Register Page Footer
             String msg;
@@ -60,9 +61,11 @@ public class ProductUserTypeController {
                 msg = "Product User Type " + id + " Registered Successfully but Email Sending Failed ! ";
                 LOG.debug(msg);
             }
+
             model.addAttribute("message", msg);
             setUserType(model);
         } catch (Exception e) {
+            model.addAttribute("message", "Ooops! Something Went Wrong.....");
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
             e.printStackTrace();
         }

@@ -14,7 +14,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         MUS
                     </a>
@@ -25,6 +25,64 @@
                         <a class="dropdown-item" th:href="@{/mus/chart}">Chart</a>
                     </div>
                 </li>
+                <!--MUS Closed-->
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Shipment Type
+                    </a>
+                    <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/st/register}">Register</a>
+                        <a class="dropdown-item" th:href="@{/st/all}">All Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/st/chart}">Chart</a>
+                    </div>
+                </li>
+                <!--ST Closed-->
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Order Method
+                    </a>
+                    <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/om/register}">Register</a>
+                        <a class="dropdown-item" th:href="@{/om/all}">All Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/om/chart}">Chart</a>
+                    </div>
+                </li>
+                <!--OM Closed-->
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Part
+                    </a>
+                    <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/part/register}">Register</a>
+                        <a class="dropdown-item" th:href="@{/part/all}">All Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Chart</a>
+                    </div>
+                </li>
+                <!--Part Closed-->
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Product User
+                    </a>
+                    <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/pu/register}">Register</a>
+                        <a class="dropdown-item" th:href="@{/pu/all}">All Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/pu/chart}">Chart</a>
+                    </div>
+                </li>
+                <!--PU Closed-->
+
             </ul>
         </div>
     </nav>

@@ -83,6 +83,20 @@
                 </li>
                 <!--PU Closed-->
 
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Purchase Order
+                    </a>
+                    <div class="dropdown-menu bg-warning" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" th:href="@{/po/register}">Register</a>
+                        <a class="dropdown-item" th:href="@{/po/all}">All Data</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" th:href="@{/po/chart}">Chart</a>
+                    </div>
+                </li>
+                <!--PO Closed-->
+
             </ul>
         </div>
     </nav>

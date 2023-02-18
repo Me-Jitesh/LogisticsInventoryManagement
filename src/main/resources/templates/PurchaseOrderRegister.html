@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+    <title>Purchase Order Registeration</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-header bg-primary text-white text-center">
+            <h3>PURCHASE ORDER REGISTERATION</h3>
+        </div>
+
+        <div class="card-body">
+            <form id="PoForm" method="post" th:action="@{/po/save}">
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="orderCode">Order Code</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="orderCode" name="orderCode"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="orderCodeEror"></span>
+                    </div>
+                </div>
+                <!--Row #1-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="refNumber">Reference Number</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="refNumber" name="refNumber"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="refNumberEror"></span>
+                    </div>
+                </div>
+                <!--Row #2-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label>Quality Check</label>
+                    </div>
+                    <div class="col-4">
+                        <input id="qltyCheck1" name="qltyCheck" type="radio" value="Required"/>Required
+                        <input id="qltyCheck2" name="qltyCheck" type="radio" value="Not Required"/>Not Required
+                    </div>
+                    <div class="col-5">
+                        <span id="qltyCheckEror"></span>
+                    </div>
+                </div>
+                <!--Row #3-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="status">Status</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="status" name="status" value="OPEN" readonly/>
+                    </div>
+                    <div class="col-5">
+                        <span id="statuskEror"></span>
+                    </div>
+                </div>
+                <!--Row #4-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="poDesc">Description</label>
+                    </div>
+                    <div class="col-4">
+                        <textarea class="form-control" id="poDesc" name="desc"></textarea>
+                    </div>
+                    <div class="col-5">
+                        <span id="poDescError"></span>
+                    </div>
+                </div>
+                <!--row #5 end-->
+
+                <!-- Submit Button -->
+                <input class="btn btn-success" type="submit" value="Submit"/>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/po.js}" type="text/javascript"></script>
+</body>
+</html>

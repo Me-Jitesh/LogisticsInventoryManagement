@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/po")
 public class PurchaseOrderController {
@@ -43,4 +45,24 @@ public class PurchaseOrderController {
         LOG.info("ABOUT TO GO UI PAGE PurchaseOrderRegister ! ");
         return "PurchaseOrderRegister";
     }
+
+    @GetMapping("/all")
+    public String getAllPurchaseOrder(Model model) {
+        LOG.info("ENTERED INTO getAllPurchaseOrder");
+        try {
+            fetchAllData(model);
+            LOG.debug("FETCHED ALL RECORDS");
+        } catch (Exception e) {
+            LOG.error("UNABLE TO PROCESS getAllPurchaseOrder {}", e.getMessage());
+            e.printStackTrace();
+        }
+        LOG.info("ABOUT TO GO UI PAGE PurchaseOrderData ! ");
+        return "PurchaseOrderData";
+    }
+
+    private void fetchAllData(Model model) {
+        List<PurchaseOrder> list = service.getAllPurchaseOrder();
+        model.addAttribute("list", list);
+    }
+
 }

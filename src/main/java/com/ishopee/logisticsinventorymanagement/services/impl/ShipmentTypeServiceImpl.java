@@ -4,10 +4,12 @@ import com.ishopee.logisticsinventorymanagement.exceptions.ShipmentTypeNotFoundE
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 import com.ishopee.logisticsinventorymanagement.repositories.ShipmentTypeRepo;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ShipmentTypeServiceImpl implements IShipmentTypeService {
@@ -71,5 +73,11 @@ public class ShipmentTypeServiceImpl implements IShipmentTypeService {
     @Override
     public List<Object[]> getShipModeAndCount() {
         return shipmentTypeRepo.getShipModeAndCount();
+    }
+
+    @Override
+    public Map<Integer, String> getEnabledShipIdAndCode(String enable) {
+        List<Object[]> shipType = shipmentTypeRepo.getEnabledShipIdAndCode(enable);
+        return MyAppUtility.convertListIntoMap(shipType);
     }
 }

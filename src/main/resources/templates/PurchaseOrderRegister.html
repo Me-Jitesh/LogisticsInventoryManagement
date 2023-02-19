@@ -29,7 +29,7 @@
                         <span id="orderCodeEror"></span>
                     </div>
                 </div>
-                <!--Row #1-->
+                <!--Row Order Code End-->
 
                 <div class="row">
                     <div class="col-3">
@@ -42,7 +42,23 @@
                         <span id="refNumberEror"></span>
                     </div>
                 </div>
-                <!--Row #2-->
+                <!--Row Reference Number End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="shipCode">Shipment Code</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="shipCode" name="st.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${shipCodes}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="shipCodeError"></span>
+                    </div>
+                </div>
+                <!--Row Shipment Code End-->
 
                 <div class="row">
                     <div class="col-3">
@@ -56,7 +72,7 @@
                         <span id="qltyCheckEror"></span>
                     </div>
                 </div>
-                <!--Row #3-->
+                <!--Row Quality Check End-->
 
                 <div class="row">
                     <div class="col-3">
@@ -69,7 +85,7 @@
                         <span id="statuskEror"></span>
                     </div>
                 </div>
-                <!--Row #4-->
+                <!--Row Status End-->
 
                 <div class="row">
                     <div class="col-3">
@@ -82,10 +98,10 @@
                         <span id="poDescError"></span>
                     </div>
                 </div>
-                <!--row #5 end-->
+                <!--Row Description End-->
 
                 <!-- Submit Button -->
-                <input class="btn btn-success" type="submit" value="Submit"/>
+                <input class="btn btn-success" type="submit" value="CREATE ORDER"/>
             </form>
         </div>
         <div class="card-footer text-center bg-success text-white" th:if="${message != null}">

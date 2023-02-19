@@ -21,6 +21,7 @@
                 <tr class="bg-secondary text-white">
                     <th>ID</th>
                     <th>CODE</th>
+                    <th>SHIPMENT CODE</th>
                     <th>REFERENCE</th>
                     <th>QUALITY CHECK</th>
                     <th>STATUS</th>
@@ -30,6 +31,7 @@
                 <tr th:each="ob:${list}">
                     <td th:text="${ob.id}"></td>
                     <td th:text="${ob.orderCode}"></td>
+                    <td th:text="${ob.st.shipCode}"></td>
                     <td th:text="${ob.refNumber}"></td>
                     <td th:text="${ob.qltyCheck}"></td>
                     <td th:text="${ob.status}"></td>

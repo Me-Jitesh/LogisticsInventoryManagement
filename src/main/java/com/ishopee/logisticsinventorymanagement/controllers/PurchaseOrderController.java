@@ -2,6 +2,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
+import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/po")
@@ -22,10 +24,13 @@ public class PurchaseOrderController {
 
     @Autowired
     private IPurchaseOrderService service;
+    @Autowired
+    private IShipmentTypeService shipmentService;
 
     @GetMapping("/register")
-    public String showRegister() {
-        LOG.info("Show Purchase Order Register Page");
+    public String showRegister(Model model) {
+        LOG.info("Entered Show Purchase Order Register Page");
+        fetchShipTypeCode(model);
         return "PurchaseOrderRegister";
     }
 
@@ -65,4 +70,8 @@ public class PurchaseOrderController {
         model.addAttribute("list", list);
     }
 
+    private void fetchShipTypeCode(Model model) {
+        Map<Integer, String> shipData = shipmentService.getEnabledShipIdAndCode("Yes");
+        model.addAttribute("shipCodes", shipData);
+    }
 }

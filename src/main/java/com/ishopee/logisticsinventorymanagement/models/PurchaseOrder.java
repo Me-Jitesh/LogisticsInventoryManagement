@@ -24,4 +24,7 @@ public class PurchaseOrder {
     private String status;
     @Column(name = "po_desc_col")
     private String desc;
+    @ManyToOne
+    @JoinColumn(name = "st_id_fk_col")
+    private ShipmentType st;
 }

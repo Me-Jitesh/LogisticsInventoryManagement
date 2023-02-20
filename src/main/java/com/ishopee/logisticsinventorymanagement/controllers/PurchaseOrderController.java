@@ -8,10 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -63,6 +60,21 @@ public class PurchaseOrderController {
         }
         LOG.info("ABOUT TO GO UI PAGE PurchaseOrderData ! ");
         return "PurchaseOrderData";
+    }
+
+    @GetMapping("/validatecode")
+    @ResponseBody
+    public String validatePoCode(@RequestParam String code, @RequestParam Integer id) {
+        String msg = "";
+//     for register
+        if (id == 0 && service.isOrderCodeExist(code)) {
+            msg = " * code " + code + " already exist";
+
+//     for edit
+        } else if (id != 0 && service.isOrderCodeExistForEdit(code, id)) {
+            msg = " * " + code + " already exist";
+        }
+        return msg;
     }
 
     private void fetchAllData(Model model) {

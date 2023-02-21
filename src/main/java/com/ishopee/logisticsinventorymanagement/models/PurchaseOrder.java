@@ -27,4 +27,7 @@ public class PurchaseOrder {
     @ManyToOne
     @JoinColumn(name = "st_id_fk_col")
     private ShipmentType st;
+    @ManyToOne
+    @JoinColumn(name = "prod_vendor_id_fk_col")
+    private ProductUserType vendor;
 }

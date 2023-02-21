@@ -4,6 +4,7 @@ package com.ishopee.logisticsinventorymanagement.services;
 import com.ishopee.logisticsinventorymanagement.models.ProductUserType;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IProductUserTypeService {
 
@@ -26,4 +27,6 @@ public interface IProductUserTypeService {
     boolean isEmailExist(String email);
 
     boolean isEmailExist(String email, Integer id);
+
+    Map<Integer, String> getProductUserIdAndCode(String uType);
 }

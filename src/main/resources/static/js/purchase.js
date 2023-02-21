@@ -4,6 +4,7 @@ $(document).ready(function () {
     $("#orderCodeError").hide();
     $("#refNumberError").hide();
     $("#shipCodeError").hide();
+    $("#vendorError").hide();
     $("#qltyCheckError").hide();
     $("#poDescError").hide();
 
@@ -11,6 +12,7 @@ $(document).ready(function () {
     let orderCodeError = false;
     let refNumberError = false;
     let shipCodeError = false;
+    let vendorError = false;
     let qltyCheckError = false;
     let poDescError = false;
 
@@ -81,6 +83,20 @@ $(document).ready(function () {
         return shipCodeError;
     }
 
+    function validate_vendor() {
+        let val = $("#vendor").val();
+        if (val == '') {
+            $("#vendorError").show();
+            $("#vendorError").html("* required");
+            $("#vendorError").css('color', 'red');
+            vendorError = false;
+        } else {
+            $("#vendorError").hide();
+            vendorError = true;
+        }
+        return vendorError;
+    }
+
     function validate_qltyCheck() {
         let len = $('[name="qltyCheck"]:checked').length;
         if (len == 0) {
@@ -131,6 +147,10 @@ $(document).ready(function () {
         validate_shipCode();
     });
 
+    $('[name="vendor.id"]').change(function () {
+        validate_vendor();
+    });
+
     $('[name="qltyCheck"]').change(function () {
         validate_qltyCheck();
     });
@@ -144,10 +164,11 @@ $(document).ready(function () {
         validate_orderCode();
         validate_refNumber();
         validate_shipCode();
+        validate_vendor();
         validate_qltyCheck();
         validate_poDesc();
 
-        if (orderCodeError && refNumberError && shipCodeError && qltyCheckError && poDescError) {
+        if (orderCodeError && refNumberError && shipCodeError && vendorError && qltyCheckError && poDescError) {
             return true;
         } else {
             return false;

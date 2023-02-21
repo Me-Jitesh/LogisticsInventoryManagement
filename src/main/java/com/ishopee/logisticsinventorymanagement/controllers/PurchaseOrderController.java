@@ -1,6 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
+import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
 import org.slf4j.Logger;
@@ -23,11 +24,15 @@ public class PurchaseOrderController {
     private IPurchaseOrderService service;
     @Autowired
     private IShipmentTypeService shipmentService;
+    @Autowired
+    private IProductUserTypeService userTypeService;
 
     @GetMapping("/register")
     public String showRegister(Model model) {
         LOG.info("Entered Show Purchase Order Register Page");
-        fetchShipTypeCode(model);
+        fetchShipTypeCode("Yes", model);
+        fetchVendorCode("Vendor", model);
+        LOG.info("Exit Show Purchase Order Register Page");
         return "PurchaseOrderRegister";
     }
 
@@ -82,8 +87,13 @@ public class PurchaseOrderController {
         model.addAttribute("list", list);
     }
 
-    private void fetchShipTypeCode(Model model) {
-        Map<Integer, String> shipData = shipmentService.getEnabledShipIdAndCode("Yes");
+    private void fetchShipTypeCode(String enable, Model model) {
+        Map<Integer, String> shipData = shipmentService.getEnabledShipIdAndCode(enable);
         model.addAttribute("shipCodes", shipData);
+    }
+
+    private void fetchVendorCode(String uType, Model model) {
+        Map<Integer, String> vendorData = userTypeService.getProductUserIdAndCode(uType);
+        model.addAttribute("vendors", vendorData);
     }
 }

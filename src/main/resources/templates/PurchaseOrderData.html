@@ -22,6 +22,7 @@
                     <th>ID</th>
                     <th>CODE</th>
                     <th>SHIPMENT CODE</th>
+                    <th>VENDOR</th>
                     <th>REFERENCE</th>
                     <th>QUALITY CHECK</th>
                     <th>STATUS</th>
@@ -32,6 +33,7 @@
                     <td th:text="${ob.id}"></td>
                     <td th:text="${ob.orderCode}"></td>
                     <td th:text="${ob.st.shipCode}"></td>
+                    <td th:text="${ob.vendor.userCode}"></td>
                     <td th:text="${ob.refNumber}"></td>
                     <td th:text="${ob.qltyCheck}"></td>
                     <td th:text="${ob.status}"></td>

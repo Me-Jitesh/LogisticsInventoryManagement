@@ -62,6 +62,22 @@
 
                 <div class="row">
                     <div class="col-3">
+                        <label for="vendor">Vendor</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="vendor" name="vendor.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${vendors}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="vendorError"></span>
+                    </div>
+                </div>
+                <!--Row Vendor End-->
+
+                <div class="row">
+                    <div class="col-3">
                         <label>Quality Check</label>
                     </div>
                     <div class="col-4">

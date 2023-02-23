@@ -3,6 +3,7 @@ package com.ishopee.logisticsinventorymanagement.services;
 import com.ishopee.logisticsinventorymanagement.models.ShipmentType;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IShipmentTypeService {
 
@@ -21,4 +22,7 @@ public interface IShipmentTypeService {
     boolean isShipmentCodeCountExistForEdit(String shipmentCode, Integer id);
 
     List<Object[]> getShipModeAndCount();
+
+    Map<Integer, String> getEnabledShipIdAndCode(String enable);
+
 }

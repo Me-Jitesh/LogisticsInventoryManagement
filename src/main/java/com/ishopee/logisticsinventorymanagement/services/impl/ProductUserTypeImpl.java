@@ -5,10 +5,12 @@ import com.ishopee.logisticsinventorymanagement.exceptions.ProductUserTypeExcept
 import com.ishopee.logisticsinventorymanagement.models.ProductUserType;
 import com.ishopee.logisticsinventorymanagement.repositories.ProductUserTypeRepo;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ProductUserTypeImpl implements IProductUserTypeService {
@@ -67,5 +69,11 @@ public class ProductUserTypeImpl implements IProductUserTypeService {
     @Override
     public boolean isEmailExist(String email, Integer id) {
         return repo.isEmailExistForEdit(email, id) > 0;
+    }
+
+    @Override
+    public Map<Integer, String> getProductUserIdAndCode(String uType) {
+        List<Object[]> vendor = repo.getProductUserIdAndCodeByType(uType);
+        return MyAppUtility.convertListIntoMap(vendor);
     }
 }

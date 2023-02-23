@@ -22,4 +22,7 @@ public interface ProductUserTypeRepo extends JpaRepository<ProductUserType, Inte
 
     @Query("SELECT count(userEmail) FROM ProductUserType  WHERE userEmail=:email AND id !=:id")
     Integer isEmailExistForEdit(String email, Integer id);
+
+    @Query("SELECT id,userCode FROM ProductUserType WHERE userType=:uType ")
+    List<Object[]> getProductUserIdAndCodeByType(String uType);
 }

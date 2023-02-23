@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userhead(~{::title},~{::link})">
+    <title>PurchaseOrder Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-info text-center text-light">
+            <h3>PURCHASE ORDER DATA</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr class="bg-secondary text-white">
+                    <th>ID</th>
+                    <th>CODE</th>
+                    <th>SHIPMENT CODE</th>
+                    <th>VENDOR</th>
+                    <th>REFERENCE</th>
+                    <th>QUALITY CHECK</th>
+                    <th>STATUS</th>
+                    <th>DESCRIPTION</th>
+                    <th>OPERATIONS</th>
+                </tr>
+                <tr th:each="ob:${list}">
+                    <td th:text="${ob.id}"></td>
+                    <td th:text="${ob.orderCode}"></td>
+                    <td th:text="${ob.st.shipCode}"></td>
+                    <td th:text="${ob.vendor.userCode}"></td>
+                    <td th:text="${ob.refNumber}"></td>
+                    <td th:text="${ob.qltyCheck}"></td>
+                    <td th:text="${ob.status}"></td>
+                    <td th:text="${ob.desc}"></td>
+                    <td>
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer text-center" th:if="${message} != null">
+            <span class="text-success" th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

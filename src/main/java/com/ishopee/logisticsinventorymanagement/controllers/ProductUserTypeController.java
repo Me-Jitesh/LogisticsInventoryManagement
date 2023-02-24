@@ -32,7 +32,6 @@ public class ProductUserTypeController {
     @Autowired
     private EmailUtil emailUtil;
 
-
     @GetMapping("/register")
     public String productUserTypeRegister(Model model) {
         setUserType(model);
@@ -45,10 +44,16 @@ public class ProductUserTypeController {
         try {
             // Sending Mail
             String subject = "Thanks For Registration";
-            String text = "Hola! Dear \n\n You Are Registered With ID : " + productUserType.getId() + "\n\n\n\n\n\n"
-                    + "* you need not to worry your data is not stored this is only for testing purpose";
+            String text = "Hola! Dear \n\n You Are Registered With  : \n\n"
+                    + "User Code :: " + productUserType.getUserCode() + "\n"
+                    + "User Email :: " + productUserType.getUserEmail() + "\n"
+                    + "User Contact :: " + productUserType.getUserContact() + "\n"
+                    + "User  ID Number ::  " + productUserType.getUserIdNumber() + "\n"
+                    + "\n\n\n\n\n\n\n\n\n"
+                    + "* you need not to worry about  your data, it  is not stored only for testing purpose";
             boolean sent = emailUtil.send(productUserType.getUserEmail(), subject, text);
 
+            // Storing In DB
             Integer id = service.saveProductUserType(productUserType);
             LOG.debug("RECORD IS CREATED WITH ID {}", id);
 

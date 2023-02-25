@@ -6,6 +6,8 @@ import com.ishopee.logisticsinventorymanagement.utilities.VisitorUtility;
 import com.ishopee.logisticsinventorymanagement.views.AnalyticsPdfView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,7 @@ import java.util.List;
 @Controller
 public class AnalyticsController {
 
+    private String IP_ADDRESS = null;
     @Autowired
     private IVisitorService visitorService;
     @Autowired
@@ -36,6 +39,7 @@ public class AnalyticsController {
         if (httpServletRequest.getSession().getAttribute("visitorDetails") == null) {
             Visitor visitor = visitorService.saveVisitorDetails(httpServletRequest);
             httpServletRequest.getSession().setAttribute("visitorDetails", visitor);
+            IP_ADDRESS = visitor.getIpAddress();
         }
         // Generate Chart
         getChart(directory);
@@ -49,8 +53,17 @@ public class AnalyticsController {
     public ModelAndView exportPdf() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setView(new AnalyticsPdfView());
-        modelAndView.addObject("visitors", visitorService.getAllVisitors());
+        modelAndView.addObject("visitors", visitorService.getRecent10Visitors());
         return modelAndView;
+    }
+
+    @GetMapping("/json")
+    public ResponseEntity<List<Visitor>> exportJson(HttpServletRequest httpServletRequest) {
+        System.err.println("JSON FILE EXPORTED BY " + httpServletRequest.getSession().getAttribute("visitorDetails"));
+        return ResponseEntity.ok()
+                .header("Content-Disposition", "attachment;filename=Visitors.json")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(visitorService.getAllVisitors());
     }
 
     @ResponseBody

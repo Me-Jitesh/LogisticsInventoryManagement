@@ -78,16 +78,16 @@ public class AnalyticsController {
             visitorService.deleteVisitor(id);
             String msg = " Visitor  " + id + " Deleted";
             model.addAttribute("message", msg);
-            pepareModel(model);
+            prepareModel(model);
         } catch (Exception e) {
             e.printStackTrace();
-            pepareModel(model);
+            prepareModel(model);
             model.addAttribute("message", e.getMessage());
         }
         return "Analytics";
     }
 
-    private void pepareModel(Model model) {
+    private void prepareModel(Model model) {
         model.addAttribute("list", visitorService.getRecent10Visitors());
         model.addAttribute("count", visitorService.getVisitorsCount());
     }

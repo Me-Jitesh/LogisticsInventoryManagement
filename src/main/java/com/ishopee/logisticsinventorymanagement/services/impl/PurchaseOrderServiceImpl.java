@@ -21,7 +21,7 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
 
     @Override
     public PurchaseOrder getPurchaseOrderById(Integer id) {
-        return repo.findById(id).get();
+        return repo.findById(id).orElseThrow(() -> new RuntimeException("Purchase Order Does Not Exist !"));
     }
 
     @Override

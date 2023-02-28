@@ -1,8 +1,8 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
-import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
+import com.ishopee.logisticsinventorymanagement.models.SaleOrder;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
-import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
+import com.ishopee.logisticsinventorymanagement.services.ISaleOrderService;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,13 +15,13 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/po")
-public class PurchaseOrderController {
+@RequestMapping("/so")
+public class SaleOrderController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(PurchaseOrderController.class);
+    private static final Logger LOG = LoggerFactory.getLogger(SaleOrderController.class);
 
     @Autowired
-    private IPurchaseOrderService service;
+    private ISaleOrderService service;
     @Autowired
     private IShipmentTypeService shipmentService;
     @Autowired
@@ -29,61 +29,61 @@ public class PurchaseOrderController {
 
     @GetMapping("/register")
     public String showRegister(Model model) {
-        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER REGISTER PAGE");
+        LOG.debug("ENTERED INTO SHOW SALE ORDER REGISTER PAGE");
         fetchShipTypeCode("Yes", model);
-        fetchVendorCode("Vendor", model);
-        LOG.debug("EXITED FROM SHOW PURCHASE ORDER REGISTER PAGE");
-        return "PurchaseOrderRegister";
+        fetchCustomerCode("Customer", model);
+        LOG.debug("EXITED FROM SHOW SALE ORDER REGISTER PAGE");
+        return "SaleOrderRegister";
     }
 
     @PostMapping("/save")
-    public String savePurchaseOrder(@ModelAttribute PurchaseOrder purchaseOrder, Model model) {
+    public String saveSaleOrder(@ModelAttribute SaleOrder saleOrder, Model model) {
         LOG.info("ENTERED INTO SAVE METHOD");
         try {
-            Integer id = service.savePurchaseOrder(purchaseOrder);
+            Integer id = service.saveSaleOrder(saleOrder);
             LOG.debug("RECORD IS CREATED WITH ID {}", id);
-            String msg = "Purchase Order " + id + " Registered Successfully";
+            String msg = "Sale Order " + id + " Registered Successfully";
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
             model.addAttribute("Oooops Something Went Wrong......");
             e.printStackTrace();
         }
-        LOG.info("ABOUT TO GO UI PAGE PurchaseOrderRegister ! ");
-        return "PurchaseOrderRegister";
+        LOG.info("ABOUT TO GO UI PAGE SaleOrderRegister ! ");
+        return "SaleOrderRegister";
     }
 
     @GetMapping("/all")
-    public String getAllPurchaseOrder(Model model) {
-        LOG.info("ENTERED INTO getAllPurchaseOrder");
+    public String getAllSaleOrder(Model model) {
+        LOG.info("ENTERED INTO getAllSaleOrder");
         try {
             fetchAllData(model);
             LOG.debug("FETCHED ALL RECORDS");
         } catch (Exception e) {
-            LOG.error("UNABLE TO PROCESS getAllPurchaseOrder {}", e.getMessage());
+            LOG.error("UNABLE TO PROCESS getAllSaleOrder {}", e.getMessage());
             e.printStackTrace();
         }
-        LOG.info("ABOUT TO GO UI PAGE PurchaseOrderData ! ");
-        return "PurchaseOrderData";
+        LOG.info("ABOUT TO GO UI PAGE SaleOrderData ! ");
+        return "SaleOrderData";
     }
 
     @GetMapping("/validatecode")
     @ResponseBody
-    public String validatePoCode(@RequestParam String code, @RequestParam Integer id) {
+    public String validateSoCode(@RequestParam String code, @RequestParam Integer id) {
         String msg = "";
 //     for register
-        if (id == 0 && service.isOrderCodeExist(code)) {
+        if (id == 0 && service.isSaleCodeExist(code)) {
             msg = " * code " + code + " already exist";
 
 //     for edit
-        } else if (id != 0 && service.isOrderCodeExistForEdit(code, id)) {
+        } else if (id != 0 && service.isSaleCodeExistForEdit(code, id)) {
             msg = " * " + code + " already exist";
         }
         return msg;
     }
 
     private void fetchAllData(Model model) {
-        List<PurchaseOrder> list = service.getAllPurchaseOrder();
+        List<SaleOrder> list = service.getAllSaleOrder();
         model.addAttribute("list", list);
     }
 
@@ -92,8 +92,8 @@ public class PurchaseOrderController {
         model.addAttribute("shipCodes", shipData);
     }
 
-    private void fetchVendorCode(String uType, Model model) {
-        Map<Integer, String> vendorData = userTypeService.getProductUserIdAndCode(uType);
-        model.addAttribute("vendors", vendorData);
+    private void fetchCustomerCode(String uType, Model model) {
+        Map<Integer, String> customerData = userTypeService.getProductUserIdAndCode(uType);
+        model.addAttribute("customers", customerData);
     }
 }

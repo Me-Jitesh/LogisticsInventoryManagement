@@ -39,7 +39,9 @@
                     <td th:text="${ob.status}"></td>
                     <td th:text="${ob.desc}"></td>
                     <td>
-
+                        <a class="btn btn-outline-secondary" th:href="@{/po/parts(id=${ob.id})}">Parts
+                            <i class="fa-solid fa-cookie-bite"></i>
+                        </a>
                     </td>
                 </tr>
             </table>

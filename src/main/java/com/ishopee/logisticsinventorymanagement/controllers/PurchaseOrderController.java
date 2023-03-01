@@ -82,6 +82,15 @@ public class PurchaseOrderController {
         return msg;
     }
 
+    @GetMapping("/parts")
+    public String showPoParts(@RequestParam Integer id, Model model) {
+        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS PAGE");
+        PurchaseOrder po = service.getPurchaseOrderById(id);
+        model.addAttribute("po", po);
+        LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS PAGE");
+        return "PurchaseOrderParts";
+    }
+
     private void fetchAllData(Model model) {
         List<PurchaseOrder> list = service.getAllPurchaseOrder();
         model.addAttribute("list", list);

@@ -19,10 +19,10 @@ public class SaleOrder {
     @Column(name = "so_ref_col")
     private String refNumber;
     @Column(name = "so_stck_mode_col")
-    private String status;
-    @Column(name = "so_stk_src_col")
     private String stockMode;
     @Column(name = "so_status_col")
+    private String status;
+    @Column(name = "so_stk_src_col")
     private String stockSource;
     @Column(name = "so_desc_col")
     private String desc;

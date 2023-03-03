@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+    <title>Sale Order Registeration</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-header bg-primary text-white text-center">
+            <h3>SALE ORDER REGISTERATION</h3>
+        </div>
+
+        <div class="card-body">
+            <form id="SoForm" method="post" th:action="@{/so/save}">
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="saleCode">Sale Code</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="saleCode" name="saleCode"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="saleCodeError"></span>
+                    </div>
+                </div>
+                <!--Row Sale Code End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="refNumber">Reference Number</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="refNumber" name="refNumber"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="refNumberError"></span>
+                    </div>
+                </div>
+                <!--Row Reference Number End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="shipCode">Shipment Code</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="shipCode" name="st.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${shipCodes}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="shipCodeError"></span>
+                    </div>
+                </div>
+                <!--Row Shipment Code End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="customer">Customer</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="customer" name="customer.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${customers}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="customerError"></span>
+                    </div>
+                </div>
+                <!--Row Customer End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label>Stock Mode</label>
+                    </div>
+                    <div class="col-4">
+                        <input id="stockMode1" name="stockMode" type="radio" value="GRADE"/>
+                        <label class="form-check-label">GRADE</label>
+                        <input id="stockMode2" name="stockMode" type="radio" value="MARGIN"/>
+                        <label class="form-check-label">MARGIN</label>
+                    </div>
+                    <div class="col-5">
+                        <span id="stockModeError"></span>
+                    </div>
+                </div>
+                <!--Row Stock Mode End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="stockSource">Stock Source</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="stockSource" name="stockSource">
+                            <option value="">--SELECT--</option>
+                            <option value="OPEN">OPEN</option>
+                            <option value="AVAILABLE">AVAILABLE</option>
+                            <option value="REFUND">REFUND</option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="stockSourceError"></span>
+                    </div>
+                </div>
+                <!--Row Stock Source End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="status">Status</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="status" name="status" value="SALE-OPEN" readonly/>
+                    </div>
+                    <div class="col-5">
+                        <span id="statusError"></span>
+                    </div>
+                </div>
+                <!--Row Status End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="soDesc">Description</label>
+                    </div>
+                    <div class="col-4">
+                        <textarea class="form-control" id="soDesc" name="desc"></textarea>
+                    </div>
+                    <div class="col-5">
+                        <span id="soDescError"></span>
+                    </div>
+                </div>
+                <!--Row Description End-->
+
+                <!-- Submit Button -->
+                <input class="btn btn-success" type="submit" value="CREATE SALE ORDER"/>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+<script th:src="@{/js/sale.js}" type="text/javascript"></script>
+</body>
+</html>

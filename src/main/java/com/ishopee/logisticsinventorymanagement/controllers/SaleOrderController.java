@@ -46,7 +46,7 @@ public class SaleOrderController {
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
-            model.addAttribute("Oooops Something Went Wrong......");
+            model.addAttribute("message", "Oooops Something Went Wrong......");
             e.printStackTrace();
         }
         LOG.info("ABOUT TO GO UI PAGE SaleOrderRegister ! ");

@@ -4,10 +4,12 @@ import com.ishopee.logisticsinventorymanagement.exceptions.PartNotFoundException
 import com.ishopee.logisticsinventorymanagement.models.Part;
 import com.ishopee.logisticsinventorymanagement.repositories.PartRepo;
 import com.ishopee.logisticsinventorymanagement.services.IPartService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class PartServiceImpl implements IPartService {
@@ -50,5 +52,11 @@ public class PartServiceImpl implements IPartService {
     @Override
     public boolean isPartCodeExistForEdit(String partCode, Integer id) {
         return repo.getPartCodeCountForEdit(partCode, id) > 0;
+    }
+
+    @Override
+    public Map<Integer, String> getPartIdAndCode() {
+        List<Object[]> list = repo.getPartIdAndCode();
+        return MyAppUtility.convertListIntoMap(list);
     }
 }

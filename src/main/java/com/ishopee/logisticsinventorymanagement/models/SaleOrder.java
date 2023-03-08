@@ -15,7 +15,7 @@ public class SaleOrder {
     @Column(name = "so_id_col")
     private Integer id;
     @Column(name = "so_code_col")
-    private String saleCode;
+    private String orderCode;
     @Column(name = "so_ref_col")
     private String refNumber;
     @Column(name = "so_stck_mode_col")

@@ -32,7 +32,7 @@
                 </tr>
                 <tr th:each="ob:${list}">
                     <td th:text="${ob.id}"></td>
-                    <td th:text="${ob.saleCode}"></td>
+                    <td th:text="${ob.getOrderCode}"></td>
                     <td th:text="${ob.st.shipCode}"></td>
                     <td th:text="${ob.customer.userCode}"></td>
                     <td th:text="${ob.refNumber}"></td>

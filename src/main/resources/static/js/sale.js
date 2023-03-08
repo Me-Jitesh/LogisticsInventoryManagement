@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     //1. hide error section
-    $("#saleCodeError").hide();
+    $("#orderCodeError").hide();
     $("#refNumberError").hide();
     $("#shipCodeError").hide();
     $("#customerError").hide();
@@ -10,7 +10,7 @@ $(document).ready(function () {
     $("#soDescError").hide();
 
     //2. define  error variable
-    let saleCodeError = false;
+    let orderCodeError = false;
     let refNumberError = false;
     let shipCodeError = false;
     let customerError = false;
@@ -18,23 +18,23 @@ $(document).ready(function () {
     let stockSourceError = false;
     let soDescError = false;
 
-    function validate_saleCode() {
+    function validate_orderCode() {
 
         //  Pattern Matching using RegEx
         let exp = /^[A-Z0-9\-\s]{2,20}$/;
 
-        let val = $("#saleCode").val();
+        let val = $("#orderCode").val();
 
         if (val == "") {
-            $("#saleCodeError").show();
-            $("#saleCodeError").html(" * required");
-            $("#saleCodeError").css("color", "red");
-            saleCodeError = false;
+            $("#orderCodeError").show();
+            $("#orderCodeError").html(" * required");
+            $("#orderCodeError").css("color", "red");
+            orderCodeError = false;
         } else if (!exp.test(val)) {
-            $("#saleCodeError").show();
-            $("#saleCodeError").html(" * <b> code</b> must  be 2-20 uppercase letters");
-            $("#saleCodeError").css("color", "red");
-            saleCodeError = false;
+            $("#orderCodeError").show();
+            $("#orderCodeError").html(" * <b> code</b> must  be 2-20 uppercase letters");
+            $("#orderCodeError").css("color", "red");
+            orderCodeError = false;
         } else {
             let id = 0; // for register page
             if ($("#id").val() != undefined) {
@@ -43,18 +43,18 @@ $(document).ready(function () {
             $.ajax({
                 url: "validatecode", data: {code: val, id: id}, success(resText) {
                     if (resText != "") {
-                        $("#saleCodeError").show();
-                        $("#saleCodeError").html(resText);
-                        $("#saleCodeError").css("color", "red");
-                        saleCodeError = false;
+                        $("#orderCodeError").show();
+                        $("#orderCodeError").html(resText);
+                        $("#orderCodeError").css("color", "red");
+                        orderCodeError = false;
                     } else {
-                        $("#saleCodeError").hide();
-                        saleCodeError = true;
+                        $("#orderCodeError").hide();
+                        orderCodeError = true;
                     }
                 },
             });
         }
-        return saleCodeError;
+        return orderCodeError;
     }
 
     function validate_refNumber() {
@@ -149,9 +149,9 @@ $(document).ready(function () {
     }
 
     //4. link  with event
-    $("#saleCode").keyup(function () {
+    $("#orderCode").keyup(function () {
         $(this).val($(this).val().toUpperCase());
-        validate_saleCode();
+        validate_orderCode();
     });
 
     $("#refNumber").keyup(function () {
@@ -181,7 +181,7 @@ $(document).ready(function () {
 
     //5. on click form submit
     $("#SoForm").submit(function () {
-        validate_saleCode();
+        validate_orderCode();
         validate_refNumber();
         validate_shipCode();
         validate_customer();
@@ -189,7 +189,7 @@ $(document).ready(function () {
         validate_stockSource();
         validate_soDesc();
 
-        if (saleCodeError && refNumberError && shipCodeError && customerError && stockModeError && stockSourceError && soDescError) {
+        if (orderCodeError && refNumberError && shipCodeError && customerError && stockModeError && stockSourceError && soDescError) {
             return true;
         } else {
             return false;

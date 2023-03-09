@@ -41,7 +41,7 @@
                     <td th:text="${ob.stockSource}"></td>
                     <td th:text="${ob.desc}"></td>
                     <td>
-
+                        <a th:href="@{parts(id=${ob.id})}" class="btn btn-outline-secondary">Parts</a>
                     </td>
                 </tr>
             </table>

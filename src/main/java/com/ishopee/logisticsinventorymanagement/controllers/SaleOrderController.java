@@ -82,6 +82,14 @@ public class SaleOrderController {
         return msg;
     }
 
+    @GetMapping("/parts")
+    public String showParts(@RequestParam Integer id, Model model) {
+        LOG.debug("ENTERED INTO SHOW SALE ORDER PARTS PAGE");
+        fetchSaleOrder(id, model);
+        LOG.debug("EXITED FROM SHOW SALE ORDER PARTS PAGE");
+        return "SaleOrderParts";
+    }
+
     private void fetchAllData(Model model) {
         List<SaleOrder> list = service.getAllSaleOrder();
         model.addAttribute("list", list);
@@ -95,5 +103,10 @@ public class SaleOrderController {
     private void fetchCustomerCode(String uType, Model model) {
         Map<Integer, String> customerData = userTypeService.getProductUserIdAndCode(uType);
         model.addAttribute("customers", customerData);
+    }
+
+    private void fetchSaleOrder(Integer id, Model model) {
+        SaleOrder so = service.getSaleOrderById(id);
+        model.addAttribute("so", so);
     }
 }

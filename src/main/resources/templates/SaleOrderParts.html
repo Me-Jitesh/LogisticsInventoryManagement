@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+    <title>Sale Order Parts</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-header bg-secondary text-dark text-center">
+            <h3 class="font-weight-normal">SALE ORDER PART</h3>
+        </div>
+
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr>
+                    <th class="bg-warning text-dark"> CODE</th>
+                    <td th:text="${so.orderCode}"></td>
+
+                    <th class="bg-warning text-dark">STATUS</th>
+                    <td th:text="${so.status}"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+</body>
+</html>

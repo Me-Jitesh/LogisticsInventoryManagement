@@ -1,6 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
+import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
@@ -26,6 +27,8 @@ public class PurchaseOrderController {
     private IShipmentTypeService shipmentService;
     @Autowired
     private IProductUserTypeService userTypeService;
+    @Autowired
+    private IPartService partService;
 
     @GetMapping("/register")
     public String showRegister(Model model) {
@@ -82,9 +85,23 @@ public class PurchaseOrderController {
         return msg;
     }
 
+    @GetMapping("/parts")
+    public String showPoParts(@RequestParam Integer id, Model model) {
+        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS PAGE");
+        fetchPurchaseOrder(id, model);
+        fetchPartCode(model);
+        LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS PAGE");
+        return "PurchaseOrderParts";
+    }
+
     private void fetchAllData(Model model) {
         List<PurchaseOrder> list = service.getAllPurchaseOrder();
         model.addAttribute("list", list);
+    }
+
+    private void fetchPurchaseOrder(Integer id, Model model) {
+        PurchaseOrder po = service.getPurchaseOrderById(id);
+        model.addAttribute("po", po);
     }
 
     private void fetchShipTypeCode(String enable, Model model) {
@@ -95,5 +112,10 @@ public class PurchaseOrderController {
     private void fetchVendorCode(String uType, Model model) {
         Map<Integer, String> vendorData = userTypeService.getProductUserIdAndCode(uType);
         model.addAttribute("vendors", vendorData);
+    }
+
+    private void fetchPartCode(Model model) {
+        Map<Integer, String> part = partService.getPartIdAndCode();
+        model.addAttribute("parts", part);
     }
 }

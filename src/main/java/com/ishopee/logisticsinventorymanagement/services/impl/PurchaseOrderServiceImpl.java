@@ -1,6 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
+import com.ishopee.logisticsinventorymanagement.repositories.PurchaseDetailsRepo;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseOrderRepo;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
 
     @Autowired
     private PurchaseOrderRepo repo;
+    @Autowired
+    private PurchaseDetailsRepo detailsRepo;
 
     @Override
     public Integer savePurchaseOrder(PurchaseOrder po) {

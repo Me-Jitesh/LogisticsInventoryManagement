@@ -1,6 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.SaleOrder;
+import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
 import com.ishopee.logisticsinventorymanagement.services.ISaleOrderService;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
@@ -26,6 +27,8 @@ public class SaleOrderController {
     private IShipmentTypeService shipmentService;
     @Autowired
     private IProductUserTypeService userTypeService;
+    @Autowired
+    private IPartService partService;
 
     @GetMapping("/register")
     public String showRegister(Model model) {
@@ -86,6 +89,7 @@ public class SaleOrderController {
     public String showParts(@RequestParam Integer id, Model model) {
         LOG.debug("ENTERED INTO SHOW SALE ORDER PARTS PAGE");
         fetchSaleOrder(id, model);
+        fetchPartCode(model);
         LOG.debug("EXITED FROM SHOW SALE ORDER PARTS PAGE");
         return "SaleOrderParts";
     }
@@ -108,5 +112,10 @@ public class SaleOrderController {
     private void fetchSaleOrder(Integer id, Model model) {
         SaleOrder so = service.getSaleOrderById(id);
         model.addAttribute("so", so);
+    }
+
+    private void fetchPartCode(Model model) {
+        Map<Integer, String> part = partService.getPartIdAndCode();
+        model.addAttribute("parts", part);
     }
 }

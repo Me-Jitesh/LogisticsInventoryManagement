@@ -306,13 +306,37 @@
                 </div>
                 <!--Purchase Order  Closed-->
 
+                <div class="row  bg-secondary text-dark py-2 my-1">
+                    <div class="col-4 my-auto">
+                        <h3>Sale Order</h3>
+                    </div>
+
+                    <div class="col-3 my-auto">
+                        <ul class="list-group">
+                            <li>
+                                <a class="text-white" th:href="@{so/register}">/so/register</a>
+                            </li>
+                            <li>
+                                <a class="text-white" th:href="@{so/all}">/so/all</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-5">
+                        <ul class="list-group">
+
+                        </ul>
+                    </div>
+                </div>
+                <!--Sale Order  Closed-->
+
             </div>
         </div>
         <!--Card Body Closed-->
         <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
             <span th:text="${message}"></span>
         </div>
-        <!--Card Footer Closed        -->
+        <!--Card Footer Closed-->
     </div>
     <!--Card Closed-->
 </div>

@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services;
 
+import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface IPurchaseOrderService {
     boolean isOrderCodeExist(String orderCode);
 
     boolean isOrderCodeExistForEdit(String orderCode, Integer id);
+
+    Integer savePurchaseOrderDetails(PurchaseDetails pdtl);
 }

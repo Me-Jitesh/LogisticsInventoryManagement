@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
+import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseDetailsRepo;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseOrderRepo;
@@ -45,6 +46,11 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
     @Override
     public boolean isOrderCodeExistForEdit(String orderCode, Integer id) {
         return repo.isOrderCodeExistForEdit(orderCode, id) > 0;
+    }
+
+    @Override
+    public Integer savePurchaseOrderDetails(PurchaseDetails pdtl) {
+        return detailsRepo.save(pdtl).getId();
     }
 
 }

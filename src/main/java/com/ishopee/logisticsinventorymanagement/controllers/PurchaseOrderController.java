@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
+import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
@@ -92,6 +93,14 @@ public class PurchaseOrderController {
         fetchPartCode(model);
         LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS PAGE");
         return "PurchaseOrderParts";
+    }
+
+    @PostMapping("/addpart")
+    public String addPart(@ModelAttribute PurchaseDetails pdtl) {
+        LOG.debug("ENTERED INTO ADD PART METHOD");
+        service.savePurchaseOrderDetails(pdtl);
+        LOG.debug("EXITED FROM ADD PART METHOD");
+        return "redirect:parts?id=" + pdtl.getPo().getId();
     }
 
     private void fetchAllData(Model model) {

@@ -20,4 +20,6 @@ public interface IPurchaseOrderService {
     boolean isOrderCodeExistForEdit(String orderCode, Integer id);
 
     Integer savePurchaseOrderDetails(PurchaseDetails pdtl);
+
+    List<PurchaseDetails> getPurchaseDetailsByPoId(Integer poId);
 }

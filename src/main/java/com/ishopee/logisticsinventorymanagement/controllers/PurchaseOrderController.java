@@ -91,6 +91,7 @@ public class PurchaseOrderController {
         LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS PAGE");
         fetchPurchaseOrder(id, model);
         fetchPartCode(model);
+        fetchPurchaseDetails(id, model);
         LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS PAGE");
         return "PurchaseOrderParts";
     }
@@ -126,5 +127,10 @@ public class PurchaseOrderController {
     private void fetchPartCode(Model model) {
         Map<Integer, String> part = partService.getPartIdAndCode();
         model.addAttribute("parts", part);
+    }
+
+    private void fetchPurchaseDetails(Integer id, Model model) {
+        List<PurchaseDetails> pdtlList = service.getPurchaseDetailsByPoId(id);
+        model.addAttribute("pdtlList", pdtlList);
     }
 }

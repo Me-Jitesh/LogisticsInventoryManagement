@@ -53,4 +53,9 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
         return detailsRepo.save(pdtl).getId();
     }
 
+    @Override
+    public List<PurchaseDetails> getPurchaseDetailsByPoId(Integer poId) {
+        return detailsRepo.getPurchaseDetailsByPoId(poId);
+    }
+
 }

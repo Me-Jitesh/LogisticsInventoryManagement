@@ -76,7 +76,8 @@
                     <td th:text="${ob.part.partCost}"></td>
                     <td th:text="${ob.qty}"></td>
                     <td>
-                        <a class="btn btn-outline-danger m-1" href="">
+                        <a class="btn btn-outline-danger m-1"
+                           th:href="@{/po/deletePart(pdtlId=${ob.id},poId=${po.id})}">
                             <i class="fa-solid fa-delete-left fa-beat-fade"></i>
                         </a>
                     </td>

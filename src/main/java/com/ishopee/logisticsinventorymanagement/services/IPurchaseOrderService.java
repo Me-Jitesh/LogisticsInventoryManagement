@@ -22,4 +22,6 @@ public interface IPurchaseOrderService {
     Integer savePurchaseOrderDetails(PurchaseDetails pdtl);
 
     List<PurchaseDetails> getPurchaseDetailsByPoId(Integer poId);
+
+    void deletePurchaseDetail(Integer pdtlId);
 }

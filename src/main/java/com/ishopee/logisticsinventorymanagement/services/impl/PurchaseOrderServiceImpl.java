@@ -58,4 +58,11 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
         return detailsRepo.getPurchaseDetailsByPoId(poId);
     }
 
+    @Override
+    public void deletePurchaseDetail(Integer pdtlId) {
+        if (detailsRepo.existsById(pdtlId)) {
+            detailsRepo.deleteById(pdtlId);
+        }
+    }
+
 }

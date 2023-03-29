@@ -88,11 +88,11 @@ public class PurchaseOrderController {
 
     @GetMapping("/parts")
     public String showPoParts(@RequestParam Integer id, Model model) {
-        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS PAGE");
+        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS");
         fetchPurchaseOrder(id, model);
         fetchPartCode(model);
         fetchPurchaseDetails(id, model);
-        LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS PAGE");
+        LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS");
         return "PurchaseOrderParts";
     }
 
@@ -102,6 +102,14 @@ public class PurchaseOrderController {
         service.savePurchaseOrderDetails(pdtl);
         LOG.debug("EXITED FROM ADD PART METHOD");
         return "redirect:parts?id=" + pdtl.getPo().getId();
+    }
+
+    @GetMapping("/deletePart")
+    public String deletePart(@RequestParam Integer pdtlId, @RequestParam Integer poId) {
+        LOG.debug("ENTERED INTO DELETE PART METHOD");
+        service.deletePurchaseDetail(pdtlId);
+        LOG.debug("EXITED FROM DELETE PART METHOD");
+        return "redirect:parts?id=" + poId;
     }
 
     private void fetchAllData(Model model) {

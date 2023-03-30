@@ -24,4 +24,9 @@ public interface IPurchaseOrderService {
     List<PurchaseDetails> getPurchaseDetailsByPoId(Integer poId);
 
     void deletePurchaseDetail(Integer pdtlId);
+
+    String getCurrentPoStatus(Integer poId);
+
+    void updatePoStatus(Integer poId, String newStatus);
+
 }

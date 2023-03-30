@@ -8,6 +8,7 @@ import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -63,6 +64,17 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
         if (detailsRepo.existsById(pdtlId)) {
             detailsRepo.deleteById(pdtlId);
         }
+    }
+
+    @Override
+    public String getCurrentPoStatus(Integer poId) {
+        return repo.getCurrentPoStatus(poId);
+    }
+
+    @Override
+    @Transactional
+    public void updatePoStatus(Integer poId, String newStatus) {
+        repo.updatePoStatus(poId, newStatus);
     }
 
 }

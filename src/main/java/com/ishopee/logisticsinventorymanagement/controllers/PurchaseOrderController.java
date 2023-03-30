@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
+import com.ishopee.logisticsinventorymanagement.constants.PurchaseOrderStatus;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.services.IPartService;
@@ -99,9 +100,15 @@ public class PurchaseOrderController {
     @PostMapping("/addpart")
     public String addPart(@ModelAttribute PurchaseDetails pdtl) {
         LOG.debug("ENTERED INTO ADD PART METHOD");
+
         service.savePurchaseOrderDetails(pdtl);
+        Integer poId = pdtl.getPo().getId();
+        if (PurchaseOrderStatus.OPEN.name().equals(service.getCurrentPoStatus(poId))) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.PICKING.name());
+        }
+
         LOG.debug("EXITED FROM ADD PART METHOD");
-        return "redirect:parts?id=" + pdtl.getPo().getId();
+        return "redirect:parts?id=" + poId;
     }
 
     @GetMapping("/deletePart")

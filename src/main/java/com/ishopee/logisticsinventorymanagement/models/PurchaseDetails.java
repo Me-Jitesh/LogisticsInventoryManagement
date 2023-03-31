@@ -12,7 +12,7 @@ public class PurchaseDetails {
     @GeneratedValue(generator = "pdtl_gen")
     @SequenceGenerator(name = "pdtl_gen", sequenceName = "pdtl_sql")
     private Integer id;
-    @Column(name = "po_pdtl_id_col")
+    @Column(name = "pdtl_qty_col")
     private Integer qty;
     @ManyToOne
     @JoinColumn(name = "part_id_fk_col")

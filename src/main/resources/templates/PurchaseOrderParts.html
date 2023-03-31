@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+<head th:replace="fragments/CommonHead::userhead(~{::title},~{::link})">
+    <title>Order Method Data</title>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
     <title>Purchase Order Parts</title>
 </head>
 
@@ -16,6 +20,7 @@
         </div>
 
         <div class="card-body">
+            <!--             Status          -->
             <table class="table table-hover">
                 <tr>
                     <th class="bg-warning text-dark"> CODE</th>
@@ -26,7 +31,10 @@
                 </tr>
             </table>
 
-            <form action="" method="post">
+            <hr/>
+
+            <!--            Add Parts       -->
+            <form th:action="@{/po/addpart}" method="post">
                 <div class="row">
 
                     <div class="col-7">
@@ -37,9 +45,11 @@
                     </div>
 
                     <div class="col-2 input-group">
-                        <label for="qty" class="bg-info text-white p-1">QTY.</label>
+                        <label for="qty" class="bg-info text-white p-1">QTY</label>
                         <input type="number" id="qty" name="qty" class="form-control">
                     </div>
+
+                    <input type="hidden" name="po.id" id="poId" th:value="${po.id}">
 
                     <div class="col-3">
                         <button type="submit" class="btn btn-sm btn-info px-5">ADD +</button>
@@ -47,6 +57,32 @@
 
                 </div>
             </form>
+
+            <hr/>
+
+            <!--            Show Parts List        -->
+            <table class="table table-hover">
+                <tr>
+                    <th>SNO</th>
+                    <th>PART</th>
+                    <th>COST</th>
+                    <th>QTY</th>
+                    <th>OPERATION</th>
+                </tr>
+
+                <tr th:each="ob,i:${pdtlList}">
+                    <td th:text="${i.count}"></td>
+                    <td th:text="${ob.part.partCode}"></td>
+                    <td th:text="${ob.part.partCost}"></td>
+                    <td th:text="${ob.qty}"></td>
+                    <td>
+                        <a class="btn btn-outline-danger m-1"
+                           th:href="@{/po/deletePart(pdtlId=${ob.id},poId=${po.id})}">
+                            <i class="fa-solid fa-delete-left fa-beat-fade"></i>
+                        </a>
+                    </td>
+                </tr>
+            </table>
 
         </div>
         <div class="card-footer text-center bg-success text-white" th:if="${message != null}">

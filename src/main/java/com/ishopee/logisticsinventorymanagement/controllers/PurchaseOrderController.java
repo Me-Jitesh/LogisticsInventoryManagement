@@ -1,5 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
+import com.ishopee.logisticsinventorymanagement.constants.PurchaseOrderStatus;
+import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
@@ -87,11 +89,37 @@ public class PurchaseOrderController {
 
     @GetMapping("/parts")
     public String showPoParts(@RequestParam Integer id, Model model) {
-        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS PAGE");
+        LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS");
         fetchPurchaseOrder(id, model);
         fetchPartCode(model);
-        LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS PAGE");
+        fetchPurchaseDetails(id, model);
+        LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS");
         return "PurchaseOrderParts";
+    }
+
+    @PostMapping("/addpart")
+    public String addPart(@ModelAttribute PurchaseDetails pdtl) {
+        LOG.debug("ENTERED INTO ADD PART METHOD");
+
+        service.savePurchaseOrderDetails(pdtl);
+        Integer poId = pdtl.getPo().getId();
+        if (PurchaseOrderStatus.OPEN.name().equals(service.getCurrentPoStatus(poId))) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.PICKING.name());
+        }
+
+        LOG.debug("EXITED FROM ADD PART METHOD");
+        return "redirect:parts?id=" + poId;
+    }
+
+    @GetMapping("/deletePart")
+    public String deletePart(@RequestParam Integer pdtlId, @RequestParam Integer poId) {
+        LOG.debug("ENTERED INTO DELETE PART METHOD");
+        service.deletePurchaseDetail(pdtlId);
+        if (service.getPurchaseDetailsCountByPoId(poId) == 0) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.OPEN.name());
+        }
+        LOG.debug("EXITED FROM DELETE PART METHOD");
+        return "redirect:parts?id=" + poId;
     }
 
     private void fetchAllData(Model model) {
@@ -117,5 +145,10 @@ public class PurchaseOrderController {
     private void fetchPartCode(Model model) {
         Map<Integer, String> part = partService.getPartIdAndCode();
         model.addAttribute("parts", part);
+    }
+
+    private void fetchPurchaseDetails(Integer id, Model model) {
+        List<PurchaseDetails> pdtlList = service.getPurchaseDetailsByPoId(id);
+        model.addAttribute("pdtlList", pdtlList);
     }
 }

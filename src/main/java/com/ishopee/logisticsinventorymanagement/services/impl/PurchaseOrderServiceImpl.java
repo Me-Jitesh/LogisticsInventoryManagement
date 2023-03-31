@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
+import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseDetailsRepo;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseOrderRepo;
@@ -7,6 +8,7 @@ import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -45,6 +47,39 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
     @Override
     public boolean isOrderCodeExistForEdit(String orderCode, Integer id) {
         return repo.isOrderCodeExistForEdit(orderCode, id) > 0;
+    }
+
+    @Override
+    public Integer savePurchaseOrderDetails(PurchaseDetails pdtl) {
+        return detailsRepo.save(pdtl).getId();
+    }
+
+    @Override
+    public List<PurchaseDetails> getPurchaseDetailsByPoId(Integer poId) {
+        return detailsRepo.getPurchaseDetailsByPoId(poId);
+    }
+
+    @Override
+    public void deletePurchaseDetail(Integer pdtlId) {
+        if (detailsRepo.existsById(pdtlId)) {
+            detailsRepo.deleteById(pdtlId);
+        }
+    }
+
+    @Override
+    public String getCurrentPoStatus(Integer poId) {
+        return repo.getCurrentPoStatus(poId);
+    }
+
+    @Override
+    @Transactional
+    public void updatePoStatus(Integer poId, String newStatus) {
+        repo.updatePoStatus(poId, newStatus);
+    }
+
+    @Override
+    public Integer getPurchaseDetailsCountByPoId(Integer poId) {
+        return detailsRepo.getPurchaseDetailsCountByPoId(poId);
     }
 
 }

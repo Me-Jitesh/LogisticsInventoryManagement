@@ -3,7 +3,9 @@ package com.ishopee.logisticsinventorymanagement.services;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 public interface IPurchaseOrderService {
 
@@ -31,4 +33,8 @@ public interface IPurchaseOrderService {
 
     Integer getPurchaseDetailsCountByPoId(Integer poId);
 
+    Optional<PurchaseDetails> getPurchaseDetailsByPartIdAndRepo(Integer partId, Integer poId);
+
+    @Transactional
+    Integer updateQtyByPdtlId(Integer pdtlId, Integer newQty);
 }

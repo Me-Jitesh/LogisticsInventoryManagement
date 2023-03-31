@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/po")
@@ -101,8 +102,16 @@ public class PurchaseOrderController {
     public String addPart(@ModelAttribute PurchaseDetails pdtl) {
         LOG.debug("ENTERED INTO ADD PART METHOD");
 
-        service.savePurchaseOrderDetails(pdtl);
         Integer poId = pdtl.getPo().getId();
+        Integer partId = pdtl.getPart().getId();
+
+        Optional<PurchaseDetails> opt = service.getPurchaseDetailsByPartIdAndRepo(partId, poId);
+        if (opt.isPresent()) {
+            service.updateQtyByPdtlId(opt.get().getId(), pdtl.getQty());
+        } else {
+            service.savePurchaseOrderDetails(pdtl);
+        }
+
         if (PurchaseOrderStatus.OPEN.name().equals(service.getCurrentPoStatus(poId))) {
             service.updatePoStatus(poId, PurchaseOrderStatus.PICKING.name());
         }

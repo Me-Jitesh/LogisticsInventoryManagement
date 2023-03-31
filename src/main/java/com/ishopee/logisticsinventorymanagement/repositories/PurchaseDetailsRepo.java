@@ -10,4 +10,7 @@ public interface PurchaseDetailsRepo extends JpaRepository<PurchaseDetails, Inte
 
     @Query("SELECT pdtl FROM PurchaseDetails pdtl join pdtl.po as PurchaseOrder WHERE PurchaseOrder.id=:poId")
     List<PurchaseDetails> getPurchaseDetailsByPoId(Integer poId);
+
+    @Query("SELECT count(pdtl.id) FROM PurchaseDetails pdtl JOIN pdtl.po as purchaseOrder WHERE purchaseOrder.id=:poId")
+    Integer getPurchaseDetailsCountByPoId(Integer poId);
 }

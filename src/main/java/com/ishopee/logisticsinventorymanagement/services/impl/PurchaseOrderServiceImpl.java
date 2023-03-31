@@ -77,4 +77,9 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
         repo.updatePoStatus(poId, newStatus);
     }
 
+    @Override
+    public Integer getPurchaseDetailsCountByPoId(Integer poId) {
+        return detailsRepo.getPurchaseDetailsCountByPoId(poId);
+    }
+
 }

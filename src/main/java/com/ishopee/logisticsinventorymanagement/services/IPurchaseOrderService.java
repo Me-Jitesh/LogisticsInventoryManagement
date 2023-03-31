@@ -29,4 +29,6 @@ public interface IPurchaseOrderService {
 
     void updatePoStatus(Integer poId, String newStatus);
 
+    Integer getPurchaseDetailsCountByPoId(Integer poId);
+
 }

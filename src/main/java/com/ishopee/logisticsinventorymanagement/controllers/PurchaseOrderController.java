@@ -115,6 +115,9 @@ public class PurchaseOrderController {
     public String deletePart(@RequestParam Integer pdtlId, @RequestParam Integer poId) {
         LOG.debug("ENTERED INTO DELETE PART METHOD");
         service.deletePurchaseDetail(pdtlId);
+        if (service.getPurchaseDetailsCountByPoId(poId) == 0) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.OPEN.name());
+        }
         LOG.debug("EXITED FROM DELETE PART METHOD");
         return "redirect:parts?id=" + poId;
     }

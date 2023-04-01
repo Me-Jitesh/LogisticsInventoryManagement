@@ -74,7 +74,11 @@
                     <td th:text="${i.count}"></td>
                     <td th:text="${ob.part.partCode}"></td>
                     <td th:text="${ob.part.partCost}"></td>
-                    <td th:text="${ob.qty}"></td>
+                    <td>
+                        <a class="btn btn-outline-success btn-sm m-1"
+                           th:href="@{/po/increaseQty(pdtlId=${ob.id},poId=${po.id})}"> + </a>
+                        <span th:text="${ob.qty}"></span>
+                    </td>
                     <td>
                         <a class="btn btn-outline-danger m-1"
                            th:href="@{/po/deletePart(pdtlId=${ob.id},poId=${po.id})}">

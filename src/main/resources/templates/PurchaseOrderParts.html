@@ -77,7 +77,13 @@
                     <td>
                         <a class="btn btn-outline-success btn-sm m-1"
                            th:href="@{/po/increaseQty(pdtlId=${ob.id},poId=${po.id})}"> + </a>
+
                         <span th:text="${ob.qty}"></span>
+
+                        <span th:if="${ob.qty>1}">
+                        <a class="btn btn-outline-warning btn-sm m-1"
+                           th:href="@{/po/decreaseQty(pdtlId=${ob.id},poId=${po.id})}"> - </a>
+                        </span>
                     </td>
                     <td>
                         <a class="btn btn-outline-danger m-1"

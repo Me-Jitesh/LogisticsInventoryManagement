@@ -137,6 +137,12 @@ public class PurchaseOrderController {
         return "redirect:parts?id=" + poId;
     }
 
+    @GetMapping("decreaseQty")
+    private String decreaseQty(@RequestParam Integer pdtlId, @RequestParam Integer poId) {
+        service.updateQtyByPdtlId(pdtlId, -1);
+        return "redirect:parts?id=" + poId;
+    }
+
     private void fetchAllData(Model model) {
         List<PurchaseOrder> list = service.getAllPurchaseOrder();
         model.addAttribute("list", list);

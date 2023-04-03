@@ -143,6 +143,14 @@ public class PurchaseOrderController {
         return "redirect:parts?id=" + poId;
     }
 
+    @GetMapping("placeOrder")
+    private String placeOrder(@RequestParam Integer poId) {
+        if (PurchaseOrderStatus.PICKING.name().equals(service.getCurrentPoStatus(poId))) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.ORDERD.name());
+        }
+        return "redirect:parts?id=" + poId;
+    }
+
     private void fetchAllData(Model model) {
         List<PurchaseOrder> list = service.getAllPurchaseOrder();
         model.addAttribute("list", list);

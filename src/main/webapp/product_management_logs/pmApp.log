@@ -58,3 +58,186 @@
 2022-12-23 13:40:36.847  INFO 5664 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2022-12-23 13:40:36.878  INFO 5664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2022-12-23 13:40:36.895  INFO 5664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-02 12:35:28.790  INFO 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.5 on Acer with PID 15516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by Acer in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-02 12:35:28.795 DEBUG 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-02 12:35:28.796  INFO 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-02 12:35:28.947  INFO 15516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-02 12:35:28.948  INFO 15516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-02 12:35:30.901  INFO 15516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-02 12:35:31.163  INFO 15516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 234 ms. Found 10 JPA repository interfaces.
+2023-04-02 12:35:33.413  INFO 15516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-02 12:35:33.443  INFO 15516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-02 12:35:33.444  INFO 15516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-02 12:35:34.006  INFO 15516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-02 12:35:34.007  INFO 15516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5056 ms
+2023-04-02 12:35:34.572  INFO 15516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-02 12:35:34.730  INFO 15516 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-04-02 12:35:35.190  INFO 15516 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-02 12:35:35.485  INFO 15516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-02 12:35:35.689  INFO 15516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-02 12:35:35.769  INFO 15516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-02 12:35:38.264  INFO 15516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-02 12:35:38.281  INFO 15516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-02 12:35:40.309  WARN 15516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-02 12:35:41.254  INFO 15516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-02 12:35:41.368  INFO 15516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-02 12:35:41.395  INFO 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 13.576 seconds (JVM running for 16.805)
+2023-04-02 12:37:32.335  INFO 15516 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-02 12:37:32.357  INFO 15516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-02 12:37:32.444  INFO 15516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 85 ms
+2023-04-02 12:37:32.760  INFO 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-02 12:37:33.521 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-02 12:37:33.522  INFO 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-02 12:37:37.281 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:37.382 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:40.372 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:40.384 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:43.373 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:43.390 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:53.788 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO DELETE PART METHOD
+2023-04-02 12:37:53.945 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : EXITED FROM DELETE PART METHOD
+2023-04-02 12:37:53.958 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:37:53.967 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:42.725 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:42.737 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:43.673 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:43.688 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:44.038 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:44.059 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:44.237 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:44.253 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:38:48.429 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.controllers.SaleOrderController    : ENTERED INTO SHOW SALE ORDER REGISTER PAGE
+2023-04-02 12:38:48.465 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.controllers.SaleOrderController    : EXITED FROM SHOW SALE ORDER REGISTER PAGE
+2023-04-02 12:39:10.332  INFO 15516 --- [http-nio-8080-exec-7] c.i.l.controllers.SaleOrderController    : ENTERED INTO SAVE METHOD
+2023-04-02 12:39:10.913 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.controllers.SaleOrderController    : RECORD IS CREATED WITH ID 1
+2023-04-02 12:39:10.925  INFO 15516 --- [http-nio-8080-exec-7] c.i.l.controllers.SaleOrderController    : ABOUT TO GO UI PAGE SaleOrderRegister ! 
+2023-04-02 12:39:15.486  INFO 15516 --- [http-nio-8080-exec-2] c.i.l.controllers.SaleOrderController    : ENTERED INTO getAllSaleOrder
+2023-04-02 12:39:15.525 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.controllers.SaleOrderController    : FETCHED ALL RECORDS
+2023-04-02 12:39:15.525  INFO 15516 --- [http-nio-8080-exec-2] c.i.l.controllers.SaleOrderController    : ABOUT TO GO UI PAGE SaleOrderData ! 
+2023-04-02 12:39:21.249 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.controllers.SaleOrderController    : ENTERED INTO SHOW SALE ORDER PARTS PAGE
+2023-04-02 12:39:21.262 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.controllers.SaleOrderController    : EXITED FROM SHOW SALE ORDER PARTS PAGE
+2023-04-02 12:39:27.159  INFO 15516 --- [http-nio-8080-exec-10] c.i.l.controllers.SaleOrderController    : ENTERED INTO getAllSaleOrder
+2023-04-02 12:39:27.166 DEBUG 15516 --- [http-nio-8080-exec-10] c.i.l.controllers.SaleOrderController    : FETCHED ALL RECORDS
+2023-04-02 12:39:27.166  INFO 15516 --- [http-nio-8080-exec-10] c.i.l.controllers.SaleOrderController    : ABOUT TO GO UI PAGE SaleOrderData ! 
+2023-04-02 12:39:27.933  INFO 15516 --- [http-nio-8080-exec-8] c.i.l.controllers.SaleOrderController    : ENTERED INTO getAllSaleOrder
+2023-04-02 12:39:27.943 DEBUG 15516 --- [http-nio-8080-exec-8] c.i.l.controllers.SaleOrderController    : FETCHED ALL RECORDS
+2023-04-02 12:39:27.943  INFO 15516 --- [http-nio-8080-exec-8] c.i.l.controllers.SaleOrderController    : ABOUT TO GO UI PAGE SaleOrderData ! 
+2023-04-02 12:39:28.091  INFO 15516 --- [http-nio-8080-exec-9] c.i.l.controllers.SaleOrderController    : ENTERED INTO getAllSaleOrder
+2023-04-02 12:39:28.100 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.controllers.SaleOrderController    : FETCHED ALL RECORDS
+2023-04-02 12:39:28.100  INFO 15516 --- [http-nio-8080-exec-9] c.i.l.controllers.SaleOrderController    : ABOUT TO GO UI PAGE SaleOrderData ! 
+2023-04-02 12:39:38.769 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER REGISTER PAGE
+2023-04-02 12:39:38.779 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER REGISTER PAGE
+2023-04-02 12:39:56.745  INFO 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO SAVE METHOD
+2023-04-02 12:39:56.767 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : RECORD IS CREATED WITH ID 49952
+2023-04-02 12:39:56.768  INFO 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderRegister ! 
+2023-04-02 12:40:00.249  INFO 15516 --- [http-nio-8080-exec-8] c.i.l.c.ProductUserTypeController        : ENTERED INTO getProductUserType
+2023-04-02 12:40:00.261 DEBUG 15516 --- [http-nio-8080-exec-8] c.i.l.c.ProductUserTypeController        : FETCHED ALL RECORDS
+2023-04-02 12:40:00.261  INFO 15516 --- [http-nio-8080-exec-8] c.i.l.c.ProductUserTypeController        : ABOUT TO GO UI PAGE ProductUserTypeData
+2023-04-02 12:40:10.883  INFO 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-02 12:40:10.896 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-02 12:40:10.896  INFO 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-02 12:40:12.677 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:12.692 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:16.491 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO ADD PART METHOD
+2023-04-02 12:40:16.520 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : EXITED FROM ADD PART METHOD
+2023-04-02 12:40:16.530 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:16.545 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:18.614 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:18.627 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:19.670 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:19.684 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:20.419 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:20.431 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:21.464 DEBUG 15516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:21.477 DEBUG 15516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:22.353 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:22.367 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:22.729 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:22.740 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:24.103 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:24.115 DEBUG 15516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:25.209 DEBUG 15516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:25.219 DEBUG 15516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:25.640 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:25.648 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:26.859 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:26.872 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:32.870 DEBUG 15516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO ADD PART METHOD
+2023-04-02 12:40:32.897 DEBUG 15516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : EXITED FROM ADD PART METHOD
+2023-04-02 12:40:32.905 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:32.916 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:42.064 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO DELETE PART METHOD
+2023-04-02 12:40:42.096 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM DELETE PART METHOD
+2023-04-02 12:40:42.104 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:42.111 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:45.396 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO ADD PART METHOD
+2023-04-02 12:40:45.416 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : EXITED FROM ADD PART METHOD
+2023-04-02 12:40:45.425 DEBUG 15516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:45.435 DEBUG 15516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:47.416 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:47.427 DEBUG 15516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:47.755 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:47.765 DEBUG 15516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:48.506 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:48.517 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:51.942 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:51.954 DEBUG 15516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:57.109 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:40:57.118 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:37.981 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:38.150 DEBUG 15516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:41.715 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:41.730 DEBUG 15516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:42.446 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:42.459 DEBUG 15516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:42.601 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:42:42.615 DEBUG 15516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:43:22.461  INFO 15516 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-02 12:43:22.483  INFO 15516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-02 12:43:22.512  INFO 15516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-02 12:47:09.029  INFO 21852 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.5 on Acer with PID 21852 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by Acer in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-02 12:47:09.041 DEBUG 21852 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-02 12:47:09.043  INFO 21852 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-02 12:47:09.299  INFO 21852 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-02 12:47:09.300  INFO 21852 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-02 12:47:11.989  INFO 21852 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-02 12:47:12.289  INFO 21852 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 261 ms. Found 10 JPA repository interfaces.
+2023-04-02 12:47:14.764  INFO 21852 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-02 12:47:14.801  INFO 21852 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-02 12:47:14.802  INFO 21852 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-02 12:47:15.223  INFO 21852 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-02 12:47:15.224  INFO 21852 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5921 ms
+2023-04-02 12:47:15.808  INFO 21852 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-02 12:47:16.023  INFO 21852 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-04-02 12:47:16.692  INFO 21852 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-02 12:47:17.023  INFO 21852 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-02 12:47:17.395  INFO 21852 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-02 12:47:17.501  INFO 21852 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-02 12:47:19.945  INFO 21852 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-02 12:47:19.963  INFO 21852 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-02 12:47:22.309  WARN 21852 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-02 12:47:23.659  INFO 21852 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-02 12:47:23.817  INFO 21852 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-02 12:47:23.860  INFO 21852 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 17.246 seconds (JVM running for 21.342)
+2023-04-02 12:47:40.213  INFO 21852 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-02 12:47:40.213  INFO 21852 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-02 12:47:40.216  INFO 21852 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-04-02 12:47:40.325 DEBUG 21852 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:47:40.641 DEBUG 21852 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:47:48.053 DEBUG 21852 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER REGISTER PAGE
+2023-04-02 12:47:48.064 DEBUG 21852 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER REGISTER PAGE
+2023-04-02 12:48:09.400  INFO 21852 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SAVE METHOD
+2023-04-02 12:48:09.521 DEBUG 21852 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : RECORD IS CREATED WITH ID 50002
+2023-04-02 12:48:09.521  INFO 21852 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderRegister ! 
+2023-04-02 12:48:18.523  INFO 21852 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-02 12:48:18.563 DEBUG 21852 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-02 12:48:18.564  INFO 21852 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-02 12:48:21.758 DEBUG 21852 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:48:21.772 DEBUG 21852 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:48:26.531 DEBUG 21852 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO ADD PART METHOD
+2023-04-02 12:48:26.582 DEBUG 21852 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM ADD PART METHOD
+2023-04-02 12:48:26.607 DEBUG 21852 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-02 12:48:26.620 DEBUG 21852 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-02 12:48:46.044  INFO 21852 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-02 12:48:46.101  INFO 21852 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-02 12:48:46.186  INFO 21852 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

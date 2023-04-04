@@ -1,63 +1,147 @@
-2022-12-23 13:35:35.005  INFO 12292 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 12292 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
-2022-12-23 13:35:35.007 DEBUG 12292 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
-2022-12-23 13:35:35.008  INFO 12292 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
-2022-12-23 13:35:35.108  INFO 12292 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-23 13:35:35.109  INFO 12292 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-23 13:35:36.286  INFO 12292 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-23 13:35:36.425  INFO 12292 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 123 ms. Found 4 JPA repository interfaces.
-2022-12-23 13:35:38.070  INFO 12292 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-23 13:35:38.090  INFO 12292 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-23 13:35:38.091  INFO 12292 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-23 13:35:38.363  INFO 12292 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-23 13:35:38.364  INFO 12292 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3253 ms
-2022-12-23 13:35:38.762  INFO 12292 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-23 13:35:38.879  INFO 12292 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-23 13:35:39.248  INFO 12292 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-23 13:35:39.466  INFO 12292 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-23 13:35:39.604  INFO 12292 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-23 13:35:39.689  INFO 12292 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
-2022-12-23 13:35:41.174  INFO 12292 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-23 13:35:41.193  INFO 12292 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-23 13:35:42.538  WARN 12292 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-23 13:35:43.169  INFO 12292 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-23 13:35:43.226  INFO 12292 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-23 13:35:43.244  INFO 12292 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 8.924 seconds (JVM running for 10.593)
-2022-12-23 13:35:46.435  INFO 12292 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-23 13:35:46.435  INFO 12292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-23 13:35:46.437  INFO 12292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-23 13:36:43.542  INFO 12292 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-23 13:36:43.547  INFO 12292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-23 13:36:43.553  INFO 12292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2022-12-23 13:36:50.951  INFO 5664 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 5664 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
-2022-12-23 13:36:50.953 DEBUG 5664 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
-2022-12-23 13:36:50.954  INFO 5664 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
-2022-12-23 13:36:51.071  INFO 5664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2022-12-23 13:36:51.072  INFO 5664 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2022-12-23 13:36:52.291  INFO 5664 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2022-12-23 13:36:52.453  INFO 5664 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 143 ms. Found 4 JPA repository interfaces.
-2022-12-23 13:36:54.184  INFO 5664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2022-12-23 13:36:54.205  INFO 5664 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2022-12-23 13:36:54.206  INFO 5664 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
-2022-12-23 13:36:54.480  INFO 5664 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2022-12-23 13:36:54.481  INFO 5664 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3408 ms
-2022-12-23 13:36:54.866  INFO 5664 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2022-12-23 13:36:54.997  INFO 5664 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
-2022-12-23 13:36:55.369  INFO 5664 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2022-12-23 13:36:55.586  INFO 5664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-12-23 13:36:55.705  INFO 5664 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-12-23 13:36:55.769  INFO 5664 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
-2022-12-23 13:36:57.270  INFO 5664 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2022-12-23 13:36:57.286  INFO 5664 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2022-12-23 13:36:58.678  WARN 5664 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2022-12-23 13:36:59.589  INFO 5664 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2022-12-23 13:36:59.700  INFO 5664 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2022-12-23 13:36:59.732  INFO 5664 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 9.539 seconds (JVM running for 11.125)
-2022-12-23 13:37:01.018  INFO 5664 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2022-12-23 13:37:01.018  INFO 5664 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2022-12-23 13:37:01.019  INFO 5664 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2022-12-23 13:40:36.847  INFO 5664 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2022-12-23 13:40:36.878  INFO 5664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-12-23 13:40:36.895  INFO 5664 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-04 15:46:28.317  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 6580 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:46:28.327 DEBUG 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:46:28.330  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:46:28.641  INFO 6580 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-04 15:46:28.645  INFO 6580 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-04 15:46:31.006  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:46:31.206  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 176 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:46:33.242  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:46:33.267  INFO 6580 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:46:33.268  INFO 6580 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:46:33.536  INFO 6580 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:46:33.536  INFO 6580 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4890 ms
+2023-04-04 15:46:33.969  INFO 6580 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:46:34.143  INFO 6580 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-04-04 15:46:34.934  INFO 6580 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-04 15:46:35.347  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-04 15:46:35.576  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-04 15:46:35.675  INFO 6580 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:46:38.579  INFO 6580 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:46:38.597  INFO 6580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:46:41.011  WARN 6580 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:46:42.688  INFO 6580 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:46:42.843  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:46:42.950  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 16.216 seconds (JVM running for 19.054)
+2023-04-04 15:46:51.523  INFO 6580 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-04-04 15:46:51.550  INFO 6580 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 15:46:51.575  INFO 6580 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:46:51.582  INFO 6580 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-04 15:46:51.592  INFO 6580 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-04 15:46:51.831  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 6580 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:46:51.832 DEBUG 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:46:51.833  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:46:52.931  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:46:53.026  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 93 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:46:53.421  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:46:53.424  INFO 6580 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:46:53.425  INFO 6580 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:46:53.618  INFO 6580 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:46:53.619  INFO 6580 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1742 ms
+2023-04-04 15:46:53.820  INFO 6580 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:46:53.953  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-04-04 15:46:54.015  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-04-04 15:46:54.015  INFO 6580 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:46:56.162  INFO 6580 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:46:56.163  INFO 6580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:46:57.899  WARN 6580 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:46:58.154  INFO 6580 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:46:58.874  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:46:58.929  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 7.213 seconds (JVM running for 35.032)
+2023-04-04 15:46:58.943  INFO 6580 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 15:47:13.094  INFO 6580 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-04-04 15:47:13.115  INFO 6580 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 15:47:13.126  INFO 6580 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:47:13.127  INFO 6580 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-04-04 15:47:13.132  INFO 6580 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-04-04 15:47:13.312  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 6580 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:47:13.312 DEBUG 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:47:13.312  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:47:13.881  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:47:13.974  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 92 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:47:14.252  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:47:14.256  INFO 6580 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:47:14.260  INFO 6580 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:47:14.329  INFO 6580 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:47:14.329  INFO 6580 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1009 ms
+2023-04-04 15:47:14.442  INFO 6580 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:47:14.456  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-04-04 15:47:14.462  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-04-04 15:47:14.462  INFO 6580 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:47:14.828  INFO 6580 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:47:14.828  INFO 6580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:47:15.852  WARN 6580 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:47:16.141  INFO 6580 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:47:16.180  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:47:16.192  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 2.957 seconds (JVM running for 52.295)
+2023-04-04 15:47:16.196  INFO 6580 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 15:47:16.454  INFO 6580 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-04 15:47:16.454  INFO 6580 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-04 15:47:16.457  INFO 6580 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-04-04 15:47:22.854  INFO 6580 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-04-04 15:47:22.871  INFO 6580 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 15:47:22.873  INFO 6580 --- [Thread-11] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-04-04 15:47:22.884  WARN 6580 --- [Thread-11] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HttpClient-1-SelectorManager] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.1/sun.nio.ch.WEPoll.wait(Native Method)
+ java.base@17.0.1/sun.nio.ch.WEPollSelectorImpl.doSelect(WEPollSelectorImpl.java:111)
+ java.base@17.0.1/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:129)
+ java.base@17.0.1/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:141)
+ platform/java.net.http@17.0.1/jdk.internal.net.http.HttpClientImpl$SelectorManager.run(HttpClientImpl.java:889)
+2023-04-04 15:47:22.886  WARN 6580 --- [Thread-11] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HttpClient-1-Worker-0] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.1/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401)
+ java.base@17.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903)
+ java.base@17.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.1/java.lang.Thread.run(Thread.java:833)
+2023-04-04 15:47:22.888  WARN 6580 --- [Thread-11] o.a.c.loader.WebappClassLoaderBase       : The web application [ROOT] appears to have started a thread named [HttpClient-1-Worker-1] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.1/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.1/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401)
+ java.base@17.0.1/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903)
+ java.base@17.0.1/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+ java.base@17.0.1/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.1/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.1/java.lang.Thread.run(Thread.java:833)
+2023-04-04 15:47:22.895  INFO 6580 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:47:22.897  INFO 6580 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-04-04 15:47:22.903  INFO 6580 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2023-04-04 15:47:23.126  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 6580 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:47:23.127 DEBUG 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:47:23.128  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:47:23.663  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:47:23.767  INFO 6580 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 103 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:47:24.109  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:47:24.111  INFO 6580 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:47:24.112  INFO 6580 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:47:24.197  INFO 6580 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:47:24.198  INFO 6580 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1063 ms
+2023-04-04 15:47:24.338  INFO 6580 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:47:24.352  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2023-04-04 15:47:24.356  INFO 6580 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2023-04-04 15:47:24.356  INFO 6580 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:47:24.651  INFO 6580 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:47:24.652  INFO 6580 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:47:25.761  WARN 6580 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:47:26.057  INFO 6580 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:47:26.088  INFO 6580 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:47:26.099  INFO 6580 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 3.058 seconds (JVM running for 62.203)
+2023-04-04 15:47:26.104  INFO 6580 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 15:47:26.274  INFO 6580 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-04 15:47:26.275  INFO 6580 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-04 15:47:26.278  INFO 6580 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-04-04 15:47:26.416  INFO 6580 --- [http-nio-8080-exec-1] c.i.l.controllers.MusController          : ENTERED INTO getAllMus METHOD
+2023-04-04 15:47:26.431 DEBUG 6580 --- [http-nio-8080-exec-1] c.i.l.controllers.MusController          : FETCHED ALL RECORDS
+2023-04-04 15:47:26.432  INFO 6580 --- [http-nio-8080-exec-1] c.i.l.controllers.MusController          : ABOUT TO GO UI PAGE MusData ! 
+2023-04-04 15:47:30.109  INFO 6580 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 15:47:30.171 DEBUG 6580 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 15:47:30.171  INFO 6580 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 15:47:32.336 DEBUG 6580 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:47:32.403 DEBUG 6580 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:48:06.751  INFO 6580 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:48:06.752  INFO 6580 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-04-04 15:48:06.756  INFO 6580 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
 2023-04-02 12:35:28.790  INFO 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.5 on Acer with PID 15516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by Acer in D:\IdeaProjects\LogisticsInventoryManagement)
 2023-04-02 12:35:28.795 DEBUG 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
 2023-04-02 12:35:28.796  INFO 15516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
@@ -241,3 +325,722 @@
 2023-04-02 12:48:46.044  INFO 21852 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-04-02 12:48:46.101  INFO 21852 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-04-02 12:48:46.186  INFO 21852 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-04 15:49:07.375  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:49:07.377 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:49:07.378  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:49:07.540  INFO 9516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-04-04 15:49:07.542  INFO 9516 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-04-04 15:49:09.121  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:49:09.335  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 191 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:49:10.891  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:49:10.921  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:49:10.922  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:49:11.178  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:49:11.179  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3636 ms
+2023-04-04 15:49:11.563  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:49:11.705  INFO 9516 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-04-04 15:49:12.122  INFO 9516 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-04-04 15:49:12.386  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-04-04 15:49:12.503  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-04-04 15:49:12.580  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:49:14.307  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:49:14.321  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:49:15.765  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:49:16.525  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:49:16.587  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:49:16.607  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 10.128 seconds (JVM running for 11.823)
+2023-04-04 15:49:52.239  INFO 9516 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-04 15:49:52.239  INFO 9516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-04 15:49:52.242  INFO 9516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2023-04-04 15:49:52.340 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:49:52.631 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:50:15.091  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 15:50:15.123 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 15:50:15.124  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 15:50:16.624 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:50:16.648 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:24.516 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:24.528 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:25.558 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:25.571 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:28.940 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO ADD PART METHOD
+2023-04-04 15:52:29.087 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : EXITED FROM ADD PART METHOD
+2023-04-04 15:52:29.116 DEBUG 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:29.133 DEBUG 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:33.544 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:33.555 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:34.749 DEBUG 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:34.760 DEBUG 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:37.467 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO DELETE PART METHOD
+2023-04-04 15:52:37.536 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : EXITED FROM DELETE PART METHOD
+2023-04-04 15:52:37.555 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:37.573 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:40.471 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO ADD PART METHOD
+2023-04-04 15:52:40.489 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : EXITED FROM ADD PART METHOD
+2023-04-04 15:52:40.501 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:40.525 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:43.532 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:52:43.541 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:53:25.839  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 15:53:25.848 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 15:53:25.848  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 15:53:27.435 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 15:53:27.447 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 15:57:31.997  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 15:57:32.006 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 15:57:32.006  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 15:57:35.379  INFO 9516 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-04-04 15:57:35.454  INFO 9516 --- [Thread-5] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 15:57:35.462  INFO 9516 --- [Thread-5] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-04-04 15:57:35.537  INFO 9516 --- [Thread-5] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:57:35.570  INFO 9516 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-04-04 15:57:35.595  INFO 9516 --- [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-04-04 15:57:36.069  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:57:36.069 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:57:36.069  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:57:36.566  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:57:36.641  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 72 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:57:37.048  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:57:37.050  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:57:37.051  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:57:37.134  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:57:37.134  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1056 ms
+2023-04-04 15:57:37.222  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:57:37.235  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2023-04-04 15:57:37.241  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2023-04-04 15:57:37.242  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:57:37.728  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:57:37.729  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:57:38.734  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:57:39.120  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:57:39.158  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:57:39.168  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 3.209 seconds (JVM running for 514.385)
+2023-04-04 15:57:39.174  INFO 9516 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 15:57:43.731  INFO 9516 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-04-04 15:57:43.755  INFO 9516 --- [Thread-7] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 15:57:43.770  INFO 9516 --- [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:57:43.772  INFO 9516 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2023-04-04 15:57:43.777  INFO 9516 --- [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2023-04-04 15:57:43.994  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 15:57:43.995 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 15:57:43.995  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 15:57:44.498  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 15:57:44.591  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 10 JPA repository interfaces.
+2023-04-04 15:57:44.882  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 15:57:44.884  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 15:57:44.884  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 15:57:44.965  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 15:57:44.966  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 965 ms
+2023-04-04 15:57:45.069  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 15:57:45.086  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2023-04-04 15:57:45.090  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2023-04-04 15:57:45.091  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 15:57:45.426  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 15:57:45.426  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 15:57:46.480  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 15:57:46.777  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 15:57:46.817  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 15:57:46.831  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 2.912 seconds (JVM running for 522.047)
+2023-04-04 15:57:46.834  INFO 9516 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 16:00:19.673  INFO 9516 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-04-04 16:00:19.673  INFO 9516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-04-04 16:00:19.675  INFO 9516 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-04-04 16:00:19.678  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:19.719 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:19.719  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:20.473  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:20.482 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:20.482  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:20.661  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:20.666 DEBUG 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:20.666  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:20.861  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:20.866 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:20.866  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:21.285  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:21.293 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:21.293  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:35.908  INFO 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:35.915 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:35.915  INFO 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:36.361  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:36.369 DEBUG 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:36.369  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:36.545  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:36.555 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:36.555  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:36.745  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:36.754 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:36.755  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:36.929  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:36.941 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:36.941  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:37.176  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:37.182 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:37.182  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:37.401  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:37.407 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:37.407  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:00:37.583  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:00:37.589 DEBUG 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:00:37.589  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:14.158  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:14.169 DEBUG 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:14.169  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:14.688  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:14.699 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:14.699  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:14.865  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:14.876 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:14.876  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:15.043  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:15.052 DEBUG 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:15.052  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:15.206  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:15.215 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:15.215  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:15.367  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:15.373 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:15.373  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:15.604  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:15.610 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:15.610  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:15.748  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:15.754 DEBUG 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:15.754  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:15.783 ERROR 9516 --- [http-nio-8080-exec-6] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-6] Exception processing template "PurchaseOrderData": An error happened during template parsing (template: "class path resource [templates/PurchaseOrderData.html]")
+
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/PurchaseOrderData.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:235) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1405) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1149) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+Caused by: java.io.FileNotFoundException: class path resource [templates/PurchaseOrderData.html] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:199) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.thymeleaf.spring5.templateresource.SpringResourceTemplateResource.reader(SpringResourceTemplateResource.java:103) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:223) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	... 48 common frames omitted
+
+2023-04-04 16:01:15.786 ERROR 9516 --- [http-nio-8080-exec-6] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/PurchaseOrderData.html]")] with root cause
+
+java.io.FileNotFoundException: class path resource [templates/PurchaseOrderData.html] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:199) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.thymeleaf.spring5.templateresource.SpringResourceTemplateResource.reader(SpringResourceTemplateResource.java:103) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:223) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1405) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1149) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-04-04 16:01:16.140  INFO 9516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:16.154 DEBUG 9516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:16.154  INFO 9516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:16.992  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:17.003 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:17.005  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:17.176  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:17.198 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:17.198  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:17.390  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:17.399 DEBUG 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:17.400  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:54.668  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:54.678 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:54.678  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:55.350  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:55.357 DEBUG 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:55.357  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:55.532  INFO 9516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:55.537 DEBUG 9516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:55.537  INFO 9516 --- [http-nio-8080-exec-7] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:55.541 ERROR 9516 --- [http-nio-8080-exec-7] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-7] Exception processing template "PurchaseOrderData": Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1405) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1149) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-04-04 16:01:55.545 ERROR 9516 --- [http-nio-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1405) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1149) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-04-04 16:01:55.711  INFO 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:55.716 DEBUG 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:55.717  INFO 9516 --- [http-nio-8080-exec-8] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:55.719 ERROR 9516 --- [http-nio-8080-exec-8] org.thymeleaf.TemplateEngine             : [THYMELEAF][http-nio-8080-exec-8] Exception processing template "PurchaseOrderData": Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1405) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1149) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-04-04 16:01:55.721 ERROR 9516 --- [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
+
+org.thymeleaf.exceptions.TemplateInputException: Error resolving template [PurchaseOrderData], template might not exist or might not be accessible by any of the configured Template Resolvers
+	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072) ~[thymeleaf-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190) ~[thymeleaf-spring5-3.0.15.RELEASE.jar:3.0.15.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1405) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1149) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1088) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:655) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.23.jar:5.3.23]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764) ~[tomcat-embed-core-9.0.65.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.23.jar:5.3.23]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:890) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1789) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.65.jar:9.0.65]
+	at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
+
+2023-04-04 16:01:55.885  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:55.890 DEBUG 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:55.890  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:56.055  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:56.063 DEBUG 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:56.063  INFO 9516 --- [http-nio-8080-exec-10] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:56.477  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:56.482 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:56.483  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:56.666  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:56.671 DEBUG 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:56.671  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:56.817  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:56.821 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:56.821  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:56.994  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:01:56.999 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:01:56.999  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:01:58.419 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO SHOW PURCHASE ORDER PARTS
+2023-04-04 16:01:58.442 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : EXITED FROM SHOW PURCHASE ORDER PARTS
+2023-04-04 16:02:40.320  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:02:40.340 DEBUG 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:02:40.341  INFO 9516 --- [http-nio-8080-exec-1] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:02:41.123  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:02:41.130 DEBUG 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:02:41.130  INFO 9516 --- [http-nio-8080-exec-3] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:02:41.296  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:02:41.301 DEBUG 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:02:41.301  INFO 9516 --- [http-nio-8080-exec-4] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:02:41.600  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:02:41.607 DEBUG 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:02:41.607  INFO 9516 --- [http-nio-8080-exec-2] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:02:41.840  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:02:41.845 DEBUG 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:02:41.845  INFO 9516 --- [http-nio-8080-exec-5] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:02:41.994  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:02:42.000 DEBUG 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:02:42.000  INFO 9516 --- [http-nio-8080-exec-6] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:27:21.684  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ENTERED INTO getAllPurchaseOrder
+2023-04-04 16:27:21.891 DEBUG 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : FETCHED ALL RECORDS
+2023-04-04 16:27:21.891  INFO 9516 --- [http-nio-8080-exec-9] c.i.l.c.PurchaseOrderController          : ABOUT TO GO UI PAGE PurchaseOrderData ! 
+2023-04-04 16:27:31.116  INFO 9516 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 4 class path changes (0 additions, 3 deletions, 1 modification)
+2023-04-04 16:27:31.393  INFO 9516 --- [Thread-11] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 16:27:31.406  INFO 9516 --- [Thread-11] o.a.c.c.C.[Tomcat].[localhost].[/]       : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-04-04 16:27:31.583  INFO 9516 --- [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:27:31.647  INFO 9516 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2023-04-04 16:27:31.658  INFO 9516 --- [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2023-04-04 16:27:33.161  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 16:27:33.161 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 16:27:33.161  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 16:27:33.627  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 16:27:33.706  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 10 JPA repository interfaces.
+2023-04-04 16:27:34.108  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 16:27:34.109  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 16:27:34.110  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 16:27:34.170  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 16:27:34.170  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1004 ms
+2023-04-04 16:27:34.243  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 16:27:34.256  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2023-04-04 16:27:34.260  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2023-04-04 16:27:34.261  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 16:27:34.730  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 16:27:34.731  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:27:35.258  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 16:27:35.624  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 16:27:35.654  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 16:27:35.663  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 2.73 seconds (JVM running for 2310.88)
+2023-04-04 16:27:35.665  INFO 9516 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 16:27:39.168  INFO 9516 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (2 additions, 0 deletions, 0 modifications)
+2023-04-04 16:27:39.187  INFO 9516 --- [Thread-15] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 16:27:39.197  INFO 9516 --- [Thread-15] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:27:39.198  INFO 9516 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2023-04-04 16:27:39.201  INFO 9516 --- [Thread-15] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2023-04-04 16:27:39.347  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 16:27:39.348 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 16:27:39.348  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 16:27:39.678  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 16:27:39.734  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 10 JPA repository interfaces.
+2023-04-04 16:27:39.896  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 16:27:39.898  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 16:27:39.898  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 16:27:39.953  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-04-04 16:27:39.954  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 602 ms
+2023-04-04 16:27:40.017  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 16:27:40.026  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2023-04-04 16:27:40.031  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2023-04-04 16:27:40.031  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 16:27:40.293  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 16:27:40.293  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:27:40.601  WARN 9516 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'purchaseOrderController': Unsatisfied dependency expressed through field 'service'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-04-04 16:27:40.602  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:27:40.602  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2023-04-04 16:27:40.605  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2023-04-04 16:27:40.605  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 16:27:40.620  INFO 9516 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-04-04 16:27:40.664 ERROR 9516 --- [restartedMain] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field service in com.ishopee.logisticsinventorymanagement.controllers.PurchaseOrderController required a bean of type 'com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService' in your configuration.
+
+2023-04-04 16:27:42.183  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 16:27:42.183 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 16:27:42.183  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 16:27:42.577  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 16:27:42.644  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65 ms. Found 10 JPA repository interfaces.
+2023-04-04 16:27:42.883  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 16:27:42.884  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 16:27:42.884  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 16:27:42.936  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-04-04 16:27:42.937  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 750 ms
+2023-04-04 16:27:43.004  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 16:27:43.013  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2023-04-04 16:27:43.015  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2023-04-04 16:27:43.016  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 16:27:43.232  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 16:27:43.232  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:27:43.857  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 16:27:44.035  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 16:27:44.057  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 16:27:44.066  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 1.936 seconds (JVM running for 2319.284)
+2023-04-04 16:27:44.069  INFO 9516 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 16:32:06.660  INFO 9516 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-04-04 16:32:06.677  INFO 9516 --- [Thread-19] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 16:32:06.686  INFO 9516 --- [Thread-19] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:32:06.687  INFO 9516 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2023-04-04 16:32:06.690  INFO 9516 --- [Thread-19] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2023-04-04 16:32:06.834  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 16:32:06.835 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 16:32:06.835  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 16:32:07.136  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 16:32:07.203  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 68 ms. Found 10 JPA repository interfaces.
+2023-04-04 16:32:07.385  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 16:32:07.386  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 16:32:07.387  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 16:32:07.432  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-04-04 16:32:07.432  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 593 ms
+2023-04-04 16:32:07.502  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 16:32:07.511  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2023-04-04 16:32:07.515  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2023-04-04 16:32:07.515  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 16:32:07.719  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 16:32:07.719  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:32:08.344  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 16:32:08.475  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 16:32:08.495  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 16:32:08.502  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 1.716 seconds (JVM running for 2583.718)
+2023-04-04 16:32:08.504  INFO 9516 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 16:32:13.051  INFO 9516 --- [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2023-04-04 16:32:13.072  INFO 9516 --- [Thread-26] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-04-04 16:32:13.084  INFO 9516 --- [Thread-26] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:32:13.085  INFO 9516 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2023-04-04 16:32:13.089  INFO 9516 --- [Thread-26] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2023-04-04 16:32:13.245  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 9516 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-04-04 16:32:13.245 DEBUG 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-04-04 16:32:13.245  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-04-04 16:32:13.545  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-04-04 16:32:13.598  INFO 9516 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 10 JPA repository interfaces.
+2023-04-04 16:32:13.765  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-04-04 16:32:13.766  INFO 9516 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-04-04 16:32:13.766  INFO 9516 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-04-04 16:32:13.810  INFO 9516 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2023-04-04 16:32:13.810  INFO 9516 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 562 ms
+2023-04-04 16:32:13.869  INFO 9516 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-04-04 16:32:13.877  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2023-04-04 16:32:13.880  INFO 9516 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2023-04-04 16:32:13.880  INFO 9516 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-04-04 16:32:14.106  INFO 9516 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-04-04 16:32:14.106  INFO 9516 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:32:14.691  WARN 9516 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-04-04 16:32:14.903  INFO 9516 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-04-04 16:32:14.931  INFO 9516 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-04-04 16:32:14.939  INFO 9516 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 1.745 seconds (JVM running for 2590.155)
+2023-04-04 16:32:14.942  INFO 9516 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2023-04-04 16:34:39.576  INFO 9516 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-04-04 16:34:39.577  INFO 9516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2023-04-04 16:34:39.582  INFO 9516 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.

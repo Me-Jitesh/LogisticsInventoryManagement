@@ -84,7 +84,7 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
     }
 
     @Override
-    public Optional<PurchaseDetails> getPurchaseDetailsByPartIdAndRepo(Integer partId, Integer poId) {
+    public Optional<PurchaseDetails> getPurchaseDetailsByPartIdAndPo(Integer partId, Integer poId) {
         return detailsRepo.getPurchaseDetailsByPartIdAndRepo(partId, poId);
     }
 

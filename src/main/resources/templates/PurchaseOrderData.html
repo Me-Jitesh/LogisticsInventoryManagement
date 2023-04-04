@@ -23,7 +23,7 @@
                     <th>CODE</th>
                     <th>SHIPMENT CODE</th>
                     <th>VENDOR</th>
-                    <th>REFERENCE</th>
+                    <!--                    <th>REFERENCE</th>              -->
                     <th>QUALITY CHECK</th>
                     <th>STATUS</th>
                     <th>DESCRIPTION</th>
@@ -31,15 +31,16 @@
                 </tr>
                 <tr th:each="ob:${list}">
                     <td th:text="${ob.id}"></td>
-                    <td th:text="${ob.orderCode}"></td>
+                    <td th:text="${ob.orderCode}" class="text-success"></td>
                     <td th:text="${ob.st.shipCode}"></td>
                     <td th:text="${ob.vendor.userCode}"></td>
-                    <td th:text="${ob.refNumber}"></td>
+                    <!--                    <td th:text="${ob.refNumber}"></td>                 -->
                     <td th:text="${ob.qltyCheck}"></td>
                     <td th:text="${ob.status}"></td>
                     <td th:text="${ob.desc}"></td>
                     <td>
-                        <a class="btn btn-outline-secondary" th:href="@{/po/parts(id=${ob.id})}">Parts
+                        <a class="btn btn-outline-secondary" th:href="@{/po/parts(id=${ob.id})}">
+                            ADD PART
                             <i class="fa-solid fa-cookie-bite"></i>
                         </a>
                     </td>

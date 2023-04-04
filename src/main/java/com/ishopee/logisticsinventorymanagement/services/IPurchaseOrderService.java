@@ -33,7 +33,7 @@ public interface IPurchaseOrderService {
 
     Integer getPurchaseDetailsCountByPoId(Integer poId);
 
-    Optional<PurchaseDetails> getPurchaseDetailsByPartIdAndRepo(Integer partId, Integer poId);
+    Optional<PurchaseDetails> getPurchaseDetailsByPartIdAndPo(Integer partId, Integer poId);
 
     @Transactional
     Integer updateQtyByPdtlId(Integer pdtlId, Integer newQty);

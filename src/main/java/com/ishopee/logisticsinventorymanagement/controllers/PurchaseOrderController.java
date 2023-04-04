@@ -92,8 +92,12 @@ public class PurchaseOrderController {
     public String showPoParts(@RequestParam Integer id, Model model) {
         LOG.debug("ENTERED INTO SHOW PURCHASE ORDER PARTS");
         fetchPurchaseOrder(id, model);
-        fetchPartCode(model);
         fetchPurchaseDetails(id, model);
+        // Restricting adding part after Place Order
+        String status = service.getCurrentPoStatus(id);
+        if (PurchaseOrderStatus.OPEN.name().equals(status) || PurchaseOrderStatus.PICKING.name().equals(status)) {
+            fetchPartCode(model);
+        }
         LOG.debug("EXITED FROM SHOW PURCHASE ORDER PARTS");
         return "PurchaseOrderParts";
     }
@@ -104,18 +108,19 @@ public class PurchaseOrderController {
 
         Integer poId = pdtl.getPo().getId();
         Integer partId = pdtl.getPart().getId();
+        // Restrict modification after Place Order
+        if (PurchaseOrderStatus.OPEN.name().equals(service.getCurrentPoStatus(poId)) || PurchaseOrderStatus.PICKING.name().equals(service.getCurrentPoStatus(poId))) {
+            Optional<PurchaseDetails> opt = service.getPurchaseDetailsByPartIdAndPo(partId, poId);
+            if (opt.isPresent()) {
+                service.updateQtyByPdtlId(opt.get().getId(), pdtl.getQty());
+            } else {
+                service.savePurchaseOrderDetails(pdtl);
+            }
 
-        Optional<PurchaseDetails> opt = service.getPurchaseDetailsByPartIdAndRepo(partId, poId);
-        if (opt.isPresent()) {
-            service.updateQtyByPdtlId(opt.get().getId(), pdtl.getQty());
-        } else {
-            service.savePurchaseOrderDetails(pdtl);
+            if (PurchaseOrderStatus.OPEN.name().equals(service.getCurrentPoStatus(poId))) {
+                service.updatePoStatus(poId, PurchaseOrderStatus.PICKING.name());
+            }
         }
-
-        if (PurchaseOrderStatus.OPEN.name().equals(service.getCurrentPoStatus(poId))) {
-            service.updatePoStatus(poId, PurchaseOrderStatus.PICKING.name());
-        }
-
         LOG.debug("EXITED FROM ADD PART METHOD");
         return "redirect:parts?id=" + poId;
     }
@@ -123,9 +128,11 @@ public class PurchaseOrderController {
     @GetMapping("/deletePart")
     public String deletePart(@RequestParam Integer pdtlId, @RequestParam Integer poId) {
         LOG.debug("ENTERED INTO DELETE PART METHOD");
-        service.deletePurchaseDetail(pdtlId);
-        if (service.getPurchaseDetailsCountByPoId(poId) == 0) {
-            service.updatePoStatus(poId, PurchaseOrderStatus.OPEN.name());
+        if (PurchaseOrderStatus.PICKING.name().equals(service.getCurrentPoStatus(poId))) { // Restrict deletion if OPEN/ORDERED state
+            service.deletePurchaseDetail(pdtlId);
+            if (service.getPurchaseDetailsCountByPoId(poId) == 0) {
+                service.updatePoStatus(poId, PurchaseOrderStatus.OPEN.name());
+            }
         }
         LOG.debug("EXITED FROM DELETE PART METHOD");
         return "redirect:parts?id=" + poId;

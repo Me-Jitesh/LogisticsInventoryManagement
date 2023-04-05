@@ -39,9 +39,15 @@
                     <td th:text="${ob.status}"></td>
                     <td th:text="${ob.desc}"></td>
                     <td>
-                        <a class="btn btn-outline-secondary" th:href="@{/po/parts(id=${ob.id})}">
+                        <a class="btn btn-outline-secondary btn-sm" th:href="@{/po/parts(id=${ob.id})}">
                             ADD PART
                             <i class="fa-solid fa-cookie-bite"></i>
+                        </a>
+
+                        <a th:if="${ob.status=='OPEN' || ob.status=='PICKING' || ob.status=='ORDERED' || ob.status!='CANCELLED'}"
+                           class="btn btn-outline-danger btn-sm" th:href="@{/po/cancel(poId=${ob.id})}">
+                            CANCEL
+                            <i class="fa-solid fa-ban"></i>
                         </a>
                     </td>
                 </tr>

@@ -158,6 +158,16 @@ public class PurchaseOrderController {
         return "redirect:parts?id=" + poId;
     }
 
+    @GetMapping("/cancel")
+    private String cancelOrder(@RequestParam Integer poId) {
+        // Restrict Cancel Status Updatation
+        String status = service.getCurrentPoStatus(poId);
+        if (PurchaseOrderStatus.OPEN.name().equals(status) || PurchaseOrderStatus.PICKING.name().equals(status) || PurchaseOrderStatus.ORDERD.name().equals(status) || !PurchaseOrderStatus.CANCELLED.name().equals(status)) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.CANCELLED.name());
+        }
+        return "redirect:all";
+    }
+
     private void fetchAllData(Model model) {
         List<PurchaseOrder> list = service.getAllPurchaseOrder();
         model.addAttribute("list", list);

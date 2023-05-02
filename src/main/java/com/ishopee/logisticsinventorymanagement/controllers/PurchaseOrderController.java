@@ -7,12 +7,14 @@ import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
+import com.ishopee.logisticsinventorymanagement.views.VendorInvoicePdfView;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
@@ -176,6 +178,15 @@ public class PurchaseOrderController {
             service.updatePoStatus(poId, PurchaseOrderStatus.INVOICED.name());
         }
         return "redirect:all";
+    }
+
+    @GetMapping("/print")
+    private ModelAndView printVendorInvoice(@RequestParam Integer poId) {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("pdtls", service.getPurchaseDetailsByPoId(poId));
+        modelAndView.addObject("po", service.getPurchaseOrderById(poId));
+        modelAndView.setView(new VendorInvoicePdfView());
+        return modelAndView;
     }
 
     private void fetchAllData(Model model) {

@@ -52,6 +52,11 @@
                            class="btn btn-outline-warning btn-sm" th:href="@{/po/generate(poId=${ob.id})}">
                             INVOICE
                         </a>
+
+                        <a th:if="${ob.status=='INVOICED'}"
+                           class="btn btn-outline-danger btn-sm" th:href="@{/po/print(poId=${ob.id})}">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </a>
                     </td>
                 </tr>
             </table>

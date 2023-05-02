@@ -168,6 +168,16 @@ public class PurchaseOrderController {
         return "redirect:all";
     }
 
+    @GetMapping("/generate")
+    private String generateInvoice(@RequestParam Integer poId) {
+        // Restrict Invoice Status Updatation
+        String status = service.getCurrentPoStatus(poId);
+        if (PurchaseOrderStatus.ORDERED.name().equals(status)) {
+            service.updatePoStatus(poId, PurchaseOrderStatus.INVOICED.name());
+        }
+        return "redirect:all";
+    }
+
     private void fetchAllData(Model model) {
         List<PurchaseOrder> list = service.getAllPurchaseOrder();
         model.addAttribute("list", list);

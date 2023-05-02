@@ -153,7 +153,7 @@ public class PurchaseOrderController {
     @GetMapping("placeOrder")
     private String placeOrder(@RequestParam Integer poId) {
         if (PurchaseOrderStatus.PICKING.name().equals(service.getCurrentPoStatus(poId))) {
-            service.updatePoStatus(poId, PurchaseOrderStatus.ORDERD.name());
+            service.updatePoStatus(poId, PurchaseOrderStatus.ORDERED.name());
         }
         return "redirect:parts?id=" + poId;
     }
@@ -162,7 +162,7 @@ public class PurchaseOrderController {
     private String cancelOrder(@RequestParam Integer poId) {
         // Restrict Cancel Status Updatation
         String status = service.getCurrentPoStatus(poId);
-        if (PurchaseOrderStatus.OPEN.name().equals(status) || PurchaseOrderStatus.PICKING.name().equals(status) || PurchaseOrderStatus.ORDERD.name().equals(status) || !PurchaseOrderStatus.CANCELLED.name().equals(status)) {
+        if (PurchaseOrderStatus.OPEN.name().equals(status) || PurchaseOrderStatus.PICKING.name().equals(status) || PurchaseOrderStatus.ORDERED.name().equals(status) || !PurchaseOrderStatus.CANCELLED.name().equals(status)) {
             service.updatePoStatus(poId, PurchaseOrderStatus.CANCELLED.name());
         }
         return "redirect:all";

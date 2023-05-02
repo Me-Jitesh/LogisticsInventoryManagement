@@ -1,5 +1,5 @@
 package com.ishopee.logisticsinventorymanagement.constants;
 
 public enum PurchaseOrderStatus {
-    OPEN, PICKING, ORDERD, INVOICED, RECEIVED, CANCELLED
+    OPEN, PICKING, ORDERED, INVOICED, RECEIVED, CANCELLED
 }

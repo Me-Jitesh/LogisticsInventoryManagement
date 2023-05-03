@@ -34,7 +34,7 @@
             <hr/>
 
             <!--            Add Parts       -->
-            <form th:action="@{/po/addpart}" method="post">
+            <form th:if="${po.status=='PICKING' || po.status=='OPEN'}" th:action="@{/po/addpart}" method="post">
                 <div class="row">
 
                     <div class="col-7">
@@ -67,15 +67,25 @@
                     <th>PART</th>
                     <th>COST</th>
                     <th>QTY</th>
-                    <th>OPERATION</th>
+                    <th th:if="${po.status=='PICKING' || po.status=='OPEN'}">OPERATION</th>
                 </tr>
 
                 <tr th:each="ob,i:${pdtlList}">
                     <td th:text="${i.count}"></td>
                     <td th:text="${ob.part.partCode}"></td>
                     <td th:text="${ob.part.partCost}"></td>
-                    <td th:text="${ob.qty}"></td>
                     <td>
+                        <a th:if="${po.status=='PICKING'}" class="btn btn-outline-success btn-sm m-1"
+                           th:href="@{/po/increaseQty(pdtlId=${ob.id},poId=${po.id})}"> + </a>
+
+                        <span th:text="${ob.qty}"></span>
+
+                        <span th:if="${ob.qty>1 && po.status=='PICKING'}">
+                        <a class="btn btn-outline-warning btn-sm m-1"
+                           th:href="@{/po/decreaseQty(pdtlId=${ob.id},poId=${po.id})}"> - </a>
+                        </span>
+                    </td>
+                    <td th:if="${po.status=='PICKING'}">
                         <a class="btn btn-outline-danger m-1"
                            th:href="@{/po/deletePart(pdtlId=${ob.id},poId=${po.id})}">
                             <i class="fa-solid fa-delete-left fa-beat-fade"></i>
@@ -83,6 +93,10 @@
                     </td>
                 </tr>
             </table>
+
+            <div th:if="${po.status=='PICKING'}" class="text-center">
+                <a th:href="@{/po/placeOrder(poId=${po.id})}" class="btn btn-warning px-5"> PLACE ORER </a>
+            </div>
 
         </div>
         <div class="card-footer text-center bg-success text-white" th:if="${message != null}">

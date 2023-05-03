@@ -11,7 +11,7 @@
 
 <div th:replace="fragments/CommonNav::usermenu"></div>
 
-<div class="container">
+<div class="container-fluid">
     <div class="card">
         <div class="card-header bg-info text-center text-light">
             <h3>PURCHASE ORDER DATA</h3>
@@ -23,7 +23,7 @@
                     <th>CODE</th>
                     <th>SHIPMENT CODE</th>
                     <th>VENDOR</th>
-                    <th>REFERENCE</th>
+                    <!--                    <th>REFERENCE</th>              -->
                     <th>QUALITY CHECK</th>
                     <th>STATUS</th>
                     <th>DESCRIPTION</th>
@@ -31,16 +31,31 @@
                 </tr>
                 <tr th:each="ob:${list}">
                     <td th:text="${ob.id}"></td>
-                    <td th:text="${ob.orderCode}"></td>
+                    <td th:text="${ob.orderCode}" class="text-success"></td>
                     <td th:text="${ob.st.shipCode}"></td>
                     <td th:text="${ob.vendor.userCode}"></td>
-                    <td th:text="${ob.refNumber}"></td>
+                    <!--                    <td th:text="${ob.refNumber}"></td>                 -->
                     <td th:text="${ob.qltyCheck}"></td>
                     <td th:text="${ob.status}"></td>
                     <td th:text="${ob.desc}"></td>
                     <td>
-                        <a class="btn btn-outline-secondary" th:href="@{/po/parts(id=${ob.id})}">Parts
-                            <i class="fa-solid fa-cookie-bite"></i>
+                        <a class="btn btn-outline-secondary btn-sm" th:href="@{/po/parts(id=${ob.id})}">
+                            ADD PART
+                        </a>
+
+                        <a th:if="${ob.status=='OPEN' || ob.status=='PICKING' || ob.status=='ORDERED' || (ob.status!='CANCELLED' && ob.status!='INVOICED')}"
+                           class="btn btn-outline-danger btn-sm" th:href="@{/po/cancel(poId=${ob.id})}">
+                            CANCEL
+                        </a>
+
+                        <a th:if="${ob.status=='ORDERED'}"
+                           class="btn btn-outline-warning btn-sm" th:href="@{/po/generate(poId=${ob.id})}">
+                            INVOICE
+                        </a>
+
+                        <a th:if="${ob.status=='INVOICED'}"
+                           class="btn btn-outline-danger btn-sm" th:href="@{/po/print(poId=${ob.id})}">
+                            <i class="fa-solid fa-file-pdf"></i>
                         </a>
                     </td>
                 </tr>

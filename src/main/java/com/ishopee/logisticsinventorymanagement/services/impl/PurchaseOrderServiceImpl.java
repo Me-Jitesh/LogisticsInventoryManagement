@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
@@ -82,4 +83,14 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
         return detailsRepo.getPurchaseDetailsCountByPoId(poId);
     }
 
+    @Override
+    public Optional<PurchaseDetails> getPurchaseDetailsByPartIdAndPo(Integer partId, Integer poId) {
+        return detailsRepo.getPurchaseDetailsByPartIdAndRepo(partId, poId);
+    }
+
+    @Override
+    @Transactional
+    public Integer updateQtyByPdtlId(Integer pdtlId, Integer newQty) {
+        return detailsRepo.updateQtyByPdtlId(pdtlId, newQty);
+    }
 }

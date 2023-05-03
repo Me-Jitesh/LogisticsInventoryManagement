@@ -9,10 +9,7 @@ import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
 import java.util.List;
@@ -52,6 +49,20 @@ public class DnpController {
         return "DnpRegister";
     }
 
+    @GetMapping("/all")
+    public String showAllDnp(Model model) {
+        model.addAttribute("dnps", service.getAllDnp());
+        return "DnpData";
+    }
+
+    @GetMapping("/parts")
+    public String showDnpDtl(@RequestParam Integer dnpId, Model model) {
+        Dnp dnp = service.getOneDnp(dnpId);
+        model.addAttribute("dnp", dnp);
+        model.addAttribute("dnpDtls", dnp.getDnpDtl());
+        return "DnpParts";
+    }
+
     private void createDnpDetailByPO(Dnp dnp) {
         Integer id = dnp.getPo().getId();
         List<PurchaseDetails> pdtls = poService.getPurchaseDetailsByPoId(id);
@@ -62,7 +73,6 @@ public class DnpController {
             DnpDtl dnpDtl = new DnpDtl();
             dnpDtl.setBaseCost(pdtl.getPart().getPartCost());
             dnpDtl.setQty(pdtl.getQty());
-            dnpDtl.setStatus(pdtl.getPo().getStatus());
             dnpDtl.setPartCode(pdtl.getPart().getPartCode());
             dtlSet.add(dnpDtl);
         }

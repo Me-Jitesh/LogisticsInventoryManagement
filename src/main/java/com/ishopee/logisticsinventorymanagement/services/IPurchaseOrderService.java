@@ -5,6 +5,7 @@ import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 public interface IPurchaseOrderService {
@@ -37,4 +38,6 @@ public interface IPurchaseOrderService {
 
     @Transactional
     Integer updateQtyByPdtlId(Integer pdtlId, Integer newQty);
+
+    Map<Integer, String> getPoIdAndCodeByStatus(String status);
 }

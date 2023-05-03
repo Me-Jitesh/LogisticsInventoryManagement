@@ -2,6 +2,8 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.constants.PurchaseOrderStatus;
 import com.ishopee.logisticsinventorymanagement.models.Dnp;
+import com.ishopee.logisticsinventorymanagement.models.DnpDtl;
+import com.ishopee.logisticsinventorymanagement.models.PurchaseDetails;
 import com.ishopee.logisticsinventorymanagement.services.IDnpService;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/dnp")
@@ -31,10 +36,37 @@ public class DnpController {
 
     @PostMapping("/save")
     public String saveRegister(@ModelAttribute Dnp dnp, Model model) {
-        Integer id = service.saveDnp(dnp);
-        model.addAttribute("message", "Registration Success With ID : " + id);
+        try {
+            createDnpDetailByPO(dnp);
+            Integer id = service.saveDnp(dnp);
+            if (id != null) {
+                poService.updatePoStatus(dnp.getPo().getId(), PurchaseOrderStatus.RECEIVED.name());
+                model.addAttribute("message", "REGISTRATION SUCCESS WITH ID : " + id);
+            }
+        } catch (Exception e) {
+            model.addAttribute("message", "oooops ! something went wrong");
+            e.printStackTrace();
+        }
+
         fetchPoCode(model);
         return "DnpRegister";
+    }
+
+    private void createDnpDetailByPO(Dnp dnp) {
+        Integer id = dnp.getPo().getId();
+        List<PurchaseDetails> pdtls = poService.getPurchaseDetailsByPoId(id);
+
+        Set<DnpDtl> dtlSet = new HashSet<>();
+
+        for (PurchaseDetails pdtl : pdtls) {
+            DnpDtl dnpDtl = new DnpDtl();
+            dnpDtl.setBaseCost(pdtl.getPart().getPartCost());
+            dnpDtl.setQty(pdtl.getQty());
+            dnpDtl.setStatus(pdtl.getPo().getStatus());
+            dnpDtl.setPartCode(pdtl.getPart().getPartCode());
+            dtlSet.add(dnpDtl);
+        }
+        dnp.setDnpDtl(dtlSet);
     }
 
     private void fetchPoCode(Model model) {

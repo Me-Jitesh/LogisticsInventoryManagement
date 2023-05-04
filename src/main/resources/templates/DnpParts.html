@@ -41,7 +41,6 @@
                     <th>PART CODE</th>
                     <th>BASE COST</th>
                     <th>QTY</th>
-                    <th>STATUS</th>
                     <th>LINE VALUE</th>
                     <th>OPERATION</th>
                 </tr>
@@ -51,12 +50,21 @@
                     <td th:text="${ob.partCode}"></td>
                     <td th:text="${ob.baseCost}"></td>
                     <td th:text="${ob.qty}"></td>
-                    <td th:text="${ob.status}"></td>
                     <td th:text="${ob.qty*ob.baseCost}"></td>
-                    <td>
-                        <a class="btn btn-success btn-sm" th:href="@{/dnp/accept(dtlId=${ob.id})}">ACCEPT</a> |
-                        <a class="btn btn-danger btn-sm" th:href="@{/dnp/reject(dtlId=${ob.id})}">REJECT</a>
-                    </td>
+                    <th:block th:if="${ob.status==null}">
+                        <td>
+                            <a class="btn btn-success btn-sm" th:href="@{/dnp/accept(dnpId=${dnp.id},dtlId=${ob.id})}">ACCEPT</a>
+                            |
+                            <a class="btn btn-danger btn-sm" th:href="@{/dnp/reject(dnpId=${dnp.id},dtlId=${ob.id})}">REJECT</a>
+                        </td>
+                    </th:block>
+
+                    <th:block th:if="${ob.status!=null}">
+                        <td>
+                            <b th:text="${ob.status}" class="text-primary"></b>
+                        </td>
+                    </th:block>
+
                 </tr>
             </table>
 

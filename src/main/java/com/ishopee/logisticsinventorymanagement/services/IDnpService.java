@@ -16,4 +16,7 @@ public interface IDnpService {
     List<Dnp> getAllDnp();
 
     boolean isDnpExist(Integer id);
+
+    void updateDnpDtlStatus(Integer id, String status);
+
 }

@@ -1,11 +1,13 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
 import com.ishopee.logisticsinventorymanagement.models.Dnp;
+import com.ishopee.logisticsinventorymanagement.repositories.DnpDtlRepo;
 import com.ishopee.logisticsinventorymanagement.repositories.DnpRepo;
 import com.ishopee.logisticsinventorymanagement.services.IDnpService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -13,6 +15,8 @@ public class DnpServiceImpl implements IDnpService {
 
     @Autowired
     private DnpRepo repo;
+    @Autowired
+    private DnpDtlRepo dnpDtlRepo;
 
     @Override
     public Integer saveDnp(Dnp dnp) {
@@ -42,5 +46,11 @@ public class DnpServiceImpl implements IDnpService {
     @Override
     public boolean isDnpExist(Integer id) {
         return repo.existsById(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateDnpDtlStatus(Integer id, String status) {
+        dnpDtlRepo.updateDnpDtlStatus(id, status);
     }
 }

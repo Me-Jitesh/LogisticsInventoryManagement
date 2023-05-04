@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
+import com.ishopee.logisticsinventorymanagement.constants.DnpDtlStatus;
 import com.ishopee.logisticsinventorymanagement.constants.PurchaseOrderStatus;
 import com.ishopee.logisticsinventorymanagement.models.Dnp;
 import com.ishopee.logisticsinventorymanagement.models.DnpDtl;
@@ -32,7 +33,7 @@ public class DnpController {
     }
 
     @PostMapping("/save")
-    public String saveRegister(@ModelAttribute Dnp dnp, Model model) {
+    public String saveDnp(@ModelAttribute Dnp dnp, Model model) {
         try {
             createDnpDetailByPO(dnp);
             Integer id = service.saveDnp(dnp);
@@ -61,6 +62,18 @@ public class DnpController {
         model.addAttribute("dnp", dnp);
         model.addAttribute("dnpDtls", dnp.getDnpDtl());
         return "DnpParts";
+    }
+
+    @GetMapping("/accept")
+    public String acceptDnpDtl(@RequestParam Integer dnpId, @RequestParam Integer dtlId, Model model) {
+        service.updateDnpDtlStatus(dtlId, DnpDtlStatus.ACCEPTED.name());
+        return "redirect:parts?dnpId=" + dnpId;
+    }
+
+    @GetMapping("/reject")
+    public String rejectDnpDtl(@RequestParam Integer dnpId, @RequestParam Integer dtlId, Model model) {
+        service.updateDnpDtlStatus(dtlId, DnpDtlStatus.REJECTED.name());
+        return "redirect:parts?dnpId=" + dnpId;
     }
 
     private void createDnpDetailByPO(Dnp dnp) {

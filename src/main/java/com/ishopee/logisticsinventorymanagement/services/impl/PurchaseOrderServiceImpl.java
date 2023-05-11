@@ -5,11 +5,13 @@ import com.ishopee.logisticsinventorymanagement.models.PurchaseOrder;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseDetailsRepo;
 import com.ishopee.logisticsinventorymanagement.repositories.PurchaseOrderRepo;
 import com.ishopee.logisticsinventorymanagement.services.IPurchaseOrderService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -92,5 +94,11 @@ public class PurchaseOrderServiceImpl implements IPurchaseOrderService {
     @Transactional
     public Integer updateQtyByPdtlId(Integer pdtlId, Integer newQty) {
         return detailsRepo.updateQtyByPdtlId(pdtlId, newQty);
+    }
+
+    @Override
+    public Map<Integer, String> getPoIdAndCodeByStatus(String status) {
+        List<Object[]> list = repo.getPoIdAndCodeByStatus(status);
+        return MyAppUtility.convertListIntoMap(list);
     }
 }

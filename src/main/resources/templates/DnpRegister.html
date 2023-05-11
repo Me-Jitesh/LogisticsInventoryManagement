@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+    <title>Dnp Registration</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-header bg-primary text-white text-center">
+            <h3>DNP REGISTRATION</h3>
+        </div>
+
+        <div class="card-body">
+            <form id="DnpForm" method="post" th:action="@{/dnp/save}">
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="dnpCode">DNP CODE</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="dnpCode" name="dnpCode"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="dnpCodeError"></span>
+                    </div>
+                </div>
+                <!--Row DNP Code End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="dnpType">DNP TYPE</label>
+                    </div>
+                    <div class="col-4">
+                        <input type="text" class="form-control" id="dnpType" name="dnpType"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="dnpTypeError"></span>
+                    </div>
+                </div>
+                <!--Row Dnp Type End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="poCode">ORDER CODE</label>
+                    </div>
+                    <div class="col-4">
+                        <select class="form-control" id="poCode" name="po.id">
+                            <option value="">--SELECT--</option>
+                            <option th:each="ob:${poCodes}" th:value="${ob.key}" th:text="${ob.value}"></option>
+                        </select>
+                    </div>
+                    <div class="col-5">
+                        <span id="poCodeError"></span>
+                    </div>
+                </div>
+                <!--Row PO Code End-->
+
+                <div class="row">
+                    <div class="col-3">
+                        <label for="dnpDesc">DESCRIPTION</label>
+                    </div>
+                    <div class="col-4">
+                        <textarea class="form-control" id="dnpDesc" name="dnpDesc"></textarea>
+                    </div>
+                    <div class="col-5">
+                        <span id="dnpDescError"></span>
+                    </div>
+                </div>
+                <!--Row Description End-->
+
+                <!-- Submit Button -->
+                <input class="btn btn-success" type="submit" value="CREATE DNP"/>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+<script th:src="@{/js/dnp.js}" type="text/javascript"></script>
+</body>
+</html>

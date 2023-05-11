@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userhead(~{::title},~{::link})">
+    <title>Order Method Data</title>
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <title>Dnp Parts</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+
+        <div class="card-header bg-secondary text-dark text-center">
+            <h3 class="font-weight-normal">DNP PART</h3>
+        </div>
+
+        <div class="card-body">
+            <!--             Status          -->
+            <table class="table table-hover">
+                <tr>
+                    <th class="bg-warning text-dark"> DNP CODE</th>
+                    <td th:text="${dnp.dnpCode}"></td>
+
+                    <th class="bg-warning text-dark">ORDER CODE</th>
+                    <td th:text="${dnp.po.orderCode}"></td>
+                </tr>
+            </table>
+
+            <hr/>
+
+            <!--            DNP Details       -->
+
+            <table class="table table-hover">
+                <tr>
+                    <th>#</th>
+                    <th>PART CODE</th>
+                    <th>BASE COST</th>
+                    <th>QTY</th>
+                    <th>LINE VALUE</th>
+                    <th>OPERATION</th>
+                </tr>
+
+                <tr th:each="ob,i:${dnpDtls}">
+                    <td th:text="${i.count}"></td>
+                    <td th:text="${ob.partCode}"></td>
+                    <td th:text="${ob.baseCost}"></td>
+                    <td th:text="${ob.qty}"></td>
+                    <td th:text="${ob.qty*ob.baseCost}"></td>
+                    <th:block th:if="${ob.status==null}">
+                        <td>
+                            <a class="btn btn-success btn-sm" th:href="@{/dnp/accept(dnpId=${dnp.id},dtlId=${ob.id})}">ACCEPT</a>
+                            |
+                            <a class="btn btn-danger btn-sm" th:href="@{/dnp/reject(dnpId=${dnp.id},dtlId=${ob.id})}">REJECT</a>
+                        </td>
+                    </th:block>
+
+                    <th:block th:if="${ob.status!=null}">
+                        <td>
+                            <b th:text="${ob.status}" class="text-primary"></b>
+                        </td>
+                    </th:block>
+
+                </tr>
+            </table>
+
+        </div>
+        <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+<script th:src="@{/js/dnpDtl.js}" type="text/javascript"></script>
+</body>
+</html>

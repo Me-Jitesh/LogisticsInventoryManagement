@@ -43,7 +43,7 @@
                             ADD PART
                         </a>
 
-                        <a th:if="${ob.status=='OPEN' || ob.status=='PICKING' || ob.status=='ORDERED' || (ob.status!='CANCELLED' && ob.status!='INVOICED')}"
+                        <a th:if="${ob.status=='OPEN' || ob.status=='PICKING' || ob.status=='ORDERED' || (ob.status!='CANCELLED' && ob.status!='INVOICED'&&ob.status!='RECEIVED')}"
                            class="btn btn-outline-danger btn-sm" th:href="@{/po/cancel(poId=${ob.id})}">
                             CANCEL
                         </a>

@@ -25,43 +25,46 @@
     <div class="card">
         <div class="card-header bg-dark text-secondary text-center py-3">
             <h3>
-                <i class="fa-solid fa-truck-fast"></i>
+                <i class="fa-solid fa-truck-fast fa-2xl fa-flip"></i>
                 LOGISTICS INVENTORY MANAGEMENT ANALYTICS
-                <i class="fa-solid fa-chart-pie"></i>
+                <i class="fa-solid fa-chart-pie fa-2xl"></i>
             </h3>
         </div>
         <!--Card Header Closed-->
         <div class="card-body">
             <div class="container-fluid">
 
-                <div class="row  bg-secondary text-dark mb-2">
+                <div class="row  bg-dark text-secondary mb-2">
 
                     <div class="col-4" style="max-height:40vh; overflow-y: scroll;">
-                        <div class="bg-dark text-secondary p-2" style="position:sticky; top: 0;">
+                        <div class="bg-info text-white p-2" style="position:sticky; top: 0; border:  1px solid;">
                         <span class="h4">
-                          <i class="fa-regular fa-face-laugh-wink"></i>
+                          <i class="fa-regular fa-face-laugh-wink fa-lg fa-beat"></i>
                             Accomplicements
                         </span>
                         </div>
                         <div class="p-3">
                             <ul class="h6 py-2">
                                 <li>
+                                    Visitors :: <span th:text="${count}"></span>
+                                </li>
+                                <li>
                                     Github Repository Cloned 60+ Weekly
                                 </li>
                                 <li>
-                                    200+ Hours Of Coding
+                                    250+ Hours Of Coding
                                 </li>
                                 <li>
-                                    250+ Commits
+                                    300+ Commits
                                 </li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-4" style="max-height:40vh; overflow-y: scroll;">
-                        <div class="bg-dark text-secondary p-2" style="position:sticky; top: 0;">
+                        <div class="bg-info text-white p-2" style="position:sticky; top: 0; border:  1px solid;">
                         <span class="h4">
-                            <i class="fa-solid fa-chart-simple"></i>
+                            <i class="fa-solid fa-chart-simple fa-lg fa-beat"></i>
                             Visualization
                         </span>
                         </div>
@@ -75,19 +78,19 @@
                     </div>
 
                     <div class="col-4" style="height:40vh; overflow-y:scroll">
-                        <div class="bg-dark text-secondary p-2" style="position:sticky; top: 0;">
+                        <div class="bg-info text-white p-2" style="position:sticky; top: 0; border:  1px solid;">
                         <span class="h4">
-                            <i class="fa-solid fa-eye"></i>
+                           <i class="fa-solid fa-eye-low-vision fa-beat fa-lg"></i>
                             Recent Visitors
                         </span>
 
-                            <button class="btn btn-outline-secondary btn-sm" disabled>
-                                <i class="fa-solid fa-flag"></i>
+                            <button class="btn btn-outline-light btn-sm" disabled>
+                                <i class="fa-solid fa-flag fa-sm"></i>
                                 <span th:text="${count}"></span>
                             </button>
 
                             <a class="btn btn-outline-danger btn-sm" th:href="@{/pdf}">
-                                <i class="fa-regular fa-file-pdf"></i>
+                                <i class="fa-regular fa-file-pdf fa-lg fa-bounce"></i>
                             </a>
 
                         </div>
@@ -106,231 +109,97 @@
                             <hr/>
                         </div>
                     </div>
+                    <!--Achievment & Visitors Closed-->
                 </div>
-                <!--Achievment & Visitors Closed-->
+                <!-- Row closed -->
+                <div class="row  bg-dark text-secondary mb-2">
+
+                    <div class="col-4" style="max-height:40vh; overflow-y: scroll;">
+                        <div class="bg-warning text-dark p-2" style="position:sticky; top: 0; border:  1px solid;">
+                        <span class="h4">
+                         <i class="fa-brands fa-fedora fa-xl fa-beat"></i>
+                          HyperLinks
+                        </span>
+                        </div>
+
+                        <div class="p-3">
+                            <h4>
+                                HOSTING <i class="fa-solid fa-passport fa-bounce"></i> ::
+                                <a href="https://ishopee.up.railway.app/st/all">
+                                    <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
+                                </a>
+                            </h4>
+
+                            <h4>
+                                SWAGGER UI <i class="fa-brands fa-simplybuilt fa-flip fa-lg"></i> ::
+                                <a href="#">
+                                    <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
+                                </a>
+                            </h4>
+
+                            <h4>
+                                SOURCE CODE <i class="fa-brands fa-github-alt fa-shake fa-xl"></i> ::
+                                <a href="https://github.com/Me-Jitesh/LogisticsInventoryManagement">
+                                    <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
+                                </a>
+                            </h4>
+
+                            <h4>
+                                WAKATIME INSIGTS <i class="fa-brands fa-codepen fa-spin-pulse fa-lg"></i> ::
+                                <a href="https://wakatime.com/@Er_Jrsingh/projects/mudzizdyvb">
+                                    <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
+                                </a>
+                            </h4>
+
+                        </div>
+                    </div>
+                    <!--  Hyperlinks closed-->
+
+                    <div class="col-8" style="max-height:40vh; overflow-y: scroll;">
+                        <div class="bg-warning text-dark p-2" style="position:sticky; top: 0; border:  1px solid;">
+                        <span class="h4">
+                            <i class="fa-solid fa-school fa-beat"></i>
+                           Learnings
+                        </span>
+                        </div>
+
+                        <div class="p-3">
+                            <ul class="list-group">
+                                <li><b>Monolithic Architecture</b></li>
+                                <li><b>Spring Security</b></li>
+                                <li>Unit Testing Using <b>JUnit & Mockito</b></li>
+                                <li>Get <i> IP GeoLocation Details</i> using <b> MaxMind GeoLite2 & IP2Location</b></li>
+                                <li>Display Graphical Chart Using <b>JFreeChart</b></li>
+                                <li>Export Pdf Using <b>AbstractPdfView</b></li>
+                                <li>Spring Data JPA</li>
+                                <li>MariaDB & PostgreSQL</li>
+                                <li>Thymeleaf,Bootstrap</li>
+                                <li>Learned <b>Column Embedding</b></li>
+                                <li>Sort Data Using <b>Named Query</b></li>
+                                <li>Export Pdf Using <b>OpenPDF</b></li>
+                                <li>Export Excel Using <b>Apache POI</b></li>
+                                <li>Export XML Using <b>JAXB</b></li>
+                                <li>Export CSV Using <b> Apache Comman CSV</b></li>
+                                <li>Export <b>Text File</b></li>
+                                <li>Validation Using <b>JQuery,Ajax,RegEx</b></li>
+                                <li>Export Pdf Using <b>iTEXT 7</b></li>
+                                <li>Export CSV Using <b>Super CSV</b></li>
+                                <li>Export JSON Using <b>GSON</b></li>
+                                <li>Association Mapping <b>ManyToOne, ManyToMany</b></li>
+                                <li>Dyanamic Select Box</li>
+                                <li>Entity Level Constraints</li>
+                                <li>Complex UI Integration</li>
+                                <li>Invoice Generation</li>
+                                <li>Docker</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--  Learnings closed-->
+                </div>
+                <!--    Row 2 Closed  -->
             </div>
             <!--Wrapper Closed-->
-            <div class="container-fluid" style="height:40vh;overflow-y: scroll;">
-                <div class="row  bg-dark text-secondary ">
-                    <div class="col-4">
-                        <h4>MODULE</h4>
-                    </div>
 
-                    <div class="col-3">
-                        <h4>URLs</h4>
-                    </div>
-
-                    <div class="col-5">
-                        <h4>LEARNING</h4>
-                    </div>
-                </div>
-                <!--Heading  Closed-->
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto p-2">
-                        <h3>Analytics</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{/}">/analytics/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{/}">/analytics/home</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul>
-                            <li>Export Pdf Using <b>AbstractPdfView</b></li>
-                            <li>Get <i> IP GeoLocation Details</i> using <b> MaxMind GeoLite2 & IP2Location</b></li>
-                            <li>Display Graphical Chart Using <b>JFreeChart</b></li>
-                            <li>Learned <b>Column Embedding</b></li>
-                            <li>Sort Data Using <b>Named Query</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <!--Analytics Closed-->
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Shipment Type</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{st/register}">/st/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{st/all}">/st/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-                            <li>Export Pdf Using <b>OpenPDF</b></li>
-                            <li>Export Excel Using <b>Apache POI</b></li>
-                            <li>Export XML Using <b>JAXB</b></li>
-                            <li>Export CSV Using <b> Apache Comman CSV</b></li>
-                            <li>Export <b>Text File</b></li>
-                            <li>Validation Using <b>JQuery,Ajax,RegEx</b></li>
-                            <li><b>Monolithic Architecture,Spring Data JPA,Thymeleaf,Log4j,Bootstrap</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <!--Shipment Type Closed-->
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Measurement Unit System</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{mus/register}">/mus/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{mus/all}">/mus/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-                            <li>Export Pdf Using <b>iTEXT 7</b></li>
-                            <li>Export CSV Using <b>Super CSV</b></li>
-                            <li>Export JSON Using <b>GSON</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <!--MUS Closed-->
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Order Method</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{om/register}">/om/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{om/all}">/om/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-                            <li>Export Pdf Using <b>Jasper Report</b></li>
-                            <li><b>Normalization</b></li>
-                        </ul>
-                    </div>
-                </div>
-                <!--OM Closed-->
-
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Product User Type</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{pu/register}">/pu/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{pu/all}">/pu/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-                            <li>Advance Jquery Validation</li>
-                        </ul>
-                    </div>
-                </div>
-                <!--Product User Type Closed-->
-
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Part</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{part/register}">/part/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{part/all}">/part/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-                            <li>Association Mapping <b>Many To One</b></li>
-                            <li>Dyanamic Select Box</li>
-                            <li>Entity Level Constraints</li>
-                        </ul>
-                    </div>
-                </div>
-                <!--Part Closed-->
-
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Purchase Order</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{po/register}">/po/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{po/all}">/po/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-                            <li>Complex UI Integration</li>
-                            <li>Invoice Generation</li>
-                        </ul>
-                    </div>
-                </div>
-                <!--Purchase Order  Closed-->
-
-                <div class="row  bg-secondary text-dark py-2 my-1">
-                    <div class="col-4 my-auto">
-                        <h3>Sale Order</h3>
-                    </div>
-
-                    <div class="col-3 my-auto">
-                        <ul class="list-group">
-                            <li>
-                                <a class="text-white" th:href="@{so/register}">/so/register</a>
-                            </li>
-                            <li>
-                                <a class="text-white" th:href="@{so/all}">/so/all</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-5">
-                        <ul class="list-group">
-
-                        </ul>
-                    </div>
-                </div>
-                <!--Sale Order  Closed-->
-
-            </div>
         </div>
         <!--Card Body Closed-->
         <div class="card-footer text-center bg-success text-white" th:if="${message != null}">

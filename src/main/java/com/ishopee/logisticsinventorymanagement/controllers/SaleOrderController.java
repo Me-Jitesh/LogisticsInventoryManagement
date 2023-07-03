@@ -1,6 +1,7 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
 import com.ishopee.logisticsinventorymanagement.models.SaleOrder;
+import com.ishopee.logisticsinventorymanagement.services.IPartService;
 import com.ishopee.logisticsinventorymanagement.services.IProductUserTypeService;
 import com.ishopee.logisticsinventorymanagement.services.ISaleOrderService;
 import com.ishopee.logisticsinventorymanagement.services.IShipmentTypeService;
@@ -26,6 +27,8 @@ public class SaleOrderController {
     private IShipmentTypeService shipmentService;
     @Autowired
     private IProductUserTypeService userTypeService;
+    @Autowired
+    private IPartService partService;
 
     @GetMapping("/register")
     public String showRegister(Model model) {
@@ -46,7 +49,7 @@ public class SaleOrderController {
             model.addAttribute("message", msg);
         } catch (Exception e) {
             LOG.error("UNABLE TO PROCESS SAVE REQUEST DUE TO {}", e.getMessage());
-            model.addAttribute("Oooops Something Went Wrong......");
+            model.addAttribute("message", "Oooops Something Went Wrong......");
             e.printStackTrace();
         }
         LOG.info("ABOUT TO GO UI PAGE SaleOrderRegister ! ");
@@ -82,6 +85,15 @@ public class SaleOrderController {
         return msg;
     }
 
+    @GetMapping("/parts")
+    public String showParts(@RequestParam Integer id, Model model) {
+        LOG.debug("ENTERED INTO SHOW SALE ORDER PARTS PAGE");
+        fetchSaleOrder(id, model);
+        fetchPartCode(model);
+        LOG.debug("EXITED FROM SHOW SALE ORDER PARTS PAGE");
+        return "SaleOrderParts";
+    }
+
     private void fetchAllData(Model model) {
         List<SaleOrder> list = service.getAllSaleOrder();
         model.addAttribute("list", list);
@@ -95,5 +107,15 @@ public class SaleOrderController {
     private void fetchCustomerCode(String uType, Model model) {
         Map<Integer, String> customerData = userTypeService.getProductUserIdAndCode(uType);
         model.addAttribute("customers", customerData);
+    }
+
+    private void fetchSaleOrder(Integer id, Model model) {
+        SaleOrder so = service.getSaleOrderById(id);
+        model.addAttribute("so", so);
+    }
+
+    private void fetchPartCode(Model model) {
+        Map<Integer, String> part = partService.getPartIdAndCode();
+        model.addAttribute("parts", part);
     }
 }

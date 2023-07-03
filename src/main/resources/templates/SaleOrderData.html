@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userhead(~{::title},~{::link})">
+    <title>Sale Order Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header bg-danger text-center text-light">
+            <h3>SALE ORDER DATA</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr class="bg-success text-white">
+                    <th>ID</th>
+                    <th>CODE</th>
+                    <th>SHIPMENT CODE</th>
+                    <th>CUSTOMER</th>
+                    <th>REFERENCE</th>
+                    <th>STOCK MODE</th>
+                    <th>STATUS</th>
+                    <th>STOCK SOURCE</th>
+                    <th>DESCRIPTION</th>
+                    <th>OPERATIONS</th>
+                </tr>
+                <tr th:each="ob:${list}">
+                    <td th:text="${ob.id}"></td>
+                    <td th:text="${ob.getOrderCode}"></td>
+                    <td th:text="${ob.st.shipCode}"></td>
+                    <td th:text="${ob.customer.userCode}"></td>
+                    <td th:text="${ob.refNumber}"></td>
+                    <td th:text="${ob.stockMode}"></td>
+                    <td th:text="${ob.status}"></td>
+                    <td th:text="${ob.stockSource}"></td>
+                    <td th:text="${ob.desc}"></td>
+                    <td>
+                        <a th:href="@{parts(id=${ob.id})}" class="btn btn-outline-secondary">Parts</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="card-footer text-center" th:if="${message} != null">
+            <span class="text-success" th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+</body>
+</html>

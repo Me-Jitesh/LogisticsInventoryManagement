@@ -5,14 +5,14 @@ import lombok.Data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "pdtl_tab")
+@Table(name = "sdtl_tab")
 @Data
-public class PurchaseDetails {
+public class SaleDetails {
     @Id
-    @GeneratedValue(generator = "pdtl_gen")
-    @SequenceGenerator(name = "pdtl_gen", sequenceName = "pdtl_sql")
+    @GeneratedValue(generator = "sdtl_gen")
+    @SequenceGenerator(name = "sdtl_gen", sequenceName = "sdtl_sql")
     private Integer id;
-    @Column(name = "pdtl_qty_col")
+    @Column(name = "sdtl_qty_col")
     private Integer qty;
     @ManyToOne
     @JoinColumn(name = "part_id_fk_col")

@@ -3,6 +3,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 import com.ishopee.logisticsinventorymanagement.models.UserInfo;
 import com.ishopee.logisticsinventorymanagement.services.IRoleService;
 import com.ishopee.logisticsinventorymanagement.services.IUserInfoService;
+import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,9 @@ public class UserInfoController {
 
     @PostMapping("/save")
     public String saveUserData(@ModelAttribute UserInfo userInfo, Model model) {
+        // Generate Dynamic Password & Set
+        userInfo.setPassword(MyAppUtility.getPassword());
+
         Integer id = service.saveUserInfo(userInfo);
         model.addAttribute("message", "User Registered With ID " + id);
         setRoleMap(model);

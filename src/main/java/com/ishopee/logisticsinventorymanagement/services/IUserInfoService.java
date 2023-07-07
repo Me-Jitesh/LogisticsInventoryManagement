@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface IUserInfoService {
 
+    Boolean existsByEmail(String email);
+
     Integer saveUserInfo(UserInfo userInfo);
 
     List<UserInfo> getAllUserInfo();

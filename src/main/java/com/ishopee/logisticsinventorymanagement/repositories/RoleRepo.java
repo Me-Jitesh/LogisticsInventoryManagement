@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface RoleRepo extends JpaRepository<Role, Integer> {
+
     Boolean existsByRole(RoleType role);
 
     @Query("SELECT id,role FROM Role ")

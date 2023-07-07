@@ -2,8 +2,8 @@ package com.ishopee.logisticsinventorymanagement.runner;
 
 import com.ishopee.logisticsinventorymanagement.constants.UserMode;
 import com.ishopee.logisticsinventorymanagement.models.UserInfo;
-import com.ishopee.logisticsinventorymanagement.repositories.RoleRepo;
-import com.ishopee.logisticsinventorymanagement.repositories.UserInfoRepo;
+import com.ishopee.logisticsinventorymanagement.services.IRoleService;
+import com.ishopee.logisticsinventorymanagement.services.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
@@ -16,20 +16,20 @@ import java.util.stream.Collectors;
 public class UserMasterDataRunner implements CommandLineRunner {
 
     @Autowired
-    private UserInfoRepo repo;
+    private IUserInfoService userInfoService;
     @Autowired
-    private RoleRepo roleRepo;
+    private IRoleService roleService;
 
     @Override
     public void run(String... args) throws Exception {
-        if (!repo.existsByEmail("jiteshs101@gmail.com")) {
+        if (!userInfoService.existsByEmail("jiteshs101@gmail.com")) {
             UserInfo usr = new UserInfo();
             usr.setName("Jitesh Singh");
             usr.setEmail("jiteshs101@gmail.com");
             usr.setPassword("Hola@hola");
             usr.setMode(UserMode.ENABLED);
-            usr.setRoles(roleRepo.findAll().stream().collect(Collectors.toSet()));
-            repo.save(usr);
+            usr.setRoles(roleService.getAllRoles().stream().collect(Collectors.toSet()));
+            userInfoService.saveUserInfo(usr);
         }
     }
 }

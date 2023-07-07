@@ -25,6 +25,11 @@ public class UserInfoServiceImpl implements IUserInfoService, UserDetailsService
     private BCryptPasswordEncoder encoder;
 
     @Override
+    public Boolean existsByEmail(String email) {
+        return repo.existsByEmail(email);
+    }
+
+    @Override
     public Integer saveUserInfo(UserInfo userInfo) {
         String pwd = userInfo.getPassword();
         String encryptedPw = encoder.encode(pwd);

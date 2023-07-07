@@ -24,7 +24,7 @@ public class UserInfo {
     @Enumerated(EnumType.STRING)
     @Column(name = "usr_info_mode_col")
     private UserMode mode = UserMode.DISABLED;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usr_role_map_tab", joinColumns = @JoinColumn(name = "usr_id_fk_col"), inverseJoinColumns = @JoinColumn(name = "role_id_fk_col"))
     private Set<Role> roles;
 }

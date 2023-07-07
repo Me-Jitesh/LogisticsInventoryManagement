@@ -31,3 +31,457 @@
 2023-07-07 00:17:04.473  INFO 12616 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-07-07 00:17:04.616  INFO 12616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2023-07-07 00:17:04.663  INFO 12616 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-07 22:59:20.025  INFO 1328 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 1328 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-07-07 22:59:20.037 DEBUG 1328 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-07-07 22:59:20.040  INFO 1328 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-07-07 22:59:20.177  INFO 1328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-07 22:59:20.178  INFO 1328 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-07 22:59:22.113  INFO 1328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07 22:59:22.602  INFO 1328 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 452 ms. Found 14 JPA repository interfaces.
+2023-07-07 22:59:24.891  INFO 1328 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07 22:59:24.914  INFO 1328 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07 22:59:24.915  INFO 1328 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-07-07 22:59:25.289  INFO 1328 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07 22:59:25.289  INFO 1328 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5109 ms
+2023-07-07 22:59:25.759  INFO 1328 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07 22:59:25.884  INFO 1328 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-07-07 22:59:26.354  INFO 1328 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-07 22:59:26.626  INFO 1328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-07 22:59:26.758  INFO 1328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-07 22:59:26.823  INFO 1328 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-07-07 22:59:29.280  INFO 1328 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07 22:59:29.296  INFO 1328 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 22:59:29.397  WARN 1328 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07 22:59:31.989  WARN 1328 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+2023-07-07 22:59:31.998  INFO 1328 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 22:59:32.004  INFO 1328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-07 22:59:32.009  INFO 1328 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-07 22:59:32.012  INFO 1328 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07 22:59:32.039  INFO 1328 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-07 22:59:32.082 ERROR 1328 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.6.12.jar:2.6.12]
+	at com.ishopee.logisticsinventorymanagement.LogisticsInventoryManagementApplication.main(LogisticsInventoryManagementApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.6.12.jar:2.6.12]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 26 common frames omitted
+Caused by: java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+	at org.springframework.util.Assert.isTrue(Assert.java:121) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.authentication.AbstractAuthenticationTargetUrlRequestHandler.setDefaultTargetUrl(AbstractAuthenticationTargetUrlRequestHandler.java:158) ~[spring-security-web-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer.defaultSuccessUrl(AbstractAuthenticationFilterConfigurer.java:132) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at com.ishopee.logisticsinventorymanagement.config.SecurityConfig.configure(SecurityConfig.java:37) ~[classes/:na]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.getHttp(WebSecurityConfigurerAdapter.java:217) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.init(WebSecurityConfigurerAdapter.java:315) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.init(WebSecurityConfigurerAdapter.java:93) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at com.ishopee.logisticsinventorymanagement.config.SecurityConfig$$EnhancerBySpringCGLIB$$c372c424.init(<generated>) ~[classes/:na]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.init(AbstractConfiguredSecurityBuilder.java:338) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:300) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration.springSecurityFilterChain(WebSecurityConfiguration.java:127) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 27 common frames omitted
+
+2023-07-07 23:01:24.266  INFO 12876 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 12876 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-07-07 23:01:24.268 DEBUG 12876 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-07-07 23:01:24.269  INFO 12876 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-07-07 23:01:24.374  INFO 12876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-07 23:01:24.375  INFO 12876 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-07 23:01:25.932  INFO 12876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07 23:01:26.140  INFO 12876 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 192 ms. Found 14 JPA repository interfaces.
+2023-07-07 23:01:28.049  INFO 12876 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07 23:01:28.076  INFO 12876 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07 23:01:28.077  INFO 12876 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-07-07 23:01:28.415  INFO 12876 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07 23:01:28.415  INFO 12876 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4038 ms
+2023-07-07 23:01:28.844  INFO 12876 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07 23:01:29.010  INFO 12876 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-07-07 23:01:29.435  INFO 12876 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-07 23:01:29.697  INFO 12876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-07 23:01:29.814  INFO 12876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-07 23:01:29.910  INFO 12876 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-07-07 23:01:32.528  INFO 12876 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07 23:01:32.545  INFO 12876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 23:01:32.648  WARN 12876 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07 23:01:35.136  WARN 12876 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+2023-07-07 23:01:35.143  INFO 12876 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 23:01:35.148  INFO 12876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-07 23:01:35.153  INFO 12876 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-07 23:01:35.158  INFO 12876 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2023-07-07 23:01:35.180  INFO 12876 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-07-07 23:01:35.230 ERROR 12876 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.23.jar:5.3.23]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:745) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:420) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1317) ~[spring-boot-2.6.12.jar:2.6.12]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306) ~[spring-boot-2.6.12.jar:2.6.12]
+	at com.ishopee.logisticsinventorymanagement.LogisticsInventoryManagementApplication.main(LogisticsInventoryManagementApplication.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.6.12.jar:2.6.12]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.23.jar:5.3.23]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 26 common frames omitted
+Caused by: java.lang.IllegalArgumentException: defaultTarget must start with '/' or with 'http(s)'
+	at org.springframework.util.Assert.isTrue(Assert.java:121) ~[spring-core-5.3.23.jar:5.3.23]
+	at org.springframework.security.web.authentication.AbstractAuthenticationTargetUrlRequestHandler.setDefaultTargetUrl(AbstractAuthenticationTargetUrlRequestHandler.java:158) ~[spring-security-web-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer.defaultSuccessUrl(AbstractAuthenticationFilterConfigurer.java:132) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at com.ishopee.logisticsinventorymanagement.config.SecurityConfig.configure(SecurityConfig.java:37) ~[classes/:na]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.getHttp(WebSecurityConfigurerAdapter.java:217) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.init(WebSecurityConfigurerAdapter.java:315) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.init(WebSecurityConfigurerAdapter.java:93) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at com.ishopee.logisticsinventorymanagement.config.SecurityConfig$$EnhancerBySpringCGLIB$$e9f6f2b3.init(<generated>) ~[classes/:na]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.init(AbstractConfiguredSecurityBuilder.java:338) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:300) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration.springSecurityFilterChain(WebSecurityConfiguration.java:127) ~[spring-security-config-5.6.7.jar:5.6.7]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.23.jar:5.3.23]
+	... 27 common frames omitted
+
+2023-07-07 23:02:54.265  INFO 6912 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 6912 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-07-07 23:02:54.267 DEBUG 6912 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-07-07 23:02:54.268  INFO 6912 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-07-07 23:02:54.370  INFO 6912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-07 23:02:54.371  INFO 6912 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-07 23:02:55.713  INFO 6912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07 23:02:55.900  INFO 6912 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 171 ms. Found 14 JPA repository interfaces.
+2023-07-07 23:02:57.504  INFO 6912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07 23:02:57.520  INFO 6912 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07 23:02:57.521  INFO 6912 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-07-07 23:02:57.820  INFO 6912 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07 23:02:57.821  INFO 6912 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3449 ms
+2023-07-07 23:02:58.207  INFO 6912 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07 23:02:58.307  INFO 6912 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-07-07 23:02:58.626  INFO 6912 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-07 23:02:58.818  INFO 6912 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-07 23:02:58.926  INFO 6912 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-07 23:02:58.990  INFO 6912 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-07-07 23:03:00.616  INFO 6912 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07 23:03:00.632  INFO 6912 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 23:03:00.728  WARN 6912 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07 23:03:04.675  INFO 6912 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2cf69239, org.springframework.security.web.context.SecurityContextPersistenceFilter@29172315, org.springframework.security.web.header.HeaderWriterFilter@dd7216a, org.springframework.security.web.csrf.CsrfFilter@6fb8cdad, org.springframework.security.web.authentication.logout.LogoutFilter@3a0f0080, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@31a9606b, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@be35d7e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@17c0f633, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62230bf3, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@60e01529, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3360beda, org.springframework.security.web.session.SessionManagementFilter@4c5e650c, org.springframework.security.web.access.ExceptionTranslationFilter@2e8e7c39, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@152edece]
+2023-07-07 23:03:05.558  INFO 6912 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-07 23:03:05.618  INFO 6912 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-07 23:03:05.639  INFO 6912 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 12.057 seconds (JVM running for 13.796)
+2023-07-07 23:03:25.554  INFO 6912 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-07 23:03:25.555  INFO 6912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-07 23:03:25.560  INFO 6912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 4 ms
+2023-07-07 23:05:56.863  INFO 6912 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:05:56.907 DEBUG 6912 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:05:56.907  INFO 6912 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:06:58.866  INFO 6912 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:06:58.874 DEBUG 6912 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:06:58.875  INFO 6912 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:08:00.499  INFO 6912 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 23:08:00.983  INFO 6912 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-07 23:08:01.014  INFO 6912 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-07-07 23:15:39.528  INFO 12840 --- [restartedMain] .LogisticsInventoryManagementApplication : Starting LogisticsInventoryManagementApplication using Java 17.0.1 on Jitu with PID 12840 (D:\IdeaProjects\LogisticsInventoryManagement\target\classes started by asus in D:\IdeaProjects\LogisticsInventoryManagement)
+2023-07-07 23:15:39.530 DEBUG 12840 --- [restartedMain] .LogisticsInventoryManagementApplication : Running with Spring Boot v2.6.12, Spring v5.3.23
+2023-07-07 23:15:39.531  INFO 12840 --- [restartedMain] .LogisticsInventoryManagementApplication : The following 1 profile is active: "dev"
+2023-07-07 23:15:39.685  INFO 12840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-07-07 23:15:39.685  INFO 12840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-07-07 23:15:41.264  INFO 12840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-07-07 23:15:41.498  INFO 12840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 215 ms. Found 14 JPA repository interfaces.
+2023-07-07 23:15:43.424  INFO 12840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-07-07 23:15:43.447  INFO 12840 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-07-07 23:15:43.448  INFO 12840 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.65]
+2023-07-07 23:15:43.899  INFO 12840 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-07-07 23:15:43.900  INFO 12840 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4214 ms
+2023-07-07 23:15:44.374  INFO 12840 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-07-07 23:15:44.532  INFO 12840 --- [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.11.Final
+2023-07-07 23:15:44.929  INFO 12840 --- [restartedMain] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-07-07 23:15:45.170  INFO 12840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-07-07 23:15:45.301  INFO 12840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-07-07 23:15:45.378  INFO 12840 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDB103Dialect
+2023-07-07 23:15:47.248  INFO 12840 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-07-07 23:15:47.266  INFO 12840 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 23:15:47.366  WARN 12840 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-07-07 23:15:49.720  INFO 12840 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@11c5f5d4, org.springframework.security.web.context.SecurityContextPersistenceFilter@462e32cb, org.springframework.security.web.header.HeaderWriterFilter@3df3e69f, org.springframework.security.web.csrf.CsrfFilter@7762a418, org.springframework.security.web.authentication.logout.LogoutFilter@1c60cc80, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@663aa30f, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@2fc80aff, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@731d00e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28e98c27, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@499cfac4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@484acced, org.springframework.security.web.session.SessionManagementFilter@18068ae1, org.springframework.security.web.access.ExceptionTranslationFilter@2e6c3ef0, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6b995c9d]
+2023-07-07 23:15:50.473  INFO 12840 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2023-07-07 23:15:50.553  INFO 12840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-07-07 23:15:50.573  INFO 12840 --- [restartedMain] .LogisticsInventoryManagementApplication : Started LogisticsInventoryManagementApplication in 11.844 seconds (JVM running for 14.268)
+2023-07-07 23:16:29.603  INFO 12840 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-07-07 23:16:29.604  INFO 12840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2023-07-07 23:16:29.606  INFO 12840 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2023-07-07 23:16:29.704  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:16:29.762 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:16:29.762  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:16:34.429  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:16:34.435 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:16:34.435  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:17:20.086  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:17:20.093 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:17:20.093  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:17:57.499  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:17:57.524 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:17:57.524  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:17:58.651  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:17:58.658 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:17:58.659  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:18:02.804  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:18:02.809 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:18:02.810  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:18:15.031  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:18:15.035 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:18:15.036  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:18:43.126  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:18:43.131 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:18:43.131  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:18:44.526  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:18:44.533 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:18:44.533  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:18:45.545  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:18:45.553 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:18:45.553  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:01.352  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:01.363 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:01.363  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:03.020  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:03.079 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:03.079  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:04.320  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:04.327 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:04.327  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:30.773  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:30.779 DEBUG 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:30.779  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:31.645  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:31.650 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:31.652  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:32.141  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:32.177 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:32.177  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:19:32.746  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:19:32.752 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:19:32.753  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:20:12.140  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:20:12.150 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:20:12.151  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:20:13.612  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:20:13.619 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:20:13.619  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:20:15.250  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:20:15.254 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:20:15.254  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:20:16.208  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:20:16.213 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:20:16.213  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:20:17.572  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:20:17.576 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:20:17.576  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:00.156  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:00.188 DEBUG 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:00.188  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:01.520  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:01.527 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:01.527  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:02.938  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:02.944 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:02.944  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:04.110  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:04.114 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:04.114  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:05.984  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:05.991 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:05.992  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:17.818  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:17.831 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:17.831  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:18.501  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:18.507 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:18.508  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:18.999  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:19.005 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:19.005  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:19.984  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:19.990 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:19.991  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:20.364  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:20.368 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:20.368  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:20.763  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:20.766 DEBUG 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:20.767  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:40.629  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:40.640 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:40.640  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:41.448  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:41.462 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:41.463  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:42.522  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:42.526 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:42.526  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:43.513  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:43.523 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:43.523  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:21:45.174  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:21:45.188 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:21:45.188  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:22:08.263  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:22:08.278 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:22:08.278  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:22:09.278  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:22:09.284 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:22:09.284  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:22:10.043  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:22:10.047 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:22:10.047  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:22:10.431  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:22:10.436 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:22:10.436  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:23:47.126  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:23:47.132 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:23:47.133  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:23:48.514  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:23:48.519 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:23:48.519  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:23:49.264  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:23:49.267 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:23:49.268  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:23:49.738  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:23:49.741 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:23:49.741  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:10.364  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:10.373 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:10.373  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:11.960  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:11.965 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:11.966  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:12.349  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:12.358 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:12.358  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:12.757  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:12.761 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:12.761  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:13.194  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:13.196 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:13.197  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:24.228  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:24.274 DEBUG 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:24.274  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:25.673  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:25.685 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:25.685  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:26.101  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:26.105 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:26.105  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:27.285  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:27.289 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:27.289  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:28.891  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:28.895 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:28.895  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:29.244  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:29.251 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:29.251  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:29.739  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:29.742 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:29.742  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:24:30.141  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:24:30.144 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:24:30.144  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:25:44.525  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:25:44.556 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:25:44.557  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:25:47.791  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:25:47.795 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:25:47.795  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:25:48.753  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:25:48.758 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:25:48.758  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:03.493  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:03.498 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:03.498  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:03.970  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:03.976 DEBUG 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:03.976  INFO 12840 --- [http-nio-8080-exec-3] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:04.799  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:04.987 DEBUG 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:05.001  INFO 12840 --- [http-nio-8080-exec-5] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:05.193  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:05.221 DEBUG 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:05.222  INFO 12840 --- [http-nio-8080-exec-7] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:06.397  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:06.401 DEBUG 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:06.402  INFO 12840 --- [http-nio-8080-exec-6] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:25.528  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:25.534 DEBUG 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:25.535  INFO 12840 --- [http-nio-8080-exec-8] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:27.027  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:27.030 DEBUG 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:27.031  INFO 12840 --- [http-nio-8080-exec-10] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:27.470  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:27.476 DEBUG 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:27.476  INFO 12840 --- [http-nio-8080-exec-9] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:53.021  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:53.030 DEBUG 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:53.030  INFO 12840 --- [http-nio-8080-exec-1] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:54.258  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:54.267 DEBUG 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:54.267  INFO 12840 --- [http-nio-8080-exec-2] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:26:55.371  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ENTERED INTO getAllShipmentType METHOD
+2023-07-07 23:26:55.374 DEBUG 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : FETCHED ALL RECORDS
+2023-07-07 23:26:55.374  INFO 12840 --- [http-nio-8080-exec-4] c.i.l.c.ShipmentTypeController           : ABOUT TO GO UI PAGE ShipmentTypeData ! 
+2023-07-07 23:27:23.900  WARN 12840 --- [http-nio-8080-exec-5] o.a.c.util.SessionIdGeneratorBase        : Creation of SecureRandom instance for session ID generation using [SHA1PRNG] took [232] milliseconds.
+2023-07-07 23:28:50.495  INFO 12840 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-07-07 23:28:50.564  INFO 12840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-07-07 23:28:50.611  INFO 12840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

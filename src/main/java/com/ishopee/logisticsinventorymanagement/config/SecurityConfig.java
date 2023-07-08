@@ -12,7 +12,8 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class
+SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
@@ -28,6 +29,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // Authorization
         http.authorizeRequests()
+                .antMatchers("/userinfo/**").hasAuthority("ADMIN")
+                .antMatchers("/st/**", "/mus/**", "/part/**").hasAnyAuthority("ADMIN", "APPUSER")
+                .antMatchers("/po/**", "/so/**", "/dnp/**", "/pu/**", "/om/**").hasAuthority("APPUSER")
+                .antMatchers("/analytics/**", "/api/**", "/doc/**").permitAll()
                 .anyRequest()
                 .authenticated()
 

@@ -38,6 +38,11 @@ public class UserInfoController {
         return "UserInfoRegister";
     }
 
+    @GetMapping("/login")
+    public String showLogin() {
+        return "UserLogin";
+    }
+
     private void setRoleMap(Model model) {
         model.addAttribute("roleMap", roleService.getRolesMap());
     }

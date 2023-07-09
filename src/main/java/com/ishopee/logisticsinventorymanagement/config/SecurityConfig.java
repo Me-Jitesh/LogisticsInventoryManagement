@@ -29,6 +29,7 @@ SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // Authorization
         http.authorizeRequests()
+                .antMatchers("/userinfo/login").permitAll()
                 .antMatchers("/userinfo/**").hasAuthority("ADMIN")
                 .antMatchers("/st/**", "/mus/**", "/part/**").hasAnyAuthority("ADMIN", "APPUSER")
                 .antMatchers("/po/**", "/so/**", "/dnp/**", "/pu/**", "/om/**").hasAuthority("APPUSER")
@@ -39,16 +40,20 @@ SecurityConfig extends WebSecurityConfigurerAdapter {
                 // Form Login
                 .and()
                 .formLogin()
+                .loginPage("/userinfo/login") //GET Method
+                .loginProcessingUrl("/login")    // POST Method(Save)
                 .defaultSuccessUrl("/st/all", true)
+                .failureUrl("/userinfo/login?error")
 
                 // Logout Details
                 .and()
                 .logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/userinfo/login?logout")
 
                 // Exception Details
                 .and()
                 .exceptionHandling()
-                .accessDeniedPage("/userinfo/denied");
+                .accessDeniedPage("/userinfo/login?logout");
     }
 }

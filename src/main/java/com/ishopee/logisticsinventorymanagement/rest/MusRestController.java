@@ -17,38 +17,70 @@ public class MusRestController {
     private IMusService service;
 
     @GetMapping("/all")
-    public ResponseEntity<List<Mus>> getAllMus() {
-        List<Mus> list = service.getAllMus();
-        return ResponseEntity.ok(list);
+    public ResponseEntity<?> getAllMus() {
+        ResponseEntity<?> res;
+        try {
+            List<Mus> list = service.getAllMus();
+            res = new ResponseEntity<Object>(list, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return res;
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Mus> getOneMus(@PathVariable Integer id) {
-        Mus mus = service.getMus(id);
-        return ResponseEntity.ok(mus);
+    public ResponseEntity<?> getOneMus(@PathVariable Integer id) {
+        ResponseEntity<?> res;
+        try {
+            Mus mus = service.getMus(id);
+            res = new ResponseEntity<Object>(mus, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return res;
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> craeteMus(@RequestBody Mus mus) {
-        Integer id = service.saveMus(mus);
-        String msg = "Mus " + id + " Created";
-        ResponseEntity<String> res = new ResponseEntity<>(msg, HttpStatus.OK);
+    public ResponseEntity<?> craeteMus(@RequestBody Mus mus) {
+        ResponseEntity<?> res;
+        try {
+            Integer id = service.saveMus(mus);
+            String msg = "Mus " + id + " Created";
+            res = new ResponseEntity<>(msg, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         return res;
     }
 
     @PutMapping("/modify")
-    public ResponseEntity<String> updateMus(@RequestBody Mus mus) {
-        service.updateMus(mus);
-        String msg = "Mus Updated";
-        ResponseEntity<String> res = new ResponseEntity<>(msg, HttpStatus.OK);
+    public ResponseEntity<?> updateMus(@RequestBody Mus mus) {
+        ResponseEntity<?> res;
+        try {
+            service.updateMus(mus);
+            String msg = "Mus Updated";
+            res = new ResponseEntity<>(msg, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         return res;
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<String> deleteMus(@PathVariable Integer id) {
-        service.deleteMus(id);
-        String msg = "Mus " + id + " Deleted";
-        ResponseEntity<String> res = new ResponseEntity<>(msg, HttpStatus.OK);
+    public ResponseEntity<?> deleteMus(@PathVariable Integer id) {
+        ResponseEntity<?> res;
+        try {
+            service.deleteMus(id);
+            String msg = "Mus " + id + " Deleted";
+            res = new ResponseEntity<>(msg, HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
         return res;
     }
 }

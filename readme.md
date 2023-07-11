@@ -1,6 +1,6 @@
-# :::: LOGISTICS INVENTORY MANAGEMENT :::: <img align="right" src="https://wakatime.com/badge/user/3c1dc126-af1b-434f-a59f-8cb202e218eb/project/b559fae5-f40d-4b06-99ce-731ee050f7ea.svg" alt="wakatime"/>
+# ::: LOGISTICS INVENTORY MANAGEMENT ::: <img align="right" src="https://wakatime.com/badge/user/3c1dc126-af1b-434f-a59f-8cb202e218eb/project/b559fae5-f40d-4b06-99ce-731ee050f7ea.svg" alt="wakatime"/>
 
-- [Hosted](https://ishopee.up.railway.app/)
+- [Hosted](https://ishopee.onrender.com/)
 - [Wakatime Insights](https://wakatime.com/@Er_Jrsingh/projects/mudzizdyvb)
 
 | Features                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Technologies                                                                                                                                                                                                               |

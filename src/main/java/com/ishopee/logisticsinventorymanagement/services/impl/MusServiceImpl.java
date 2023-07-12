@@ -15,54 +15,58 @@ import java.util.Map;
 public class MusServiceImpl implements IMusService {
 
     @Autowired
-    private MusRepo musRepo;
+    private MusRepo repo;
 
     @Override
     public Integer saveMus(Mus mus) {
-        mus = musRepo.save(mus);
+        mus = repo.save(mus);
         return mus.getId();
     }
 
     @Override
     public List<Mus> getAllMus() {
-        return musRepo.findAll();
+        return repo.findAll();
     }
 
     @Override
     public void deleteMus(Integer id) {
 //        musRepo.deleteById(id);
-        musRepo.delete(getMus(id));
+        repo.delete(getMus(id));
     }
 
     @Override
     public Mus getMus(Integer id) {
-        return musRepo.findById(id).orElseThrow(() -> new MusNotFoundException("MUS " + id + " Not Exist !"));
+        return repo.findById(id).orElseThrow(() -> new MusNotFoundException("MUS " + id + " Not Exist !"));
     }
 
     @Override
     public void updateMus(Mus mus) {
-        musRepo.save(mus);
+        if (mus.getId() == null || !repo.existsById(mus.getId())) {
+            throw new MusNotFoundException("MUS DOES NOT EXIST ID " + mus.getId());
+        } else {
+            repo.save(mus);
+        }
     }
 
     @Override
     public boolean isMusModelCountExist(String musModel) {
-        Integer count = musRepo.getMusModelCount(musModel);
+        Integer count = repo.getMusModelCount(musModel);
         boolean flag = count > 0 ? true : false;
         return flag;
     }
 
     @Override
     public boolean isMusModelCountExistForEdit(String musModel, Integer id) {
-        return musRepo.getMusModelCountForEdit(musModel, id) > 0;
+        return repo.getMusModelCountForEdit(musModel, id) > 0;
     }
 
     @Override
     public List<Object[]> getMusTypeAndCount() {
-        return musRepo.getMusTypeAndCount();
+        return repo.getMusTypeAndCount();
     }
 
     @Override
     public Map<Integer, String> getMusIdAndModel() {
-        return MyAppUtility.convertListIntoMap(musRepo.getMusIdAndModel());
+        return MyAppUtility.convertListIntoMap(repo.getMusIdAndModel());
     }
 }

@@ -60,7 +60,7 @@
                     </div>
                     <div class="col-4">
                         <th:block th:each="ob:${roleMap}">
-                            <input type="checkbox" th:value="${ob.key}" th:text="${ob.value}"/>
+                            <input name="roles" type="checkbox" th:value="${ob.key}" th:text="${ob.value}"/>
                         </th:block>
                     </div>
                     <div class="col-5">

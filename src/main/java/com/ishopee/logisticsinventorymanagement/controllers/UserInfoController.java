@@ -3,6 +3,7 @@ package com.ishopee.logisticsinventorymanagement.controllers;
 import com.ishopee.logisticsinventorymanagement.models.UserInfo;
 import com.ishopee.logisticsinventorymanagement.services.IRoleService;
 import com.ishopee.logisticsinventorymanagement.services.IUserInfoService;
+import com.ishopee.logisticsinventorymanagement.utilities.EmailUtil;
 import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
 import com.ishopee.logisticsinventorymanagement.utilities.UserInfoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class UserInfoController {
     private IUserInfoService service;
     @Autowired
     private IRoleService roleService;
+    @Autowired
+    private EmailUtil emailUtil;
 
     @GetMapping("/setup")
     public String doSetup(HttpSession session, Principal principal) {
@@ -43,10 +46,19 @@ public class UserInfoController {
     @PostMapping("/save")
     public String saveUserData(@ModelAttribute UserInfo userInfo, Model model) {
         // Generate Dynamic Password & Set
-        userInfo.setPassword(MyAppUtility.getPassword());
-
+        String pass = MyAppUtility.getPassword();
+        userInfo.setPassword(pass);
         Integer id = service.saveUserInfo(userInfo);
-        model.addAttribute("message", "User Registered With ID " + id);
+        if (id != 0) {
+            String text = "Name :: " + userInfo.getName() + "\n" +
+                    "Username :: " + userInfo.getEmail() + "\n" +
+                    "Password :: " + pass + "\n" +
+                    "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles());
+            emailUtil.send(userInfo.getEmail(), "Your Credentials", text);
+            model.addAttribute("message", "User Registered and Credentials Mail Sent");
+        } else {
+            model.addAttribute("message", "User Registration Failed");
+        }
         setRoleMap(model);
         return "UserInfoRegister";
     }

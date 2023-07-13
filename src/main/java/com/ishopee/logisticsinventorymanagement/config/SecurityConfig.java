@@ -54,6 +54,6 @@ SecurityConfig extends WebSecurityConfigurerAdapter {
                 // Exception Details
                 .and()
                 .exceptionHandling()
-                .accessDeniedPage("/userinfo/login?logout");
+                .accessDeniedPage("/userinfo/login?error");
     }
 }

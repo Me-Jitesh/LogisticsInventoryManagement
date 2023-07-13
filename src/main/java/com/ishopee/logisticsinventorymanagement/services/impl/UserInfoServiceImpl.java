@@ -43,6 +43,11 @@ public class UserInfoServiceImpl implements IUserInfoService, UserDetailsService
     }
 
     @Override
+    public UserInfo getOneUserInfoByEmail(String email) {
+        return repo.findByEmail(email).get();
+    }
+
+    @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserInfo userInfo = repo.findByEmail(username).orElseThrow(() -> new UserInfoNotFoundException("USER DOES NOT EXIST !"));
         return new User(userInfo.getEmail(), userInfo.getPassword(), userInfo.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getRole().name())).collect(Collectors.toSet()));

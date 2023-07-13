@@ -12,4 +12,6 @@ public interface IUserInfoService {
 
     List<UserInfo> getAllUserInfo();
 
+    UserInfo getOneUserInfoByEmail(String email);
+
 }

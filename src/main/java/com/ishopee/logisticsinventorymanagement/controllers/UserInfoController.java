@@ -4,6 +4,7 @@ import com.ishopee.logisticsinventorymanagement.models.UserInfo;
 import com.ishopee.logisticsinventorymanagement.services.IRoleService;
 import com.ishopee.logisticsinventorymanagement.services.IUserInfoService;
 import com.ishopee.logisticsinventorymanagement.utilities.MyAppUtility;
+import com.ishopee.logisticsinventorymanagement.utilities.UserInfoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpSession;
+import java.security.Principal;
 
 @Controller
 @RequestMapping("/userinfo")
@@ -20,6 +24,15 @@ public class UserInfoController {
     private IUserInfoService service;
     @Autowired
     private IRoleService roleService;
+
+    @GetMapping("/setup")
+    public String doSetup(HttpSession session, Principal principal) {
+        String email = principal.getName();
+        UserInfo info = service.getOneUserInfoByEmail(email);
+        session.setAttribute("currentUser", info);
+        session.setAttribute("isAdmin", UserInfoUtil.getRolesAsString(info.getRoles()).contains("ADMIN"));
+        return "redirect:/userinfo/register";
+    }
 
     @GetMapping("/register")
     public String showRegisterPage(Model model) {
@@ -48,7 +61,6 @@ public class UserInfoController {
     public String showLogin() {
         return "UserLogin";
     }
-
 
     private void setRoleMap(Model model) {
         model.addAttribute("roleMap", roleService.getRolesMap());

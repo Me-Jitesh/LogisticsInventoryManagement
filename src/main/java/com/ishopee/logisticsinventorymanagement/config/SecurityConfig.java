@@ -42,7 +42,7 @@ SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/userinfo/login") //GET Method
                 .loginProcessingUrl("/login")    // POST Method(Save)
-                .defaultSuccessUrl("/st/all", true)
+                .defaultSuccessUrl("/userinfo/setup", true)
                 .failureUrl("/userinfo/login?error")
 
                 // Logout Details

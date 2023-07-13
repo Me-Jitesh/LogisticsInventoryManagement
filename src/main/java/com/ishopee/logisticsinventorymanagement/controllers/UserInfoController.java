@@ -38,10 +38,17 @@ public class UserInfoController {
         return "UserInfoRegister";
     }
 
+    @GetMapping("/all")
+    public String showAllUsers(Model model) {
+        model.addAttribute("users", service.getAllUserInfo());
+        return "UserData";
+    }
+
     @GetMapping("/login")
     public String showLogin() {
         return "UserLogin";
     }
+
 
     private void setRoleMap(Model model) {
         model.addAttribute("roleMap", roleService.getRolesMap());

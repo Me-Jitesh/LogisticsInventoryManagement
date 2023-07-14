@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services.impl;
 
+import com.ishopee.logisticsinventorymanagement.constants.UserMode;
 import com.ishopee.logisticsinventorymanagement.exceptions.UserInfoNotFoundException;
 import com.ishopee.logisticsinventorymanagement.models.UserInfo;
 import com.ishopee.logisticsinventorymanagement.repositories.UserInfoRepo;
@@ -45,6 +46,11 @@ public class UserInfoServiceImpl implements IUserInfoService, UserDetailsService
     @Override
     public UserInfo getOneUserInfoByEmail(String email) {
         return repo.findByEmail(email).get();
+    }
+
+    @Override
+    public void updateUserStatus(Integer id, UserMode mode) {
+        repo.updateUserStatus(id, mode);
     }
 
     @Override

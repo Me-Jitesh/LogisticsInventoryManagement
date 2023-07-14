@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.controllers;
 
+import com.ishopee.logisticsinventorymanagement.constants.UserMode;
 import com.ishopee.logisticsinventorymanagement.models.UserInfo;
 import com.ishopee.logisticsinventorymanagement.services.IRoleService;
 import com.ishopee.logisticsinventorymanagement.services.IUserInfoService;
@@ -9,10 +10,7 @@ import com.ishopee.logisticsinventorymanagement.utilities.UserInfoUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
@@ -50,10 +48,7 @@ public class UserInfoController {
         userInfo.setPassword(pass);
         Integer id = service.saveUserInfo(userInfo);
         if (id != 0) {
-            String text = "Name :: " + userInfo.getName() + "\n" +
-                    "Username :: " + userInfo.getEmail() + "\n" +
-                    "Password :: " + pass + "\n" +
-                    "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles());
+            String text = "Name :: " + userInfo.getName() + "\n" + "Username :: " + userInfo.getEmail() + "\n" + "Password :: " + pass + "\n" + "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles());
             emailUtil.send(userInfo.getEmail(), "Your Credentials", text);
             model.addAttribute("message", "User Registered and Credentials Mail Sent");
         } else {
@@ -72,6 +67,18 @@ public class UserInfoController {
     @GetMapping("/login")
     public String showLogin() {
         return "UserLogin";
+    }
+
+    @GetMapping("/enable")
+    public String enableMode(@RequestParam Integer id) {
+        service.updateUserStatus(id, UserMode.ENABLED);
+        return "redirect:all";
+    }
+
+    @GetMapping("/disable")
+    public String desableMode(@RequestParam Integer id) {
+        service.updateUserStatus(id, UserMode.DISABLED);
+        return "redirect:all";
     }
 
     private void setRoleMap(Model model) {

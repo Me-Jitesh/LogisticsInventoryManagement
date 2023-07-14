@@ -40,13 +40,15 @@
                 </div>
                 <!--Row#2 end-->
                 <div class="row">
-                <button class="btn btn-danger px-5" type="submit">LOGIN</button>
+                    <button class="btn btn-danger px-5" type="submit">LOGIN</button>
                 </div>
             </form>
         </div>
         <div class="card-footer text-center">
-            <span th:if="${param.error}" class="text-danger"> Oooooooppps.. Invalid Credentials !</span>
+            <span th:if="${param.invalidCredentials}" class="text-danger"> Oooooooppps.. Invalid Credentials !</span>
             <span th:if="${param.logout}" class="text-success"> Logout Success !</span>
+            <span th:if="${param.error}" class="text-danger"> Ooooo Something Went Wrong !</span>
+            <span th:if="${param.denied}" class="text-warning"> Access Denied ! Sorry Not Authorized</span>
         </div>
     </div>
 </div>

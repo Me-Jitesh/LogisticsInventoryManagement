@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.services;
 
+import com.ishopee.logisticsinventorymanagement.constants.UserMode;
 import com.ishopee.logisticsinventorymanagement.models.UserInfo;
 
 import java.util.List;
@@ -13,5 +14,7 @@ public interface IUserInfoService {
     List<UserInfo> getAllUserInfo();
 
     UserInfo getOneUserInfoByEmail(String email);
+
+    void updateUserStatus(Integer id, UserMode mode);
 
 }

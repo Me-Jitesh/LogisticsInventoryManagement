@@ -43,7 +43,7 @@ SecurityConfig extends WebSecurityConfigurerAdapter {
                 .loginPage("/userinfo/login") //GET Method
                 .loginProcessingUrl("/login")    // POST Method(Save)
                 .defaultSuccessUrl("/userinfo/setup", true)
-                .failureUrl("/userinfo/login?error")
+                .failureUrl("/userinfo/login?invalidCredentials")
 
                 // Logout Details
                 .and()
@@ -54,6 +54,6 @@ SecurityConfig extends WebSecurityConfigurerAdapter {
                 // Exception Details
                 .and()
                 .exceptionHandling()
-                .accessDeniedPage("/userinfo/login?error");
+                .accessDeniedPage("/userinfo/login?denied");
     }
 }

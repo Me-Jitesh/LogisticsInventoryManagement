@@ -28,7 +28,7 @@
                     <td th:text="${ob.name}"></td>
                     <td th:text="${ob.email}"></td>
                     <td th:text="${ob.mode}"></td>
-                    <td th:if="${!session.isAdmin}">
+                    <td th:if="${session.isAdmin}">
                         <a th:if="${ob.mode.name() != 'ENABLED'}" th:href="@{/userinfo/enable(id=${ob.id})}"
                            class="btn btn-success px-5">ENABLE</a>
                         <a th:if="${ob.mode.name() != 'DISABLED'}" th:href="@{/userinfo/disable(id=${ob.id})}"

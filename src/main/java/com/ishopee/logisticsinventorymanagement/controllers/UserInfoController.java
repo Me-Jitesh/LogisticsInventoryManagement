@@ -72,13 +72,13 @@ public class UserInfoController {
     @GetMapping("/enable")
     public String enableMode(@RequestParam Integer id) {
         service.updateUserStatus(id, UserMode.ENABLED);
-        return "redirect:all";
+        return "redirect:/userinfo/all";
     }
 
     @GetMapping("/disable")
     public String desableMode(@RequestParam Integer id) {
         service.updateUserStatus(id, UserMode.DISABLED);
-        return "redirect:all";
+        return "redirect:/userinfo/all";
     }
 
     private void setRoleMap(Model model) {

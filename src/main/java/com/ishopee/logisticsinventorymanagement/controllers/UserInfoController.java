@@ -32,7 +32,7 @@ public class UserInfoController {
         UserInfo info = service.getOneUserInfoByEmail(email);
         session.setAttribute("currentUser", info);
         session.setAttribute("isAdmin", UserInfoUtil.getRolesAsString(info.getRoles()).contains("ADMIN"));
-        return "redirect:/userinfo/register";
+        return "redirect:/st/all";
     }
 
     @GetMapping("/register")
@@ -72,13 +72,13 @@ public class UserInfoController {
     @GetMapping("/enable")
     public String enableMode(@RequestParam Integer id) {
         service.updateUserStatus(id, UserMode.ENABLED);
-        return "redirect:/userinfo/all";
+        return "redirect:all";
     }
 
     @GetMapping("/disable")
-    public String desableMode(@RequestParam Integer id) {
+    public String disableMode(@RequestParam Integer id) {
         service.updateUserStatus(id, UserMode.DISABLED);
-        return "redirect:/userinfo/all";
+        return "redirect:all";
     }
 
     private void setRoleMap(Model model) {

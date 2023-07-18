@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -55,7 +56,11 @@ public class UserInfoServiceImpl implements IUserInfoService, UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserInfo userInfo = repo.findByEmail(username).orElseThrow(() -> new UserInfoNotFoundException("USER DOES NOT EXIST !"));
+        Optional<UserInfo> info = repo.findByEmail(username);
+        if (info.isEmpty() || info.get().getMode().equals(UserMode.DISABLED)) {
+            throw new UserInfoNotFoundException("USER DOES NOT EXIST OR DISABLED !");
+        }
+        UserInfo userInfo = info.get();
         return new User(userInfo.getEmail(), userInfo.getPassword(), userInfo.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getRole().name())).collect(Collectors.toSet()));
     }
 

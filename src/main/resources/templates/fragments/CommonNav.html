@@ -151,10 +151,14 @@
                 </li>
                 <!--  Logout Btn Closed   -->
 
-                <li>
-                    <h5 class="text-secondary text-right m-1">
-                        &#10645 <span class="text-warning" th:text="${session.currentUser.name}"></span> &#10646
-                    </h5>
+                <li class="nav-item">
+                    <h6 class="text-secondary text-right m-1">
+                        &#10645
+                        <a th:href="@{/userinfo/profile}" class="btn btn-outline-secondary btn-sm">
+                            <span class="text-warning" th:text="${session.currentUser.name}"></span>
+                        </a>
+                        &#10646
+                    </h6>
                 </li>
                 <!--  Username  Closed   -->
 

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/userinfo")
@@ -79,6 +80,15 @@ public class UserInfoController {
     public String disableMode(@RequestParam Integer id) {
         service.updateUserStatus(id, UserMode.DISABLED);
         return "redirect:all";
+    }
+
+    @GetMapping("/profile")
+    public String showProfile(HttpSession session, Model model) {
+        UserInfo info = (UserInfo) session.getAttribute("currentUser");
+        Set<String> roles = UserInfoUtil.getRolesAsString(info.getRoles());
+        model.addAttribute("userInfo", info);
+        model.addAttribute("roles", roles);
+        return "UserProfile";
     }
 
     private void setRoleMap(Model model) {

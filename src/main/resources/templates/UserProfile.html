@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userhead(~{::title},~{::link})">
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-dark text-center text-light">
+            <h3>PROFILE</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr>
+                    <th class="bg-dark text-white">ID</th>
+                    <td th:text="${userInfo.id}" class="bg-info text-white"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-white">NAME</th>
+                    <td th:text="${userInfo.name}" class="bg-info text-white"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-white">EMAIL</th>
+                    <td th:text="${userInfo.email}" class="bg-info text-white"></td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-white">PASSWORD</th>
+                    <td class="bg-info text-white">
+                        <a th:href="@{/userinfo/password}" class="btn btn-dark  btn-sm text-light px-5">UPDATE</a>
+                    </td>
+                </tr>
+                <tr>
+                    <th class="bg-dark text-white">ROLES</th>
+                    <td th:text="${roles}" class="bg-info text-white"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+</body>
+</html>

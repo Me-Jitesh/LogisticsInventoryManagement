@@ -43,6 +43,9 @@
                     <button class="btn btn-danger px-5" type="submit">LOGIN</button>
                 </div>
             </form>
+            <div class="row">
+                <a th:href="@{/userinfo/resetPwd}" class="text-primary m-4">Forgot Password ?</a>
+            </div>
         </div>
         <div class="card-footer text-center">
             <span th:if="${param.invalidCredentials}" class="text-danger"> Oooooooppps.. Invalid Credentials !</span>

@@ -91,6 +91,16 @@ public class UserInfoController {
         return "UserProfile";
     }
 
+    @GetMapping("/resetPwd")
+    public String showForgotPwdPage() {
+        return "ForgetPasswordPage";
+    }
+
+    @GetMapping("/updatePwd")
+    public String reGenNewPwd() {
+        return null;
+    }
+
     private void setRoleMap(Model model) {
         model.addAttribute("roleMap", roleService.getRolesMap());
     }

@@ -14,6 +14,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -50,8 +51,15 @@ public class UserInfoServiceImpl implements IUserInfoService, UserDetailsService
     }
 
     @Override
+    @Transactional
     public void updateUserStatus(Integer id, UserMode mode) {
         repo.updateUserStatus(id, mode);
+    }
+
+    @Override
+    @Transactional
+    public void updateUserPassword(String username, String pwd) {
+        repo.updatepassword(username, pwd);
     }
 
     @Override

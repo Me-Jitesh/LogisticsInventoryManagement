@@ -17,4 +17,5 @@ public interface IUserInfoService {
 
     void updateUserStatus(Integer id, UserMode mode);
 
+    void updateUserPassword(String username, String pwd);
 }

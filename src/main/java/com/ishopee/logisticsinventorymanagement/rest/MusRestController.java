@@ -1,5 +1,6 @@
 package com.ishopee.logisticsinventorymanagement.rest;
 
+import com.ishopee.logisticsinventorymanagement.exceptions.MusNotFoundException;
 import com.ishopee.logisticsinventorymanagement.models.Mus;
 import com.ishopee.logisticsinventorymanagement.services.IMusService;
 import io.swagger.annotations.Api;
@@ -32,6 +33,9 @@ public class MusRestController {
             List<Mus> list = service.getAllMus();
             res = new ResponseEntity<Object>(list, HttpStatus.OK);
             LOG.debug("ALL MUS LOADED");
+        } catch (MusNotFoundException mnfe) {
+            LOG.error("UNABLE TO PROCESS LOADING {} ", mnfe.getMessage());
+            throw mnfe;
         } catch (Exception e) {
             e.printStackTrace();
             res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -50,6 +54,9 @@ public class MusRestController {
             Mus mus = service.getMus(id);
             res = new ResponseEntity<Object>(mus, HttpStatus.OK);
             LOG.debug("MUS LOADED {} ", id);
+        } catch (MusNotFoundException mnfe) {
+            LOG.error("UNABLE TO PROCESS LOADING {} ", mnfe.getMessage());
+            throw mnfe;
         } catch (Exception e) {
             e.printStackTrace();
             res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -88,6 +95,9 @@ public class MusRestController {
             String msg = "Mus Updated";
             res = new ResponseEntity<>(msg, HttpStatus.OK);
             LOG.debug("MUS UPDATED");
+        } catch (MusNotFoundException mnfe) {
+            LOG.error("UNABLE TO PROCESS {} ", mnfe.getMessage());
+            throw mnfe;
         } catch (Exception e) {
             e.printStackTrace();
             res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
@@ -107,10 +117,13 @@ public class MusRestController {
             String msg = "Mus " + id + " Deleted";
             res = new ResponseEntity<>(msg, HttpStatus.OK);
             LOG.debug("MUS DELETED {} ", id);
+        } catch (MusNotFoundException mnfe) {
+            LOG.error("UNABLE TO DELETE  {} ", mnfe.getMessage());
+            throw mnfe;
         } catch (Exception e) {
             e.printStackTrace();
             res = new ResponseEntity<String>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
-            LOG.error("UNABLE TO PROCESS {} ", e.getMessage());
+            LOG.error("UNABLE TO DELETE {} ", e.getMessage());
         }
         LOG.info("LEAVING deleteMus METHOD");
         return res;

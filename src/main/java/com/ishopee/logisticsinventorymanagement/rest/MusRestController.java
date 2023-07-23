@@ -74,7 +74,7 @@ public class MusRestController {
         try {
             Integer id = service.saveMus(mus);
             String msg = "Mus " + id + " Created";
-            res = new ResponseEntity<>(msg, HttpStatus.OK);
+            res = new ResponseEntity<>(msg, HttpStatus.CREATED);
             LOG.debug("MUS SAVED {} ", id);
         } catch (Exception e) {
             e.printStackTrace();

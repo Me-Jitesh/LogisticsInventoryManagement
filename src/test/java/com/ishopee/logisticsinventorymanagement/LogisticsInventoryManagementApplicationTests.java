@@ -28,9 +28,9 @@ class LogisticsInventoryManagementApplicationTests {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("TEST MUS # SAVE OPERATION")
+    @DisplayName("TEST MUS #SAVE OPERATION : SUCCESS CASE")
     @Order(1)
-    public void testMusSave() throws Exception {
+    public void testMusSaveSucess() throws Exception {
         // 1 : Create One Http Request Using Mock
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .post("/api/mus/create")
@@ -44,6 +44,25 @@ class LogisticsInventoryManagementApplicationTests {
         assertEquals(HttpStatus.CREATED.value(), response.getStatus());
         if (!response.getContentAsString().contains("Created")) {
             fail("MUS is Not Created");
+        }
+    }
+
+    @Test
+    @DisplayName("TEST MUS #DELETE OPERATION : SUCCESS CASE")
+    @Order(2)
+//    @Disabled
+    public void testMusDeleteSuccess() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete("/api/mus/delete/{id}", 200152);
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        if (!response.getContentAsString().contains("Deleted")) {
+            fail("MUS is Not Deleted");
         }
     }
 }

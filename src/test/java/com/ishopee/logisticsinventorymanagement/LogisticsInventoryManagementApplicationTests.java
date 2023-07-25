@@ -54,7 +54,7 @@ class LogisticsInventoryManagementApplicationTests {
     public void testMusDeleteSuccess() throws Exception {
         // 1 : Create One Http Request Using Mock
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
-                .delete("/api/mus/delete/{id}", 200152);
+                .delete("/api/mus/delete/{id}", 200202);
         // 2 : Execute Request and get result using mockMvc(Envinonment)
         MvcResult result = mockMvc.perform(request).andReturn();
         // 3 : Read Response from result
@@ -63,6 +63,24 @@ class LogisticsInventoryManagementApplicationTests {
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         if (!response.getContentAsString().contains("Deleted")) {
             fail("MUS is Not Deleted");
+        }
+    }
+
+    @Test
+    @DisplayName("TEST MUS #DELETE OPERATION : FAILED CASE")
+    @Order(3)
+    public void testMusDeleteFailed() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete("/api/mus/delete/{id}", 200152);
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.getStatus());
+        if (response.getContentAsString().contains("Deleted")) {
+            fail("MUS Deleted");
         }
     }
 }

@@ -74,7 +74,7 @@ public class ShipmentTypeRestController {
         try {
             Integer id = service.saveShipmentType(st);
             String msg = "ShipmentType " + id + " Created";
-            res = new ResponseEntity<>(msg, HttpStatus.OK);
+            res = new ResponseEntity<>(msg, HttpStatus.CREATED);
             LOG.debug("SHIPMENT TYPE SAVED {} ", id);
         } catch (Exception e) {
             e.printStackTrace();

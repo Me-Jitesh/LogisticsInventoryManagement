@@ -83,4 +83,57 @@ class LogisticsInventoryManagementApplicationTests {
             fail("MUS Deleted");
         }
     }
+
+    @Test
+    @DisplayName("TEST SHIPMENT TYPE  #SAVE OPERATION : SUCCESS CASE")
+    public void testShipmentTypeSaveSucess() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .post("/api/st/create")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"shipMode\":\"Truck\",\"shipCode\":\"TATA\",\"enableShip\": \"Yes\",\"shipGrad\": \"B\",\"shipDesc\": \"Heavey transition\"}");
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.CREATED.value(), response.getStatus());
+        if (!response.getContentAsString().contains("Created")) {
+            fail("Failed To Create ShipmentType");
+        }
+    }
+
+    @Test
+    @DisplayName("TEST  SHIPMENT TYPE  #DELETE OPERATION : SUCCESS CASE")
+    public void testShipmentTypeDeleteSuccess() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete("/api/st/delete/{id}", 199952);
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        if (!response.getContentAsString().contains("Deleted")) {
+            fail("Failed To Delete ShipmentType");
+        }
+    }
+
+    @Test
+    @DisplayName("TEST  SHIPMENT TYPE  #DELETE OPERATION : FAILED CASE")
+    public void testShipmentTypeDeleteFailed() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete("/api/st/delete/{id}", 199952);
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.getStatus());
+        if (response.getContentAsString().contains("Deleted")) {
+            fail("ShipmentType Deleted");
+        }
+    }
 }

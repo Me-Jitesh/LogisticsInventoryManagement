@@ -1,0 +1,82 @@
+<!DOCTYPE html >
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+    <title>User Register</title>
+</head>
+
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-primary text-white text-center">
+            <h3>USER REGISTER PAGE</h3>
+        </div>
+        <div class="card-body">
+            <form id="userRegisterForm" method="post" th:action="@{/userinfo/save}">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="name">USERNAME</label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" id="name" name="name" type="text"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="nameError"></span>
+                    </div>
+                </div>
+                <!--Row #1 end-->
+                <div class="row">
+                    <div class="col-3">
+                        <label for="email">EMAIL</label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" id="email" name="email" type="email"/>
+                    </div>
+                    <div class="col-5">
+                        <span id="emailError"></span>
+                    </div>
+                </div>
+                <!--Row #2-->
+                <div class="row">
+                    <div class="col-3">
+                        <label for="password">PASSWORD</label>
+                    </div>
+                    <div class="col-4">
+                        <input class="form-control" id="password" name="password" type="password" value="********"
+                               readonly/>
+                    </div>
+                    <div class="col-5">
+                        <span id="passwordpError"></span>
+                    </div>
+                </div>
+                <!--Row#3 end-->
+                <div class="row">
+                    <div class="col-3">
+                        <label>ROLES</label>
+                    </div>
+                    <div class="col-4">
+                        <th:block th:each="ob:${roleMap}">
+                            <input name="roles" type="checkbox" th:value="${ob.key}" th:text="${ob.value}"/>
+                        </th:block>
+                    </div>
+                    <div class="col-5">
+                        <span id="rolesError"></span>
+                    </div>
+                </div>
+                <!--Row#4 end-->
+                <input class="btn btn-success" type="submit" value="ADD USER"/>
+            </form>
+        </div>
+        <div class="card-footer text-center bg-success text-white" th:if="${message != null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+<script th:src="@{/js/userinfo.js}" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" th:xmlns="www.thymeleaf.org">
+<head th:replace="fragments/CommonHead::userhead(~{::title},~{::link})">
+    <title>User Data</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+          integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+
+<div th:replace="fragments/CommonNav::usermenu"></div>
+
+<div class="container">
+    <div class="card">
+        <div class="card-header bg-dark text-center text-light">
+            <h3>USER DATA</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <tr class="bg-dark text-white">
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>STATUS</th>
+                    <th>OPERATIONS</th>
+                </tr>
+                <tr th:each="ob:${users}" class="text-secondary font-weight-bold">
+                    <td th:text="${ob.name}"></td>
+                    <td th:text="${ob.email}"></td>
+                    <td th:text="${ob.mode}"></td>
+                    <td th:if="${session.currentUser.name !=ob.name}">
+                        <a th:if="${ob.mode.name() != 'ENABLED'}" th:href="@{/userinfo/enable(id=${ob.id})}"
+                           class="btn btn-success px-5">ENABLE</a>
+                        <a th:if="${ob.mode.name() != 'DISABLED'}" th:href="@{/userinfo/disable(id=${ob.id})}"
+                           class="btn btn-danger px-5">DISABLE</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:replace="fragments/CommonFooter::userFooter"></div>
+</body>
+</html>

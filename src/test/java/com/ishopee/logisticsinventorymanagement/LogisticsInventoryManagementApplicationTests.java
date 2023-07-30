@@ -136,4 +136,57 @@ class LogisticsInventoryManagementApplicationTests {
             fail("ShipmentType Deleted");
         }
     }
+
+    @Test
+    @DisplayName("TEST ORDER METHOD  #SAVE OPERATION : SUCCESS CASE")
+    public void testOrderMethodSaveSucess() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .post("/api/om/create")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\"orderMode\":\"Purchase\",\"orderCode\": \"J4H85\",\"orderType\": \"LIFO\",\"orderNote\": \"Dispatch\",\"orderAcpt\": [\"Multi-Mode\"]}");
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.CREATED.value(), response.getStatus());
+        if (!response.getContentAsString().contains("Created")) {
+            fail("Failed To Create OrderMethod");
+        }
+    }
+
+    @Test
+    @DisplayName("TEST  ORDER METHOD  #DELETE OPERATION : SUCCESS CASE")
+    public void testOrderMethodDeleteSuccess() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete("/api/om/delete/{id}", 249952);
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        if (!response.getContentAsString().contains("Deleted")) {
+            fail("Failed To Delete OrderMethod");
+        }
+    }
+
+    @Test
+    @DisplayName("TEST  ORDER METHOD  #DELETE OPERATION : FAILED CASE")
+    public void testOrderMethodDeleteFailed() throws Exception {
+        // 1 : Create One Http Request Using Mock
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .delete("/api/om/delete/{id}", 249952);
+        // 2 : Execute Request and get result using mockMvc(Envinonment)
+        MvcResult result = mockMvc.perform(request).andReturn();
+        // 3 : Read Response from result
+        MockHttpServletResponse response = result.getResponse();
+        // 4 : Validate/Assert response using Junit API
+        assertEquals(HttpStatus.INTERNAL_SERVER_ERROR.value(), response.getStatus());
+        if (response.getContentAsString().contains("Deleted")) {
+            fail("OrderMethod Deleted");
+        }
+    }
 }

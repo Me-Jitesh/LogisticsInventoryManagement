@@ -40,7 +40,8 @@ public class VisitorUtility {
         String ip = extractIP(httpServletRequest);
         visitor.setIpAddress(ip);
 //        VisitorLocation locale = extractLocaleByGeoLite2(ip, httpServletRequest.getServletContext().getRealPath("/extra_resources/GeoLite2-City-DB/"));
-        VisitorLocation locale = extractLocaleByIP2Location(ip);
+//        VisitorLocation locale = extractLocaleByIP2Location(ip);
+        VisitorLocation locale = extractLocaleByIpGeolocation(ip);
         visitor.setLocale(locale);
         return visitor;
     }
@@ -131,6 +132,40 @@ public class VisitorUtility {
                 visitorLocation.setTimezone(jsonObject.get("time_zone").getAsString());
                 visitorLocation.setAsn(jsonObject.get("asn").getAsString());
                 visitorLocation.setAs(jsonObject.get("as").getAsString());
+            } else {
+                throw new Exception(String.valueOf(response.statusCode()));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return visitorLocation;
+    }
+
+    public VisitorLocation extractLocaleByIpGeolocation(String ip) {
+        String key = apiSecretKeys.getIpGeolocationKey();
+        VisitorLocation visitorLocation = new VisitorLocation();
+        visitorLocation.setTimestamp(Timestamp.from(Instant.now()));
+        try {
+            // API Call for Geo Location
+            String url = "https://api.ipgeolocation.io/ipgeo?apiKey=" + key + "&ip=" + ip;
+            var request = HttpRequest.newBuilder().GET().uri(URI.create(url)).build();
+            var client = HttpClient.newBuilder().build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            // JSON Parsing Using Gson
+            if (response.statusCode() == 200) {
+                JsonObject jsonObject = new JsonParser().parse(response.body()).getAsJsonObject();
+
+                visitorLocation.setCountryCode(jsonObject.get("country_code2").getAsString());
+                visitorLocation.setCountry(jsonObject.get("country_name").getAsString());
+                visitorLocation.setState(jsonObject.get("state_prov").getAsString());
+                visitorLocation.setCity(jsonObject.get("city").getAsString());
+                visitorLocation.setLatitude(jsonObject.get("latitude").getAsString());
+                visitorLocation.setLongitude(jsonObject.get("longitude").getAsString());
+                visitorLocation.setZip(jsonObject.get("zipcode").getAsString());
+                visitorLocation.setAs(jsonObject.get("isp").getAsString());
+                visitorLocation.setTimezone(jsonObject.getAsJsonObject("time_zone").get("name").getAsString());
+                visitorLocation.setAsn(jsonObject.get("asn").getAsString());
             } else {
                 throw new Exception(String.valueOf(response.statusCode()));
             }

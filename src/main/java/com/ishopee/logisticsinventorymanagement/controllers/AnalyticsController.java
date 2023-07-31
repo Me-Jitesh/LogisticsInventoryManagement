@@ -10,10 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.ServletContext;
@@ -24,6 +21,7 @@ import java.nio.file.Path;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 @RequestMapping("/analytics")
 public class AnalyticsController {
 
@@ -87,6 +85,13 @@ public class AnalyticsController {
             model.addAttribute("message", e.getMessage());
         }
         return "Analytics";
+    }
+
+    @PostMapping("/saveAll")
+    @ResponseBody
+    public String saveVisitors(@RequestBody List<Visitor> visitors) {
+        visitorService.saveAllVisitors(visitors);
+        return "Success";
     }
 
     private void prepareModel(Model model) {

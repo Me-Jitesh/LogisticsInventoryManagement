@@ -21,4 +21,5 @@ public interface IVisitorService {
 
     List<Object[]> getVistorCountryCodeAndCount();
 
+    void saveAllVisitors(List<Visitor> visitors);
 }

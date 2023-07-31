@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
           integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
           crossorigin="anonymous" referrerpolicy="no-referrer"/>
-    <link rel="apple-touch-icon" sizes="180x180" th:href="@{favicon/apple-touch-icon.png}">
-    <link rel="icon" type="image/png" sizes="32x32" th:href="@{favicon/favicon-32x32.png}">
-    <link rel="icon" type="image/png" sizes="16x16" th:href="@{favicon/favicon-16x16.png}">
-    <link rel="manifest" th:href="@{favicon/site.webmanifest}">
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/favicon/apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/favicon/favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/favicon/favicon-16x16.png}">
+    <link rel="manifest" th:href="@{/favicon/site.webmanifest}">
     <style>
         * {
             box-sizing: border-box;
@@ -64,15 +64,15 @@
                     <div class="col-4" style="max-height:40vh; overflow-y: scroll;">
                         <div class="bg-info text-white p-2" style="position:sticky; top: 0; border:  1px solid;">
                         <span class="h4">
-                            <i class="fa-solid fa-chart-simple fa-lg fa-beat"></i>
+                            <i class="fa-solid fa-chart-simple fa-lg"></i>
                             Visualization
                         </span>
                         </div>
 
                         <div class="p-3">
-                            <img th:src="@{charts/pie.png}" alt="pie_img" class="img-fluid img-thumbnail " height="200"
+                            <img th:src="@{/charts/pie.png}" alt="pie_img" class="img-fluid img-thumbnail " height="200"
                                  width="200"/>
-                            <img th:src="@{charts/bar.png}" alt="bar_img" class="img-fluid img-thumbnail" height="200"
+                            <img th:src="@{/charts/bar.png}" alt="bar_img" class="img-fluid img-thumbnail" height="200"
                                  width="200"/>
                         </div>
                     </div>
@@ -95,7 +95,7 @@
 
                         </div>
                         <div th:each="ob:${list}" class="text-warning">
-                            <h4 th:text="${ob.ipAddress}" class="text-dark font-italic"></h4>
+                            <h4 th:text="${ob.ipAddress}" class="text-secondary p-1"></h4>
                             <span class="text-white"> Country : </span><span th:text="${ob.locale.country}"></span>
                             <span class="text-white"> Code: </span> <span th:text="${ob.locale.countryCode}"></span>
                             <span class="text-white"> Region : </span><span th:text="${ob.locale.state}"></span>
@@ -117,36 +117,36 @@
                     <div class="col-4" style="max-height:40vh; overflow-y: scroll;">
                         <div class="bg-warning text-dark p-2" style="position:sticky; top: 0; border:  1px solid;">
                         <span class="h4">
-                         <i class="fa-brands fa-fedora fa-xl fa-beat"></i>
+                         <i class="fa-brands fa-fedora fa-xl"></i>
                           HyperLinks
                         </span>
                         </div>
 
                         <div class="p-3">
                             <h4>
-                                HOSTING <i class="fa-solid fa-passport fa-bounce"></i> ::
-                                <a href="https://ishopee.up.railway.app/st/all">
+                                HOME <i class="fa-solid fa-passport fa-bounce"></i> ::
+                                <a th:href="@{/st/all}" target="_blank">
                                     <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
                                 </a>
                             </h4>
 
                             <h4>
-                                SWAGGER UI <i class="fa-brands fa-simplybuilt fa-flip fa-lg"></i> ::
-                                <a href="#">
+                                SWAGGER UI <i class="fa-brands fa-simplybuilt fa-lg"></i> ::
+                                <a th:href="@{/swagger-ui.html}" target="_blank">
                                     <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
                                 </a>
                             </h4>
 
                             <h4>
                                 SOURCE CODE <i class="fa-brands fa-github-alt fa-shake fa-xl"></i> ::
-                                <a href="https://github.com/Me-Jitesh/LogisticsInventoryManagement">
+                                <a href="https://github.com/Me-Jitesh/LogisticsInventoryManagement" target="_blank">
                                     <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
                                 </a>
                             </h4>
 
                             <h4>
-                                WAKATIME INSIGTS <i class="fa-brands fa-codepen fa-spin-pulse fa-lg"></i> ::
-                                <a href="https://wakatime.com/@Er_Jrsingh/projects/mudzizdyvb">
+                                WAKATIME INSIGTS <i class="fa-brands fa-codepen  fa-lg"></i> ::
+                                <a href="https://wakatime.com/@Er_Jrsingh/projects/mudzizdyvb" target="_blank">
                                     <i class="fa-solid fa-up-right-from-square fa-beat-fade text-info"></i>
                                 </a>
                             </h4>
@@ -158,7 +158,7 @@
                     <div class="col-8" style="max-height:40vh; overflow-y: scroll;">
                         <div class="bg-warning text-dark p-2" style="position:sticky; top: 0; border:  1px solid;">
                         <span class="h4">
-                            <i class="fa-solid fa-school fa-beat"></i>
+                            <i class="fa-solid fa-school"></i>
                            Learnings
                         </span>
                         </div>

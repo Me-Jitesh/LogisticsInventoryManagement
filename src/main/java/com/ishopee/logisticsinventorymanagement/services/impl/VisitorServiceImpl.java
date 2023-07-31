@@ -54,4 +54,9 @@ public class VisitorServiceImpl implements IVisitorService {
     public List<Object[]> getVistorCountryCodeAndCount() {
         return repo.getVistorCountryCodeAndCount();
     }
+
+    @Override
+    public void saveAllVisitors(List<Visitor> visitors) {
+        repo.saveAll(visitors);
+    }
 }

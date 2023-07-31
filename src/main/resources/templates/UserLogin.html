@@ -8,50 +8,57 @@
 
 <body>
 
-<div class="container">
+<div class="container mt-5">
     <div class="card">
-        <div class="card-header bg-danger text-white text-center">
-            <h3>USER LOGIN PAGE</h3>
+        <div class="card-header bg-secondary text-dark text-center">
+            <h3>LOGIN HERE !</h3>
         </div>
-        <div class="card-body">
+        <div class="card-body bg-dark text-secondary">
             <form id="userLoginForm" method="post" th:action="@{/login}">
-                <div class="row">
-                    <div class="col-3">
-                        <label for="username">EMAIL</label>
+                <div class="row text-center my-5">
+                    <div class="col-4">
+                        <label for="username" class="h3">EMAIL</label>
                     </div>
                     <div class="col-4">
                         <input class="form-control" id="username" name="username" type="email" required/>
                     </div>
-                    <div class="col-5">
+                    <div class="col-4">
                         <span id="emailError"></span>
                     </div>
                 </div>
                 <!--Row #1 end-->
-                <div class="row">
-                    <div class="col-3">
-                        <label for="password">PASSWORD</label>
+                <div class="row text-center">
+                    <div class="col-4">
+                        <label for="password" class="h3 ml-5">PASSWORD</label>
                     </div>
                     <div class="col-4 my-2">
                         <input class="form-control" id="password" name="password" type="password" required/>
                     </div>
-                    <div class="col-5 my-2">
+                    <div class="col-4 my-2">
                         <span id="passwordpError"></span>
                     </div>
                 </div>
                 <!--Row#2 end-->
                 <div class="row">
-                    <button class="btn btn-danger px-5" type="submit">LOGIN</button>
+                    <button class="btn btn-warning mx-auto px-5 my-5" type="submit">LOGIN</button>
                 </div>
             </form>
             <div class="row">
-                <a th:href="@{/userinfo/resetPwd}" class="text-primary m-4">Forgot Password ?</a>
+                <a th:href="@{/userinfo/resetPwd}" class="text-info m-4 h5">Forgot Password ?</a>
+            </div>
+
+            <div class="row">
+                <h6 class="mx-auto">
+                    <span class="text-white">EMAIL</span> : <span class="text-warning"> admin@ishopee.india.in </span> |
+                    <span class="text-white">PASSWORD</span> : <span class="text-warning"> admin@00</span>
+                </h6>
             </div>
         </div>
-        <div class="card-footer text-center">
-            <span th:if="${param.invalidCredentials}" class="text-danger"> Oooooooppps.. Invalid Credentials !</span>
-            <span th:if="${param.logout}" class="text-success"> Logout Success !</span>
-            <span th:if="${param.error}" class="text-danger"> Ooooo Something Went Wrong !</span>
-            <span th:if="${param.denied}" class="text-warning"> Access Denied ! Sorry Not Authorized</span>
+        <div class="card-footer text-center bg-secondary">
+            <span th:if="${param.invalidCredentials}" class="text-danger h3"> Ooooppps... Invalid Credentials !</span>
+            <span th:if="${param.logout}" class="text-success h3"> Logout Success !</span>
+            <span th:if="${param.error}" class="text-danger h3"> Ooooo Something Went Wrong !</span>
+            <span th:if="${param.denied}" class="text-warning h3"> Access Denied ! Sorry Not Authorized</span>
         </div>
     </div>
 </div>

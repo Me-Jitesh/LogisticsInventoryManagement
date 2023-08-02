@@ -119,6 +119,21 @@ public class UserInfoController {
         return "ForgetPasswordPage";
     }
 
+    @GetMapping("/customPwd")
+    public String showCustomPassword() {
+        return "CustomPassword";
+    }
+
+    @GetMapping("/saveCustomPwd")
+    public String saveCustomPassword(@RequestParam String password, HttpSession session, Model model) {
+        UserInfo info = (UserInfo) session.getAttribute("currentUser");
+        String encPwd = encoder.encode(password);
+        service.updateUserPassword(info.getEmail(), encPwd);
+        model.addAttribute("message", "Password Changed ! as " + password);
+        System.out.println(info.getEmail() + " Password Changed ! as " + password);
+        return "redirect:profile";
+    }
+
     private void setRoleMap(Model model) {
         model.addAttribute("roleMap", roleService.getRolesMap());
     }

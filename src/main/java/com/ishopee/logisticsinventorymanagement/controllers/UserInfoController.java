@@ -124,13 +124,12 @@ public class UserInfoController {
         return "CustomPassword";
     }
 
-    @GetMapping("/saveCustomPwd")
-    public String saveCustomPassword(@RequestParam String password, HttpSession session, Model model) {
+    @PostMapping("/saveCustomPwd")
+    public String saveCustomPassword(@RequestParam String password, HttpSession session) {
         UserInfo info = (UserInfo) session.getAttribute("currentUser");
         String encPwd = encoder.encode(password);
         service.updateUserPassword(info.getEmail(), encPwd);
-        model.addAttribute("message", "Password Changed ! as " + password);
-        System.out.println(info.getEmail() + " Password Changed ! as " + password);
+        System.err.println(info.getEmail() + " Password Changed ! as " + password);
         return "redirect:profile";
     }
 

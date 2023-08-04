@@ -50,9 +50,11 @@ public class UserInfoController {
         // Generate Dynamic Password & Set
         String pass = MyAppUtility.getPassword();
         userInfo.setPassword(pass);
+        String OTP = MyAppUtility.getOTP();
+        userInfo.setOTP(OTP);
         Integer id = service.saveUserInfo(userInfo);
         if (id != 0) {
-            String text = "Name :: " + userInfo.getName() + "\n" + "Username :: " + userInfo.getEmail() + "\n" + "Password :: " + pass + "\n" + "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles());
+            String text = "Name :: " + userInfo.getName() + "\n" + "Username :: " + userInfo.getEmail() + "\n" + "Password :: " + pass + "\n" + "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles()) + "\n" + "OTP :: " + OTP;
             System.err.println(text);
             emailUtil.send(userInfo.getEmail(), "Your Credentials", text);
             model.addAttribute("message", "User Registered and Credentials Mail Sent");

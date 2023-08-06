@@ -135,6 +135,23 @@ public class UserInfoController {
         return "redirect:profile";
     }
 
+    @GetMapping("/activation")
+    public String showActivation() {
+        return "OtpActivation";
+    }
+
+    @PostMapping("/verification")
+    public String OtpVerification(@RequestParam String username, @RequestParam String otp, Model model) {
+        UserInfo info = service.getOneUserInfoByEmail(username);
+        if (info.getOTP().equals(otp)) {
+            service.updateUserStatus(info.getId(), UserMode.ENABLED);
+            model.addAttribute("message", "User Activated Successfully ! Now Login !");
+        } else {
+            model.addAttribute("message", "Activation Failed ! INCORRECT OTP !");
+        }
+        return "OtpActivation";
+    }
+
     private void setRoleMap(Model model) {
         model.addAttribute("roleMap", roleService.getRolesMap());
     }

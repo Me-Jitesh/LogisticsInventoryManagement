@@ -1,0 +1,54 @@
+<!DOCTYPE html >
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/CommonHead::userheadWithotLink(~{::title})">
+    <title>otp activation</title>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="card my-5">
+        <div class="card-header bg-warning text-white text-center">
+            <h3>OTP ACTIVATION</h3>
+        </div>
+        <div class="card-body">
+
+            <form id="userLoginForm" class="form-group" method="post" th:action="@{/userinfo/verification}">
+
+                <div class="row mx-auto">
+                    <div class="col-4 bg-dark text-light p-1 text-center">
+                        <label for="username"><b>ENTER EMAIL : </b></label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="username" name="username" type="email" required/>
+                    </div>
+                </div>
+                <!--Row #1 end-->
+
+                <div class="row mx-auto">
+                    <div class="col-4 bg-warning  text-dark p-1 text-center">
+                        <label for="otp"><b>OTP : </b></label>
+                    </div>
+                    <div class="col-3">
+                        <input class="form-control" id="otp" name="otp" type="number" required/>
+                    </div>
+                </div>
+                <!--Row #2 end-->
+
+                <div class="row">
+                    <button class="btn btn-dark px-5  mx-auto my-5 text-light" type="submit">VERIFY</button>
+                </div>
+            </form>
+            <div class="row">
+                <a th:href="@{/userinfo/login}" class="text-info m-4">Login Here !</a>
+            </div>
+        </div>
+        <div class="card-footer bg-warning text-secondary text-center" th:if="${message!=null}">
+            <span th:text="${message}"></span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

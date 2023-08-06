@@ -29,16 +29,18 @@ public class UserMasterDataRunner implements CommandLineRunner {
             usr.setPassword("master@00");
             usr.setMode(UserMode.ENABLED);
             usr.setRoles(roleService.getAllRoles().stream().collect(Collectors.toSet()));
+            usr.setOTP("000000");
             userInfoService.saveUserInfo(usr);
         }
 
-        if (!userInfoService.existsByEmail("admin@ishopee.india.in")) {
+        if (!userInfoService.existsByEmail("admin@ishopee.in")) {
             UserInfo usr = new UserInfo();
             usr.setName("Admin");
-            usr.setEmail("admin@ishopee.india.in");
+            usr.setEmail("admin@ishopee.in");
             usr.setPassword("admin@00");
             usr.setMode(UserMode.ENABLED);
             usr.setRoles(roleService.getAllRoles().stream().collect(Collectors.toSet()));
+            usr.setOTP("000000");
             userInfoService.saveUserInfo(usr);
         }
     }

@@ -4,6 +4,7 @@ import com.ishopee.logisticsinventorymanagement.constants.RoleType;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -19,5 +20,11 @@ public interface MyAppUtility {
 
     static String getPassword() {
         return UUID.randomUUID().toString().replace("_", "").substring(0, 8);
+    }
+
+    static String getOTP() {
+        int num = new Random().nextInt(999999);
+        String OTP = String.format("%06d", num);
+        return OTP;
     }
 }

@@ -47,7 +47,7 @@ public class UserInfoServiceImpl implements IUserInfoService, UserDetailsService
 
     @Override
     public UserInfo getOneUserInfoByEmail(String email) {
-        return repo.findByEmail(email).get();
+        return repo.findByEmail(email).orElseThrow(() -> new UserInfoNotFoundException("Email Not Exist !"));
     }
 
     @Override

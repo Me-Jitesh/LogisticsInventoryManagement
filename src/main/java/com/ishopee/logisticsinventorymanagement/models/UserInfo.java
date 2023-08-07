@@ -17,7 +17,7 @@ public class UserInfo {
     private Integer id;
     @Column(name = "usr_info_name_col")
     private String name;
-    @Column(name = "usr_info_email_col")
+    @Column(name = "usr_info_email_col", unique = true)
     private String email;
     @Column(name = "usr_info_pw_col")
     private String password;
@@ -27,4 +27,6 @@ public class UserInfo {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usr_role_map_tab", joinColumns = @JoinColumn(name = "usr_id_fk_col"), inverseJoinColumns = @JoinColumn(name = "role_id_fk_col"))
     private Set<Role> roles;
+    @Column(name = "usr_info_otp_col")
+    private String OTP;
 }

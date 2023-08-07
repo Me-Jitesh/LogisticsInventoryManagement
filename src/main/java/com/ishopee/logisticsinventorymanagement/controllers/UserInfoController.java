@@ -50,9 +50,11 @@ public class UserInfoController {
         // Generate Dynamic Password & Set
         String pass = MyAppUtility.getPassword();
         userInfo.setPassword(pass);
+        String OTP = MyAppUtility.getOTP();
+        userInfo.setOTP(OTP);
         Integer id = service.saveUserInfo(userInfo);
         if (id != 0) {
-            String text = "Name :: " + userInfo.getName() + "\n" + "Username :: " + userInfo.getEmail() + "\n" + "Password :: " + pass + "\n" + "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles());
+            String text = "Name :: " + userInfo.getName() + "\n" + "Username :: " + userInfo.getEmail() + "\n" + "Password :: " + pass + "\n" + "Roles :: " + UserInfoUtil.getRolesAsString(userInfo.getRoles()) + "\n" + "OTP :: " + OTP;
             System.err.println(text);
             emailUtil.send(userInfo.getEmail(), "Your Credentials", text);
             model.addAttribute("message", "User Registered and Credentials Mail Sent");
@@ -117,6 +119,42 @@ public class UserInfoController {
             model.addAttribute("message", "USER DOES NOT EXIST ! PLEASE REGISTER");
         }
         return "ForgetPasswordPage";
+    }
+
+    @GetMapping("/customPwd")
+    public String showCustomPassword() {
+        return "CustomPassword";
+    }
+
+    @PostMapping("/saveCustomPwd")
+    public String saveCustomPassword(@RequestParam String password, HttpSession session) {
+        UserInfo info = (UserInfo) session.getAttribute("currentUser");
+        String encPwd = encoder.encode(password);
+        service.updateUserPassword(info.getEmail(), encPwd);
+        System.err.println(info.getEmail() + " Password Changed ! as " + password);
+        return "redirect:profile";
+    }
+
+    @GetMapping("/activation")
+    public String showActivation() {
+        return "OtpActivation";
+    }
+
+    @PostMapping("/verification")
+    public String OtpVerification(@RequestParam String username, @RequestParam String otp, Model model) {
+        try {
+            UserInfo info = service.getOneUserInfoByEmail(username);
+            if (info.getOTP().equals(otp)) {
+                service.updateUserStatus(info.getId(), UserMode.ENABLED);
+                model.addAttribute("message", "User Activated Successfully ! Now Login !");
+            } else {
+                model.addAttribute("message", "Activation Failed ! INCORRECT OTP !");
+            }
+        } catch (Exception e) {
+            model.addAttribute("message", "Email Not Exist ! Please Register");
+            e.printStackTrace();
+        }
+        return "OtpActivation";
     }
 
     private void setRoleMap(Model model) {

@@ -17,7 +17,7 @@ public class UserInfo {
     private Integer id;
     @Column(name = "usr_info_name_col")
     private String name;
-    @Column(name = "usr_info_email_col")
+    @Column(name = "usr_info_email_col", unique = true)
     private String email;
     @Column(name = "usr_info_pw_col")
     private String password;
